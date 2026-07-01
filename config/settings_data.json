@@ -116,7 +116,12 @@
       "color15": "#a37594",
       "color16": "#d8f2ec",
       "color17": "#ddf2c7",
-      "color18": "#eff2c7"
+      "color18": "#eff2c7",
+      "color4": "#6B6E31",
+      "color5": "#8A9CA2",
+      "color6": "#963C3D",
+      "color11": "#68903C",
+      "color12": "#627879"
     }
   },
   "presets": {

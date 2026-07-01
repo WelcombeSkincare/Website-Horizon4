@@ -81,8 +81,8 @@
         "content_direction": "column",
         "gap": 32,
         "background_color": "{{ settings.color_palette.background }}",
-        "padding-block-start": 40,
-        "padding-block-end": 80
+        "padding-block-start": 15,
+        "padding-block-end": 15
       }
     },
     "section_kpqVqm": {
@@ -152,7 +152,7 @@
         "horizontal_alignment": "flex-start",
         "vertical_alignment": "center",
         "align_baseline": false,
-        "horizontal_alignment_flex_direction_column": "center",
+        "horizontal_alignment_flex_direction_column": "flex-start",
         "vertical_alignment_flex_direction_column": "center",
         "gap": 12,
         "section_width": "page-width-content",
@@ -175,10 +175,10 @@
         "padding-block-end": 14
       }
     },
-    "section_PXiHfz": {
+    "section_7FDYTE": {
       "type": "section",
       "blocks": {
-        "group_hqPEE8": {
+        "group_Tte6ND": {
           "type": "group",
           "name": "t:names.column",
           "settings": {
@@ -187,17 +187,17 @@
             "horizontal_alignment": "flex-start",
             "vertical_alignment": "center",
             "align_baseline": false,
-            "horizontal_alignment_flex_direction_column": "flex-start",
+            "horizontal_alignment_flex_direction_column": "center",
             "vertical_alignment_flex_direction_column": "flex-start",
-            "gap": 8,
+            "gap": 14,
             "width": "fill",
             "custom_width": 100,
             "width_mobile": "fill",
             "custom_width_mobile": 100,
-            "height": "fit",
+            "height": "fill",
             "custom_height": 100,
             "background_media": "none",
-            "background_color": "",
+            "background_color": "{{ settings.color_palette.color13 }}",
             "video_position": "cover",
             "background_image_position": "cover",
             "toggle_overlay": false,
@@ -212,17 +212,17 @@
             "link": "",
             "open_in_new_tab": false,
             "placeholder": "",
-            "padding-block-start": 10,
-            "padding-block-end": 0,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
+            "padding-block-start": 14,
+            "padding-block-end": 14,
+            "padding-inline-start": 11,
+            "padding-inline-end": 11
           },
           "blocks": {
-            "text_Bej4Lr": {
+            "text_MExk7N": {
               "type": "text",
               "name": "t:names.heading",
               "settings": {
-                "text": "<h2>Dry Skin</h2>",
+                "text": "<p>Dry Skin</p>",
                 "width": "100%",
                 "max_width": "normal",
                 "alignment": "center",
@@ -244,7 +244,7 @@
               },
               "blocks": {}
             },
-            "text_B3zmqV": {
+            "text_peX8xD": {
               "type": "text",
               "name": "t:names.description",
               "settings": {
@@ -272,11 +272,11 @@
             }
           },
           "block_order": [
-            "text_Bej4Lr",
-            "text_B3zmqV"
+            "text_MExk7N",
+            "text_peX8xD"
           ]
         },
-        "group_tD4tw7": {
+        "group_pCL6id": {
           "type": "group",
           "name": "t:names.column",
           "settings": {
@@ -285,17 +285,17 @@
             "horizontal_alignment": "flex-start",
             "vertical_alignment": "center",
             "align_baseline": false,
-            "horizontal_alignment_flex_direction_column": "flex-start",
+            "horizontal_alignment_flex_direction_column": "center",
             "vertical_alignment_flex_direction_column": "flex-start",
-            "gap": 8,
+            "gap": 14,
             "width": "fill",
             "custom_width": 100,
             "width_mobile": "fill",
             "custom_width_mobile": 100,
-            "height": "fit",
+            "height": "fill",
             "custom_height": 100,
             "background_media": "none",
-            "background_color": "",
+            "background_color": "{{ settings.color_palette.color7 }}",
             "video_position": "cover",
             "background_image_position": "cover",
             "toggle_overlay": false,
@@ -310,17 +310,17 @@
             "link": "",
             "open_in_new_tab": false,
             "placeholder": "",
-            "padding-block-start": 10,
-            "padding-block-end": 0,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
+            "padding-block-start": 14,
+            "padding-block-end": 14,
+            "padding-inline-start": 11,
+            "padding-inline-end": 11
           },
           "blocks": {
-            "text_AwVJnf": {
+            "text_y6XJtX": {
               "type": "text",
               "name": "t:names.heading",
               "settings": {
-                "text": "<h2>Oily skin</h2>",
+                "text": "<p>Oily Skin</p>",
                 "width": "100%",
                 "max_width": "normal",
                 "alignment": "center",
@@ -342,7 +342,7 @@
               },
               "blocks": {}
             },
-            "text_Xfffqx": {
+            "text_MteLiC": {
               "type": "text",
               "name": "t:names.description",
               "settings": {
@@ -370,11 +370,11 @@
             }
           },
           "block_order": [
-            "text_AwVJnf",
-            "text_Xfffqx"
+            "text_y6XJtX",
+            "text_MteLiC"
           ]
         },
-        "group_HeRxfY": {
+        "group_JUj8xT": {
           "type": "group",
           "name": "t:names.column",
           "settings": {
@@ -383,17 +383,17 @@
             "horizontal_alignment": "flex-start",
             "vertical_alignment": "center",
             "align_baseline": false,
-            "horizontal_alignment_flex_direction_column": "flex-start",
+            "horizontal_alignment_flex_direction_column": "center",
             "vertical_alignment_flex_direction_column": "flex-start",
-            "gap": 8,
+            "gap": 14,
             "width": "fill",
             "custom_width": 100,
             "width_mobile": "fill",
             "custom_width_mobile": 100,
-            "height": "fit",
+            "height": "fill",
             "custom_height": 100,
             "background_media": "none",
-            "background_color": "",
+            "background_color": "{{ settings.color_palette.color3 }}",
             "video_position": "cover",
             "background_image_position": "cover",
             "toggle_overlay": false,
@@ -408,17 +408,17 @@
             "link": "",
             "open_in_new_tab": false,
             "placeholder": "",
-            "padding-block-start": 10,
-            "padding-block-end": 0,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
+            "padding-block-start": 14,
+            "padding-block-end": 14,
+            "padding-inline-start": 11,
+            "padding-inline-end": 11
           },
           "blocks": {
-            "text_CtDRnD": {
+            "text_XpjbHx": {
               "type": "text",
               "name": "t:names.heading",
               "settings": {
-                "text": "<p>Balanced skin</p>",
+                "text": "<p>Balanced Skin</p>",
                 "width": "100%",
                 "max_width": "normal",
                 "alignment": "center",
@@ -440,7 +440,7 @@
               },
               "blocks": {}
             },
-            "text_fKGqGX": {
+            "text_cJQJY4": {
               "type": "text",
               "name": "t:names.description",
               "settings": {
@@ -468,21 +468,21 @@
             }
           },
           "block_order": [
-            "text_CtDRnD",
-            "text_fKGqGX"
+            "text_XpjbHx",
+            "text_cJQJY4"
           ]
         }
       },
       "block_order": [
-        "group_hqPEE8",
-        "group_tD4tw7",
-        "group_HeRxfY"
+        "group_Tte6ND",
+        "group_pCL6id",
+        "group_JUj8xT"
       ],
       "name": "t:names.multicolumn",
       "settings": {
         "content_direction": "row",
         "vertical_on_mobile": true,
-        "horizontal_alignment": "flex-start",
+        "horizontal_alignment": "center",
         "vertical_alignment": "flex-start",
         "align_baseline": false,
         "horizontal_alignment_flex_direction_column": "flex-start",
@@ -505,43 +505,17 @@
         "border_color": "",
         "border_radius": 0,
         "padding-block-start": 48,
-        "padding-block-end": 48
+        "padding-block-end": 8
       }
     },
     "section_pmKGK3": {
       "type": "section",
       "blocks": {
-        "text_64YWAJ": {
-          "type": "text",
-          "name": "t:names.heading",
-          "settings": {
-            "text": "<h2>New arrivals</h2>",
-            "width": "fit-content",
-            "max_width": "normal",
-            "alignment": "left",
-            "type_preset": "rte",
-            "font": "var(--font-body--family)",
-            "font_size": "",
-            "line_height": "normal",
-            "letter_spacing": "normal",
-            "case": "none",
-            "wrap": "pretty",
-            "text_color": "",
-            "background": false,
-            "background_color": "#00000026",
-            "corner_radius": 0,
-            "padding-block-start": 0,
-            "padding-block-end": 0,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
-          },
-          "blocks": {}
-        },
         "text_UG8PtV": {
           "type": "text",
           "name": "t:names.text",
           "settings": {
-            "text": "<p>We make things that work better and last longer. Our products solve real problems with clean design and honest materials.</p>",
+            "text": "<p>A lot of people are a mix, oilier through the T-zone across the forehead, nose and chin, and drier on the cheeks. That combination usually sits close to balanced. If one tendency is clearly stronger than the other, lean that way, and remember you can always treat a particular area differently, which is what the note at the end covers.</p>",
             "width": "fit-content",
             "max_width": "normal",
             "alignment": "left",
@@ -563,30 +537,63 @@
           },
           "blocks": {}
         },
-        "button_xz834N": {
-          "type": "button",
-          "name": "t:names.button",
+        "text_VCzzxV": {
+          "type": "text",
+          "name": "t:names.heading",
           "settings": {
-            "label": "Shop now",
-            "link": "shopify://collections/all",
-            "open_in_new_tab": false,
-            "style_class": "button",
-            "custom_button_background": "{{ settings.color_palette.foreground }}",
-            "custom_button_text": "{{ settings.color_palette.background }}",
-            "custom_button_border": "{{ settings.color_palette.background }}",
-            "link_text_color": "",
+            "text": "<p>Question two: does your skin react?</p>",
             "width": "fit-content",
-            "custom_width": 100,
-            "width_mobile": "fit-content",
-            "custom_width_mobile": 100
+            "max_width": "normal",
+            "alignment": "left",
+            "type_preset": "h3",
+            "font": "var(--font-body--family)",
+            "font_size": "1rem",
+            "line_height": "normal",
+            "letter_spacing": "normal",
+            "case": "none",
+            "wrap": "pretty",
+            "text_color": "",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        },
+        "text_rqLQr7": {
+          "type": "text",
+          "name": "t:names.text",
+          "settings": {
+            "text": "<p>The second question is whether your skin is <strong>reactive</strong>, and it's the one people most often get wrong, because almost everyone feels their skin is a little sensitive. So set the feeling aside and look for the signs instead.</p><p><strong>Reactive skin</strong> tends to sting or prickle when you try something new, before it settles, if it settles at all. It reddens or goes blotchy easily, in cold wind, after a hot shower, or for no obvious reason. It can feel tight, itchy or rough, and it reacts in situations where most skin wouldn't. If several of those ring true and they happen often rather than once in a blue moon, your skin is probably on the sensitive side. If new products generally sit fine and your skin stays fairly even, it probably isn't.</p><p>Reactivity mostly shows up at the two ends of the spectrum, with dry or oily skin, rather than in the calm middle. Balanced skin that reacts strongly is genuinely uncommon.</p>",
+            "width": "fit-content",
+            "max_width": "normal",
+            "alignment": "left",
+            "type_preset": "rte",
+            "font": "var(--font-body--family)",
+            "font_size": "1rem",
+            "line_height": "normal",
+            "letter_spacing": "normal",
+            "case": "none",
+            "wrap": "pretty",
+            "text_color": "",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
           },
           "blocks": {}
         }
       },
       "block_order": [
-        "text_64YWAJ",
         "text_UG8PtV",
-        "button_xz834N"
+        "text_VCzzxV",
+        "text_rqLQr7"
       ],
       "name": "t:names.rich_text_section",
       "settings": {
@@ -595,7 +602,7 @@
         "horizontal_alignment": "flex-start",
         "vertical_alignment": "center",
         "align_baseline": false,
-        "horizontal_alignment_flex_direction_column": "center",
+        "horizontal_alignment_flex_direction_column": "flex-start",
         "vertical_alignment_flex_direction_column": "center",
         "gap": 25,
         "section_width": "page-width-content",
@@ -614,15 +621,15 @@
         "border_opacity": 100,
         "border_color": "",
         "border_radius": 0,
-        "padding-block-start": 48,
-        "padding-block-end": 48
+        "padding-block-start": 15,
+        "padding-block-end": 15
       }
     }
   },
   "order": [
     "main",
     "section_kpqVqm",
-    "section_PXiHfz",
+    "section_7FDYTE",
     "section_pmKGK3"
   ]
 }
