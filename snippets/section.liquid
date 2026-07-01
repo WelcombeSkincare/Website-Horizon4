@@ -12,6 +12,14 @@
   if section.settings.background_media != blank and section.settings.background_media != 'none'
     assign skip_contrast = true
   endif
+
+  # page-width-content is a standalone utility class (matches sections/main-page.liquid),
+  # not a section--<value> modifier like page-width/full-width.
+  if section.settings.section_width == 'page-width-content'
+    assign section_width_class = 'page-width-content'
+  else
+    assign section_width_class = 'section--' | append: section.settings.section_width
+  endif
 %}
 {% render 'contrast-override',
   background_color: background_color,
@@ -21,7 +29,7 @@
 
 <div class="section-background color-custom-{{ section_id }}"></div>
 <div
-  class="section section--{{ section.settings.section_width }} color-custom-{{ section_id }}"
+  class="section {{ section_width_class }} color-custom-{{ section_id }}"
   data-testid="ui-test-section"
 
   {% if request.visual_preview_mode %}
