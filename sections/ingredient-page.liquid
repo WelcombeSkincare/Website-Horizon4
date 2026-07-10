@@ -86,7 +86,10 @@
           <span class="bd-fnum">{{ n }}</span>
           <h4>{{ title }}</h4>
           <p>{{ mf.function_card_body.value[i] }}</p>
-          {%- assign ev = mf.function_card_evidence_chip.value[i] -%}
+          {%- assign ev = blank -%}
+          {%- for chip in mf.function_card_evidence_chip.value -%}
+            {%- if forloop.index0 == i -%}{%- assign ev = chip -%}{%- endif -%}
+          {%- endfor -%}
           {%- if ev != blank -%}
             {%- capture ct -%}{{ ev.chip_text }}{%- endcapture -%}
             {%- unless ct == 'N/A' -%}
@@ -144,7 +147,7 @@
         <div class="bd-body">{{ mf.suitability_body.value }}</div>
         {%- if mf.suitability_chips.value != blank -%}
           <div class="bd-pills">
-            {%- for pill in mf.suitability_chips.value -%}<span class="bd-pill">{{ pill }}</span>{%- endfor -%}
+            {%- for pill in mf.suitability_chips.value -%}<span class="bd-pill" style="--c:{{ pill.chip_colour }};">{{ pill.chip_text }}</span>{%- endfor -%}
           </div>
         {%- endif -%}
         {%- if mf.patch_test_line != blank -%}
@@ -258,7 +261,9 @@
 .bd-ing .bd-suit .bd-body p{margin:0;}
 .bd-ing .bd-patch{font-size:.86rem; color:var(--bd-muted); margin:14px 0 0;}
 .bd-ing .bd-pills{display:flex; flex-wrap:wrap; gap:8px; margin:14px 0 0;}
-.bd-ing .bd-pill{font-family:var(--bd-head); font-size:.74rem; letter-spacing:.04em; color:#33501c; background:rgba(104,144,60,.14); padding:6px 12px; border-radius:100px;}
+.bd-ing .bd-pill{font-family:var(--bd-head); font-size:.74rem; letter-spacing:.04em; padding:6px 12px; border-radius:100px;
+  color:var(--c,#33501c); background:rgba(104,144,60,.14);
+  background:color-mix(in srgb, var(--c,#68903C) 16%, transparent);}
 .bd-ing .bd-ethos{display:flex; gap:16px; justify-content:center; flex-wrap:wrap;}
 .bd-ing .bd-ethos figure{margin:0; text-align:center; width:74px;}
 .bd-ing .bd-ethos .bd-ico{width:52px; height:52px; border-radius:50%; margin:0 auto 6px; display:flex; align-items:center; justify-content:center; overflow:hidden;
