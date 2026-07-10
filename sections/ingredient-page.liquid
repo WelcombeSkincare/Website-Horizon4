@@ -44,7 +44,7 @@
   {%- if mf.photo != blank -%}
     <figure class="bd-hero">
       {{ mf.photo.value | image_url: width: 1200 | image_tag: alt: mf.photo_alt_caption, loading: 'eager', widths: '400, 640, 960, 1200', sizes: '(min-width: 1060px) 1020px, 100vw' }}
-      <figcaption>{{ mf.photo_alt }}</figcaption>
+      <figcaption>{{ mf.photo_alt_caption }}</figcaption>
     </figure>
   {%- endif -%}
 
@@ -105,7 +105,7 @@
   {%- if mf.dont_claim_marketed_as.value != blank -%}
     <section id="dontclaim" class="bd-teardown">
       <h2>What the research does not show</h2>
-      {%- if mf.dontclaim_intro != blank -%}<div>{{ mf.teardown_intro.value }}</div>{%- endif -%}
+      {%- if mf.teardown_intro != blank -%}<div>{{ mf.teardown_intro.value }}</div>{%- endif -%}
       {%- for marketed in mf.dont_claim_marketed_as.value -%}
         {%- assign i = forloop.index0 -%}
         <details class="bd-claim"{% if forloop.first %} open{% endif %}>
@@ -113,7 +113,7 @@
           <div class="bd-claim-body">{{ mf.dont_claim_correction.value[i] }}</div>
         </details>
       {%- endfor -%}
-      {%- if mf.dontclaim_closing != blank -%}<div>{{ mf.teardown_closing.value }}</div>{%- endif -%}
+      {%- if mf.teardown_closing != blank -%}<div>{{ mf.teardown_closing.value }}</div>{%- endif -%}
     </section>
   {%- endif -%}
 
@@ -147,7 +147,7 @@
             {%- for pill in mf.suitability_chips.value -%}<span class="bd-pill">{{ pill }}</span>{%- endfor -%}
           </div>
         {%- endif -%}
-        {%- if mf.patch_test != blank -%}
+        {%- if mf.patch_test_line != blank -%}
           <p class="bd-patch">{{ mf.patch_test_line }}</p>
         {%- endif -%}
       </div>
