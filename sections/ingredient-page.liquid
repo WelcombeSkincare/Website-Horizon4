@@ -1,16 +1,22 @@
 {%- comment -%}
   sections/ingredient-page.liquid
-  Renders an ingredient article entirely from biotaderm article metafields (V2 objects).
+  Renders an ingredient article entirely from the biotaderm article metafields.
   Assigned via templates/article.ingredient.json.
 
-  AUTHORING NOTES
-  - Multi-line text fields hold their own inline HTML (e.g. <p>, <em>, <a>). They are output
-    with .value so that HTML renders rather than showing as escaped tags. Content is first-party,
-    so raw output is fine here.
-  - Evidence chips and ethos icons carry their own colour from their metaobject, passed inline as
-    a --c custom property and picked up by the stylesheet below.
-  - Optional modules (modest bonus, teardown, patch-test) render only when their metafield is set,
-    and the teardown nav tab appears only when the teardown does.
+  MODEL
+  - Repeating groups (function cards, teardown, references) are parallel single-line lists,
+    walked by index: each key list has a matching item at the same position in its siblings.
+  - Evidence chips and ethos icons are metaobjects; each carries its own colour, passed inline
+    as a --c custom property and read by the stylesheet below.
+  - An evidence chip whose text is "N/A" holds its slot for alignment but is hidden from display.
+
+  AUTHORING
+  - Multi-line fields (bodies, intro/closing) hold their own block HTML and are output with .value
+    so it renders. Content is first-party, so raw output is fine.
+  - Single-line list bodies (function_card_body, dont_claim_correction, reference_citation) hold
+    inline content only, no block tags, since the markup wraps them.
+  - Optional modules (modest bonus, teardown, patch-test, label note) render only when set; the
+    teardown nav tab appears only alongside the teardown.
 {%- endcomment -%}
 
 {%- assign mf = article.metafields.biotaderm -%}
@@ -118,10 +124,14 @@
       <div class="bd-body">{{ mf.onlabel_body.value }}</div>
       <aside class="bd-label">
         <h3>How it reads on the label</h3>
-        {%- assign hl = mf.label_highlight.value -%}
-        {%- capture bd_mark -%}<mark>{{ hl }}</mark>{%- endcapture -%}
-        <p class="bd-inci">{{ mf.label_string.value | replace: hl, bd_mark }}</p>
-        <small>Sits low in the list, a fraction of a percent. Exact figures on each product page.</small>
+        {%- if mf.label_highlight != blank -%}
+          {%- assign hl = mf.label_highlight.value -%}
+          {%- capture bd_mark -%}<mark>{{ hl }}</mark>{%- endcapture -%}
+          <p class="bd-inci">{{ mf.label_string.value | replace: hl, bd_mark }}</p>
+        {%- else -%}
+          <p class="bd-inci">{{ mf.label_string.value }}</p>
+        {%- endif -%}
+        {%- if mf.label_note != blank -%}<small>{{ mf.label_note }}</small>{%- endif -%}
       </aside>
     </div>
   </section>
