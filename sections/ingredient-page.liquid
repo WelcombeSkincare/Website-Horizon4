@@ -19,20 +19,20 @@
     teardown nav tab appears only alongside the teardown.
 {%- endcomment -%}
 
-{%- assign mf = article.metafields.biotaderm -%}
+{%- assign mf = article.metafields.custom.ingredient_blog_meta.value -%}
 
 <div class="bd-ing">
 
   <nav class="bd-crumb">Ingredients / {{ article.title }}</nav>
 
-  {%- if mf.chips.value != blank -%}
+  {%- if mf.chipy.value != blank -%}
     <div class="bd-chips">
-      {%- for chip in mf.chips.value -%}<span class="bd-chip">{{ chip }}</span>{%- endfor -%}
+      {%- for chip in mf.chipy.value -%}<span class="bd-chip">{{ chip }}</span>{%- endfor -%}
     </div>
   {%- endif -%}
 
   <h1>{{ article.title }}</h1>
-  <p class="bd-sub"><em>{{ mf.botanical }}</em> &middot; INCI {{ mf.inci }}</p>
+  <p class="bd-sub"><em>{{ mf.botanical_name }}</em> &middot; INCI {{ mf.inci }}</p>
 
   {%- if mf.standfirst_lead != blank -%}
     <div class="bd-stand bd-stand--lead">{{ mf.standfirst_lead.value }}</div>
@@ -43,7 +43,7 @@
 
   {%- if mf.photo != blank -%}
     <figure class="bd-hero">
-      {{ mf.photo.value | image_url: width: 1200 | image_tag: alt: mf.photo_alt, loading: 'eager', widths: '400, 640, 960, 1200', sizes: '(min-width: 1060px) 1020px, 100vw' }}
+      {{ mf.photo.value | image_url: width: 1200 | image_tag: alt: mf.photo_alt_caption, loading: 'eager', widths: '400, 640, 960, 1200', sizes: '(min-width: 1060px) 1020px, 100vw' }}
       <figcaption>{{ mf.photo_alt }}</figcaption>
     </figure>
   {%- endif -%}
@@ -60,15 +60,15 @@
   <section id="whatitis">
     <h2>What it is</h2>
     <div class="bd-split">
-      <div class="bd-body">{{ mf.whatitis_body.value }}</div>
+      <div class="bd-body">{{ mf.what_it_is_body.value }}</div>
       <aside class="bd-aside">
         <h3>At a glance</h3>
         <dl>
           <div><dt>INCI name</dt><dd>{{ mf.inci }}</dd></div>
-          <div><dt>Role</dt><dd>{{ mf.role }}</dd></div>
-          <div><dt>Source</dt><dd>{{ mf.source }}</dd></div>
-          <div><dt>Processing</dt><dd>{{ mf.processing }}</dd></div>
-          <div><dt>Also known as</dt><dd>{{ mf.also_known_as }}</dd></div>
+          <div><dt>Role</dt><dd>{{ mf.at_a_glance_role }}</dd></div>
+          <div><dt>Source</dt><dd>{{ mf.at_a_glance_source }}</dd></div>
+          <div><dt>Processing</dt><dd>{{ mf.at_a_glance_processing }}</dd></div>
+          <div><dt>Also known as</dt><dd>{{ mf.at_a_glance_also_known_as }}</dd></div>
         </dl>
       </aside>
     </div>
@@ -105,7 +105,7 @@
   {%- if mf.dont_claim_marketed_as.value != blank -%}
     <section id="dontclaim" class="bd-teardown">
       <h2>What the research does not show</h2>
-      {%- if mf.dontclaim_intro != blank -%}<div>{{ mf.dontclaim_intro.value }}</div>{%- endif -%}
+      {%- if mf.dontclaim_intro != blank -%}<div>{{ mf.teardown_intro.value }}</div>{%- endif -%}
       {%- for marketed in mf.dont_claim_marketed_as.value -%}
         {%- assign i = forloop.index0 -%}
         <details class="bd-claim"{% if forloop.first %} open{% endif %}>
@@ -113,7 +113,7 @@
           <div class="bd-claim-body">{{ mf.dont_claim_correction.value[i] }}</div>
         </details>
       {%- endfor -%}
-      {%- if mf.dontclaim_closing != blank -%}<div>{{ mf.dontclaim_closing.value }}</div>{%- endif -%}
+      {%- if mf.dontclaim_closing != blank -%}<div>{{ mf.teardown_closing.value }}</div>{%- endif -%}
     </section>
   {%- endif -%}
 
@@ -121,11 +121,11 @@
   <section id="onthelabel">
     <h2>On the label and in the range</h2>
     <div class="bd-split">
-      <div class="bd-body">{{ mf.onlabel_body.value }}</div>
+      <div class="bd-body">{{ mf.on_the_label_body.value }}</div>
       <aside class="bd-label">
         <h3>How it reads on the label</h3>
-        {%- if mf.label_highlight != blank -%}
-          {%- assign hl = mf.label_highlight.value -%}
+        {%- if mf.label_highlight_term != blank -%}
+          {%- assign hl = mf.label_highlight_term.value -%}
           {%- capture bd_mark -%}<mark>{{ hl }}</mark>{%- endcapture -%}
           <p class="bd-inci">{{ mf.label_string.value | replace: hl, bd_mark }}</p>
         {%- else -%}
@@ -148,12 +148,12 @@
           </div>
         {%- endif -%}
         {%- if mf.patch_test != blank -%}
-          <p class="bd-patch">{{ mf.patch_test }}</p>
+          <p class="bd-patch">{{ mf.patch_test_line }}</p>
         {%- endif -%}
       </div>
-      {%- if mf.ethos_icons.value != blank -%}
+      {%- if mf.ethos.value != blank -%}
         <div class="bd-ethos">
-          {%- for e in mf.ethos_icons.value -%}
+          {%- for e in mf.ethos.value -%}
             <figure>
               <span class="bd-ico" style="--c:{{ e.colour }};">
                 {%- if e.icon != blank -%}{{ e.icon.value | image_url: width: 96 | image_tag: alt: e.label, loading: 'lazy', widths: '48, 96', sizes: '52px' }}{%- endif -%}
@@ -180,7 +180,7 @@
   </section>
 
   <div class="bd-foot">
-    <span>{{ mf.footer_scope | default: 'Found in every Biotaderm formulation' }}</span>
+    <span>{{ mf.footer_scope_line | default: 'Found in every Biotaderm formulation' }}</span>
     <a class="bd-cta" href="{{ routes.all_products_collection_url }}">Shop the range</a>
   </div>
 
