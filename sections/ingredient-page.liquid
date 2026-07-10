@@ -1,0 +1,277 @@
+{%- comment -%}
+  sections/ingredient-page.liquid
+  Renders an ingredient article entirely from biotaderm article metafields (V2 objects).
+  Assigned via templates/article.ingredient.json.
+
+  AUTHORING NOTES
+  - Multi-line text fields hold their own inline HTML (e.g. <p>, <em>, <a>). They are output
+    with .value so that HTML renders rather than showing as escaped tags. Content is first-party,
+    so raw output is fine here.
+  - Evidence chips and ethos icons carry their own colour from their metaobject, passed inline as
+    a --c custom property and picked up by the stylesheet below.
+  - Optional modules (modest bonus, teardown, patch-test) render only when their metafield is set,
+    and the teardown nav tab appears only when the teardown does.
+{%- endcomment -%}
+
+{%- assign mf = article.metafields.biotaderm -%}
+
+<div class="bd-ing">
+
+  <nav class="bd-crumb">Ingredients / {{ article.title }}</nav>
+
+  {%- if mf.chips.value != blank -%}
+    <div class="bd-chips">
+      {%- for chip in mf.chips.value -%}<span class="bd-chip">{{ chip }}</span>{%- endfor -%}
+    </div>
+  {%- endif -%}
+
+  <h1>{{ article.title }}</h1>
+  <p class="bd-sub"><em>{{ mf.botanical }}</em> &middot; INCI {{ mf.inci }}</p>
+
+  {%- if mf.standfirst_lead != blank -%}
+    <div class="bd-stand bd-stand--lead">{{ mf.standfirst_lead.value }}</div>
+  {%- endif -%}
+  {%- if mf.standfirst_emphasis != blank -%}
+    <p class="bd-stand bd-stand--em">{{ mf.standfirst_emphasis }}</p>
+  {%- endif -%}
+
+  {%- if mf.photo != blank -%}
+    <figure class="bd-hero">
+      {{ mf.photo.value | image_url: width: 1200 | image_tag: alt: mf.photo_alt, loading: 'eager', widths: '400, 640, 960, 1200', sizes: '(min-width: 1060px) 1020px, 100vw' }}
+      <figcaption>{{ mf.photo_alt }}</figcaption>
+    </figure>
+  {%- endif -%}
+
+  <nav class="bd-nav">
+    <a href="#whatitis">What it is</a>
+    <a href="#whatitdoes">What it does</a>
+    {%- if mf.dont_claim_marketed_as.value != blank -%}<a href="#dontclaim">What we don't claim</a>{%- endif -%}
+    <a href="#suitability">Suitability</a>
+    <a href="#research">Research</a>
+  </nav>
+
+  {%- comment -%} WHAT IT IS + AT A GLANCE {%- endcomment -%}
+  <section id="whatitis">
+    <h2>What it is</h2>
+    <div class="bd-split">
+      <div class="bd-body">{{ mf.whatitis_body.value }}</div>
+      <aside class="bd-aside">
+        <h3>At a glance</h3>
+        <dl>
+          <div><dt>INCI name</dt><dd>{{ mf.inci }}</dd></div>
+          <div><dt>Role</dt><dd>{{ mf.role }}</dd></div>
+          <div><dt>Source</dt><dd>{{ mf.source }}</dd></div>
+          <div><dt>Processing</dt><dd>{{ mf.processing }}</dd></div>
+          <div><dt>Also known as</dt><dd>{{ mf.also_known_as }}</dd></div>
+        </dl>
+      </aside>
+    </div>
+  </section>
+
+  {%- comment -%} WHAT IT DOES {%- endcomment -%}
+  <section id="whatitdoes">
+    <h2>What it does in our formulas</h2>
+    {%- if mf.function_intro != blank -%}<p>{{ mf.function_intro }}</p>{%- endif -%}
+    <div class="bd-cards">
+      {%- for title in mf.function_card_title.value -%}
+        {%- assign i = forloop.index0 -%}
+        {%- assign n = forloop.index | prepend: '0' | slice: -2, 2 -%}
+        <div class="bd-fcard">
+          <span class="bd-fnum">{{ n }}</span>
+          <h4>{{ title }}</h4>
+          <p>{{ mf.function_card_body.value[i] }}</p>
+          {%- assign ev = mf.function_card_evidence_chip.value[i] -%}
+          {%- if ev != blank -%}
+            {%- capture ct -%}{{ ev.chip_text }}{%- endcapture -%}
+            {%- unless ct == 'N/A' -%}
+              <span class="bd-tag" style="--c:{{ ev.chip_colour }};">{{ ev.chip_text }}</span>
+            {%- endunless -%}
+          {%- endif -%}
+        </div>
+      {%- endfor -%}
+    </div>
+    {%- if mf.modest_bonus != blank -%}
+      <div class="bd-bonus"><b>A modest bonus</b>{{ mf.modest_bonus.value }}</div>
+    {%- endif -%}
+  </section>
+
+  {%- comment -%} OPTIONAL: WHAT WE DON'T CLAIM {%- endcomment -%}
+  {%- if mf.dont_claim_marketed_as.value != blank -%}
+    <section id="dontclaim" class="bd-teardown">
+      <h2>What the research does not show</h2>
+      {%- if mf.dontclaim_intro != blank -%}<div>{{ mf.dontclaim_intro.value }}</div>{%- endif -%}
+      {%- for marketed in mf.dont_claim_marketed_as.value -%}
+        {%- assign i = forloop.index0 -%}
+        <details class="bd-claim"{% if forloop.first %} open{% endif %}>
+          <summary><span class="bd-mktd">Marketed as</span> {{ marketed }}</summary>
+          <div class="bd-claim-body">{{ mf.dont_claim_correction.value[i] }}</div>
+        </details>
+      {%- endfor -%}
+      {%- if mf.dontclaim_closing != blank -%}<div>{{ mf.dontclaim_closing.value }}</div>{%- endif -%}
+    </section>
+  {%- endif -%}
+
+  {%- comment -%} ON THE LABEL {%- endcomment -%}
+  <section id="onthelabel">
+    <h2>On the label and in the range</h2>
+    <div class="bd-split">
+      <div class="bd-body">{{ mf.onlabel_body.value }}</div>
+      <aside class="bd-label">
+        <h3>How it reads on the label</h3>
+        {%- assign hl = mf.label_highlight.value -%}
+        {%- capture bd_mark -%}<mark>{{ hl }}</mark>{%- endcapture -%}
+        <p class="bd-inci">{{ mf.label_string.value | replace: hl, bd_mark }}</p>
+        <small>Sits low in the list, a fraction of a percent. Exact figures on each product page.</small>
+      </aside>
+    </div>
+  </section>
+
+  {%- comment -%} SUITABILITY {%- endcomment -%}
+  <section id="suitability">
+    <h2>Is it suitable for me?</h2>
+    <div class="bd-suit">
+      <div>
+        <div class="bd-body">{{ mf.suitability_body.value }}</div>
+        {%- if mf.suitability_chips.value != blank -%}
+          <div class="bd-pills">
+            {%- for pill in mf.suitability_chips.value -%}<span class="bd-pill">{{ pill }}</span>{%- endfor -%}
+          </div>
+        {%- endif -%}
+        {%- if mf.patch_test != blank -%}
+          <p class="bd-patch">{{ mf.patch_test }}</p>
+        {%- endif -%}
+      </div>
+      {%- if mf.ethos_icons.value != blank -%}
+        <div class="bd-ethos">
+          {%- for e in mf.ethos_icons.value -%}
+            <figure>
+              <span class="bd-ico" style="--c:{{ e.colour }};">
+                {%- if e.icon != blank -%}{{ e.icon.value | image_url: width: 96 | image_tag: alt: e.label, loading: 'lazy', widths: '48, 96', sizes: '52px' }}{%- endif -%}
+              </span>
+              <figcaption>{{ e.label }}</figcaption>
+            </figure>
+          {%- endfor -%}
+        </div>
+      {%- endif -%}
+    </div>
+  </section>
+
+  {%- comment -%} RESEARCH {%- endcomment -%}
+  <section id="research">
+    <h2>The research behind this page</h2>
+    <p class="bd-refnote">We review the published literature. We do not conduct the studies below.</p>
+    <ol class="bd-refs">
+      {%- for citation in mf.reference_citation.value -%}
+        {%- assign i = forloop.index0 -%}
+        {%- assign link = mf.reference_link.value[i] -%}
+        <li>{{ citation }}{%- if link != blank %} <a href="{{ link }}" rel="nofollow">&rarr;</a>{% endif -%}</li>
+      {%- endfor -%}
+    </ol>
+  </section>
+
+  <div class="bd-foot">
+    <span>{{ mf.footer_scope | default: 'Found in every Biotaderm formulation' }}</span>
+    <a class="bd-cta" href="{{ routes.all_products_collection_url }}">Shop the range</a>
+  </div>
+
+</div>
+
+{% stylesheet %}
+.bd-ing{
+  --bd-seaglass:#6BBCCC; --bd-coral:#F47D5E; --bd-tansy:#C2CA53;
+  --bd-ink:#20302F; --bd-muted:#5f6b6a; --bd-line:#e4e6e3;
+  --bd-paper:#ffffff; --bd-card:#f6f5f1; --bd-card2:#eef3f2; --bd-flag:#963C3D;
+  --bd-head:'Roboto Condensed',Arial,sans-serif;
+  --bd-body:'Kumbh Sans','Segoe UI',system-ui,sans-serif;
+  color:var(--bd-ink); font-family:var(--bd-body); line-height:1.62;
+  font-size:16px; max-width:1060px; margin:0 auto; padding:8px 20px 64px; -webkit-font-smoothing:antialiased;
+}
+.bd-ing *{box-sizing:border-box;}
+.bd-ing a{color:#2f7f8c; text-decoration:none; border-bottom:1px solid rgba(47,127,140,.35);}
+.bd-ing a:hover{color:var(--bd-coral); border-bottom-color:var(--bd-coral);}
+.bd-ing a:focus-visible{outline:2px solid var(--bd-seaglass); outline-offset:2px;}
+.bd-ing .bd-crumb{font-size:.8rem; letter-spacing:.02em; color:var(--bd-muted); margin:6px 0 18px;}
+.bd-ing .bd-chips{display:flex; flex-wrap:wrap; gap:8px; margin:0 0 14px;}
+.bd-ing .bd-chip{font-family:var(--bd-head); font-size:.72rem; text-transform:uppercase;
+  letter-spacing:.08em; color:#3d5b5a; background:var(--bd-card2); padding:5px 11px; border-radius:100px;}
+.bd-ing h1{font-family:var(--bd-head); font-weight:700; font-size:clamp(2.1rem,5vw,3rem); line-height:1.04; margin:.1em 0 .18em;}
+.bd-ing .bd-sub{font-style:italic; color:var(--bd-muted); font-size:1.02rem; margin:0 0 22px;}
+.bd-ing .bd-stand{font-size:1.16rem; line-height:1.55; max-width:60ch; margin:0 0 8px;}
+.bd-ing .bd-stand--lead{color:var(--bd-ink);}
+.bd-ing .bd-stand--lead p{font-size:1.16rem; margin:0 0 10px;}
+.bd-ing .bd-stand--em{font-family:var(--bd-head); font-size:1.24rem; color:var(--bd-ink); margin:14px 0 0;}
+.bd-ing .bd-hero{margin:24px 0 4px;}
+.bd-ing .bd-hero img{width:100%; height:auto; max-height:420px; object-fit:cover; display:block; border-radius:14px; background:var(--bd-card2);}
+.bd-ing .bd-hero figcaption{font-size:.82rem; font-style:italic; color:var(--bd-muted); margin-top:10px;}
+.bd-ing .bd-nav{position:sticky; top:0; z-index:5; display:flex; flex-wrap:wrap; gap:6px;
+  background:var(--bd-paper); border-bottom:1px solid var(--bd-line); padding:12px 0; margin:26px 0 34px;}
+.bd-ing .bd-nav a{font-family:var(--bd-head); font-size:.8rem; text-transform:uppercase; letter-spacing:.06em;
+  color:var(--bd-muted); border:0; padding:5px 12px; border-radius:100px;}
+.bd-ing .bd-nav a:hover{background:var(--bd-card2); color:var(--bd-ink);}
+.bd-ing section{scroll-margin-top:64px; margin:0 0 46px;}
+.bd-ing h2{font-family:var(--bd-head); font-weight:700; font-size:1.5rem; display:flex; align-items:baseline; gap:12px; margin:0 0 16px;}
+.bd-ing h2::before{content:""; width:26px; height:2px; background:var(--bd-seaglass); display:inline-block; transform:translateY(-6px);}
+.bd-ing p{margin:0 0 15px; max-width:64ch;}
+.bd-ing .bd-body p{margin:0 0 15px;}
+.bd-ing .bd-split{display:grid; grid-template-columns:1fr 300px; gap:34px; align-items:start;}
+.bd-ing .bd-aside{background:var(--bd-card); border:1px solid var(--bd-line); border-radius:14px; padding:20px 22px; font-size:.92rem;}
+.bd-ing .bd-aside h3{font-family:var(--bd-head); font-size:.72rem; letter-spacing:.12em; text-transform:uppercase; color:var(--bd-muted); margin:0 0 14px;}
+.bd-ing .bd-aside dl{margin:0; display:grid; gap:12px;}
+.bd-ing .bd-aside dt{font-family:var(--bd-head); font-size:.66rem; letter-spacing:.1em; text-transform:uppercase; color:var(--bd-muted);}
+.bd-ing .bd-aside dd{margin:2px 0 0; font-weight:500;}
+.bd-ing .bd-cards{display:grid; grid-template-columns:repeat(3,1fr); gap:16px;}
+.bd-ing .bd-fcard{background:var(--bd-card); border:1px solid var(--bd-line); border-radius:14px; padding:20px; display:flex; flex-direction:column;}
+.bd-ing .bd-fnum{font-family:var(--bd-head); font-size:1.1rem; color:var(--bd-seaglass); margin:0 0 8px;}
+.bd-ing .bd-fcard h4{font-family:var(--bd-head); font-size:1.12rem; margin:0 0 8px;}
+.bd-ing .bd-fcard p{font-size:.94rem; color:var(--bd-muted); margin:0 0 16px;}
+.bd-ing .bd-tag{margin-top:auto; align-self:flex-start; font-family:var(--bd-head); font-size:.66rem;
+  letter-spacing:.08em; text-transform:uppercase; padding:4px 9px; border-radius:6px;
+  color:var(--c,#33501c); background:rgba(104,144,60,.14);
+  background:color-mix(in srgb, var(--c,#68903C) 16%, transparent);}
+.bd-ing .bd-bonus{margin-top:16px; border-left:3px solid var(--bd-seaglass); background:var(--bd-card2); padding:16px 20px; border-radius:0 12px 12px 0;}
+.bd-ing .bd-bonus b{font-family:var(--bd-head); letter-spacing:.06em; text-transform:uppercase; font-size:.72rem; color:#3d5b5a; display:block; margin-bottom:6px;}
+.bd-ing .bd-bonus p{margin:0; font-size:.96rem;}
+.bd-ing .bd-teardown{border-top:2px solid var(--bd-flag); padding-top:22px;}
+.bd-ing details.bd-claim{border:1px solid var(--bd-line); border-radius:12px; margin:0 0 10px; overflow:hidden;}
+.bd-ing details.bd-claim summary{list-style:none; cursor:pointer; display:flex; align-items:center; gap:12px; padding:15px 18px; font-family:var(--bd-head); font-size:1.06rem;}
+.bd-ing details.bd-claim summary::-webkit-details-marker{display:none;}
+.bd-ing .bd-mktd{font-family:var(--bd-head); font-size:.64rem; letter-spacing:.08em; text-transform:uppercase; color:#fff; background:var(--bd-flag); padding:4px 8px; border-radius:5px; white-space:nowrap;}
+.bd-ing details.bd-claim summary::after{content:"+"; margin-left:auto; font-size:1.4rem; color:var(--bd-flag); line-height:1;}
+.bd-ing details.bd-claim[open] summary::after{content:"\2212";}
+.bd-ing details.bd-claim .bd-claim-body{padding:0 18px 18px; color:var(--bd-muted); font-size:.96rem;}
+.bd-ing .bd-label{background:var(--bd-card); border:1px solid var(--bd-line); border-radius:14px; padding:20px 22px;}
+.bd-ing .bd-label h3{font-family:var(--bd-head); font-size:.72rem; letter-spacing:.12em; text-transform:uppercase; color:var(--bd-muted); margin:0 0 12px;}
+.bd-ing .bd-inci{font-size:.9rem; line-height:1.7; color:var(--bd-muted);}
+.bd-ing .bd-inci mark{background:rgba(107,188,204,.28); color:var(--bd-ink); padding:1px 4px; border-radius:4px;}
+.bd-ing .bd-label small{display:block; margin-top:10px; color:var(--bd-muted); font-size:.82rem;}
+.bd-ing .bd-suit{display:grid; grid-template-columns:1fr 260px; gap:30px; align-items:center; background:var(--bd-card); border:1px solid var(--bd-line); border-radius:14px; padding:24px 26px;}
+.bd-ing .bd-suit .bd-body p{margin:0;}
+.bd-ing .bd-patch{font-size:.86rem; color:var(--bd-muted); margin:14px 0 0;}
+.bd-ing .bd-pills{display:flex; flex-wrap:wrap; gap:8px; margin:14px 0 0;}
+.bd-ing .bd-pill{font-family:var(--bd-head); font-size:.74rem; letter-spacing:.04em; color:#33501c; background:rgba(104,144,60,.14); padding:6px 12px; border-radius:100px;}
+.bd-ing .bd-ethos{display:flex; gap:16px; justify-content:center; flex-wrap:wrap;}
+.bd-ing .bd-ethos figure{margin:0; text-align:center; width:74px;}
+.bd-ing .bd-ethos .bd-ico{width:52px; height:52px; border-radius:50%; margin:0 auto 6px; display:flex; align-items:center; justify-content:center; overflow:hidden;
+  border:2px solid var(--c,#c3c9c2); background:rgba(138,156,162,.1); background:color-mix(in srgb, var(--c,#8a9ca2) 12%, transparent);}
+.bd-ing .bd-ethos .bd-ico img{width:58%; height:58%; object-fit:contain;}
+.bd-ing .bd-ethos figcaption{font-size:.68rem; color:var(--bd-muted); line-height:1.2;}
+.bd-ing .bd-refnote{font-style:italic; color:var(--bd-muted); margin:0 0 16px;}
+.bd-ing ol.bd-refs{margin:0; padding:0; list-style:none; counter-reset:r;}
+.bd-ing ol.bd-refs li{counter-increment:r; position:relative; padding:0 0 14px 34px; font-size:.9rem; line-height:1.5; color:var(--bd-muted);}
+.bd-ing ol.bd-refs li::before{content:counter(r,decimal-leading-zero); position:absolute; left:0; top:0; font-family:var(--bd-head); color:var(--bd-seaglass); font-size:.85rem;}
+.bd-ing .bd-foot{display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:16px; border-top:1px solid var(--bd-line); margin-top:20px; padding-top:24px;}
+.bd-ing .bd-foot span{font-family:var(--bd-head); font-size:1.05rem;}
+.bd-ing .bd-cta{font-family:var(--bd-head); text-transform:uppercase; letter-spacing:.06em; font-size:.82rem; background:var(--bd-seaglass); color:#08302f; padding:12px 22px; border-radius:100px; border:0;}
+.bd-ing .bd-cta:hover{background:var(--bd-coral); color:#fff;}
+@media(max-width:820px){
+  .bd-ing .bd-split,.bd-ing .bd-suit{grid-template-columns:1fr;}
+  .bd-ing .bd-cards{grid-template-columns:1fr;}
+}
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Ingredient page",
+  "settings": []
+}
+{% endschema %}
