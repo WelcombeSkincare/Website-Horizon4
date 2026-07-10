@@ -86,15 +86,9 @@
           <span class="bd-fnum">{{ n }}</span>
           <h4>{{ title }}</h4>
           <p>{{ mf.function_card_body.value[i] }}</p>
-          {%- assign ev = blank -%}
-          {%- for chip in mf.function_card_evidence_chip.value -%}
-            {%- if forloop.index0 == i -%}{%- assign ev = chip -%}{%- endif -%}
-          {%- endfor -%}
-          {%- if ev != blank -%}
-            {%- capture ct -%}{{ ev.chip_text }}{%- endcapture -%}
-            {%- unless ct == 'N/A' -%}
-              <span class="bd-tag" style="--c:{{ ev.chip_colour }};">{{ ev.chip_text }}</span>
-            {%- endunless -%}
+          {%- assign chip_text = mf.function_card_chip_text.value[i] -%}
+          {%- if chip_text != blank and chip_text != 'N/A' -%}
+            <span class="bd-tag" style="--c:{{ mf.function_card_chip_colour.value[i] }};">{{ chip_text }}</span>
           {%- endif -%}
         </div>
       {%- endfor -%}
@@ -145,9 +139,12 @@
     <div class="bd-suit">
       <div>
         <div class="bd-body">{{ mf.suitability_body.value }}</div>
-        {%- if mf.suitability_chips.value != blank -%}
+        {%- if mf.suitability_chip_text.value != blank -%}
           <div class="bd-pills">
-            {%- for pill in mf.suitability_chips.value -%}<span class="bd-pill" style="--c:{{ pill.chip_colour }};">{{ pill.chip_text }}</span>{%- endfor -%}
+            {%- for pill in mf.suitability_chip_text.value -%}
+              {%- assign j = forloop.index0 -%}
+              <span class="bd-pill" style="--c:{{ mf.suitability_chip_colour.value[j] }};">{{ pill }}</span>
+            {%- endfor -%}
           </div>
         {%- endif -%}
         {%- if mf.patch_test_line != blank -%}
