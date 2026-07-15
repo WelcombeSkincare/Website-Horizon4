@@ -1,0 +1,260 @@
+{% comment %}
+  ------------------------------------------------------------------
+  Biotaderm — Ingredients Index (custom section, Horizon theme)
+  ------------------------------------------------------------------
+  A browsing/discovery surface for the Ingredients blog.
+
+  Renders every article in the chosen blog as a card (photo + title +
+  standfirst), bucketed into functional groups, with an instant
+  client-side search box. One long page, no pagination — so search
+  filters the whole library in the browser.
+
+  DATA MODEL
+  Each article points at one `ingredient_blog_meta` metaobject via
+  `article.metafields.custom.ingredient_blog_meta`. This section reads:
+    - article.title            -> card title (INCI with common name in brackets)
+    - mf.photo                 -> card image  (falls back to article.image)
+    - mf.standfirst_lead       -> card body   (HTML stripped, truncated)
+    - mf.botanical_name / mf.inci -> extra search terms
+    - mf.ingredient_group      -> which functional bucket the card sits in
+
+  GROUPING — add ONE field to the `ingredient_blog_meta` metaobject:
+    Field:  Ingredient group
+    Key:    ingredient_group
+    Type:   Single line text, "Limit to preset choices" (a dropdown)
+    Choices (value list — keep in this exact spelling):
+      oils, marine, ferment, active, texture, humectant, acid, preserve, base
+  The group order + display names are defined in GROUP_ORDER / group_label
+  below. Rename freely there; the choice VALUES are what must match.
+  Any article whose group is blank/unrecognised falls into "Other".
+  ------------------------------------------------------------------
+{% endcomment %}
+
+{%- liquid
+  assign the_blog = section.settings.blog | default: blogs['ingredients']
+  assign group_order = 'oils,marine,ferment,active,texture,humectant,acid,preserve,base,other' | split: ','
+-%}
+
+{%- capture group_labels -%}
+oils:Plant oils & extracts|marine:Marine & algae|ferment:Ferments & biotics|active:Actives & vitamins|texture:Texture & emulsifiers|humectant:Humectants & emollients|acid:Acids & pH adjusters|preserve:Preservation|base:Base|other:Other
+{%- endcapture -%}
+
+<style>
+  #shopify-section-{{ section.id }} .bd-ix {
+    --bd-ink: #161617; --bd-ink-soft: #4B4C4F; --bd-ink-mute: #6E6F72;
+    --bd-stone: #FAF7F5; --bd-line: #ECE7E2; --bd-card-line: #E6E1DB;
+    --bd-seaglass: #7FA9A0; --bd-oyster: #A69E95;
+    max-width: 1240px; margin: 0 auto; padding: 0 64px 96px;
+    background: var(--bd-stone); color: var(--bd-ink);
+    font-family: var(--font-body-web, 'Poppins'), system-ui, sans-serif;
+  }
+  #shopify-section-{{ section.id }} .bd-ix a { color: #3d6a75; text-decoration: none; }
+  #shopify-section-{{ section.id }} .bd-ix a:hover { color: #C56A54; }
+  #shopify-section-{{ section.id }} .bd-rc { font-family: 'Roboto Condensed', 'Poppins', sans-serif; }
+
+  #shopify-section-{{ section.id }} .bd-ix-head { padding: 72px 0 40px; border-bottom: 1px solid var(--bd-line); }
+  #shopify-section-{{ section.id }} .bd-eyebrow { font-size: 13px; letter-spacing: .2em; text-transform: uppercase; color: var(--bd-seaglass); font-weight: 700; margin-bottom: 18px; }
+  #shopify-section-{{ section.id }} .bd-h1 { margin: 0; font-size: 54px; line-height: 1.02; font-weight: 400; letter-spacing: -.01em; max-width: 15ch; }
+  #shopify-section-{{ section.id }} .bd-intro { margin: 22px 0 0; font-size: 17px; line-height: 1.62; color: var(--bd-ink-soft); max-width: 60ch; }
+
+  #shopify-section-{{ section.id }} .bd-search { margin-top: 32px; max-width: 460px; position: relative; }
+  #shopify-section-{{ section.id }} .bd-search input {
+    width: 100%; box-sizing: border-box; font-family: 'Poppins', sans-serif; font-size: 15px;
+    color: var(--bd-ink); background: #fff; border: 1px solid #DCD7D2; border-radius: 4px; padding: 14px 16px 14px 44px;
+  }
+  #shopify-section-{{ section.id }} .bd-search input:focus { outline: none; border-color: var(--bd-seaglass); box-shadow: 0 0 0 3px rgba(127,169,160,.16); }
+  #shopify-section-{{ section.id }} .bd-search svg { position: absolute; left: 16px; top: 50%; transform: translateY(-50%); color: var(--bd-oyster); }
+
+  #shopify-section-{{ section.id }} .bd-empty { display: none; padding: 64px 0; text-align: center; color: #8A8177; font-size: 16px; }
+  #shopify-section-{{ section.id }} .bd-empty b { color: var(--bd-ink); }
+
+  #shopify-section-{{ section.id }} .bd-group { margin-top: 56px; }
+  #shopify-section-{{ section.id }} .bd-group-head { display: flex; align-items: baseline; gap: 12px; border-bottom: 1px solid #E7E2DC; padding-bottom: 12px; margin-bottom: 30px; }
+  #shopify-section-{{ section.id }} .bd-group-head h2 { margin: 0; font-size: 23px; font-weight: 700; letter-spacing: .01em; }
+  #shopify-section-{{ section.id }} .bd-group-count { font-size: 14px; color: var(--bd-oyster); font-weight: 700; }
+
+  #shopify-section-{{ section.id }} .bd-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px 26px; }
+  #shopify-section-{{ section.id }} .bd-card { display: flex; flex-direction: column; background: #fff; border: 1px solid var(--bd-card-line); border-radius: 4px; overflow: hidden; transition: border-color .18s ease, transform .18s ease; }
+  #shopify-section-{{ section.id }} .bd-card:hover { border-color: #B9C7C2; transform: translateY(-2px); }
+  #shopify-section-{{ section.id }} .bd-card img { width: 100%; aspect-ratio: 3/2; object-fit: cover; display: block; background: #F0EDEA; }
+  #shopify-section-{{ section.id }} .bd-card-body { padding: 16px 18px 20px; display: flex; flex-direction: column; gap: 8px; }
+  #shopify-section-{{ section.id }} .bd-card-title { font-size: 17px; font-weight: 600; line-height: 1.22; color: var(--bd-ink); }
+  #shopify-section-{{ section.id }} .bd-card-stand { margin: 0; font-size: 13px; line-height: 1.55; color: var(--bd-ink-mute); }
+
+  @media (max-width: 1100px) {
+    #shopify-section-{{ section.id }} .bd-ix { padding-left: 40px; padding-right: 40px; }
+    #shopify-section-{{ section.id }} .bd-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 680px) {
+    #shopify-section-{{ section.id }} .bd-ix { padding-left: 22px; padding-right: 22px; }
+    #shopify-section-{{ section.id }} .bd-grid { grid-template-columns: 1fr; }
+    #shopify-section-{{ section.id }} .bd-h1 { font-size: 38px; }
+  }
+</style>
+
+<div class="bd-ix" data-ix>
+
+  <div class="bd-ix-head">
+    {%- if section.settings.eyebrow != blank -%}
+      <div class="bd-rc bd-eyebrow">{{ section.settings.eyebrow }}</div>
+    {%- endif -%}
+    {%- if section.settings.heading != blank -%}
+      <h1 class="bd-rc bd-h1">{{ section.settings.heading }}</h1>
+    {%- endif -%}
+    {%- if section.settings.intro != blank -%}
+      <p class="bd-intro">{{ section.settings.intro }}</p>
+    {%- endif -%}
+
+    {%- if section.settings.show_search -%}
+      <div class="bd-search">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+        <input type="text" data-ix-search placeholder="{{ section.settings.search_placeholder | escape }}" aria-label="Search ingredients">
+      </div>
+    {%- endif -%}
+  </div>
+
+  <div class="bd-empty" data-ix-empty>
+    No ingredients match <b data-ix-term></b>. Try a common name, INCI, or botanical name.
+  </div>
+
+  {%- comment -%} Bucket articles by group, preserving GROUP_ORDER {%- endcomment -%}
+  {%- for group_key in group_order -%}
+    {%- liquid
+      assign label_pair = ''
+      assign pairs = group_labels | strip | split: '|'
+      for p in pairs
+        assign kv = p | split: ':'
+        if kv[0] == group_key
+          assign label_pair = kv[1]
+          break
+        endif
+      endfor
+      assign group_name = label_pair | default: group_key
+    -%}
+
+    {%- capture group_cards -%}
+      {%- for article in the_blog.articles -%}
+        {%- assign mf = article.metafields.custom.ingredient_blog_meta.value -%}
+        {%- assign a_group = mf.ingredient_group | default: 'other' | downcase -%}
+        {%- if a_group == group_key -%}
+          {%- liquid
+            assign stand = mf.standfirst_lead | strip_html | strip | truncate: 150
+            assign img = mf.photo
+            if img == blank
+              assign img = article.image
+            endif
+            assign search_blob = article.title | append: ' ' | append: mf.botanical_name | append: ' ' | append: mf.inci | append: ' ' | append: stand | downcase | escape
+          -%}
+          <a class="bd-card" data-ix-card data-search="{{ search_blob }}" href="{{ article.url }}">
+            {%- if img != blank -%}
+              <img src="{{ img | image_url: width: 600 }}"
+                   srcset="{{ img | image_url: width: 400 }} 400w, {{ img | image_url: width: 600 }} 600w, {{ img | image_url: width: 800 }} 800w"
+                   sizes="(max-width: 680px) 90vw, (max-width: 1100px) 45vw, 380px"
+                   width="600" height="400" loading="lazy" alt="{{ mf.photo_alt_caption | default: article.title | escape }}">
+            {%- else -%}
+              <div style="width:100%;aspect-ratio:3/2;background:#F0EDEA;"></div>
+            {%- endif -%}
+            <div class="bd-card-body">
+              <div class="bd-rc bd-card-title">{{ article.title }}</div>
+              {%- if stand != blank -%}<p class="bd-card-stand">{{ stand }}</p>{%- endif -%}
+            </div>
+          </a>
+        {%- endif -%}
+      {%- endfor -%}
+    {%- endcapture -%}
+
+    {%- assign trimmed = group_cards | strip -%}
+    {%- unless trimmed == blank -%}
+      <div class="bd-group" data-ix-group>
+        <div class="bd-group-head">
+          <h2 class="bd-rc">{{ group_name }}</h2>
+          <span class="bd-rc bd-group-count" data-ix-group-count>{{ group_cards | split: 'data-ix-card' | size | minus: 1 }}</span>
+        </div>
+        <div class="bd-grid">{{ group_cards }}</div>
+      </div>
+    {%- endunless -%}
+  {%- endfor -%}
+
+</div>
+
+<script>
+  (function () {
+    var root = document.querySelector('#shopify-section-{{ section.id }} [data-ix]');
+    if (!root) return;
+    var input = root.querySelector('[data-ix-search]');
+    if (!input) return;
+    var empty = root.querySelector('[data-ix-empty]');
+    var term = root.querySelector('[data-ix-term]');
+    input.addEventListener('input', function () {
+      var q = input.value.trim().toLowerCase();
+      var total = 0;
+      root.querySelectorAll('[data-ix-group]').forEach(function (g) {
+        var any = 0;
+        g.querySelectorAll('[data-ix-card]').forEach(function (c) {
+          var hit = !q || (c.getAttribute('data-search') || '').indexOf(q) !== -1;
+          c.style.display = hit ? '' : 'none';
+          if (hit) any++;
+        });
+        g.style.display = any ? '' : 'none';
+        var cnt = g.querySelector('[data-ix-group-count]');
+        if (cnt) cnt.textContent = String(any);
+        total += any;
+      });
+      if (empty) empty.style.display = total ? 'none' : 'block';
+      if (term) term.textContent = '\u201c' + input.value.trim() + '\u201d';
+    });
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "Ingredients index",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "blog",
+      "id": "blog",
+      "label": "Ingredients blog",
+      "info": "The blog whose articles are the ingredient pages."
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "Ingredients"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Everything we put in, and why."
+    },
+    {
+      "type": "textarea",
+      "id": "intro",
+      "label": "Intro paragraph",
+      "default": "Forty-one ingredients, each one its own page. We list what does the work, what plays a supporting role, and what we deliberately leave unclaimed."
+    },
+    {
+      "type": "header",
+      "content": "Search"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_search",
+      "label": "Show search box",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "search_placeholder",
+      "label": "Search placeholder",
+      "default": "Search ingredients, INCI or botanical name"
+    }
+  ],
+  "presets": [
+    { "name": "Ingredients index" }
+  ]
+}
+{% endschema %}

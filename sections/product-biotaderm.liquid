@@ -1,0 +1,497 @@
+{%- comment -%}
+  Biotaderm — Product page section (Steel / Horizon v4)
+  All editorial content resolves from ONE metaobject reference:
+      product.metafields.custom.product_page_meta
+  Commerce data (title, variants, price, media, availability) stays NATIVE.
+  See handoff/product-page/README.md for the full field spec and install steps.
+{%- endcomment -%}
+
+{%- assign m = product.metafields.custom.product_page_meta.value -%}
+
+{%- comment -%} Page accent = first chip's colour (the skin-type chip). {%- endcomment -%}
+{%- assign accent = '#6BBBCC' -%}
+{%- if m.chips != blank -%}
+  {%- for chip in m.chips.value -%}
+    {%- assign accent = chip.colour -%}
+    {%- break -%}
+  {%- endfor -%}
+{%- endif -%}
+
+{%- comment -%} Default variant = "With pump", per brief. {%- endcomment -%}
+{%- assign default_variant = product.selected_or_first_available_variant -%}
+{%- for v in product.variants -%}
+  {%- if v.title contains 'pump' or v.title contains 'Pump' -%}
+    {%- assign default_variant = v -%}
+    {%- break -%}
+  {%- endif -%}
+{%- endfor -%}
+
+<style>
+  #shopify-section-{{ section.id }} .bd-pp {
+    --accent: {{ accent }};
+    --ink-h1: #161617; --ink-h2: #262629; --ink-body: #494A4D; --ink-h4: #4B4C4F;
+    --oyster: #E0E1E2; --stone: #FAF7F5; --gorse: #FBFBF2;
+    --seaglass: #6BBBCC; --seaglass-dark: #3D6A75; --tide-core: #4E6D6C;
+    background: var(--stone); color: var(--ink-body);
+    font-family: 'Poppins', system-ui, sans-serif; -webkit-font-smoothing: antialiased;
+  }
+  #shopify-section-{{ section.id }} .bd-pp *,
+  #shopify-section-{{ section.id }} .bd-pp *::before,
+  #shopify-section-{{ section.id }} .bd-pp *::after { box-sizing: border-box; }
+  .bd-pp h1, .bd-pp h2, .bd-pp h3 { font-family: 'Roboto Condensed', sans-serif; }
+  .bd-pp a { color: var(--seaglass-dark); text-decoration: none; }
+  .bd-pp a:hover { color: #F47D5E; }
+  .bd-pp .bd-rc7 { font-family: 'Roboto Condensed', sans-serif; font-weight: 700; }
+  .bd-pp .bd-eyebrow { font-family: 'Roboto Condensed', sans-serif; font-weight: 700;
+    font-size: 12px; letter-spacing: 0.13em; text-transform: uppercase; color: var(--tide-core); }
+
+  /* --- Sticky purchase bar --- */
+  .bd-pp .bd-bar { position: fixed; top: 0; left: 0; right: 0; z-index: 50;
+    background: rgba(255,255,255,0.96); backdrop-filter: blur(6px);
+    border-bottom: 1px solid var(--oyster);
+    transform: translateY(-100%); opacity: 0; transition: transform .26s ease, opacity .26s ease; }
+  .bd-pp .bd-bar.is-visible { transform: translateY(0); opacity: 1; box-shadow: 0 2px 10px rgba(0,0,0,.06); }
+  .bd-pp .bd-bar__in { max-width: 1040px; margin: 0 auto; padding: 12px 24px;
+    display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
+  .bd-pp .bd-bar__buy { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+
+  /* --- Chips & segmented variant control --- */
+  .bd-pp .bd-chip { display: inline-flex; align-items: center; font-size: 13px; padding: 6px 14px;
+    border-radius: 999px; font-weight: 600;
+    background: color-mix(in srgb, var(--c) 15%, transparent);
+    color: color-mix(in srgb, var(--c) 82%, #161617); border: 1px solid color-mix(in srgb, var(--c) 45%, transparent); }
+  .bd-pp .bd-seg { display: inline-flex; gap: 6px; background: #fff; padding: 5px;
+    border-radius: 999px; border: 1px solid var(--oyster); }
+  .bd-pp .bd-seg--sm { background: var(--stone); padding: 4px; }
+  .bd-pp .bd-seg label { font-family: 'Roboto Condensed', sans-serif; font-weight: 700; font-size: 14px;
+    padding: 9px 18px; border-radius: 999px; cursor: pointer; white-space: nowrap; color: var(--ink-h4);
+    border: 1px solid transparent; transition: all .16s ease; }
+  .bd-pp .bd-seg--sm label { font-size: 13px; padding: 7px 15px; }
+  .bd-pp .bd-seg input { position: absolute; opacity: 0; pointer-events: none; }
+  .bd-pp .bd-seg input:checked + label { background: color-mix(in srgb, var(--accent) 22%, transparent);
+    color: color-mix(in srgb, var(--accent) 82%, #161617); border-color: var(--accent); }
+
+  /* --- Buttons --- */
+  .bd-pp .bd-btn { font-family: 'Roboto Condensed', sans-serif; font-weight: 700; letter-spacing: .01em;
+    background: var(--seaglass); color: var(--ink-h1); border: 2px solid var(--seaglass);
+    border-radius: 14px; cursor: pointer; transition: all .16s ease; white-space: nowrap; font-size: 16px; padding: 13px 30px; }
+  .bd-pp .bd-btn:hover { background: #F47D5E; border-color: #F47D5E; }
+  .bd-pp .bd-btn:active { transform: translateY(1px); }
+  .bd-pp .bd-btn--sm { font-size: 14px; padding: 9px 20px; }
+  .bd-pp .bd-btn--ghost { background: #0000000f; color: var(--ink-h1); border: 1.5px solid var(--seaglass-dark);
+    font-size: 15px; padding: 12px 22px; }
+  .bd-pp .bd-price { font-family: 'Roboto Condensed', sans-serif; font-weight: 700; color: var(--ink-h1); }
+
+  /* --- Layout --- */
+  .bd-pp .bd-hero { position: relative; overflow: hidden; padding: 56px 24px 60px; text-align: center; }
+  .bd-pp .bd-hero__in { position: relative; z-index: 1; max-width: 640px; margin: 0 auto;
+    display: flex; flex-direction: column; align-items: center; }
+  .bd-pp .bd-wordmark { font-family: 'Roboto Condensed', sans-serif; font-weight: 700; font-size: 15px;
+    letter-spacing: .22em; text-transform: uppercase; color: var(--tide-core); position: relative; padding-bottom: 8px; }
+  .bd-pp .bd-wordmark::after { content: ''; position: absolute; left: 50%; bottom: 0; transform: translateX(-50%);
+    width: 30px; height: 2px; background: var(--tide-core); }
+  .bd-pp .bd-chips { display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; margin: 16px 0 22px; }
+  .bd-pp .bd-title { font-family: 'Roboto Condensed', sans-serif; font-weight: 400; font-size: 60px;
+    line-height: .98; margin: 0; color: var(--ink-h1); letter-spacing: -.01em; }
+  .bd-pp .bd-subtitle { font-family: 'Roboto Condensed', sans-serif; font-weight: 700; font-size: 20px;
+    margin: 12px 0 0; color: color-mix(in srgb, var(--accent) 78%, #161617); }
+  .bd-pp .bd-lead { font-size: 17px; line-height: 1.65; margin: 20px auto 0; max-width: 52ch; }
+  .bd-pp .bd-back { align-self: flex-start; font-size: 13px; margin-bottom: 20px; color: var(--seaglass-dark); }
+  .bd-pp .bd-buyblock { margin-top: 30px; display: flex; flex-direction: column; align-items: center; gap: 16px; }
+  .bd-pp .bd-buyrow { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; justify-content: center; }
+  .bd-pp .bd-size { font-size: 14px; color: var(--ink-h4); }
+
+  .bd-pp .bd-main { max-width: 900px; margin: 0 auto; padding: 0 24px; }
+  .bd-pp .bd-shape { position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%);
+    width: 560px; height: 560px; pointer-events: none; opacity: .2; }
+
+  /* Gallery */
+  .bd-pp .bd-gallery { width: 100%; max-width: 520px; margin: 0 auto 28px; display: flex; flex-direction: column; gap: 12px; }
+  .bd-pp .bd-gallery__main { position: relative; width: 100%; aspect-ratio: 4/3; padding: 0; border: 1px solid var(--oyster);
+    border-radius: 8px; overflow: hidden; cursor: zoom-in; background: #fff; display: block; }
+  .bd-pp .bd-gallery__main img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .bd-pp .bd-gallery__zoom { position: absolute; bottom: 10px; right: 10px; width: 34px; height: 34px; border-radius: 999px;
+    background: rgba(255,255,255,.92); border: 1px solid var(--oyster); display: flex; align-items: center; justify-content: center;
+    color: var(--ink-h1); font-size: 15px; }
+  .bd-pp .bd-thumbs { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
+  .bd-pp .bd-thumb { width: 68px; height: 68px; padding: 0; border-radius: 8px; overflow: hidden; cursor: pointer;
+    background: #fff; border: 1px solid var(--oyster); transition: border-color .16s ease; }
+  .bd-pp .bd-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .bd-pp .bd-thumb.is-active { border: 2px solid var(--accent); }
+
+  /* At a glance */
+  .bd-pp .bd-glance { background: #fff; border: 1px solid var(--oyster); border-radius: 4px; padding: 26px 30px;
+    margin-top: 8px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 22px; }
+  .bd-pp .bd-glance__cell { border-left: 2px solid var(--accent); padding-left: 14px; }
+  .bd-pp .bd-glance__label { font-family: 'Roboto Condensed', sans-serif; font-weight: 700; font-size: 12px;
+    letter-spacing: .13em; text-transform: uppercase; color: var(--ink-h4); margin-bottom: 6px; }
+  .bd-pp .bd-glance__val { font-size: 15px; color: var(--ink-h1); }
+
+  /* Prose blocks (wrapper-styled — authors write plain HTML) */
+  .bd-pp .bd-h2 { font-family: 'Roboto Condensed', sans-serif; font-weight: 400; font-size: 30px;
+    color: var(--ink-h1); margin: 0 0 18px; }
+  .bd-pp .bd-prose { font-size: 17px; line-height: 1.75; }
+  .bd-pp .bd-prose p { margin: 0 0 16px; } .bd-pp .bd-prose p:last-child { margin-bottom: 0; }
+  .bd-pp .bd-prose a { color: var(--seaglass-dark); } .bd-pp .bd-prose a:hover { color: #F47D5E; }
+
+  .bd-pp .bd-howto { margin-top: 40px; background: var(--gorse); border-left: 2px solid var(--tide-core);
+    border-radius: 4px; padding: 24px 28px; }
+  .bd-pp .bd-howto p { margin: 0; font-size: 16px; line-height: 1.7; }
+
+  /* Key ingredients block */
+  .bd-pp .bd-ing-copy { font-size: 16px; line-height: 1.7; }
+  .bd-pp .bd-ing-copy h3 { font-family: 'Roboto Condensed', sans-serif; font-weight: 700; font-size: 18px;
+    margin: 22px 0 6px; color: var(--ink-h1); padding-top: 22px; border-top: 1px solid var(--oyster); }
+  .bd-pp .bd-ing-copy h3:first-child { border-top: 0; padding-top: 0; margin-top: 0; }
+  .bd-pp .bd-ing-copy em, .bd-pp .bd-ing-copy i { font-style: italic; color: var(--ink-h4); font-weight: 400; }
+  .bd-pp .bd-ing-copy p { margin: 0 0 6px; }
+  .bd-pp .bd-ing-copy a { color: var(--seaglass-dark); } .bd-pp .bd-ing-copy a:hover { color: #F47D5E; }
+  .bd-pp .bd-ing--signature { background: var(--stone); border-left: 2px solid var(--accent);
+    padding: 20px 18px; margin: 22px 0; border-top: 1px solid var(--oyster); border-bottom: 1px solid var(--oyster); }
+  .bd-pp .bd-ing--signature h3 { border-top: 0; padding-top: 0; margin-top: 0; }
+
+  /* Fragrance note */
+  .bd-pp .bd-note { margin-top: 48px; background: #fff; border: 1px solid var(--oyster); border-radius: 4px; padding: 30px 32px; }
+  .bd-pp .bd-note .bd-prose { font-size: 16px; }
+
+  /* Formulation table (wrapper-styled) */
+  .bd-pp .bd-formula-wrap { background: #fff; border: 1px solid var(--oyster); border-radius: 4px; overflow: hidden; }
+  .bd-pp .bd-formula { width: 100%; border-collapse: collapse; }
+  .bd-pp .bd-formula thead th { font-family: 'Roboto Condensed', sans-serif; font-weight: 700; font-size: 12px;
+    letter-spacing: .09em; text-transform: uppercase; color: var(--tide-core); text-align: left;
+    background: var(--gorse); border-bottom: 1px solid var(--oyster); padding: 14px 24px; }
+  .bd-pp .bd-formula tbody td { font-size: 14.5px; line-height: 1.45; border-bottom: 1px solid var(--oyster);
+    padding: 13px 24px; vertical-align: baseline; color: var(--ink-body); }
+  .bd-pp .bd-formula tbody tr:last-child td { border-bottom: 0; }
+  .bd-pp .bd-formula .bd-formula__pct { font-family: 'Roboto Condensed', sans-serif; font-weight: 700;
+    color: var(--ink-h1); text-align: right; white-space: nowrap; }
+  .bd-pp .bd-formula .bd-formula__fn { color: var(--ink-h4); font-size: 13.5px; }
+  .bd-pp .bd-formula a { color: var(--seaglass-dark); } .bd-pp .bd-formula a:hover { color: #F47D5E; }
+  .bd-pp .bd-mark { color: var(--accent); font-weight: 700; }
+  .bd-pp .bd-footnote { font-size: 13px; color: var(--ink-h4); margin: 14px 0 0; }
+
+  /* Ethos */
+  .bd-pp .bd-ethos { margin-top: 64px; border-top: 1px solid var(--oyster); padding-top: 40px;
+    display: flex; flex-direction: column; align-items: center; gap: 20px; }
+  .bd-pp .bd-ethos__row { display: grid; grid-template-columns: repeat(5, 1fr); gap: 14px; width: 100%; max-width: 560px; }
+  .bd-pp .bd-ethos__item { display: flex; flex-direction: column; align-items: center; gap: 8px; text-align: center; }
+  .bd-pp .bd-ethos__item img { width: 52px; height: 52px; object-fit: contain; }
+  .bd-pp .bd-ethos__item span { font-size: 12px; line-height: 1.3; }
+
+  /* Lifestyle band */
+  .bd-pp .bd-life { margin-top: 64px; position: relative; border-radius: 8px; overflow: hidden; border: 1px solid var(--oyster); }
+  .bd-pp .bd-life img { width: 100%; height: 420px; object-fit: cover; object-position: center 30%; display: block; }
+  .bd-pp .bd-life__cap { position: absolute; left: 0; right: 0; bottom: 0; padding: 28px 30px;
+    background: linear-gradient(to top, rgba(22,22,23,.55), rgba(22,22,23,0)); }
+  .bd-pp .bd-life__cap p { font-family: 'Roboto Condensed', sans-serif; font-weight: 700; font-size: 20px;
+    color: #fff; margin: 0; max-width: 30ch; line-height: 1.15; }
+
+  /* Lightbox */
+  .bd-pp .bd-lightbox { position: fixed; inset: 0; z-index: 90; background: rgba(22,22,23,.82); backdrop-filter: blur(3px);
+    display: flex; align-items: center; justify-content: center; cursor: zoom-out; opacity: 0; pointer-events: none;
+    transition: opacity .22s ease; }
+  .bd-pp .bd-lightbox.is-open { opacity: 1; pointer-events: auto; }
+  .bd-pp .bd-lightbox img { max-width: 92vw; max-height: 88vh; object-fit: contain; border-radius: 6px; }
+  .bd-pp .bd-lightbox__close { position: absolute; top: 20px; right: 24px; width: 44px; height: 44px; border-radius: 999px;
+    background: rgba(255,255,255,.14); border: 1px solid rgba(255,255,255,.4); color: #fff; font-size: 20px; cursor: pointer; }
+
+  @media (max-width: 720px) {
+    .bd-pp .bd-title { font-size: 44px; }
+    .bd-pp .bd-glance { grid-template-columns: repeat(2, 1fr); }
+    .bd-pp .bd-ethos__row { grid-template-columns: repeat(3, 1fr); }
+    .bd-pp .bd-formula thead { display: none; }
+    .bd-pp .bd-formula tbody td { display: block; padding: 4px 20px; border: 0; }
+    .bd-pp .bd-formula tbody tr { display: block; padding: 12px 0; border-bottom: 1px solid var(--oyster); }
+    .bd-pp .bd-formula .bd-formula__pct { text-align: left; }
+  }
+</style>
+
+<div class="bd-pp" data-bd-pp>
+
+  {%- comment -%} ============ STICKY PURCHASE BAR ============ {%- endcomment -%}
+  <div class="bd-bar" data-bd-bar>
+    <div class="bd-bar__in">
+      <div style="display:flex; align-items:baseline; gap:12px; min-width:0;">
+        <span class="bd-rc7" style="font-size:19px; color:var(--ink-h1); white-space:nowrap;">{{ product.title }}</span>
+        {%- if m.subtitle != blank -%}<span style="font-size:13px; color:var(--ink-h4); white-space:nowrap;">{{ m.subtitle }}</span>{%- endif -%}
+      </div>
+      <div class="bd-bar__buy">
+        <div class="bd-seg bd-seg--sm" role="radiogroup" aria-label="Format">
+          {%- for v in product.variants -%}
+            <span style="position:relative;">
+              <input type="radio" name="bd-format-bar" id="bd-fmt-bar-{{ v.id }}" value="{{ v.id }}"
+                     data-price="{{ v.price | money }}" {% if v == default_variant %}checked{% endif %} data-bd-variant>
+              <label for="bd-fmt-bar-{{ v.id }}">{{ v.title }}</label>
+            </span>
+          {%- endfor -%}
+        </div>
+        <span class="bd-price" style="font-size:20px;" data-bd-price>{{ default_variant.price | money }}</span>
+        <button type="submit" form="bd-pp-form" class="bd-btn bd-btn--sm">Add to bag</button>
+      </div>
+    </div>
+  </div>
+
+  {%- comment -%} ============ HERO ============ {%- endcomment -%}
+  <div class="bd-hero" data-bd-hero>
+    {%- comment -%} Organic-shapes device: upload as a theme asset 'organic-shapes.svg' (see README). {%- endcomment -%}
+    {%- if settings.bd_organic_shapes != blank -%}
+      <img class="bd-shape" src="{{ settings.bd_organic_shapes }}" alt="" aria-hidden="true">
+    {%- else -%}
+      <img class="bd-shape" src="{{ 'organic-shapes.svg' | asset_url }}" alt="" aria-hidden="true"
+           onerror="this.style.display='none'">
+    {%- endif -%}
+    <div class="bd-hero__in">
+      {%- if m.back_label != blank -%}<a class="bd-back" href="{{ m.back_url | default: '#' }}">&larr; {{ m.back_label }}</a>{%- endif -%}
+
+      {%- if m.style != blank -%}<div class="bd-wordmark">{{ m.style }}</div>{%- endif -%}
+
+      {%- if m.chips != blank -%}
+        <div class="bd-chips">
+          {%- for chip in m.chips.value -%}
+            {%- if chip.url != blank -%}
+              <a class="bd-chip" style="--c: {{ chip.colour }};" href="{{ chip.url }}">{{ chip.label }}</a>
+            {%- else -%}
+              <span class="bd-chip" style="--c: {{ chip.colour }};">{{ chip.label }}</span>
+            {%- endif -%}
+          {%- endfor -%}
+        </div>
+      {%- endif -%}
+
+      {%- comment -%} GALLERY — native product media {%- endcomment -%}
+      {%- if product.media.size > 0 -%}
+        <div class="bd-gallery" data-bd-gallery>
+          <button type="button" class="bd-gallery__main" data-bd-open-lightbox aria-label="View larger">
+            <img data-bd-main src="{{ product.featured_media | image_url: width: 1040 }}"
+                 alt="{{ product.featured_media.alt | escape | default: product.title }}">
+            <span class="bd-gallery__zoom" aria-hidden="true">&#10530;</span>
+          </button>
+          {%- if product.media.size > 1 -%}
+            <div class="bd-thumbs">
+              {%- for media in product.media -%}
+                <button type="button" class="bd-thumb {% if forloop.first %}is-active{% endif %}"
+                        data-bd-thumb data-full="{{ media | image_url: width: 1600 }}"
+                        data-med="{{ media | image_url: width: 1040 }}" aria-label="{{ media.alt | escape | default: product.title }}">
+                  <img src="{{ media | image_url: width: 160 }}" alt="{{ media.alt | escape }}">
+                </button>
+              {%- endfor -%}
+            </div>
+          {%- endif -%}
+        </div>
+      {%- endif -%}
+
+      <h1 class="bd-title">{{ product.title }}</h1>
+      {%- if m.subtitle != blank -%}<p class="bd-subtitle">{{ m.subtitle }}</p>{%- endif -%}
+      {%- if m.hero_intro != blank -%}<div class="bd-lead bd-prose">{{ m.hero_intro }}</div>{%- endif -%}
+
+      {%- comment -%} BUY BLOCK — real product form; sticky button submits this same form {%- endcomment -%}
+      <form method="post" action="{{ routes.cart_add_url }}" id="bd-pp-form" class="bd-buyblock" data-bd-form>
+        <input type="hidden" name="id" value="{{ default_variant.id }}" data-bd-id>
+        <div class="bd-seg" role="radiogroup" aria-label="Format">
+          {%- for v in product.variants -%}
+            <span style="position:relative;">
+              <input type="radio" name="bd-format" id="bd-fmt-{{ v.id }}" value="{{ v.id }}"
+                     data-price="{{ v.price | money }}" {% if v == default_variant %}checked{% endif %}
+                     {% unless v.available %}disabled{% endunless %} data-bd-variant>
+              <label for="bd-fmt-{{ v.id }}">{{ v.title }}</label>
+            </span>
+          {%- endfor -%}
+        </div>
+        <div class="bd-buyrow">
+          <span class="bd-price" style="font-size:32px;" data-bd-price>{{ default_variant.price | money }}</span>
+          {%- if m.size_label != blank -%}<span class="bd-size">{{ m.size_label }}</span>{%- endif -%}
+        </div>
+        <div class="bd-buyrow">
+          <button type="submit" class="bd-btn" data-bd-add>Add to bag</button>
+          <a href="#bd-key-ingredients" class="bd-btn bd-btn--ghost">See the ingredients</a>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  {%- comment -%} ============ MAIN ============ {%- endcomment -%}
+  <div class="bd-main">
+
+    {%- comment -%} At a glance — fixed labels, per-product values {%- endcomment -%}
+    <div class="bd-glance">
+      <div class="bd-glance__cell"><div class="bd-glance__label">Skin type</div><div class="bd-glance__val">{{ m.glance_skin_type }}</div></div>
+      <div class="bd-glance__cell"><div class="bd-glance__label">Texture</div><div class="bd-glance__val">{{ m.glance_texture }}</div></div>
+      <div class="bd-glance__cell"><div class="bd-glance__label">Best for</div><div class="bd-glance__val">{{ m.glance_best_for }}</div></div>
+      <div class="bd-glance__cell"><div class="bd-glance__label">Formulation</div><div class="bd-glance__val" style="font-size:14px;">{{ m.glance_formulation }}</div></div>
+    </div>
+
+    {%- if m.what_it_is_html != blank -%}
+      <div style="margin-top:64px;">
+        <h2 class="bd-h2">What it is, and who it&rsquo;s for</h2>
+        <div class="bd-prose">{{ m.what_it_is_html }}</div>
+      </div>
+    {%- endif -%}
+
+    {%- if m.how_to_use_html != blank -%}
+      <div class="bd-howto">
+        <div class="bd-eyebrow" style="margin-bottom:8px;">How to use</div>
+        <div class="bd-prose">{{ m.how_to_use_html }}</div>
+      </div>
+    {%- endif -%}
+
+    {%- if m.key_ingredients_html != blank or m.key_ingredients_intro != blank -%}
+      <div id="bd-key-ingredients" style="margin-top:64px; scroll-margin-top:90px;">
+        <h2 class="bd-h2">Key ingredients</h2>
+        {%- if m.key_ingredients_intro != blank -%}<div class="bd-prose" style="margin-bottom:28px;">{{ m.key_ingredients_intro }}</div>{%- endif -%}
+        <div class="bd-ing-copy">{{ m.key_ingredients_html }}</div>
+      </div>
+    {%- endif -%}
+
+    {%- if m.fragrance_html != blank -%}
+      <div class="bd-note">
+        {%- if m.fragrance_eyebrow != blank -%}<div class="bd-eyebrow" style="margin-bottom:12px;">{{ m.fragrance_eyebrow }}</div>{%- endif -%}
+        <div class="bd-prose">{{ m.fragrance_html }}</div>
+      </div>
+    {%- endif -%}
+
+    {%- if m.formulation_html != blank -%}
+      <div id="bd-formula" style="margin-top:64px; scroll-margin-top:90px;">
+        <h2 class="bd-h2">Full formulation</h2>
+        {%- if m.formulation_intro != blank -%}<p style="font-size:15px; line-height:1.6; color:var(--ink-h4); margin:0 0 22px;">{{ m.formulation_intro }}</p>{%- endif -%}
+        <div class="bd-formula-wrap">{{ m.formulation_html }}</div>
+        {%- if m.formulation_footnote != blank -%}<p class="bd-footnote">{{ m.formulation_footnote }}</p>{%- endif -%}
+      </div>
+    {%- endif -%}
+
+    {%- if m.ethos != blank -%}
+      <div class="bd-ethos">
+        <div class="bd-eyebrow" style="color:var(--ink-h4);">What this product stands for</div>
+        <div class="bd-ethos__row">
+          {%- for e in m.ethos.value -%}
+            <div class="bd-ethos__item">
+              <img src="{{ e.icon | image_url: width: 104 }}" alt="{{ e.label | escape }}">
+              <span style="color: {{ e.colour }};">{{ e.label }}</span>
+            </div>
+          {%- endfor -%}
+        </div>
+        {%- if m.ethos_footer != blank -%}<p style="font-size:13px; color:var(--ink-h4); margin:6px 0 0;">{{ m.ethos_footer }}</p>{%- endif -%}
+      </div>
+    {%- endif -%}
+
+    {%- if m.lifestyle_image != blank -%}
+      <div class="bd-life">
+        <img src="{{ m.lifestyle_image | image_url: width: 1600 }}" alt="{{ m.lifestyle_caption | escape }}">
+        {%- if m.lifestyle_caption != blank -%}<div class="bd-life__cap"><p>{{ m.lifestyle_caption }}</p></div>{%- endif -%}
+      </div>
+    {%- endif -%}
+
+  </div>
+
+  {%- comment -%} ============ LIGHTBOX ============ {%- endcomment -%}
+  <div class="bd-lightbox" data-bd-lightbox>
+    <button type="button" class="bd-lightbox__close" data-bd-close aria-label="Close">&#10005;</button>
+    <img data-bd-lightbox-img src="{{ product.featured_media | image_url: width: 1600 }}" alt="{{ product.title | escape }}">
+  </div>
+</div>
+
+<script>
+(function () {
+  var root = document.querySelector('#shopify-section-{{ section.id }} [data-bd-pp]');
+  if (!root) return;
+
+  /* ---- Variant selection: sync radios, price, hidden id ---- */
+  var idInput = root.querySelector('[data-bd-id]');
+  var priceEls = root.querySelectorAll('[data-bd-price]');
+  function selectVariant(id, price) {
+    if (idInput) idInput.value = id;
+    priceEls.forEach(function (el) { if (price) el.textContent = price; });
+    root.querySelectorAll('[data-bd-variant]').forEach(function (r) {
+      if (r.value === id) r.checked = true;
+    });
+  }
+  root.querySelectorAll('[data-bd-variant]').forEach(function (r) {
+    r.addEventListener('change', function () {
+      if (this.checked) selectVariant(this.value, this.getAttribute('data-price'));
+    });
+  });
+
+  /* ---- Gallery: thumbnail swaps main; main opens lightbox ---- */
+  var mainImg = root.querySelector('[data-bd-main]');
+  var lbImg = root.querySelector('[data-bd-lightbox-img]');
+  root.querySelectorAll('[data-bd-thumb]').forEach(function (t) {
+    t.addEventListener('click', function () {
+      var med = this.getAttribute('data-med'), full = this.getAttribute('data-full');
+      if (mainImg && med) mainImg.src = med;
+      if (lbImg && full) lbImg.src = full;
+      root.querySelectorAll('[data-bd-thumb]').forEach(function (x) { x.classList.remove('is-active'); });
+      this.classList.add('is-active');
+    });
+  });
+
+  /* ---- Lightbox ---- */
+  var lb = root.querySelector('[data-bd-lightbox]');
+  var openBtn = root.querySelector('[data-bd-open-lightbox]');
+  if (openBtn && lb) {
+    openBtn.addEventListener('click', function () {
+      if (mainImg && lbImg && !root.querySelector('[data-bd-thumb].is-active')) lbImg.src = mainImg.src;
+      lb.classList.add('is-open');
+    });
+    lb.addEventListener('click', function (e) {
+      if (e.target === lb || e.target.hasAttribute('data-bd-close')) lb.classList.remove('is-open');
+    });
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape') lb.classList.remove('is-open'); });
+  }
+
+  /* ---- Sticky bar reveals once the hero scrolls past ---- */
+  var bar = root.querySelector('[data-bd-bar]');
+  var hero = root.querySelector('[data-bd-hero]');
+  if (bar && hero && 'IntersectionObserver' in window) {
+    new IntersectionObserver(function (entries) {
+      bar.classList.toggle('is-visible', !entries[0].isIntersecting);
+    }, { rootMargin: '-72px 0px 0px 0px' }).observe(hero);
+  }
+
+  /* ---- Add to cart → Horizon AJAX drawer ----
+     INTEGRATION POINT (see README): Steel/Horizon exposes a cart-drawer web
+     component. We add via /cart/add.js then ask the theme to refresh/open it.
+     If your build differs, this is the one place to adjust. */
+  var form = root.querySelector('[data-bd-form]');
+  if (form) {
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var btn = form.querySelector('[data-bd-add]');
+      var label = btn ? btn.textContent : '';
+      if (btn) btn.textContent = 'Adding…';
+      fetch('{{ routes.cart_add_url }}.js', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify({ items: [{ id: idInput.value, quantity: 1 }] })
+      }).then(function (r) { return r.json(); }).then(function () {
+        // Horizon: open/refresh the cart drawer. Adjust selector/event to your theme.
+        var drawer = document.querySelector('cart-drawer');
+        if (drawer && typeof drawer.open === 'function') { drawer.open(); }
+        document.dispatchEvent(new CustomEvent('cart:refresh', { bubbles: true }));
+        document.dispatchEvent(new CustomEvent('cart:open', { bubbles: true }));
+        if (btn) btn.textContent = 'Added to bag ✓';
+        setTimeout(function () { if (btn) btn.textContent = label || 'Add to bag'; }, 1600);
+      }).catch(function () { form.submit(); /* hard fallback to /cart */ });
+    });
+  }
+})();
+</script>
+
+{% schema %}
+{
+  "name": "Biotaderm product",
+  "tag": "section",
+  "class": "shopify-section--bd-product",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Content source"
+    },
+    {
+      "type": "paragraph",
+      "content": "All editorial content is read from the product's custom.product_page_meta metaobject reference. Variants, price, and images come from the product itself."
+    }
+  ],
+  "presets": [
+    { "name": "Biotaderm product" }
+  ],
+  "enabled_on": { "templates": ["product"] }
+}
+{% endschema %}
