@@ -24,7 +24,12 @@
   {% content_for 'blocks' %}
 {% endcapture %}
 
+{% render 'deferred-media-product-model-styles' %}
+{% render 'deferred-media-video-styles' %}
+
 {% if section.settings.enable_sticky_add_to_cart %}
+  {% render 'fly-to-cart-styles' %}
+
   {% liquid
     assign current_variant = product.selected_or_first_available_variant
     # Get the initial quantity based on quantity rules
@@ -165,6 +170,8 @@
       </button>
     </div>
   </sticky-add-to-cart>
+
+  {% render 'add-to-cart-button-styles' %}
 {% endif %}
 
 {% render 'product-information-content',
@@ -475,4 +482,3 @@
   "presets": []
 }
 {% endschema %}
-
