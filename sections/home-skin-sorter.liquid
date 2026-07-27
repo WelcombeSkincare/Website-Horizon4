@@ -1,0 +1,306 @@
+{%- comment -%}
+  sections/home-skin-sorter.liquid
+  Six-tile skin-type sorter: five fixed-hue colour tiles (repeatable blocks)
+  plus one fixed white finder card. Design ref: Biotaderm Home Page v2, #2a/#3a.
+{%- endcomment -%}
+
+<div class="bd-ss" id="skin-type" data-bd-ss>
+  {%- if section.settings.heading != blank -%}<h2 class="bd-ss-h2">{{ section.settings.heading }}</h2>{%- endif -%}
+  {%- if section.settings.intro != blank -%}<div class="bd-ss-intro">{{ section.settings.intro }}</div>{%- endif -%}
+
+  <div class="bd-ss-grid">
+    {%- for block in section.blocks -%}
+      {%- if block.type == 'tile' -%}
+        <a href="{{ block.settings.link | default: '#' }}" class="bd-ss-tile" style="background:{{ block.settings.bg_color }}; color:{{ block.settings.text_color }};" {{ block.shopify_attributes }}>
+          <span class="bd-ss-tile-shape" style="color:{{ block.settings.text_color }};">{% render 'home-organic-shape' %}</span>
+          <span class="bd-ss-tile-num">{{ block.settings.index | default: forloop.index }}</span>
+          <span class="bd-ss-tile-body">
+            <span class="bd-ss-tile-title">{{ block.settings.title }}</span>
+            <span class="bd-ss-tile-desc">{{ block.settings.description }}</span>
+          </span>
+        </a>
+      {%- endif -%}
+    {%- endfor -%}
+
+    <div class="bd-ss-finder">
+      <span class="bd-ss-finder-q">?</span>
+      <span class="bd-ss-finder-title">{{ section.settings.finder_title | default: 'Not sure yet' }}</span>
+      <span class="bd-ss-finder-body">{{ section.settings.finder_body }}</span>
+      <a href="{{ section.settings.finder_link | default: '#' }}" class="bd-ss-finder-btn">{{ section.settings.finder_button_label | default: 'Find my type' }} &rarr;</a>
+    </div>
+  </div>
+
+  <div class="bd-ss-confirm">
+    {{ section.settings.footer_text | default: 'Not sure which you are?' }}
+    <a href="{{ section.settings.finder_link | default: '#' }}">{{ section.settings.footer_link_label | default: 'Take the skin type finder' }} &rarr;</a>
+  </div>
+</div>
+
+{% stylesheet %}
+.bd-ss {
+  padding: 104px 80px 96px;
+  background: #FAF7F5;
+}
+.bd-ss-h2 {
+  font-family: 'Roboto Condensed', sans-serif;
+  font-weight: 400;
+  font-size: 46px;
+  color: #3F4042;
+  margin: 0 0 14px;
+}
+.bd-ss-intro {
+  font-size: 18px;
+  line-height: 1.6;
+  max-width: 620px;
+  margin: 0 0 44px;
+  color: #494A4D;
+}
+.bd-ss-intro p { margin: 0; }
+.bd-ss-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 16px;
+}
+.bd-ss-tile {
+  height: 268px;
+  padding: 24px;
+  border-radius: 4px;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-decoration: none;
+  transition: transform .18s ease, box-shadow .18s ease;
+}
+.bd-ss-tile:hover { transform: translateY(-5px); }
+.bd-ss-tile-shape {
+  position: absolute;
+  width: 230px;
+  height: 230px;
+  bottom: -40px;
+  right: -50px;
+  opacity: 0.22;
+  pointer-events: none;
+}
+.bd-ss-tile-shape svg { width: 100%; height: 100%; display: block; }
+.bd-ss-tile-num {
+  font-weight: 700;
+  font-size: 15px;
+  opacity: .75;
+  position: relative;
+  z-index: 1;
+}
+.bd-ss-tile-body { display: flex; flex-direction: column; position: relative; z-index: 1; }
+.bd-ss-tile-title {
+  font-family: 'Roboto Condensed', sans-serif;
+  font-size: 24px;
+  line-height: 1.1;
+  margin-bottom: 8px;
+}
+.bd-ss-tile-desc { font-size: 14px; line-height: 1.55; opacity: .92; }
+
+.bd-ss-finder {
+  background: #fff;
+  border: 1px solid #3D6A75;
+  padding: 24px;
+  height: 316px;
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+}
+.bd-ss-finder-q {
+  font-weight: 700;
+  font-size: 15px;
+  color: #4E6D6C;
+}
+.bd-ss-finder-title {
+  font-family: 'Roboto Condensed', sans-serif;
+  font-size: 24px;
+  color: #3F4042;
+  margin-top: auto;
+}
+.bd-ss-finder-body { font-size: 14px; line-height: 1.55; color: #494A4D; margin-top: 8px; margin-bottom: 16px; }
+.bd-ss-finder-btn {
+  font-family: 'Roboto Condensed', sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  background: #6BBBCC;
+  color: #161617;
+  border: 2px solid #6BBBCC;
+  border-radius: 14px;
+  padding: 10px 8px;
+  text-align: center;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background-color .16s ease, border-color .16s ease;
+}
+.bd-ss-finder-btn:hover { background: #F47D5E; border-color: #F47D5E; }
+
+.bd-ss-confirm {
+  margin-top: 26px;
+  font-size: 16px;
+  color: #494A4D;
+}
+.bd-ss-confirm a { color: #6BBBCC; text-decoration: none; margin-left: 6px; }
+.bd-ss-confirm a:hover { color: #F47D5E; }
+
+@media (max-width: 1100px) and (min-width: 750px) {
+  .bd-ss-grid { grid-template-columns: repeat(3, 1fr); }
+}
+@media (max-width: 749px) {
+  .bd-ss { padding: 44px 20px 40px; }
+  .bd-ss-h2 { font-size: 30px; }
+  .bd-ss-grid { grid-template-columns: 1fr; gap: 8px; }
+  .bd-ss-tile {
+    height: auto;
+    min-height: 72px;
+    flex-direction: row;
+    align-items: center;
+    gap: 14px;
+    padding: 16px 18px;
+  }
+  .bd-ss-tile-num { width: 22px; font-size: 13px; }
+  .bd-ss-tile-body { flex: 1; }
+  .bd-ss-tile-title { font-size: 22px; margin-bottom: 2px; }
+  .bd-ss-tile-desc { font-size: 13.5px; line-height: 1.45; }
+  .bd-ss-finder { height: auto; margin-top: 6px; }
+}
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Home skin-type sorter",
+  "tag": "section",
+  "class": "shopify-section--bd-home-sorter",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Start with your skin type"
+    },
+    {
+      "type": "richtext",
+      "id": "intro",
+      "label": "Intro",
+      "default": "<p>Everything we make is built around five skin types. Find yours, then choose how light or rich you'd like it.</p>"
+    },
+    {
+      "type": "header",
+      "content": "Finder card"
+    },
+    {
+      "type": "text",
+      "id": "finder_title",
+      "label": "Finder title",
+      "default": "Not sure yet"
+    },
+    {
+      "type": "text",
+      "id": "finder_body",
+      "label": "Finder body",
+      "default": "Six questions about how your skin behaves, and we will tell you which of the five you are."
+    },
+    {
+      "type": "text",
+      "id": "finder_button_label",
+      "label": "Finder button label",
+      "default": "Find my type"
+    },
+    {
+      "type": "url",
+      "id": "finder_link",
+      "label": "Skin type finder link"
+    },
+    {
+      "type": "header",
+      "content": "Footer line"
+    },
+    {
+      "type": "text",
+      "id": "footer_text",
+      "label": "Footer text",
+      "default": "Not sure which you are?"
+    },
+    {
+      "type": "text",
+      "id": "footer_link_label",
+      "label": "Footer link label",
+      "default": "Take the skin type finder"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "tile",
+      "name": "Skin type tile",
+      "settings": [
+        { "type": "text", "id": "index", "label": "Index number (e.g. 01)" },
+        { "type": "text", "id": "title", "label": "Title" },
+        { "type": "text", "id": "description", "label": "Description" },
+        { "type": "color", "id": "bg_color", "label": "Background colour" },
+        { "type": "color", "id": "text_color", "label": "Text colour" },
+        { "type": "url", "id": "link", "label": "Collection link" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Home skin-type sorter",
+      "blocks": [
+        {
+          "type": "tile",
+          "settings": {
+            "index": "01",
+            "title": "Dry Sensitive",
+            "description": "Skin that feels tight and reacts easily, and wants calm, careful nourishment.",
+            "bg_color": "#80A89E",
+            "text_color": "#ffffff"
+          }
+        },
+        {
+          "type": "tile",
+          "settings": {
+            "index": "02",
+            "title": "Dry",
+            "description": "Skin that drinks up moisture and wants richer, longer-lasting hydration.",
+            "bg_color": "#F47D5E",
+            "text_color": "#ffffff"
+          }
+        },
+        {
+          "type": "tile",
+          "settings": {
+            "index": "03",
+            "title": "Balanced",
+            "description": "Skin that is mostly comfortable and would like to stay that way.",
+            "bg_color": "#6BBBCC",
+            "text_color": "#ffffff"
+          }
+        },
+        {
+          "type": "tile",
+          "settings": {
+            "index": "04",
+            "title": "Oily",
+            "description": "Skin that makes plenty of its own oil and wants light, non-greasy support.",
+            "bg_color": "#C2CA53",
+            "text_color": "#525523"
+          }
+        },
+        {
+          "type": "tile",
+          "settings": {
+            "index": "05",
+            "title": "Oily Sensitive",
+            "description": "Oilier skin that still reacts easily, and wants lightness with care.",
+            "bg_color": "#A37594",
+            "text_color": "#ffffff"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

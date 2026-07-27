@@ -1,0 +1,260 @@
+{%- comment -%}
+  sections/home-formulation.liquid
+  "Nothing hidden" - the trust centrepiece. Dark band + white formulation card.
+
+  The featured_product setting links "See a full formulation" to that
+  product's real page (which renders its full product_page_meta.formulation_html).
+  The card's own bar-chart rows are editable blocks here rather than parsed out
+  of that raw HTML table, since the existing data model doesn't carry per-row
+  bar-scale values - seed them to match the linked product's real figures.
+{%- endcomment -%}
+
+<div class="bd-nh" data-bd-nh>
+  <div class="bd-nh-left">
+    {%- if section.settings.eyebrow != blank -%}<p class="bd-nh-eyebrow">{{ section.settings.eyebrow }}</p>{%- endif -%}
+    {%- if section.settings.heading != blank -%}<h2 class="bd-nh-h2">{{ section.settings.heading }}</h2>{%- endif -%}
+    {%- if section.settings.body != blank -%}<div class="bd-nh-body">{{ section.settings.body }}</div>{%- endif -%}
+    {%- if section.settings.featured_product != blank -%}
+      <a class="bd-nh-link" href="{{ section.settings.featured_product.url }}">{{ section.settings.link_label | default: 'See a full formulation' }} &rarr;</a>
+    {%- elsif section.settings.link_url != blank -%}
+      <a class="bd-nh-link" href="{{ section.settings.link_url }}">{{ section.settings.link_label | default: 'See a full formulation' }} &rarr;</a>
+    {%- endif -%}
+  </div>
+
+  <div class="bd-nh-card">
+    <div class="bd-nh-card-head">
+      <div>
+        <div class="bd-nh-card-title">{{ section.settings.card_title | default: 'CORE · DRY SENSITIVE' }}</div>
+        <div class="bd-nh-card-sub">{{ section.settings.card_subtitle | default: 'Full formulation by weight · batch 24-07' }}</div>
+      </div>
+      <div class="bd-nh-card-total">{{ section.settings.card_total | default: '100.0%' }}</div>
+    </div>
+
+    <div class="bd-nh-table">
+      {%- for block in section.blocks -%}
+        {%- if block.type == 'ingredient' -%}
+          {%- if block.settings.fill_class == 'functional' -%}
+            {%- assign bar_fill_color = '#8A9CA2' -%}
+          {%- else -%}
+            {%- assign bar_fill_color = '#80A89E' -%}
+          {%- endif -%}
+          <div class="bd-nh-row" {{ block.shopify_attributes }}>
+            <span class="bd-nh-ing">{{ block.settings.name }}</span>
+            <span class="bd-nh-bar-track"><span class="bd-nh-bar-fill" style="width:{{ block.settings.bar_width }}%; background:{{ bar_fill_color }};"></span></span>
+            <span class="bd-nh-pct">{{ block.settings.percentage }}</span>
+          </div>
+        {%- endif -%}
+      {%- endfor -%}
+    </div>
+
+    <div class="bd-nh-card-foot">
+      <span>{{ section.settings.footnote_left | default: '* certified organic · no synthetic fragrance' }}</span>
+      <span>{{ section.settings.footnote_right | default: 'Bars scaled to the largest ingredient · illustrative figures' }}</span>
+    </div>
+  </div>
+</div>
+
+{% stylesheet %}
+.bd-nh {
+  padding: 104px 80px;
+  background: #263E40;
+  display: grid;
+  grid-template-columns: 0.78fr 1.22fr;
+  gap: 64px;
+  align-items: center;
+}
+.bd-nh-eyebrow {
+  font-size: 12px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: #6BBBCC;
+  margin: 0 0 14px;
+}
+.bd-nh-h2 {
+  font-family: 'Roboto Condensed', sans-serif;
+  font-weight: 400;
+  font-size: 52px;
+  color: #fff;
+  margin: 0 0 22px;
+}
+.bd-nh-body { font-size: 18px; line-height: 1.7; color: #E4EAEA; margin-bottom: 18px; }
+.bd-nh-body p { margin: 0; }
+.bd-nh-link {
+  font-size: 17px;
+  color: #6BBBCC;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(107,187,204,.4);
+  padding-bottom: 3px;
+}
+.bd-nh-link:hover { color: #F47D5E; border-color: rgba(244,125,94,.5); }
+
+.bd-nh-card { background: #fff; padding: 34px 38px 30px; }
+.bd-nh-card-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  border-bottom: 1px solid #E0E1E2;
+  padding-bottom: 14px;
+  margin-bottom: 18px;
+}
+.bd-nh-card-title { font-family: 'Roboto Condensed', sans-serif; font-weight: 700; font-size: 19px; letter-spacing: .02em; color: #161617; }
+.bd-nh-card-sub { font-size: 13px; color: #57585C; margin-top: 3px; }
+.bd-nh-card-total { font-size: 13px; color: #57585C; }
+
+.bd-nh-table { display: flex; flex-direction: column; gap: 11px; }
+.bd-nh-row {
+  display: grid;
+  grid-template-columns: 275px 1fr 56px;
+  gap: 11px 18px;
+  align-items: center;
+  font-size: 14px;
+  color: #494A4D;
+}
+.bd-nh-bar-track { height: 10px; background: #F1F0EE; border-radius: 5px; overflow: hidden; }
+.bd-nh-bar-fill { display: block; height: 100%; border-radius: 5px; }
+.bd-nh-pct { text-align: right; font-variant-numeric: tabular-nums; color: #3F4042; }
+
+.bd-nh-card-foot {
+  margin-top: 18px;
+  padding-top: 14px;
+  border-top: 1px solid #E0E1E2;
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  font-size: 12.5px;
+  color: #57585C;
+}
+
+@media (max-width: 749px) {
+  .bd-nh { grid-template-columns: 1fr; padding: 44px 20px 40px; gap: 32px; }
+  .bd-nh-h2 { font-size: 38px; }
+  .bd-nh-card { padding: 24px 20px 22px; }
+  .bd-nh-row { grid-template-columns: 1fr 56px; grid-template-areas: "name pct" "bar bar"; row-gap: 4px; }
+  .bd-nh-ing { grid-area: name; }
+  .bd-nh-pct { grid-area: pct; }
+  .bd-nh-bar-track { grid-area: bar; }
+  .bd-nh-card-foot { flex-direction: column; gap: 4px; }
+}
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Home formulation",
+  "tag": "section",
+  "class": "shopify-section--bd-home-formulation",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "The full formulation"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Nothing hidden"
+    },
+    {
+      "type": "richtext",
+      "id": "body",
+      "label": "Body",
+      "default": "<p>We publish every formulation in full, every ingredient and the exact percentage we use. Most of the industry does not. You can read an ingredient list and make up your own mind.</p>"
+    },
+    {
+      "type": "text",
+      "id": "link_label",
+      "label": "Link label",
+      "default": "See a full formulation"
+    },
+    {
+      "type": "product",
+      "id": "featured_product",
+      "label": "Featured product",
+      "info": "The \"See a full formulation\" link points to this product's page. Falls back to the URL below if not set."
+    },
+    {
+      "type": "url",
+      "id": "link_url",
+      "label": "Fallback link (if no product picked)"
+    },
+    {
+      "type": "header",
+      "content": "Card"
+    },
+    {
+      "type": "text",
+      "id": "card_title",
+      "label": "Card title",
+      "default": "CORE · DRY SENSITIVE"
+    },
+    {
+      "type": "text",
+      "id": "card_subtitle",
+      "label": "Card subtitle",
+      "default": "Full formulation by weight · batch 24-07"
+    },
+    {
+      "type": "text",
+      "id": "card_total",
+      "label": "Card total",
+      "default": "100.0%"
+    },
+    {
+      "type": "text",
+      "id": "footnote_left",
+      "label": "Footnote (left)",
+      "default": "* certified organic · no synthetic fragrance"
+    },
+    {
+      "type": "text",
+      "id": "footnote_right",
+      "label": "Footnote (right)",
+      "default": "Bars scaled to the largest ingredient · illustrative figures"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "ingredient",
+      "name": "Ingredient row",
+      "settings": [
+        { "type": "text", "id": "name", "label": "INCI name" },
+        { "type": "text", "id": "percentage", "label": "Percentage (display text, e.g. 34.0%)" },
+        { "type": "range", "id": "bar_width", "label": "Bar width (% of largest ingredient)", "min": 0, "max": 100, "step": 1, "default": 50, "unit": "%" },
+        {
+          "type": "select",
+          "id": "fill_class",
+          "label": "Ingredient class",
+          "options": [
+            { "value": "active", "label": "Active / oil / botanical" },
+            { "value": "functional", "label": "Functional (water, emulsifier)" }
+          ],
+          "default": "active"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Home formulation",
+      "blocks": [
+        { "type": "ingredient", "settings": { "name": "Helianthus Annuus (Sunflower) Seed Oil*", "percentage": "34.0%", "bar_width": 100, "fill_class": "active" } },
+        { "type": "ingredient", "settings": { "name": "Aqua", "percentage": "22.0%", "bar_width": 65, "fill_class": "functional" } },
+        { "type": "ingredient", "settings": { "name": "Butyrospermum Parkii (Shea) Butter*", "percentage": "12.0%", "bar_width": 35, "fill_class": "active" } },
+        { "type": "ingredient", "settings": { "name": "Argania Spinosa (Argan) Kernel Oil*", "percentage": "9.0%", "bar_width": 27, "fill_class": "active" } },
+        { "type": "ingredient", "settings": { "name": "Cetearyl Alcohol", "percentage": "6.0%", "bar_width": 18, "fill_class": "functional" } },
+        { "type": "ingredient", "settings": { "name": "Glycerin", "percentage": "5.0%", "bar_width": 15, "fill_class": "functional" } },
+        { "type": "ingredient", "settings": { "name": "Fucus Vesiculosus (Bladderwrack) Extract", "percentage": "4.0%", "bar_width": 12, "fill_class": "active" } },
+        { "type": "ingredient", "settings": { "name": "Lactobacillus Ferment", "percentage": "3.0%", "bar_width": 9, "fill_class": "active" } },
+        { "type": "ingredient", "settings": { "name": "Cetearyl Glucoside", "percentage": "2.4%", "bar_width": 7, "fill_class": "functional" } },
+        { "type": "ingredient", "settings": { "name": "Tocopherol", "percentage": "1.0%", "bar_width": 3, "fill_class": "functional" } },
+        { "type": "ingredient", "settings": { "name": "Vetiveria Zizanoides (Vetiver) Root Oil", "percentage": "0.6%", "bar_width": 2, "fill_class": "active" } },
+        { "type": "ingredient", "settings": { "name": "Sodium Benzoate", "percentage": "0.5%", "bar_width": 2, "fill_class": "functional" } },
+        { "type": "ingredient", "settings": { "name": "Citric Acid", "percentage": "0.3%", "bar_width": 1, "fill_class": "functional" } },
+        { "type": "ingredient", "settings": { "name": "Potassium Sorbate", "percentage": "0.2%", "bar_width": 1, "fill_class": "functional" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

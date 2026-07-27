@@ -1,0 +1,154 @@
+{%- comment -%}
+  sections/home-newsletter.liquid
+  Seasonal signup band: Founders Club (phase A) or Journal signup (phase B).
+  Uses Shopify's native customer form; Founders Club members are tagged
+  "founders-club" on the customer record (10% discount/points administered
+  separately - not wired here, see design handoff open questions).
+{%- endcomment -%}
+
+<div class="bd-nl" id="founders-club" data-bd-nl>
+  <div class="bd-nl-copy">
+    {%- if section.settings.eyebrow != blank -%}<p class="bd-nl-eyebrow">{{ section.settings.eyebrow }}</p>{%- endif -%}
+    {%- if section.settings.heading != blank -%}<h2 class="bd-nl-h2">{{ section.settings.heading }}</h2>{%- endif -%}
+    {%- if section.settings.body != blank -%}<div class="bd-nl-body">{{ section.settings.body }}</div>{%- endif -%}
+    {%- if section.settings.small_print != blank -%}<p class="bd-nl-small">{{ section.settings.small_print }}</p>{%- endif -%}
+  </div>
+
+  <div class="bd-nl-form-wrap">
+    {%- form 'customer', id: 'bd-nl-form', class: 'bd-nl-form' -%}
+      <input type="hidden" name="contact[tags]" value="{{ section.settings.customer_tags | default: 'newsletter' }}">
+      {%- if form.posted_successfully? -%}
+        <p class="bd-nl-success">{{ section.settings.success_message | default: "Thanks - you're on the list." }}</p>
+      {%- else -%}
+        {%- if form.errors -%}
+          <p class="bd-nl-error">{{ form.errors.translated_fields.email | capitalize }} {{ form.errors.messages.email }}</p>
+        {%- endif -%}
+        <div class="bd-nl-row">
+          <input type="email" name="contact[email]" placeholder="Your email address" class="bd-nl-input" autocomplete="email" required>
+          <button type="submit" class="bd-nl-btn">{{ section.settings.button_label | default: 'Join' }}</button>
+        </div>
+      {%- endif -%}
+    {%- endform -%}
+  </div>
+</div>
+
+{% stylesheet %}
+.bd-nl {
+  padding: 88px 80px;
+  background: #FBFBF2;
+  border-top: 1px solid #E0E1E2;
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 72px;
+  max-width: 1180px;
+  margin: 0 auto;
+  align-items: center;
+}
+.bd-nl-eyebrow {
+  font-size: 12px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: #4E6D6C;
+  margin: 0 0 10px;
+}
+.bd-nl-h2 {
+  font-family: 'Roboto Condensed', sans-serif;
+  font-weight: 400;
+  font-size: 40px;
+  color: #3F4042;
+  margin: 0 0 16px;
+}
+.bd-nl-body { font-size: 17px; line-height: 1.65; max-width: 560px; color: #494A4D; margin-bottom: 12px; }
+.bd-nl-body p { margin: 0; }
+.bd-nl-small { font-size: 15px; line-height: 1.6; color: #57585C; margin: 8px 0 0; }
+.bd-nl-row { display: flex; gap: 10px; align-items: stretch; }
+.bd-nl-input {
+  flex: 1;
+  padding: 14px 16px;
+  font-size: 15px;
+  border: 1px solid #E0E1E2;
+  border-radius: 4px;
+  background: #fff;
+  box-sizing: border-box;
+}
+.bd-nl-btn {
+  font-family: 'Roboto Condensed', sans-serif;
+  font-weight: 700;
+  font-size: 15px;
+  background: #6BBBCC;
+  color: #161617;
+  border: 2px solid #6BBBCC;
+  border-radius: 14px;
+  padding: 0 26px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background-color .16s ease, border-color .16s ease;
+}
+.bd-nl-btn:hover { background: #F47D5E; border-color: #F47D5E; }
+.bd-nl-success { font-size: 16px; color: #4E6D6C; margin: 0; }
+.bd-nl-error { font-size: 14px; color: #963C3D; margin: 0 0 10px; }
+
+@media (max-width: 749px) {
+  .bd-nl { grid-template-columns: 1fr; padding: 40px 20px; gap: 28px; }
+  .bd-nl-h2 { font-size: 30px; }
+  .bd-nl-row { flex-direction: column; }
+  .bd-nl-btn { padding: 13px 26px; }
+}
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Home newsletter / club",
+  "tag": "section",
+  "class": "shopify-section--bd-home-newsletter",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "Closes 31 August"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Join the Founders Club"
+    },
+    {
+      "type": "richtext",
+      "id": "body",
+      "label": "Body",
+      "default": "<p>Sign up once and you are in for good. Members get 10% off every order, for as long as they are with us. On top of that, every order earns points worth 10% of what you spend, to put toward your next one. Free to join, and the discount never expires.</p>"
+    },
+    {
+      "type": "text",
+      "id": "small_print",
+      "label": "Small print",
+      "default": "Sign-up closes on 31 August. Members who have joined by then keep everything, permanently."
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button label",
+      "default": "Join"
+    },
+    {
+      "type": "text",
+      "id": "customer_tags",
+      "label": "Customer tags to apply on signup",
+      "info": "Comma-separated, e.g. \"newsletter, founders-club\". The 10% discount and points are administered separately - this only tags the customer record.",
+      "default": "newsletter, founders-club"
+    },
+    {
+      "type": "text",
+      "id": "success_message",
+      "label": "Success message",
+      "default": "Thanks - you're on the list."
+    }
+  ],
+  "presets": [
+    { "name": "Home newsletter / club" }
+  ]
+}
+{% endschema %}

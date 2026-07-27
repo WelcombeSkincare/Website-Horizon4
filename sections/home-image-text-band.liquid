@@ -1,0 +1,115 @@
+{%- comment -%}
+  sections/home-image-text-band.liquid
+  50/50 image + copy band, image side configurable. Used for both the
+  "Made for your microbiome" and "Why we started" sections.
+{%- endcomment -%}
+
+<div class="bd-itb {% if section.settings.image_position == 'right' %}bd-itb--img-right{% else %}bd-itb--img-left{% endif %}" style="background:{{ section.settings.background_color | default: '#ffffff' }};" data-bd-itb>
+  <div class="bd-itb-image">
+    {%- if section.settings.image != blank -%}
+      {{ section.settings.image | image_url: width: 1200 | image_tag: loading: 'lazy', widths: '400, 700, 1000, 1200', sizes: '(max-width: 749px) 100vw, 50vw', alt: section.settings.image.alt | default: section.settings.heading }}
+    {%- elsif section.settings.standin_asset != blank -%}
+      <img src="{{ section.settings.standin_asset | asset_url }}" loading="lazy" alt="{{ section.settings.heading | strip_html | escape }}">
+      {%- if section.settings.show_standin_badge -%}<span class="bd-itb-standin-badge">Stand-in — wants a real photo</span>{%- endif -%}
+    {%- endif -%}
+  </div>
+  <div class="bd-itb-copy">
+    {%- if section.settings.eyebrow != blank -%}<p class="bd-itb-eyebrow">{{ section.settings.eyebrow }}</p>{%- endif -%}
+    {%- if section.settings.heading != blank -%}<h2 class="bd-itb-h2">{{ section.settings.heading }}</h2>{%- endif -%}
+    {%- if section.settings.body != blank -%}<div class="bd-itb-body">{{ section.settings.body }}</div>{%- endif -%}
+    {%- if section.settings.link_label != blank -%}
+      <a class="bd-itb-link" href="{{ section.settings.link_url | default: '#' }}">{{ section.settings.link_label }} &rarr;</a>
+    {%- endif -%}
+  </div>
+</div>
+
+{% stylesheet %}
+.bd-itb {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+.bd-itb--img-right { grid-template-areas: "copy image"; }
+.bd-itb--img-right .bd-itb-copy { grid-area: copy; }
+.bd-itb--img-right .bd-itb-image { grid-area: image; }
+.bd-itb-image { position: relative; min-height: 480px; }
+.bd-itb-image img { width: 100%; height: 100%; object-fit: cover; display: block; position: absolute; inset: 0; }
+.bd-itb-standin-badge {
+  position: absolute; bottom: 12px; left: 12px; z-index: 1;
+  background: rgba(22,22,23,.78); color: #fff; font-size: 11px;
+  padding: 5px 10px; border-radius: 4px;
+}
+.bd-itb-copy { padding: 96px 80px; display: flex; flex-direction: column; justify-content: center; }
+.bd-itb-eyebrow {
+  font-size: 12px; letter-spacing: .14em; text-transform: uppercase; font-weight: 700;
+  color: #4E6D6C; margin: 0 0 14px;
+}
+.bd-itb-h2 {
+  font-family: 'Roboto Condensed', sans-serif; font-weight: 400; font-size: 44px;
+  color: #3F4042; margin: 0 0 22px;
+}
+.bd-itb-body { font-size: 18px; line-height: 1.7; max-width: 520px; color: #494A4D; margin-bottom: 14px; }
+.bd-itb-body p { margin: 0; }
+.bd-itb-link { font-size: 17px; color: #6BBBCC; text-decoration: none; }
+.bd-itb-link:hover { color: #F47D5E; }
+
+@media (max-width: 749px) {
+  .bd-itb, .bd-itb--img-right { grid-template-columns: 1fr; grid-template-areas: none; }
+  .bd-itb-image { min-height: 280px; order: 1; }
+  .bd-itb-copy { padding: 40px 20px; order: 2; }
+  .bd-itb--img-right .bd-itb-copy,
+  .bd-itb--img-right .bd-itb-image { grid-area: auto; }
+  .bd-itb-h2 { font-size: 30px; }
+  .bd-itb-body { font-size: 16px; max-width: none; }
+}
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Home image + text band",
+  "tag": "section",
+  "class": "shopify-section--bd-home-itb",
+  "settings": [
+    {
+      "type": "select",
+      "id": "image_position",
+      "label": "Image position",
+      "options": [
+        { "value": "left", "label": "Left" },
+        { "value": "right", "label": "Right" }
+      ],
+      "default": "left"
+    },
+    { "type": "color", "id": "background_color", "label": "Background colour", "default": "#ffffff" },
+    { "type": "image_picker", "id": "image", "label": "Image" },
+    {
+      "type": "select",
+      "id": "standin_asset",
+      "label": "Stand-in image (used until Image above is set)",
+      "options": [
+        { "value": "", "label": "None" },
+        { "value": "home-microbiome-standin.jpg", "label": "Coast, body products (dry)" },
+        { "value": "home-why-started-standin.jpg", "label": "Coast, face products (dry)" }
+      ],
+      "default": ""
+    },
+    { "type": "checkbox", "id": "show_standin_badge", "label": "Show \"stand-in\" badge on the image", "default": false },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow" },
+    { "type": "text", "id": "heading", "label": "Heading" },
+    { "type": "richtext", "id": "body", "label": "Body" },
+    { "type": "text", "id": "link_label", "label": "Link label" },
+    { "type": "url", "id": "link_url", "label": "Link" }
+  ],
+  "presets": [
+    {
+      "name": "Home image + text band",
+      "settings": {
+        "image_position": "left",
+        "heading": "Made for your microbiome",
+        "body": "<p>Your skin is a living surface with its own microbiome, the community of microbes that helps keep it healthy. The research points steadily in one direction. Skin tends to do better when that community is supported rather than stripped. So we formulate to nourish it, with prebiotics, postbiotics and cold-pressed oils, and we leave synthetic fragrance out entirely.</p>",
+        "link_label": "Read the science",
+        "standin_asset": "home-microbiome-standin.jpg"
+      }
+    }
+  ]
+}
+{% endschema %}

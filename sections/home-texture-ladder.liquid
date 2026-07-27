@@ -1,0 +1,183 @@
+{%- comment -%}
+  sections/home-texture-ladder.liquid
+  Three texture rows (Flow / Core / Deep) on one shared oil-load scale.
+  Design ref: Biotaderm Home Page v2, #2a/#3a.
+{%- endcomment -%}
+
+<div class="bd-tl" id="texture" data-bd-tl>
+  {%- if section.settings.heading != blank -%}<h2 class="bd-tl-h2">{{ section.settings.heading }}</h2>{%- endif -%}
+  {%- if section.settings.intro != blank -%}<div class="bd-tl-intro">{{ section.settings.intro }}</div>{%- endif -%}
+
+  <div class="bd-tl-rows">
+    {%- for block in section.blocks -%}
+      {%- if block.type == 'texture' -%}
+        <div class="bd-tl-row" {{ block.shopify_attributes }}>
+          <span class="bd-tl-word" style="color:{{ block.settings.word_color }};">{{ block.settings.word }}</span>
+          <span class="bd-tl-copy">{{ block.settings.copy }}</span>
+          <span class="bd-tl-bar">
+            <span class="bd-tl-bar-track">
+              <span class="bd-tl-bar-fill" style="width:{{ block.settings.bar_width }}%; background:{{ block.settings.bar_color }};"></span>
+            </span>
+          </span>
+          <a class="bd-tl-link" href="{{ block.settings.link | default: '#' }}">{{ block.settings.link_label | default: 'Shop' }} &rarr;</a>
+        </div>
+      {%- endif -%}
+    {%- endfor -%}
+  </div>
+
+  <div class="bd-tl-closing">
+    <p class="bd-tl-closing-left">{{ section.settings.closing_text }}</p>
+    <p class="bd-tl-closing-right">{{ section.settings.bar_note | default: 'Bars show relative oil load' }}</p>
+  </div>
+</div>
+
+{% stylesheet %}
+.bd-tl {
+  padding: 104px 80px 96px;
+  background: #fff;
+  border-top: 1px solid #E0E1E2;
+}
+.bd-tl-h2 {
+  font-family: 'Roboto Condensed', sans-serif;
+  font-weight: 400;
+  font-size: 46px;
+  color: #3F4042;
+  margin: 0 0 16px;
+}
+.bd-tl-intro { font-size: 18px; line-height: 1.65; max-width: 780px; margin: 0 0 44px; color: #494A4D; }
+.bd-tl-intro p { margin: 0; }
+
+.bd-tl-rows { display: flex; flex-direction: column; gap: 2px; }
+.bd-tl-row {
+  display: grid;
+  grid-template-columns: 150px 1fr 320px 130px;
+  gap: 32px;
+  align-items: center;
+  background: #FAF7F5;
+  border: 1px solid #E0E1E2;
+  padding: 28px 32px;
+}
+.bd-tl-word {
+  font-family: 'Roboto Condensed', sans-serif;
+  font-weight: 700;
+  font-size: 30px;
+  letter-spacing: .03em;
+  text-transform: uppercase;
+}
+.bd-tl-copy { font-size: 16px; line-height: 1.55; color: #494A4D; }
+.bd-tl-bar-track { display: block; height: 12px; background: #EDEBE9; border-radius: 6px; overflow: hidden; }
+.bd-tl-bar-fill { display: block; height: 100%; border-radius: 6px; }
+.bd-tl-link { font-size: 15px; text-align: right; color: #6BBBCC; text-decoration: none; white-space: nowrap; }
+.bd-tl-link:hover { color: #F47D5E; }
+
+.bd-tl-closing {
+  margin-top: 28px;
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+}
+.bd-tl-closing-left { font-size: 17px; line-height: 1.65; color: #4E6D6C; max-width: 700px; margin: 0; }
+.bd-tl-closing-right { font-size: 13px; color: #57585C; white-space: nowrap; margin: 0; }
+
+@media (max-width: 749px) {
+  .bd-tl { padding: 44px 20px 40px; }
+  .bd-tl-h2 { font-size: 30px; }
+  .bd-tl-row {
+    grid-template-columns: 1fr;
+    gap: 10px;
+    padding: 20px 18px;
+  }
+  .bd-tl-word { font-size: 26px; }
+  .bd-tl-link { text-align: left; }
+  .bd-tl-closing { flex-direction: column; gap: 8px; }
+}
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Home texture ladder",
+  "tag": "section",
+  "class": "shopify-section--bd-home-texture",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Three textures, not a dozen products"
+    },
+    {
+      "type": "richtext",
+      "id": "intro",
+      "label": "Intro",
+      "default": "<p>Most face creams, body lotions, hand creams and foot balms are the same handful of ingredients at different thicknesses, sold to you as four products. We would rather give you three honest textures and trust you to put them where they suit.</p>"
+    },
+    {
+      "type": "textarea",
+      "id": "closing_text",
+      "label": "Closing text",
+      "default": "The only thing that changes between them is how much cold-pressed organic oil each one carries. More oil, more richness. Everything else stays the same."
+    },
+    {
+      "type": "text",
+      "id": "bar_note",
+      "label": "Bar note (right)",
+      "default": "Bars show relative oil load"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "texture",
+      "name": "Texture row",
+      "settings": [
+        { "type": "text", "id": "word", "label": "Wordmark (e.g. FLOW)" },
+        { "type": "color", "id": "word_color", "label": "Wordmark colour" },
+        { "type": "textarea", "id": "copy", "label": "Copy" },
+        { "type": "range", "id": "bar_width", "label": "Oil-load bar width", "min": 0, "max": 100, "step": 1, "default": 50, "unit": "%" },
+        { "type": "color", "id": "bar_color", "label": "Bar fill colour" },
+        { "type": "text", "id": "link_label", "label": "Link label" },
+        { "type": "url", "id": "link", "label": "Link" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Home texture ladder",
+      "blocks": [
+        {
+          "type": "texture",
+          "settings": {
+            "word": "Flow",
+            "word_color": "#4E6D6C",
+            "copy": "The lightest. A fluid moisturiser that sinks in quickly, the easy choice for the face and for skin that likes a light touch.",
+            "bar_width": 32,
+            "bar_color": "#D7E0DD",
+            "link_label": "Shop Flow"
+          }
+        },
+        {
+          "type": "texture",
+          "settings": {
+            "word": "Core",
+            "word_color": "#4E6D6C",
+            "copy": "The middle. Richer and more cushioning, suited to the body and everyday use.",
+            "bar_width": 64,
+            "bar_color": "#4E6D6C",
+            "link_label": "Shop Core"
+          }
+        },
+        {
+          "type": "texture",
+          "settings": {
+            "word": "Deep",
+            "word_color": "#263E40",
+            "copy": "The richest. A substantial cream for the parts that take the most punishment, hands, elbows, knees and feet.",
+            "bar_width": 100,
+            "bar_color": "#263E40",
+            "link_label": "Shop Deep"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

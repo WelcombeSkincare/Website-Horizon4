@@ -1,0 +1,189 @@
+{%- comment -%}
+  sections/home-hero.liquid
+  Split hero: left column type, right column full-bleed image.
+  Design ref: Biotaderm Home Page v2, #2a (desktop) / #3a (mobile).
+{%- endcomment -%}
+
+<div class="bd-hh" data-bd-hh>
+  <div class="bd-hh-left">
+    {%- if section.settings.tagline != blank -%}
+      <p class="bd-hh-tagline">{{ section.settings.tagline }}</p>
+    {%- endif -%}
+    {%- if section.settings.eyebrow != blank -%}
+      <p class="bd-hh-eyebrow">{{ section.settings.eyebrow }}</p>
+    {%- endif -%}
+    {%- if section.settings.heading != blank -%}
+      <h1 class="bd-hh-h1">{{ section.settings.heading }}</h1>
+    {%- endif -%}
+    {%- if section.settings.body != blank -%}
+      <div class="bd-hh-body">{{ section.settings.body }}</div>
+    {%- endif -%}
+    <div class="bd-hh-buttons">
+      {%- if section.settings.primary_label != blank -%}
+        <a href="{{ section.settings.primary_link | default: '#' }}" class="bd-hh-btn bd-hh-btn--primary">{{ section.settings.primary_label }}</a>
+      {%- endif -%}
+      {%- if section.settings.secondary_label != blank -%}
+        <a href="{{ section.settings.secondary_link | default: '#' }}" class="bd-hh-btn bd-hh-btn--secondary">{{ section.settings.secondary_label }}</a>
+      {%- endif -%}
+    </div>
+  </div>
+  <div class="bd-hh-right">
+    {%- if section.settings.image != blank -%}
+      {{ section.settings.image | image_url: width: 1800 | image_tag: loading: 'eager', widths: '600, 900, 1200, 1800', sizes: '(max-width: 749px) 100vw, 50vw', alt: section.settings.image.alt | default: section.settings.heading }}
+    {%- else -%}
+      <img src="{{ 'home-hero-standin.jpg' | asset_url }}" loading="eager" alt="{{ section.settings.heading | strip_html | escape }}">
+    {%- endif -%}
+  </div>
+</div>
+
+{% stylesheet %}
+.bd-hh {
+  --ink-h1: #161617; --tidewater: #4E6D6C; --seaglass: #6BBBCC; --coral: #F47D5E;
+  --ink-body: #494A4D; --bg-stone: #FAF7F5;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 600px;
+  background: #fff;
+}
+.bd-hh-left {
+  padding: 96px 72px 88px 80px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.bd-hh-tagline {
+  font-family: 'Roboto Condensed', sans-serif;
+  font-size: 19px;
+  color: #3F4042;
+  margin: 0 0 6px;
+}
+.bd-hh-tagline strong { font-weight: 700; }
+.bd-hh-eyebrow {
+  font-size: 13px;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: var(--tidewater);
+  margin: 0 0 30px;
+}
+.bd-hh-h1 {
+  font-family: 'Roboto Condensed', sans-serif;
+  font-weight: 400;
+  font-size: 58px;
+  line-height: 1.06;
+  color: var(--ink-h1);
+  max-width: 590px;
+  margin: 0;
+}
+.bd-hh-body {
+  font-size: 18px;
+  line-height: 1.65;
+  color: var(--ink-body);
+  max-width: 520px;
+  margin-top: 26px;
+  text-wrap: pretty;
+}
+.bd-hh-body p { margin: 0; }
+.bd-hh-buttons { display: flex; gap: 14px; margin-top: 34px; flex-wrap: wrap; }
+.bd-hh-btn {
+  font-family: 'Roboto Condensed', sans-serif;
+  font-weight: 700;
+  font-size: 15px;
+  border-radius: 14px;
+  padding: 13px 26px;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background-color .16s ease, border-color .16s ease;
+  display: inline-block;
+}
+.bd-hh-btn--primary {
+  background: var(--seaglass);
+  color: var(--ink-h1);
+  border: 2px solid var(--seaglass);
+}
+.bd-hh-btn--primary:hover { background: var(--coral); border-color: var(--coral); }
+.bd-hh-btn--secondary {
+  background: #0000000f;
+  color: var(--ink-h1);
+  border: 1px solid #3D6A75;
+}
+.bd-hh-btn--secondary:hover { border-color: var(--coral); color: var(--coral); }
+.bd-hh-right { position: relative; background: var(--bg-stone); }
+.bd-hh-right img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+@media (max-width: 749px) {
+  .bd-hh { grid-template-columns: 1fr; min-height: 0; }
+  .bd-hh-left { padding: 36px 20px 32px; order: 1; }
+  .bd-hh-tagline { font-size: 17px; }
+  .bd-hh-eyebrow { font-size: 12px; margin-bottom: 22px; }
+  .bd-hh-h1 { font-size: 38px; line-height: 1.08; max-width: none; }
+  .bd-hh-body { font-size: 16.5px; line-height: 1.6; max-width: none; margin-top: 18px; }
+  .bd-hh-buttons { flex-direction: column; margin-top: 24px; gap: 10px; }
+  .bd-hh-btn { width: 100%; text-align: center; min-height: 52px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; }
+  .bd-hh-right { order: 2; height: 280px; }
+}
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Home hero (split)",
+  "tag": "section",
+  "class": "shopify-section--bd-home-hero",
+  "settings": [
+    {
+      "type": "text",
+      "id": "tagline",
+      "label": "Tagline (HTML allowed, e.g. <strong> for bold)",
+      "default": "Skin<strong>Biome</strong>Nourishment"
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "Support not control"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Moisturisers formulated for your skin type and the microbiome it carries."
+    },
+    {
+      "type": "richtext",
+      "id": "body",
+      "label": "Body",
+      "default": "<p>Formulated by a chemist from the published science, then made by hand in small batches on the north Devon coast. Cold-pressed organic oils, every ingredient listed in plain English, every percentage published.</p>"
+    },
+    {
+      "type": "text",
+      "id": "primary_label",
+      "label": "Primary button label",
+      "default": "Find your skin type"
+    },
+    {
+      "type": "url",
+      "id": "primary_link",
+      "label": "Primary button link"
+    },
+    {
+      "type": "text",
+      "id": "secondary_label",
+      "label": "Secondary button label",
+      "default": "Our range"
+    },
+    {
+      "type": "url",
+      "id": "secondary_link",
+      "label": "Secondary button link"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image",
+      "info": "Falls back to a stand-in coastal photo until a real image is set."
+    }
+  ],
+  "presets": [
+    { "name": "Home hero (split)" }
+  ]
+}
+{% endschema %}

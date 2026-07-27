@@ -1,0 +1,80 @@
+{%- comment -%}
+  sections/home-ethos-strip.liquid
+  Ethos icon strip. Icons are monochrome SVGs locked to one brand colour each
+  (assets/ethos-*.svg) - never recolour, never substitute a generic icon.
+{%- endcomment -%}
+
+<div class="bd-es" data-bd-es>
+  {%- for block in section.blocks -%}
+    {%- if block.type == 'ethos' -%}
+      <div class="bd-es-item" {{ block.shopify_attributes }}>
+        <img src="{{ block.settings.icon | default: 'ethos-gentle.svg' | asset_url }}" alt="" class="bd-es-icon" width="26" height="26" loading="lazy">
+        <span class="bd-es-label">{{ block.settings.label }}</span>
+      </div>
+    {%- endif -%}
+  {%- endfor -%}
+</div>
+
+{% stylesheet %}
+.bd-es {
+  background: #fff;
+  border-top: 1px solid #E0E1E2;
+  border-bottom: 1px solid #E0E1E2;
+  padding: 22px 80px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 32px;
+}
+.bd-es-item { display: flex; align-items: center; gap: 10px; }
+.bd-es-icon { width: 26px; height: 26px; flex-shrink: 0; display: block; }
+.bd-es-label { font-size: 13.5px; color: #57585C; line-height: 1.3; }
+
+@media (max-width: 749px) {
+  .bd-es { grid-template-columns: repeat(2, 1fr); padding: 20px; gap: 18px; }
+}
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Home ethos strip",
+  "tag": "section",
+  "class": "shopify-section--bd-home-ethos",
+  "settings": [],
+  "blocks": [
+    {
+      "type": "ethos",
+      "name": "Ethos item",
+      "settings": [
+        {
+          "type": "select",
+          "id": "icon",
+          "label": "Icon",
+          "options": [
+            { "value": "ethos-microbiome.svg", "label": "Microbiome Friendly" },
+            { "value": "ethos-gentle.svg", "label": "Gentle, skin friendly" },
+            { "value": "ethos-climate.svg", "label": "Climate Clear" },
+            { "value": "ethos-formulation.svg", "label": "Formulation Clear" },
+            { "value": "ethos-cruelty.svg", "label": "Cruelty Free" },
+            { "value": "ethos-science.svg", "label": "Science Led" },
+            { "value": "ethos-business.svg", "label": "Business Clear" },
+            { "value": "ethos-natural.svg", "label": "Natural" }
+          ],
+          "default": "ethos-gentle.svg"
+        },
+        { "type": "text", "id": "label", "label": "Label" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Home ethos strip",
+      "blocks": [
+        { "type": "ethos", "settings": { "icon": "ethos-gentle.svg", "label": "Made by hand in Welcombe, Devon" } },
+        { "type": "ethos", "settings": { "icon": "ethos-cruelty.svg", "label": "Vegan and cruelty-free" } },
+        { "type": "ethos", "settings": { "icon": "ethos-climate.svg", "label": "Aluminium packaging, widely recycled" } },
+        { "type": "ethos", "settings": { "icon": "ethos-formulation.svg", "label": "Every formulation published in full" } }
+      ]
+    }
+  ]
+}
+{% endschema %}
