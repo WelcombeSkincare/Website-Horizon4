@@ -1,8 +1,26 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "home_hero": {
       "type": "home-hero",
-      "settings": {}
+      "settings": {
+        "tagline": "Skin<strong>Biome</strong>Nourishment",
+        "eyebrow": "Support not control",
+        "heading": "Moisturisers formulated for your skin type and the microbiome it carries.",
+        "body": "<p>Formulated by a chemist from the published science, then made by hand in small batches on the north Devon coast. Cold-pressed organic oils, every ingredient listed in plain English, every percentage published.</p>",
+        "primary_label": "Find your skin type",
+        "primary_link": "",
+        "secondary_label": "Our range",
+        "secondary_link": ""
+      }
     },
     "home_skin_sorter": {
       "type": "home-skin-sorter",
@@ -13,8 +31,9 @@
             "index": "01",
             "title": "Dry Sensitive",
             "description": "Skin that feels tight and reacts easily, and wants calm, careful nourishment.",
-            "bg_color": "#80A89E",
-            "text_color": "#ffffff"
+            "bg_color": "#80a89e",
+            "text_color": "#ffffff",
+            "link": ""
           }
         },
         "tile_02": {
@@ -23,8 +42,9 @@
             "index": "02",
             "title": "Dry",
             "description": "Skin that drinks up moisture and wants richer, longer-lasting hydration.",
-            "bg_color": "#F47D5E",
-            "text_color": "#ffffff"
+            "bg_color": "#f47d5e",
+            "text_color": "#ffffff",
+            "link": ""
           }
         },
         "tile_03": {
@@ -33,8 +53,9 @@
             "index": "03",
             "title": "Balanced",
             "description": "Skin that is mostly comfortable and would like to stay that way.",
-            "bg_color": "#6BBBCC",
-            "text_color": "#ffffff"
+            "bg_color": "#6bbbcc",
+            "text_color": "#ffffff",
+            "link": ""
           }
         },
         "tile_04": {
@@ -43,8 +64,9 @@
             "index": "04",
             "title": "Oily",
             "description": "Skin that makes plenty of its own oil and wants light, non-greasy support.",
-            "bg_color": "#C2CA53",
-            "text_color": "#525523"
+            "bg_color": "{{ settings.color_palette.color14 }}",
+            "text_color": "#525523",
+            "link": ""
           }
         },
         "tile_05": {
@@ -53,13 +75,29 @@
             "index": "05",
             "title": "Oily Sensitive",
             "description": "Oilier skin that still reacts easily, and wants lightness with care.",
-            "bg_color": "#A37594",
-            "text_color": "#ffffff"
+            "bg_color": "#a37594",
+            "text_color": "#ffffff",
+            "link": ""
           }
         }
       },
-      "block_order": ["tile_01", "tile_02", "tile_03", "tile_04", "tile_05"],
-      "settings": {}
+      "block_order": [
+        "tile_01",
+        "tile_02",
+        "tile_03",
+        "tile_04",
+        "tile_05"
+      ],
+      "settings": {
+        "heading": "Start with your skin type",
+        "intro": "<p>Everything we make is built around five skin types. Find yours, then choose how light or rich you'd like it.</p>",
+        "finder_title": "Not sure yet",
+        "finder_body": "Six questions about how your skin behaves, and we will tell you which of the five you are.",
+        "finder_button_label": "Find my type",
+        "finder_link": "",
+        "footer_text": "Not sure which you are?",
+        "footer_link_label": "Take the skin type finder"
+      }
     },
     "home_texture_ladder": {
       "type": "home-texture-ladder",
@@ -68,93 +106,289 @@
           "type": "texture",
           "settings": {
             "word": "Flow",
-            "word_color": "#4E6D6C",
+            "word_color": "#4e6d6c",
             "copy": "The lightest. A fluid moisturiser that sinks in quickly, the easy choice for the face and for skin that likes a light touch.",
             "bar_width": 32,
-            "bar_color": "#D7E0DD",
-            "link_label": "Shop Flow"
+            "bar_color": "#d7e0dd",
+            "link_label": "Shop Flow",
+            "link": ""
           }
         },
         "texture_core": {
           "type": "texture",
           "settings": {
             "word": "Core",
-            "word_color": "#4E6D6C",
+            "word_color": "#4e6d6c",
             "copy": "The middle. Richer and more cushioning, suited to the body and everyday use.",
             "bar_width": 64,
-            "bar_color": "#4E6D6C",
-            "link_label": "Shop Core"
+            "bar_color": "#4e6d6c",
+            "link_label": "Shop Core",
+            "link": ""
           }
         },
         "texture_deep": {
           "type": "texture",
           "settings": {
             "word": "Deep",
-            "word_color": "#263E40",
+            "word_color": "#263e40",
             "copy": "The richest. A substantial cream for the parts that take the most punishment, hands, elbows, knees and feet.",
             "bar_width": 100,
-            "bar_color": "#263E40",
-            "link_label": "Shop Deep"
+            "bar_color": "#263e40",
+            "link_label": "Shop Deep",
+            "link": ""
           }
         }
       },
-      "block_order": ["texture_flow", "texture_core", "texture_deep"],
-      "settings": {}
+      "block_order": [
+        "texture_flow",
+        "texture_core",
+        "texture_deep"
+      ],
+      "settings": {
+        "heading": "Three textures, not a dozen products",
+        "intro": "<p>Most face creams, body lotions, hand creams and foot balms are the same handful of ingredients at different thicknesses, sold to you as four products. We would rather give you three honest textures and trust you to put them where they suit.</p>",
+        "closing_text": "The only thing that changes between them is how much cold-pressed organic oil each one carries. More oil, more richness. Everything else stays the same.",
+        "bar_note": "Bars show relative oil load"
+      }
     },
     "home_newsletter": {
       "type": "home-newsletter",
-      "settings": {}
+      "settings": {
+        "eyebrow": "Closes 31 August",
+        "heading": "Join the Founders Club",
+        "body": "<p>Sign up once and you are in for good. Members get 10% off every order, for as long as they are with us. On top of that, every order earns points worth 10% of what you spend, to put toward your next one. Free to join, and the discount never expires.</p>",
+        "small_print": "Sign-up closes on 31 August. Members who have joined by then keep everything, permanently.",
+        "button_label": "Join",
+        "customer_tags": "newsletter, founders-club",
+        "success_message": "Thanks - you're on the list."
+      }
     },
     "home_formulation": {
       "type": "home-formulation",
       "blocks": {
-        "ing_01": { "type": "ingredient", "settings": { "name": "Helianthus Annuus (Sunflower) Seed Oil*", "percentage": "34.0%", "bar_width": 100, "fill_class": "active" } },
-        "ing_02": { "type": "ingredient", "settings": { "name": "Aqua", "percentage": "22.0%", "bar_width": 65, "fill_class": "functional" } },
-        "ing_03": { "type": "ingredient", "settings": { "name": "Butyrospermum Parkii (Shea) Butter*", "percentage": "12.0%", "bar_width": 35, "fill_class": "active" } },
-        "ing_04": { "type": "ingredient", "settings": { "name": "Argania Spinosa (Argan) Kernel Oil*", "percentage": "9.0%", "bar_width": 27, "fill_class": "active" } },
-        "ing_05": { "type": "ingredient", "settings": { "name": "Cetearyl Alcohol", "percentage": "6.0%", "bar_width": 18, "fill_class": "functional" } },
-        "ing_06": { "type": "ingredient", "settings": { "name": "Glycerin", "percentage": "5.0%", "bar_width": 15, "fill_class": "functional" } },
-        "ing_07": { "type": "ingredient", "settings": { "name": "Fucus Vesiculosus (Bladderwrack) Extract", "percentage": "4.0%", "bar_width": 12, "fill_class": "active" } },
-        "ing_08": { "type": "ingredient", "settings": { "name": "Lactobacillus Ferment", "percentage": "3.0%", "bar_width": 9, "fill_class": "active" } },
-        "ing_09": { "type": "ingredient", "settings": { "name": "Cetearyl Glucoside", "percentage": "2.4%", "bar_width": 7, "fill_class": "functional" } },
-        "ing_10": { "type": "ingredient", "settings": { "name": "Tocopherol", "percentage": "1.0%", "bar_width": 3, "fill_class": "functional" } },
-        "ing_11": { "type": "ingredient", "settings": { "name": "Vetiveria Zizanoides (Vetiver) Root Oil", "percentage": "0.6%", "bar_width": 2, "fill_class": "active" } },
-        "ing_12": { "type": "ingredient", "settings": { "name": "Sodium Benzoate", "percentage": "0.5%", "bar_width": 2, "fill_class": "functional" } },
-        "ing_13": { "type": "ingredient", "settings": { "name": "Citric Acid", "percentage": "0.3%", "bar_width": 1, "fill_class": "functional" } },
-        "ing_14": { "type": "ingredient", "settings": { "name": "Potassium Sorbate", "percentage": "0.2%", "bar_width": 1, "fill_class": "functional" } }
+        "ing_01": {
+          "type": "ingredient",
+          "settings": {
+            "name": "Helianthus Annuus (Sunflower) Seed Oil*",
+            "percentage": "34.0%",
+            "bar_width": 100,
+            "fill_class": "active"
+          }
+        },
+        "ing_02": {
+          "type": "ingredient",
+          "settings": {
+            "name": "Aqua",
+            "percentage": "22.0%",
+            "bar_width": 65,
+            "fill_class": "functional"
+          }
+        },
+        "ing_03": {
+          "type": "ingredient",
+          "settings": {
+            "name": "Butyrospermum Parkii (Shea) Butter*",
+            "percentage": "12.0%",
+            "bar_width": 35,
+            "fill_class": "active"
+          }
+        },
+        "ing_04": {
+          "type": "ingredient",
+          "settings": {
+            "name": "Argania Spinosa (Argan) Kernel Oil*",
+            "percentage": "9.0%",
+            "bar_width": 27,
+            "fill_class": "active"
+          }
+        },
+        "ing_05": {
+          "type": "ingredient",
+          "settings": {
+            "name": "Cetearyl Alcohol",
+            "percentage": "6.0%",
+            "bar_width": 18,
+            "fill_class": "functional"
+          }
+        },
+        "ing_06": {
+          "type": "ingredient",
+          "settings": {
+            "name": "Glycerin",
+            "percentage": "5.0%",
+            "bar_width": 15,
+            "fill_class": "functional"
+          }
+        },
+        "ing_07": {
+          "type": "ingredient",
+          "settings": {
+            "name": "Fucus Vesiculosus (Bladderwrack) Extract",
+            "percentage": "4.0%",
+            "bar_width": 12,
+            "fill_class": "active"
+          }
+        },
+        "ing_08": {
+          "type": "ingredient",
+          "settings": {
+            "name": "Lactobacillus Ferment",
+            "percentage": "3.0%",
+            "bar_width": 9,
+            "fill_class": "active"
+          }
+        },
+        "ing_09": {
+          "type": "ingredient",
+          "settings": {
+            "name": "Cetearyl Glucoside",
+            "percentage": "2.4%",
+            "bar_width": 7,
+            "fill_class": "functional"
+          }
+        },
+        "ing_10": {
+          "type": "ingredient",
+          "settings": {
+            "name": "Tocopherol",
+            "percentage": "1.0%",
+            "bar_width": 3,
+            "fill_class": "functional"
+          }
+        },
+        "ing_11": {
+          "type": "ingredient",
+          "settings": {
+            "name": "Vetiveria Zizanoides (Vetiver) Root Oil",
+            "percentage": "0.6%",
+            "bar_width": 2,
+            "fill_class": "active"
+          }
+        },
+        "ing_12": {
+          "type": "ingredient",
+          "settings": {
+            "name": "Sodium Benzoate",
+            "percentage": "0.5%",
+            "bar_width": 2,
+            "fill_class": "functional"
+          }
+        },
+        "ing_13": {
+          "type": "ingredient",
+          "settings": {
+            "name": "Citric Acid",
+            "percentage": "0.3%",
+            "bar_width": 1,
+            "fill_class": "functional"
+          }
+        },
+        "ing_14": {
+          "type": "ingredient",
+          "settings": {
+            "name": "Potassium Sorbate",
+            "percentage": "0.2%",
+            "bar_width": 1,
+            "fill_class": "functional"
+          }
+        }
       },
-      "block_order": ["ing_01", "ing_02", "ing_03", "ing_04", "ing_05", "ing_06", "ing_07", "ing_08", "ing_09", "ing_10", "ing_11", "ing_12", "ing_13", "ing_14"],
-      "settings": {}
+      "block_order": [
+        "ing_01",
+        "ing_02",
+        "ing_03",
+        "ing_04",
+        "ing_05",
+        "ing_06",
+        "ing_07",
+        "ing_08",
+        "ing_09",
+        "ing_10",
+        "ing_11",
+        "ing_12",
+        "ing_13",
+        "ing_14"
+      ],
+      "settings": {
+        "eyebrow": "The full formulation",
+        "heading": "Nothing hidden",
+        "body": "<p>We publish every formulation in full, every ingredient and the exact percentage we use. Most of the industry does not. You can read an ingredient list and make up your own mind.</p>",
+        "link_label": "See a full formulation",
+        "featured_product": "",
+        "link_url": "",
+        "card_title": "CORE · DRY SENSITIVE",
+        "card_subtitle": "Full formulation by weight · batch 24-07",
+        "card_total": "100.0%",
+        "footnote_left": "* certified organic · no synthetic fragrance",
+        "footnote_right": "Bars scaled to the largest ingredient · illustrative figures"
+      }
     },
     "home_itb_microbiome": {
       "type": "home-image-text-band",
       "settings": {
         "image_position": "left",
+        "background_color": "#ffffff",
+        "standin_asset": "home-microbiome-standin.jpg",
+        "show_standin_badge": false,
+        "eyebrow": "",
         "heading": "Made for your microbiome",
         "body": "<p>Your skin is a living surface with its own microbiome, the community of microbes that helps keep it healthy. The research points steadily in one direction. Skin tends to do better when that community is supported rather than stripped. So we formulate to nourish it, with prebiotics, postbiotics and cold-pressed oils, and we leave synthetic fragrance out entirely.</p>",
         "link_label": "Read the science",
-        "standin_asset": "home-microbiome-standin.jpg"
+        "link_url": ""
       }
     },
     "home_itb_why_started": {
       "type": "home-image-text-band",
       "settings": {
         "image_position": "right",
+        "background_color": "#ffffff",
+        "standin_asset": "home-why-started-standin.jpg",
+        "show_standin_badge": false,
+        "eyebrow": "",
         "heading": "Why we started",
         "body": "<p>Biotaderm began on the north Devon coast with a simple frustration: skincare labels that told you almost nothing. We set out to make the opposite. Every formulation published in full, every percentage listed, nothing hidden behind a marketing name.</p>",
         "link_label": "Read our story",
-        "standin_asset": "home-why-started-standin.jpg"
+        "link_url": ""
       }
     },
     "home_ethos_strip": {
       "type": "home-ethos-strip",
       "blocks": {
-        "ethos_gentle": { "type": "ethos", "settings": { "icon": "ethos-gentle.svg", "label": "Made by hand in Welcombe, Devon" } },
-        "ethos_cruelty": { "type": "ethos", "settings": { "icon": "ethos-cruelty.svg", "label": "Vegan and cruelty-free" } },
-        "ethos_climate": { "type": "ethos", "settings": { "icon": "ethos-climate.svg", "label": "Aluminium packaging, widely recycled" } },
-        "ethos_formulation": { "type": "ethos", "settings": { "icon": "ethos-formulation.svg", "label": "Every formulation published in full" } }
+        "ethos_gentle": {
+          "type": "ethos",
+          "settings": {
+            "icon": "ethos-gentle.svg",
+            "label": "Made by hand in Welcombe, Devon"
+          }
+        },
+        "ethos_cruelty": {
+          "type": "ethos",
+          "settings": {
+            "icon": "ethos-cruelty.svg",
+            "label": "Vegan and cruelty-free"
+          }
+        },
+        "ethos_climate": {
+          "type": "ethos",
+          "settings": {
+            "icon": "ethos-climate.svg",
+            "label": "Aluminium packaging, widely recycled"
+          }
+        },
+        "ethos_formulation": {
+          "type": "ethos",
+          "settings": {
+            "icon": "ethos-formulation.svg",
+            "label": "Every formulation published in full"
+          }
+        }
       },
-      "block_order": ["ethos_gentle", "ethos_cruelty", "ethos_climate", "ethos_formulation"],
+      "block_order": [
+        "ethos_gentle",
+        "ethos_cruelty",
+        "ethos_climate",
+        "ethos_formulation"
+      ],
       "settings": {}
     },
     "home_journal": {
@@ -167,20 +401,158 @@
             "width": "fit-content",
             "max_width": "normal",
             "alignment": "left",
-            "type_preset": "h2"
-          }
+            "type_preset": "h2",
+            "font": "var(--font-body--family)",
+            "font_size": "1rem",
+            "line_height": "normal",
+            "letter_spacing": "normal",
+            "case": "none",
+            "wrap": "pretty",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        },
+        "static-blog-title": {
+          "type": "_featured-blog-posts-title",
+          "static": true,
+          "settings": {
+            "text": "",
+            "width": "fit-content",
+            "max_width": "normal",
+            "alignment": "left",
+            "type_preset": "rte",
+            "font": "var(--font-body--family)",
+            "font_size": "1rem",
+            "line_height": "normal",
+            "letter_spacing": "normal",
+            "case": "none",
+            "wrap": "pretty",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        },
+        "static-blog-post-card": {
+          "type": "_featured-blog-posts-card",
+          "static": true,
+          "settings": {
+            "alignment": "left",
+            "gap": 8,
+            "background_color": "",
+            "border": "none",
+            "border_width": 1,
+            "border_opacity": 100,
+            "border_color": "",
+            "border_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {
+            "image": {
+              "type": "_featured-blog-posts-image",
+              "static": true,
+              "settings": {
+                "image_ratio": "square",
+                "border": "none",
+                "border_width": 1,
+                "border_opacity": 100,
+                "border_color": "",
+                "border_radius": 0
+              },
+              "blocks": {}
+            },
+            "title": {
+              "type": "_heading",
+              "static": true,
+              "settings": {
+                "type_preset": "rte",
+                "font": "var(--font-body--family)",
+                "font_size": "1rem",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "wrap": "pretty",
+                "text": "",
+                "read_only": false,
+                "alignment": "left",
+                "show_alignment": true,
+                "text_color": "",
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "blog-post-info-text": {
+              "type": "_blog-post-info-text",
+              "static": true,
+              "settings": {
+                "show_date": true,
+                "show_author": true,
+                "type_preset": "",
+                "alignment": "left",
+                "text_color": "",
+                "show_alignment": true,
+                "padding-block-start": 24,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "blog-post-description": {
+              "type": "_blog-post-description",
+              "static": true,
+              "settings": {
+                "type_preset": "rte",
+                "font": "var(--font-body--family)",
+                "font_size": "1rem",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "wrap": "pretty",
+                "text_color": "",
+                "padding-block-start": 16,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": []
         }
       },
-      "block_order": ["journal_title"],
+      "block_order": [
+        "journal_title"
+      ],
+      "disabled": true,
       "settings": {
         "blog": "journal",
         "layout_type": "grid",
         "carousel_on_mobile": true,
         "post_limit": 3,
         "columns": 3,
+        "mobile_columns": "2",
         "mobile_card_size": "60cqw",
         "columns_gap": 24,
         "rows_gap": 24,
+        "icons_style": "arrow",
+        "icons_shape": "none",
         "section_width": "page-width",
         "gap": 32,
         "background_color": "{{ settings.color_palette.background }}",

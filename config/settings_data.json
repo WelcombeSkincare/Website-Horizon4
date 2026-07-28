@@ -9,11 +9,11 @@
  */
 {
   "current": {
-    "logo": "shopify://shop_images/Vertical.svg",
+    "logo": "shopify://shop_images/Horizontal_2x_83362266-35e5-4c3b-8731-f4923225e8c9.png",
     "logo_inverse": "shopify://shop_images/HW_N_P_T.svg",
-    "logo_height": 46,
-    "logo_height_mobile": 40,
-    "favicon": "shopify://shop_images/Artboard_1_2x_0fe83ef4-c748-45be-a3f6-999f80b25d19.png",
+    "logo_height": 35,
+    "logo_height_mobile": 35,
+    "favicon": "shopify://shop_images/Logo_-_No_Name_4x_07a0af87-3eea-4e6f-bf13-17726aad6622.png",
     "page_text_color": "{{ settings.color_palette.foreground }}",
     "type_body_font": "poppins_n4",
     "type_subheading_font": "roboto_condensed_n4",
@@ -101,6 +101,13 @@
     "variant_button_radius": 14,
     "variant_button_width": "equal-width-buttons",
     "content_for_index": [],
+    "blocks": {
+      "1513253815146976218": {
+        "type": "shopify://apps/omnisend-email-marketing-sms/blocks/app-embed/44704aa2-794f-4c5d-8c8e-039c841158e9",
+        "disabled": false,
+        "settings": {}
+      }
+    },
     "color_palette": {
       "background": "#faf7f5",
       "foreground": "#494a4d",
