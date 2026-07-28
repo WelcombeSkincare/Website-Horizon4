@@ -12,6 +12,7 @@
     "home_hero": {
       "type": "home-hero",
       "settings": {
+        "section_width": "normal",
         "tagline": "Skin<strong>Biome</strong>Nourishment",
         "eyebrow": "Support not control",
         "heading": "Moisturisers formulated for your skin type and the microbiome it carries.",
@@ -32,7 +33,7 @@
             "title": "Dry Sensitive",
             "description": "Skin that feels tight and reacts easily, and wants calm, careful nourishment.",
             "bg_color": "#80a89e",
-            "text_color": "#ffffff",
+            "text_color": "#273b36",
             "link": ""
           }
         },
@@ -43,7 +44,7 @@
             "title": "Dry",
             "description": "Skin that drinks up moisture and wants richer, longer-lasting hydration.",
             "bg_color": "#f47d5e",
-            "text_color": "#ffffff",
+            "text_color": "#6b1802",
             "link": ""
           }
         },
@@ -54,7 +55,7 @@
             "title": "Balanced",
             "description": "Skin that is mostly comfortable and would like to stay that way.",
             "bg_color": "#6bbbcc",
-            "text_color": "#ffffff",
+            "text_color": "#194954",
             "link": ""
           }
         },
@@ -65,7 +66,7 @@
             "title": "Oily",
             "description": "Skin that makes plenty of its own oil and wants light, non-greasy support.",
             "bg_color": "{{ settings.color_palette.color14 }}",
-            "text_color": "#525523",
+            "text_color": "#505416",
             "link": ""
           }
         },
@@ -76,7 +77,7 @@
             "title": "Oily Sensitive",
             "description": "Oilier skin that still reacts easily, and wants lightness with care.",
             "bg_color": "#a37594",
-            "text_color": "#ffffff",
+            "text_color": "#251720",
             "link": ""
           }
         }
@@ -89,6 +90,7 @@
         "tile_05"
       ],
       "settings": {
+        "section_width": "normal",
         "heading": "Start with your skin type",
         "intro": "<p>Everything we make is built around five skin types. Find yours, then choose how light or rich you'd like it.</p>",
         "finder_title": "Not sure yet",
@@ -108,7 +110,7 @@
             "word": "Flow",
             "word_color": "#4e6d6c",
             "copy": "The lightest. A fluid moisturiser that sinks in quickly, the easy choice for the face and for skin that likes a light touch.",
-            "bar_width": 32,
+            "bar_width": 52,
             "bar_color": "#d7e0dd",
             "link_label": "Shop Flow",
             "link": ""
@@ -120,7 +122,7 @@
             "word": "Core",
             "word_color": "#4e6d6c",
             "copy": "The middle. Richer and more cushioning, suited to the body and everyday use.",
-            "bar_width": 64,
+            "bar_width": 76,
             "bar_color": "#4e6d6c",
             "link_label": "Shop Core",
             "link": ""
@@ -145,6 +147,7 @@
         "texture_deep"
       ],
       "settings": {
+        "section_width": "normal",
         "heading": "Three textures, not a dozen products",
         "intro": "<p>Most face creams, body lotions, hand creams and foot balms are the same handful of ingredients at different thicknesses, sold to you as four products. We would rather give you three honest textures and trust you to put them where they suit.</p>",
         "closing_text": "The only thing that changes between them is how much cold-pressed organic oil each one carries. More oil, more richness. Everything else stays the same.",
@@ -154,6 +157,7 @@
     "home_newsletter": {
       "type": "home-newsletter",
       "settings": {
+        "section_width": "normal",
         "eyebrow": "Closes 31 August",
         "heading": "Join the Founders Club",
         "body": "<p>Sign up once and you are in for good. Members get 10% off every order, for as long as they are with us. On top of that, every order earns points worth 10% of what you spend, to put toward your next one. Free to join, and the discount never expires.</p>",
@@ -169,8 +173,8 @@
         "ing_01": {
           "type": "ingredient",
           "settings": {
-            "name": "Helianthus Annuus (Sunflower) Seed Oil*",
-            "percentage": "34.0%",
+            "name": "Glycerin^",
+            "percentage": "6.00%",
             "bar_width": 100,
             "fill_class": "active"
           }
@@ -178,118 +182,82 @@
         "ing_02": {
           "type": "ingredient",
           "settings": {
-            "name": "Aqua",
-            "percentage": "22.0%",
-            "bar_width": 65,
-            "fill_class": "functional"
+            "name": "Adansonia Digitata (Baobab) Seed Oil*^",
+            "percentage": "3.68%",
+            "bar_width": 61,
+            "fill_class": "active"
           }
         },
         "ing_03": {
           "type": "ingredient",
           "settings": {
-            "name": "Butyrospermum Parkii (Shea) Butter*",
-            "percentage": "12.0%",
-            "bar_width": 35,
+            "name": "Hylocereus Undatus (Dragon Fruit) Seed Oil*",
+            "percentage": "3.68%",
+            "bar_width": 61,
             "fill_class": "active"
           }
         },
         "ing_04": {
           "type": "ingredient",
           "settings": {
-            "name": "Argania Spinosa (Argan) Kernel Oil*",
-            "percentage": "9.0%",
-            "bar_width": 27,
+            "name": "Oenothera Biennis (Evening Primrose) Oil*^",
+            "percentage": "3.34%",
+            "bar_width": 56,
             "fill_class": "active"
           }
         },
         "ing_05": {
           "type": "ingredient",
           "settings": {
-            "name": "Cetearyl Alcohol",
-            "percentage": "6.0%",
-            "bar_width": 18,
+            "name": "Cetearyl Olivate",
+            "percentage": "2.70%",
+            "bar_width": 45,
             "fill_class": "functional"
           }
         },
         "ing_06": {
           "type": "ingredient",
           "settings": {
-            "name": "Glycerin",
-            "percentage": "5.0%",
-            "bar_width": 15,
+            "name": "Sodium Citrate",
+            "percentage": "2.25%",
+            "bar_width": 38,
             "fill_class": "functional"
           }
         },
         "ing_07": {
           "type": "ingredient",
           "settings": {
-            "name": "Fucus Vesiculosus (Bladderwrack) Extract",
-            "percentage": "4.0%",
-            "bar_width": 12,
+            "name": "Calophyllum Inophyllum (Tamanu) Seed Oil*^",
+            "percentage": "2.00%",
+            "bar_width": 33,
             "fill_class": "active"
           }
         },
         "ing_08": {
           "type": "ingredient",
           "settings": {
-            "name": "Lactobacillus Ferment",
-            "percentage": "3.0%",
-            "bar_width": 9,
-            "fill_class": "active"
+            "name": "Sorbitan Olivate",
+            "percentage": "1.80%",
+            "bar_width": 30,
+            "fill_class": "functional"
           }
         },
         "ing_09": {
           "type": "ingredient",
           "settings": {
-            "name": "Cetearyl Glucoside",
-            "percentage": "2.4%",
-            "bar_width": 7,
+            "name": "Cetearyl Alcohol",
+            "percentage": "1.50%",
+            "bar_width": 25,
             "fill_class": "functional"
           }
         },
         "ing_10": {
           "type": "ingredient",
           "settings": {
-            "name": "Tocopherol",
-            "percentage": "1.0%",
-            "bar_width": 3,
-            "fill_class": "functional"
-          }
-        },
-        "ing_11": {
-          "type": "ingredient",
-          "settings": {
-            "name": "Vetiveria Zizanoides (Vetiver) Root Oil",
-            "percentage": "0.6%",
-            "bar_width": 2,
+            "name": "Gluconolactone",
+            "percentage": "1.13%",
+            "bar_width": 19,
             "fill_class": "active"
-          }
-        },
-        "ing_12": {
-          "type": "ingredient",
-          "settings": {
-            "name": "Sodium Benzoate",
-            "percentage": "0.5%",
-            "bar_width": 2,
-            "fill_class": "functional"
-          }
-        },
-        "ing_13": {
-          "type": "ingredient",
-          "settings": {
-            "name": "Citric Acid",
-            "percentage": "0.3%",
-            "bar_width": 1,
-            "fill_class": "functional"
-          }
-        },
-        "ing_14": {
-          "type": "ingredient",
-          "settings": {
-            "name": "Potassium Sorbate",
-            "percentage": "0.2%",
-            "bar_width": 1,
-            "fill_class": "functional"
           }
         }
       },
@@ -303,29 +271,27 @@
         "ing_07",
         "ing_08",
         "ing_09",
-        "ing_10",
-        "ing_11",
-        "ing_12",
-        "ing_13",
-        "ing_14"
+        "ing_10"
       ],
       "settings": {
+        "section_width": "normal",
         "eyebrow": "The full formulation",
         "heading": "Nothing hidden",
-        "body": "<p>We publish every formulation in full, every ingredient and the exact percentage we use. Most of the industry does not. You can read an ingredient list and make up your own mind.</p>",
-        "link_label": "See a full formulation",
-        "featured_product": "",
+        "body": "<p>We publish every formulation in full, every ingredient and the exact percentage we use. Most of the industry does not. You can read an ingredient list and make up your own mind.</p><p>What follows is an extract, the ten largest ingredients after water in Core Dry Sensitive. The full list of twenty-six is on the product page.</p>",
+        "link_label": "See the full formulation",
+        "featured_product": "core-dry-sensitive-a-cushioning-body-moisturiser-for-dry-sensitive-skin",
         "link_url": "",
         "card_title": "CORE · DRY SENSITIVE",
-        "card_subtitle": "Full formulation by weight · batch 24-07",
-        "card_total": "100.0%",
-        "footnote_left": "* certified organic · no synthetic fragrance",
-        "footnote_right": "Bars scaled to the largest ingredient · illustrative figures"
+        "card_subtitle": "The ten largest ingredients after water, by weight",
+        "card_total": "10 of 26",
+        "footnote_left": "* cold-pressed organic · ^ organic · no synthetic fragrance",
+        "footnote_right": "Bars scaled to the largest shown · Aqua is 64.18% · full list on the product page"
       }
     },
     "home_itb_microbiome": {
       "type": "home-image-text-band",
       "settings": {
+        "section_width": "normal",
         "image_position": "left",
         "background_color": "#ffffff",
         "standin_asset": "home-microbiome-standin.jpg",
@@ -340,6 +306,7 @@
     "home_itb_why_started": {
       "type": "home-image-text-band",
       "settings": {
+        "section_width": "normal",
         "image_position": "right",
         "background_color": "#ffffff",
         "standin_asset": "home-why-started-standin.jpg",
@@ -389,7 +356,9 @@
         "ethos_climate",
         "ethos_formulation"
       ],
-      "settings": {}
+      "settings": {
+        "section_width": "normal"
+      }
     },
     "home_journal": {
       "type": "featured-blog-posts",
