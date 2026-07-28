@@ -4,7 +4,7 @@
   Design ref: Biotaderm Home Page v2, #2a/#3a.
 {%- endcomment -%}
 
-<div class="bd-tl" id="texture" data-bd-tl>
+<div class="bd-tl page-width-{{ section.settings.section_width | default: 'normal' }}" id="texture" data-bd-tl>
   {%- if section.settings.heading != blank -%}<h2 class="bd-tl-h2">{{ section.settings.heading }}</h2>{%- endif -%}
   {%- if section.settings.intro != blank -%}<div class="bd-tl-intro">{{ section.settings.intro }}</div>{%- endif -%}
 
@@ -33,7 +33,9 @@
 
 {% stylesheet %}
 .bd-tl {
-  padding: 104px 80px 96px;
+  --bd-gutter: 80px;
+  padding-block: 104px 96px;
+  padding-inline: max(var(--bd-gutter), calc((100% - var(--page-content-width, 120rem)) / 2));
   background: #fff;
   border-top: 1px solid #E0E1E2;
 }
@@ -80,7 +82,7 @@
 .bd-tl-closing-right { font-size: 13px; color: #57585C; white-space: nowrap; margin: 0; }
 
 @media (max-width: 749px) {
-  .bd-tl { padding: 44px 20px 40px; }
+  .bd-tl { --bd-gutter: 20px; padding-block: 44px 40px; }
   .bd-tl-h2 { font-size: 30px; }
   .bd-tl-row {
     grid-template-columns: 1fr;
@@ -99,6 +101,18 @@
   "tag": "section",
   "class": "shopify-section--bd-home-texture",
   "settings": [
+    {
+      "type": "select",
+      "id": "section_width",
+      "label": "Section width",
+      "options": [
+        { "value": "narrow", "label": "Narrow" },
+        { "value": "normal", "label": "Normal" },
+        { "value": "wide", "label": "Wide" },
+        { "value": "content", "label": "Content width" }
+      ],
+      "default": "normal"
+    },
     {
       "type": "text",
       "id": "heading",

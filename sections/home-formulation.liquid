@@ -9,7 +9,7 @@
   bar-scale values - seed them to match the linked product's real figures.
 {%- endcomment -%}
 
-<div class="bd-nh" data-bd-nh>
+<div class="bd-nh page-width-{{ section.settings.section_width | default: 'normal' }}" data-bd-nh>
   <div class="bd-nh-left">
     {%- if section.settings.eyebrow != blank -%}<p class="bd-nh-eyebrow">{{ section.settings.eyebrow }}</p>{%- endif -%}
     {%- if section.settings.heading != blank -%}<h2 class="bd-nh-h2">{{ section.settings.heading }}</h2>{%- endif -%}
@@ -56,7 +56,9 @@
 
 {% stylesheet %}
 .bd-nh {
-  padding: 104px 80px;
+  --bd-gutter: 80px;
+  padding-block: 104px;
+  padding-inline: max(var(--bd-gutter), calc((100% - var(--page-content-width, 120rem)) / 2));
   background: #263E40;
   display: grid;
   grid-template-columns: 0.78fr 1.22fr;
@@ -127,7 +129,7 @@
 }
 
 @media (max-width: 749px) {
-  .bd-nh { grid-template-columns: 1fr; padding: 44px 20px 40px; gap: 32px; }
+  .bd-nh { grid-template-columns: 1fr; --bd-gutter: 20px; padding-block: 44px 40px; gap: 32px; }
   .bd-nh-h2 { font-size: 38px; }
   .bd-nh-card { padding: 24px 20px 22px; }
   .bd-nh-row { grid-template-columns: 1fr 56px; grid-template-areas: "name pct" "bar bar"; row-gap: 4px; }
@@ -144,6 +146,18 @@
   "tag": "section",
   "class": "shopify-section--bd-home-formulation",
   "settings": [
+    {
+      "type": "select",
+      "id": "section_width",
+      "label": "Section width",
+      "options": [
+        { "value": "narrow", "label": "Narrow" },
+        { "value": "normal", "label": "Normal" },
+        { "value": "wide", "label": "Wide" },
+        { "value": "content", "label": "Content width" }
+      ],
+      "default": "normal"
+    },
     {
       "type": "text",
       "id": "eyebrow",

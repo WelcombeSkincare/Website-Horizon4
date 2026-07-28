@@ -6,7 +6,7 @@
   separately - not wired here, see design handoff open questions).
 {%- endcomment -%}
 
-<div class="bd-nl" id="founders-club" data-bd-nl>
+<div class="bd-nl page-width-{{ section.settings.section_width | default: 'normal' }}" id="founders-club" data-bd-nl>
   <div class="bd-nl-copy">
     {%- if section.settings.eyebrow != blank -%}<p class="bd-nl-eyebrow">{{ section.settings.eyebrow }}</p>{%- endif -%}
     {%- if section.settings.heading != blank -%}<h2 class="bd-nl-h2">{{ section.settings.heading }}</h2>{%- endif -%}
@@ -34,14 +34,16 @@
 
 {% stylesheet %}
 .bd-nl {
-  padding: 88px 80px;
+  /* Was a centred 1180px box; now a full-bleed band with the content centred to
+     the chosen width, so it matches the other home sections. */
+  --bd-gutter: 80px;
+  padding-block: 88px;
+  padding-inline: max(var(--bd-gutter), calc((100% - var(--page-content-width, 120rem)) / 2));
   background: #FBFBF2;
   border-top: 1px solid #E0E1E2;
   display: grid;
   grid-template-columns: 1.1fr 0.9fr;
   gap: 72px;
-  max-width: 1180px;
-  margin: 0 auto;
   align-items: center;
 }
 .bd-nl-eyebrow {
@@ -90,7 +92,7 @@
 .bd-nl-error { font-size: 14px; color: #963C3D; margin: 0 0 10px; }
 
 @media (max-width: 749px) {
-  .bd-nl { grid-template-columns: 1fr; padding: 40px 20px; gap: 28px; }
+  .bd-nl { grid-template-columns: 1fr; --bd-gutter: 20px; padding-block: 40px; gap: 28px; }
   .bd-nl-h2 { font-size: 30px; }
   .bd-nl-row { flex-direction: column; }
   .bd-nl-btn { padding: 13px 26px; }
@@ -103,6 +105,18 @@
   "tag": "section",
   "class": "shopify-section--bd-home-newsletter",
   "settings": [
+    {
+      "type": "select",
+      "id": "section_width",
+      "label": "Section width",
+      "options": [
+        { "value": "narrow", "label": "Narrow" },
+        { "value": "normal", "label": "Normal" },
+        { "value": "wide", "label": "Wide" },
+        { "value": "content", "label": "Content width" }
+      ],
+      "default": "normal"
+    },
     {
       "type": "text",
       "id": "eyebrow",

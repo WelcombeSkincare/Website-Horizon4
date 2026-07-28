@@ -4,7 +4,7 @@
   "Made for your microbiome" and "Why we started" sections.
 {%- endcomment -%}
 
-<div class="bd-itb {% if section.settings.image_position == 'right' %}bd-itb--img-right{% else %}bd-itb--img-left{% endif %}" style="background:{{ section.settings.background_color | default: '#ffffff' }};" data-bd-itb>
+<div class="bd-itb page-width-{{ section.settings.section_width | default: 'normal' }} {% if section.settings.image_position == 'right' %}bd-itb--img-right{% else %}bd-itb--img-left{% endif %}" style="background:{{ section.settings.background_color | default: '#ffffff' }};" data-bd-itb>
   <div class="bd-itb-image">
     {%- if section.settings.image != blank -%}
       {{ section.settings.image | image_url: width: 1200 | image_tag: loading: 'lazy', widths: '400, 700, 1000, 1200', sizes: '(max-width: 749px) 100vw, 50vw', alt: section.settings.image.alt | default: section.settings.heading }}
@@ -25,6 +25,10 @@
 
 {% stylesheet %}
 .bd-itb {
+  /* Full-bleed 50/50 by design, so no minimum gutter - the image runs to the
+     edge until a narrower width is chosen. */
+  --bd-gutter: 0px;
+  padding-inline: max(var(--bd-gutter), calc((100% - var(--page-content-width, 120rem)) / 2));
   display: grid;
   grid-template-columns: 1fr 1fr;
 }
@@ -69,6 +73,18 @@
   "tag": "section",
   "class": "shopify-section--bd-home-itb",
   "settings": [
+    {
+      "type": "select",
+      "id": "section_width",
+      "label": "Section width",
+      "options": [
+        { "value": "narrow", "label": "Narrow" },
+        { "value": "normal", "label": "Normal" },
+        { "value": "wide", "label": "Wide" },
+        { "value": "content", "label": "Content width" }
+      ],
+      "default": "normal"
+    },
     {
       "type": "select",
       "id": "image_position",

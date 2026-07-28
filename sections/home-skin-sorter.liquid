@@ -4,7 +4,7 @@
   plus one fixed white finder card. Design ref: Biotaderm Home Page v2, #2a/#3a.
 {%- endcomment -%}
 
-<div class="bd-ss" id="skin-type" data-bd-ss>
+<div class="bd-ss page-width-{{ section.settings.section_width | default: 'normal' }}" id="skin-type" data-bd-ss>
   {%- if section.settings.heading != blank -%}<h2 class="bd-ss-h2">{{ section.settings.heading }}</h2>{%- endif -%}
   {%- if section.settings.intro != blank -%}<div class="bd-ss-intro">{{ section.settings.intro }}</div>{%- endif -%}
 
@@ -38,7 +38,11 @@
 
 {% stylesheet %}
 .bd-ss {
-  padding: 104px 80px 96px;
+  /* Background stays full-bleed; content centres to the chosen width, never
+     tighter than the gutter. */
+  --bd-gutter: 80px;
+  padding-block: 104px 96px;
+  padding-inline: max(var(--bd-gutter), calc((100% - var(--page-content-width, 120rem)) / 2));
   background: #FAF7F5;
 }
 .bd-ss-h2 {
@@ -150,7 +154,7 @@
   .bd-ss-grid { grid-template-columns: repeat(3, 1fr); }
 }
 @media (max-width: 749px) {
-  .bd-ss { padding: 44px 20px 40px; }
+  .bd-ss { --bd-gutter: 20px; padding-block: 44px 40px; }
   .bd-ss-h2 { font-size: 30px; }
   .bd-ss-grid { grid-template-columns: 1fr; gap: 8px; }
   .bd-ss-tile {
@@ -175,6 +179,18 @@
   "tag": "section",
   "class": "shopify-section--bd-home-sorter",
   "settings": [
+    {
+      "type": "select",
+      "id": "section_width",
+      "label": "Section width",
+      "options": [
+        { "value": "narrow", "label": "Narrow" },
+        { "value": "normal", "label": "Normal" },
+        { "value": "wide", "label": "Wide" },
+        { "value": "content", "label": "Content width" }
+      ],
+      "default": "normal"
+    },
     {
       "type": "text",
       "id": "heading",

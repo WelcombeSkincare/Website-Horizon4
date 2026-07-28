@@ -4,7 +4,7 @@
   Design ref: Biotaderm Home Page v2, #2a (desktop) / #3a (mobile).
 {%- endcomment -%}
 
-<div class="bd-hh" data-bd-hh>
+<div class="bd-hh page-width-{{ section.settings.section_width | default: 'normal' }}" data-bd-hh>
   <div class="bd-hh-left">
     {%- if section.settings.tagline != blank -%}
       <p class="bd-hh-tagline">{{ section.settings.tagline }}</p>
@@ -40,6 +40,10 @@
 .bd-hh {
   --ink-h1: #161617; --tidewater: #4E6D6C; --seaglass: #6BBBCC; --coral: #F47D5E;
   --ink-body: #494A4D; --bg-stone: #FAF7F5;
+  /* Full-bleed split by design, so no minimum gutter. The formula centres the
+     section to the chosen width and collapses to 0 when the viewport is narrower. */
+  --bd-gutter: 0px;
+  padding-inline: max(var(--bd-gutter), calc((100% - var(--page-content-width, 120rem)) / 2));
   display: grid;
   grid-template-columns: 1fr 1fr;
   min-height: 600px;
@@ -129,6 +133,18 @@
   "tag": "section",
   "class": "shopify-section--bd-home-hero",
   "settings": [
+    {
+      "type": "select",
+      "id": "section_width",
+      "label": "Section width",
+      "options": [
+        { "value": "narrow", "label": "Narrow" },
+        { "value": "normal", "label": "Normal" },
+        { "value": "wide", "label": "Wide" },
+        { "value": "content", "label": "Content width" }
+      ],
+      "default": "normal"
+    },
     {
       "type": "text",
       "id": "tagline",
