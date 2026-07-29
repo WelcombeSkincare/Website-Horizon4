@@ -2,6 +2,7 @@
   sections/home-ethos-strip.liquid
   Ethos icon strip. Icons are monochrome SVGs locked to one brand colour each
   (assets/ethos-*.svg) - never recolour, never substitute a generic icon.
+  Grid is auto-fit so the strip takes 4 or 5 items without a layout change.
 {%- endcomment -%}
 
 <div class="bd-es page-width-{{ section.settings.section_width | default: 'normal' }}" data-bd-es>
@@ -24,8 +25,8 @@
   padding-block: 22px;
   padding-inline: max(var(--bd-gutter), calc((100% - var(--page-content-width, 120rem)) / 2));
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 32px;
+  grid-template-columns: repeat(auto-fit, minmax(165px, 1fr));
+  gap: 28px;
 }
 .bd-es-item { display: flex; align-items: center; gap: 10px; }
 .bd-es-icon { width: 26px; height: 26px; flex-shrink: 0; display: block; }
@@ -86,8 +87,9 @@
       "blocks": [
         { "type": "ethos", "settings": { "icon": "ethos-gentle.svg", "label": "Made by hand in Welcombe, Devon" } },
         { "type": "ethos", "settings": { "icon": "ethos-cruelty.svg", "label": "Vegan and cruelty-free" } },
-        { "type": "ethos", "settings": { "icon": "ethos-climate.svg", "label": "Aluminium packaging, widely recycled" } },
-        { "type": "ethos", "settings": { "icon": "ethos-formulation.svg", "label": "Every formulation published in full" } }
+        { "type": "ethos", "settings": { "icon": "ethos-climate.svg", "label": "Refillable aluminium bottles, reusable pump" } },
+        { "type": "ethos", "settings": { "icon": "ethos-formulation.svg", "label": "Every formulation published in full" } },
+        { "type": "ethos", "settings": { "icon": "ethos-business.svg", "label": "Two-Week Trial, return postage paid" } }
       ]
     }
   ]

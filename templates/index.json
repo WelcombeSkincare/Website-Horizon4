@@ -94,7 +94,7 @@
         "heading": "Start with your skin type",
         "intro": "<p>Everything we make is built around five skin types. Find yours, then choose how light or rich you'd like it.</p>",
         "finder_title": "Not sure yet",
-        "finder_body": "Six questions about how your skin behaves, and we will tell you which of the five you are.",
+        "finder_body": "Six questions about how your skin behaves, and we will tell you which of the five you are. If we get it wrong, you have two weeks to find out and 60 days to change it, with return postage on us.",
         "finder_button_label": "Find my type",
         "finder_link": "",
         "footer_text": "Not sure which you are?",
@@ -339,7 +339,7 @@
           "type": "ethos",
           "settings": {
             "icon": "ethos-climate.svg",
-            "label": "Aluminium packaging, widely recycled"
+            "label": "Refillable aluminium bottles, reusable pump"
           }
         },
         "ethos_formulation": {
@@ -348,13 +348,21 @@
             "icon": "ethos-formulation.svg",
             "label": "Every formulation published in full"
           }
+        },
+        "ethos_trial": {
+          "type": "ethos",
+          "settings": {
+            "icon": "ethos-business.svg",
+            "label": "Two-Week Trial, return postage paid"
+          }
         }
       },
       "block_order": [
         "ethos_gentle",
         "ethos_cruelty",
         "ethos_climate",
-        "ethos_formulation"
+        "ethos_formulation",
+        "ethos_trial"
       ],
       "settings": {
         "section_width": "normal"
