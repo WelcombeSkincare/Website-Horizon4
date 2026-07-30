@@ -31,11 +31,11 @@
         "block_d2bfccd92ac7": {
           "type": "social-links",
           "settings": {
-            "facebook_url": "https://www.facebook.com/shopify",
-            "instagram_url": "https://www.instagram.com/shopify/#",
-            "youtube_url": "https://www.youtube.com/shopify",
-            "tiktok_url": "https://www.tiktok.com/@shopify",
-            "twitter_url": "https://x.com/shopify"
+            "facebook_url": "",
+            "instagram_url": "",
+            "youtube_url": "",
+            "tiktok_url": "",
+            "twitter_url": ""
           }
         }
       },
@@ -51,17 +51,83 @@
     "footer_main": {
       "type": "footer-main",
       "blocks": {
-        "ethos_microbiome": { "type": "ethos_icon", "settings": { "icon": "ethos-microbiome.svg", "label": "Made for your microbiome" } },
-        "ethos_gentle": { "type": "ethos_icon", "settings": { "icon": "ethos-gentle.svg", "label": "Gentle on skin, every time" } },
-        "ethos_climate": { "type": "ethos_icon", "settings": { "icon": "ethos-climate.svg", "label": "Aluminium packaging, widely recycled" } },
-        "ethos_formulation": { "type": "ethos_icon", "settings": { "icon": "ethos-formulation.svg", "label": "Every formulation published in full" } },
-        "ethos_cruelty": { "type": "ethos_icon", "settings": { "icon": "ethos-cruelty.svg", "label": "Vegan and cruelty-free" } },
-        "ethos_science": { "type": "ethos_icon", "settings": { "icon": "ethos-science.svg", "label": "Science-led, dermatologist reviewed" } },
-        "ethos_business": { "type": "ethos_icon", "settings": { "icon": "ethos-business.svg", "label": "Independent, Devon-based business" } },
-        "ethos_natural": { "type": "ethos_icon", "settings": { "icon": "ethos-natural.svg", "label": "Naturally derived active ingredients" } },
-        "link_col_shop": { "type": "link_column", "settings": { "heading": "Shop" } },
-        "link_col_support": { "type": "link_column", "settings": { "heading": "Support" } },
-        "link_col_company": { "type": "link_column", "settings": { "heading": "Company" } }
+        "ethos_microbiome": {
+          "type": "ethos_icon",
+          "settings": {
+            "icon": "ethos-microbiome.svg",
+            "label": "Made for your microbiome"
+          }
+        },
+        "ethos_gentle": {
+          "type": "ethos_icon",
+          "settings": {
+            "icon": "ethos-gentle.svg",
+            "label": "Gentle on skin, every time"
+          }
+        },
+        "ethos_climate": {
+          "type": "ethos_icon",
+          "settings": {
+            "icon": "ethos-climate.svg",
+            "label": "Aluminium packaging, widely recycled"
+          }
+        },
+        "ethos_formulation": {
+          "type": "ethos_icon",
+          "settings": {
+            "icon": "ethos-formulation.svg",
+            "label": "Every formulation published in full"
+          }
+        },
+        "ethos_cruelty": {
+          "type": "ethos_icon",
+          "settings": {
+            "icon": "ethos-cruelty.svg",
+            "label": "Vegan and cruelty-free"
+          }
+        },
+        "ethos_science": {
+          "type": "ethos_icon",
+          "settings": {
+            "icon": "ethos-science.svg",
+            "label": "Science-led, dermatologist reviewed"
+          }
+        },
+        "ethos_business": {
+          "type": "ethos_icon",
+          "settings": {
+            "icon": "ethos-business.svg",
+            "label": "Independent, Devon-based business"
+          }
+        },
+        "ethos_natural": {
+          "type": "ethos_icon",
+          "settings": {
+            "icon": "ethos-natural.svg",
+            "label": "Naturally derived active ingredients"
+          }
+        },
+        "link_col_shop": {
+          "type": "link_column",
+          "settings": {
+            "heading": "Shop",
+            "menu": "footer-shop"
+          }
+        },
+        "link_col_support": {
+          "type": "link_column",
+          "settings": {
+            "heading": "Support",
+            "menu": "footer-support"
+          }
+        },
+        "link_col_company": {
+          "type": "link_column",
+          "settings": {
+            "heading": "Company",
+            "menu": "footer-company"
+          }
+        }
       },
       "block_order": [
         "ethos_microbiome",
@@ -78,7 +144,7 @@
       ],
       "name": "Footer main",
       "settings": {
-        "tagline": "Honest skincare, formulated in Devon and published in full."
+        "tagline": "Honest skincare, handmade in Welcombe, north Devon, and published in full."
       }
     }
   },

@@ -891,7 +891,7 @@
           "type": "text",
           "name": "t:names.text",
           "settings": {
-            "text": "<ul><li>Not sure this is you? <a href=\"/pages/find-your-skin-type\" title=\"Find Your Skin Type\">Find your skin type</a><br/></li><li>Browse by skin type: <a href=\"/collections/dry-sensitive-skin-type\" title=\"Dry Sensitive Skin Type\">Dry Sensitive</a>, <a href=\"/collections/dry-skin-type\" title=\"Dry Skin Type\">Dry</a>, <a href=\"/collections/balanced-skin-type\" title=\"Balanced Skin Type\">Balanced</a>, <a href=\"/collections/oily\" title=\"Oily Skin Type\">Oily</a>, <a href=\"/collections/oily-sensitive\" title=\"Oily Sensitive Skin Type\">Oily Sensitive</a><br/></li><li><a href=\"/blogs/ingredients\" title=\"Ingredients\">How we choose our ingredients</a>, and the science behind them</li></ul>",
+            "text": "<ul><li>Not sure this is you? <a href=\"/pages/find-your-skin-type\" title=\"Find Your Skin Type\">Find your skin type</a><br/></li><li>Browse by skin type: <a href=\"/collections/dry-sensitive-skin-type\" title=\"Dry Sensitive Skin Type\">Dry Sensitive</a>, <a href=\"/collections/dry-skin-type\" title=\"Dry Skin Type\">Dry</a>, <a href=\"/collections/balanced-skin-type\" title=\"Balanced Skin Type\">Balanced</a>, <a href=\"/collections/oily-skin-type\" title=\"Oily Skin Type\">Oily</a>, <a href=\"/collections/oily-sensitive-skin-type\" title=\"Oily Sensitive Skin Type\">Oily Sensitive</a><br/></li><li><a href=\"/blogs/ingredients\" title=\"Ingredients\">How we choose our ingredients</a>, and the science behind them</li></ul>",
             "width": "fit-content",
             "max_width": "normal",
             "alignment": "left",
