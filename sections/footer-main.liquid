@@ -44,6 +44,29 @@
 </div>
 
 {% stylesheet %}
+/* ---------------------------------------------------------------------------
+   GLOBAL RULE - deliberately hosted here, not in a stock Horizon file.
+
+   Horizon's stock snippets/section.liquid renders class "section--<width>" from
+   the section_width setting. The "Content width" option we add to
+   sections/section.liquid therefore emits .section--page-width-content, which
+   stock CSS does not define. Rather than patch stock Liquid (which theme
+   updates silently revert - see CUSTOMISATIONS.md), we define it here.
+
+   This section renders in the footer group on every page, and Shopify bundles
+   {% stylesheet %} content into the theme stylesheet, so the rule is global.
+   Values mirror .page-width-content in assets/base.css exactly - keep in sync
+   if Horizon changes them.
+   --------------------------------------------------------------------------- */
+.section--page-width-content {
+  --page-margin: 16px;
+  --page-content-width: var(--normal-content-width);
+  --page-width: calc(var(--page-content-width) + (var(--page-margin) * 2));
+}
+@media screen and (min-width: 750px) {
+  .section--page-width-content { --page-margin: 40px; }
+}
+
 .bd-ft { background: #ffffff; border-top: 1px solid #E0E1E2; }
 .bd-ft-ethos {
   display: flex;
