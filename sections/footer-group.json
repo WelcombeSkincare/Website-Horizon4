@@ -69,7 +69,7 @@
           "type": "ethos_icon",
           "settings": {
             "icon": "ethos-climate.svg",
-            "label": "Aluminium packaging, widely recycled"
+            "label": "Refillable and recyclable aluminium bottles, reusable pump"
           }
         },
         "ethos_formulation": {
@@ -90,7 +90,7 @@
           "type": "ethos_icon",
           "settings": {
             "icon": "ethos-science.svg",
-            "label": "Science-led, dermatologist reviewed"
+            "label": "Science-led"
           }
         },
         "ethos_business": {
