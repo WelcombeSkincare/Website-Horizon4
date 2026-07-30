@@ -174,7 +174,12 @@
       {%- for citation in mf.reference_citation.value -%}
         {%- assign i = forloop.index0 -%}
         {%- assign link = mf.reference_link.value[i] -%}
-        <li>{{ citation }}{%- if link != blank %} <a href="{{ link }}" rel="nofollow">&rarr;</a>{% endif -%}</li>
+        {%- comment -%}
+          reference_link is list.link, so each entry is an object, not a string.
+          Outputting `link` directly renders Liquid's object form
+          ({"text"=>..., "url"=>...}) onto the page - always use link.url.
+        {%- endcomment -%}
+        <li>{{ citation }}{%- if link.url != blank %} <a href="{{ link.url }}" rel="nofollow">&rarr;</a>{% endif -%}</li>
       {%- endfor -%}
     </ol>
   </section>
