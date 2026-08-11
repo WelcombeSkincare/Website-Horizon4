@@ -374,7 +374,7 @@
             {
               "key": "hero_overlay",
               "type": "single_line_text_field",
-              "value": "#80a89e82"
+              "value": "#6bbbcc82"
             },
             {
               "key": "intro_html",
