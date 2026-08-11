@@ -71,6 +71,11 @@
               "key": "hero_overlay_colour",
               "type": "color",
               "value": "#80a89e"
+            },
+            {
+              "key": "safety_note_html",
+              "type": "multi_line_text_field",
+              "value": "As with any new product on reactive skin, it's worth patch testing first."
             }
           ]
         },
@@ -269,6 +274,11 @@
               "key": "hero_overlay_colour",
               "type": "color",
               "value": "#a37594"
+            },
+            {
+              "key": "safety_note_html",
+              "type": "multi_line_text_field",
+              "value": "As with any new product on reactive skin, it's worth patch testing first."
             }
           ]
         },

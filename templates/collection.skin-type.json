@@ -625,7 +625,7 @@
           "type": "text",
           "name": "t:names.text",
           "settings": {
-            "text": "<p>As with any new product on reactive skin, it's worth patch testing first.<br/><br/></p>",
+            "text": "<p>{{ collection.metafields.custom.safety_note_html.value }}</p>",
             "width": "fit-content",
             "max_width": "normal",
             "alignment": "left",
@@ -645,8 +645,7 @@
             "padding-inline-start": 0,
             "padding-inline-end": 0
           },
-          "blocks": {},
-          "disabled": true
+          "blocks": {}
         },
         "text_QawbWf": {
           "type": "text",

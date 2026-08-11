@@ -2287,6 +2287,15 @@
           "name": "single_line_text_field"
         },
         "description": "8-digit hex with alpha, e.g. #80a89e82. Tints the hero image to the skin type or texture colour."
+      },
+      {
+        "namespace": "custom",
+        "key": "safety_note_html",
+        "name": "Patch-test safety note",
+        "type": {
+          "name": "multi_line_text_field"
+        },
+        "description": "Shown under the care advice. Populated only for the sensitive skin types; leave blank and the block renders nothing. Inner HTML only - no outer <p> tags."
       }
     ]
   },
