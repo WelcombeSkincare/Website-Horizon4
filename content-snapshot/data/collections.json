@@ -4,7 +4,7 @@
       {
         "handle": "dry-sensitive-skin-type",
         "title": "Dry Sensitive Skin Type",
-        "templateSuffix": "collection-dry-sensitiv",
+        "templateSuffix": "skin-type",
         "custom": {
           "nodes": [
             {
@@ -97,7 +97,7 @@
       {
         "handle": "oily-skin-type",
         "title": "Oily Skin Type",
-        "templateSuffix": "collection-oily",
+        "templateSuffix": "skin-type",
         "custom": {
           "nodes": [
             {
@@ -207,7 +207,7 @@
       {
         "handle": "oily-sensitive-skin-type",
         "title": "Oily Sensitive Skin Type",
-        "templateSuffix": "collection-oily-sensitive",
+        "templateSuffix": "skin-type",
         "custom": {
           "nodes": [
             {
@@ -300,7 +300,7 @@
       {
         "handle": "dry-skin-type",
         "title": "Dry Skin Type",
-        "templateSuffix": "collection-dry-2",
+        "templateSuffix": "skin-type",
         "custom": {
           "nodes": [
             {
@@ -388,7 +388,7 @@
       {
         "handle": "balanced-skin-type",
         "title": "Balanced Skin Type",
-        "templateSuffix": "collection-balanced",
+        "templateSuffix": "skin-type",
         "custom": {
           "nodes": [
             {
