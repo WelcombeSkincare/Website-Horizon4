@@ -18,9 +18,9 @@
         "heading": "Moisturisers formulated for your skin type and the microbiome it carries.",
         "body": "<p>Formulated by a chemist from the published science, then made by hand in small batches on the north Devon coast. Cold-pressed organic oils, every ingredient listed in plain English, every percentage published.</p>",
         "primary_label": "Find your skin type",
-        "primary_link": "",
+        "primary_link": "/pages/find-your-skin-type",
         "secondary_label": "Our range",
-        "secondary_link": ""
+        "secondary_link": "/collections/moisturiser"
       }
     },
     "home_skin_sorter": {
@@ -34,7 +34,7 @@
             "description": "Skin that feels tight and reacts easily, and wants calm, careful nourishment.",
             "bg_color": "#80a89e",
             "text_color": "#273b36",
-            "link": ""
+            "link": "/collections/dry-sensitive-skin-type"
           }
         },
         "tile_02": {
@@ -45,7 +45,7 @@
             "description": "Skin that drinks up moisture and wants richer, longer-lasting hydration.",
             "bg_color": "#f47d5e",
             "text_color": "#6b1802",
-            "link": ""
+            "link": "/collections/dry-skin-type"
           }
         },
         "tile_03": {
@@ -56,7 +56,7 @@
             "description": "Skin that is mostly comfortable and would like to stay that way.",
             "bg_color": "#6bbbcc",
             "text_color": "#194954",
-            "link": ""
+            "link": "/collections/balanced-skin-type"
           }
         },
         "tile_04": {
@@ -65,9 +65,9 @@
             "index": "04",
             "title": "Oily",
             "description": "Skin that makes plenty of its own oil and wants light, non-greasy support.",
-            "bg_color": "{{ settings.color_palette.color14 }}",
+            "bg_color": "#c2ca53",
             "text_color": "#505416",
-            "link": ""
+            "link": "/collections/oily-skin-type"
           }
         },
         "tile_05": {
@@ -78,7 +78,7 @@
             "description": "Oilier skin that still reacts easily, and wants lightness with care.",
             "bg_color": "#a37594",
             "text_color": "#251720",
-            "link": ""
+            "link": "/collections/oily-sensitive-skin-type"
           }
         }
       },
@@ -96,7 +96,7 @@
         "finder_title": "Not sure yet",
         "finder_body": "Two questions about how your skin behaves, and we will tell you which of the five you are. If we get it wrong, you have two weeks to find out and 60 days to change it, with return postage on us.",
         "finder_button_label": "Find my type",
-        "finder_link": "",
+        "finder_link": "/pages/find-your-skin-type",
         "footer_text": "Not sure which you are?",
         "footer_link_label": "Take the skin type finder"
       }
@@ -113,7 +113,7 @@
             "bar_width": 52,
             "bar_color": "#d7e0dd",
             "link_label": "Shop Flow",
-            "link": ""
+            "link": "/collections/flow-texture"
           }
         },
         "texture_core": {
@@ -125,7 +125,7 @@
             "bar_width": 76,
             "bar_color": "#4e6d6c",
             "link_label": "Shop Core",
-            "link": ""
+            "link": "/collections/core-texture"
           }
         },
         "texture_deep": {
@@ -137,7 +137,7 @@
             "bar_width": 100,
             "bar_color": "#263e40",
             "link_label": "Shop Deep",
-            "link": ""
+            "link": "/collections/deep-texture"
           }
         }
       },
@@ -158,13 +158,14 @@
       "type": "home-newsletter",
       "settings": {
         "section_width": "normal",
-        "eyebrow": "Closes 31 August",
-        "heading": "Join the Founders Club",
-        "body": "<p>Sign up once and you are in for good. Members get 10% off every order, for as long as they are with us. On top of that, every order earns points worth 10% of what you spend, to put toward your next one. Free to join, and the discount never expires.</p>",
-        "small_print": "Sign-up closes on 31 August. Members who have joined by then keep everything, permanently.",
-        "button_label": "Join",
-        "customer_tags": "newsletter, founders-club",
-        "success_message": "Thanks - you're on the list."
+        "eyebrow": "",
+        "heading": "Hear from us now and then",
+        "body": "<p>New formulations, what we are making, and the occasional offer. One click gets you out again.</p>",
+        "small_print": "We will not pass your address to anyone. You can unsubscribe from any email. See our <a href=\"/policies/privacy-policy\">privacy policy</a>.",
+        "button_label": "Sign up",
+        "customer_tags": "newsletter",
+        "success_message": "Thank you. We have your address.",
+        "field_label": "Email address"
       }
     },
     "home_formulation": {
@@ -300,7 +301,7 @@
         "heading": "Made for your microbiome",
         "body": "<p>Your skin is a living surface with its own microbiome, the community of microbes that helps keep it healthy. The research points steadily in one direction. Skin tends to do better when that community is supported rather than stripped. So we formulate to nourish it, with prebiotics, postbiotics and cold-pressed oils, and we leave synthetic fragrance out entirely.</p>",
         "link_label": "Read the science",
-        "link_url": ""
+        "link_url": "/pages/our-science"
       }
     },
     "home_itb_why_started": {
@@ -315,7 +316,7 @@
         "heading": "Why we started",
         "body": "<p>Biotaderm began on the north Devon coast with a simple frustration: skincare labels that told you almost nothing. We set out to make the opposite. Every formulation published in full, every percentage listed, nothing hidden behind a marketing name.</p>",
         "link_label": "Read our story",
-        "link_url": ""
+        "link_url": "/pages/about-us"
       }
     },
     "home_ethos_strip": {
@@ -542,11 +543,11 @@
     "home_hero",
     "home_skin_sorter",
     "home_texture_ladder",
-    "home_newsletter",
     "home_formulation",
     "home_itb_microbiome",
     "home_itb_why_started",
     "home_ethos_strip",
-    "home_journal"
+    "home_journal",
+    "home_newsletter"
   ]
 }

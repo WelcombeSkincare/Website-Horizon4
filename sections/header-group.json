@@ -17,8 +17,8 @@
         "announcement_87JiGd": {
           "type": "_announcement",
           "settings": {
-            "text": "Founders Club closes 31 August. Join free for 10% off every order, for as long as you're with us.",
-            "link": "/#founders-club",
+            "text": "Our opening offer - Purchase your first order by 30th September 2026 and receive 10% off every order until September 2027",
+            "link": "/pages/opening-offer",
             "font": "var(--font-body--family)",
             "font_size": "0.875rem",
             "weight": "",
