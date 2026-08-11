@@ -1,10 +1,26 @@
 # Customisations to stock Horizon
 
-This theme is Horizon **4.1.3** plus Biotaderm customisations.
+This theme is Horizon **4.1.4** plus Biotaderm customisations.
 
 The goal is that **every custom thing lives in a file Shopify does not ship**, so a
 theme update can never silently revert it. There is currently **one** exception,
 documented below. Check it after every Horizon update.
+
+> **That goal is necessary but not sufficient - JSON templates are also at risk.**
+> The 4.1.3 -> 4.1.4 update (11 Aug 2026) created a *new theme with a new ID*
+> rather than upgrading in place, and rewrote three of our templates back to
+> stock sections: `product.biotaderm.json` (`product-biotaderm` ->
+> `product-information`), `blog.ingredients-index.json` (`ingredients-index` ->
+> `main-blog`), and `article.ingredient.json` (a stock `main-blog-post` inserted
+> above our `ingredient-page`). Shopify flagged none of it as a conflict.
+>
+> Our custom `sections/*.liquid` files were left completely untouched - only the
+> templates that *reference* them were rewritten. So the pages quietly stop using
+> our sections while nothing appears missing from a file listing.
+>
+> **After every Horizon update, compare the section `type` values inside
+> `templates/*.json` against git - not just the file list.** Restoring is simply a
+> matter of pushing the templates back from the repo.
 
 ---
 
