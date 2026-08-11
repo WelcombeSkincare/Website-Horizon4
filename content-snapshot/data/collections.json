@@ -66,6 +66,11 @@
               "key": "links_html",
               "type": "multi_line_text_field",
               "value": "<li>See the three Dry Sensitive moisturisers: <a href=\"/products/dry-sensitive-flow-moisturiser\" title=\"Flow &mdash; Dry Sensitive, a light face moisturiser for dry, sensitive skin\">Flow</a>, <a href=\"/products/core-dry-sensitive-a-cushioning-body-moisturiser-for-dry-sensitive-skin\" title=\"Core &mdash; Dry Sensitive, a cushioning body moisturiser for dry, sensitive skin\">Core</a> and <a href=\"/products/deep-dry-sensitive-a-rich-moisturiser-for-dry-sensitive-skin-for-hands-elbows-and-feet\" title=\"Deep &mdash; Dry Sensitive, a rich moisturiser for dry, sensitive skin, for hands, elbows and feet\">Deep</a><br/></li><li>Not sure this is you? <a href=\"/pages/find-your-skin-type\" title=\"Find Your Skin Type\">Find your skin type</a><br/></li><li>The other skin types: <a href=\"/collections/dry-skin-type\" title=\"Dry Skin Type\">Dry</a>, <a href=\"/collections/balanced-skin-type\" title=\"Balanced Skin Type\">Balanced</a>, <a href=\"/collections/oily-skin-type\" title=\"Oily Skin Type\">Oily</a>, <a href=\"/collections/oily-sensitive-skin-type\" title=\"Oily Sensitive Skin Type\">Oily Sensitive</a><br/></li><li><a href=\"/blogs/ingredients\" title=\"Ingredients\">How we choose our ingredients</a>, and the science behind them</li>"
+            },
+            {
+              "key": "hero_overlay_colour",
+              "type": "color",
+              "value": "#80a89e"
             }
           ]
         },
@@ -149,6 +154,11 @@
               "key": "links_html",
               "type": "multi_line_text_field",
               "value": "<li>See the three Oily Skin moisturisers: <a href=\"/products/flow-oily-a-light-face-moisturiser-for-oily-skin\" title=\"Flow &mdash; Oily, a light face moisturiser for oily skin\">Flow</a>, <a href=\"/products/core-oily-a-light-body-moisturiser-for-oily-skin\" title=\"Core &mdash; Oily, a light body moisturiser for oily skin\">Core</a> and <a href=\"/products/deep-oily-a-richer-moisturiser-for-oily-skin-for-hands-elbows-and-feet\" title=\"Deep &mdash; Oily, a richer moisturiser for oily skin, for hands, elbows and feet\">Deep</a><br/></li><li>Not sure this is you? <a href=\"/pages/find-your-skin-type\" title=\"Find Your Skin Type\">Find your skin type</a><br/></li><li>The other skin types: <a href=\"/collections/dry-sensitive-skin-type\" title=\"Dry Sensitive Skin Type\">Dry Sensitive</a>, <a href=\"/collections/dry-skin-type\" title=\"Dry Skin Type\">Dry</a>, <a href=\"/collections/balanced-skin-type\" title=\"Balanced Skin Type\">Balanced</a>, <a href=\"/collections/oily-sensitive-skin-type\" title=\"Oily Sensitive Skin Type\">Oily Sensitive</a><br/></li><li><a href=\"/blogs/ingredients\" title=\"Ingredients\">How we choose our ingredients</a>, and the science behind them</li>"
+            },
+            {
+              "key": "hero_overlay_colour",
+              "type": "color",
+              "value": "#c2ca53"
             }
           ]
         },
@@ -254,6 +264,11 @@
               "key": "links_html",
               "type": "multi_line_text_field",
               "value": "<li>See the three Oily Sensitive moisturisers: <a href=\"/products/flow-oily-sensitive-a-light-face-moisturiser-for-oily-sensitive-skin\" title=\"Flow &mdash; Oily Sensitive, a light face moisturiser for oily, sensitive skin\">Flow</a>, <a href=\"/products/core-oily-sensitive-a-light-body-moisturiser-for-oily-sensitive-skin\" title=\"Core &mdash; Oily Sensitive, a light body moisturiser for oily, sensitive skin\">Core</a> and <a href=\"/products/deep-oily-sensitive-a-richer-moisturiser-for-oily-sensitive-skin-for-hands-elbows-and-feet\" title=\"Deep &mdash; Oily Sensitive, a richer moisturiser for oily, sensitive skin, for hands, elbows and feet\">Deep</a><br/></li><li>Not sure this is you? <a href=\"/pages/find-your-skin-type\" title=\"Find Your Skin Type\">Find your skin type</a><br/></li><li>The other skin types: <a href=\"/collections/dry-sensitive-skin-type\" title=\"Dry Sensitive Skin Type\">Dry Sensitive</a>, <a href=\"/collections/dry-skin-type\" title=\"Dry Skin Type\">Dry</a>, <a href=\"/collections/balanced-skin-type\" title=\"Balanced Skin Type\">Balanced</a>, <a href=\"/collections/oily-skin-type\" title=\"Oily Skin Type\">Oily</a><br/></li><li><a href=\"/blogs/ingredients\" title=\"Ingredients\">How we choose our ingredients</a>, and the science behind them</li>"
+            },
+            {
+              "key": "hero_overlay_colour",
+              "type": "color",
+              "value": "#a37594"
             }
           ]
         },
@@ -337,6 +352,11 @@
               "key": "links_html",
               "type": "multi_line_text_field",
               "value": "<li>See the three Dry moisturisers: <a href=\"/products/dry-flow-moisturiser\" title=\"Flow &mdash; Dry, a light face moisturiser for dry skin\">Flow</a>, <a href=\"/products/core-dry-a-cushioning-body-moisturiser-for-dry-skin\" title=\"Core &mdash; Dry, a cushioning body moisturiser for dry skin\">Core</a> and <a href=\"/products/deep-dry-sensitive-a-rich-moisturiser-for-dry-sensitive-skin-for-hands-elbows-and-feet-copy\" title=\"Deep &mdash; Dry, a rich moisturiser for dry skin, for hands, elbows and feet\">Deep</a><br/></li><li>Not sure this is you? <a href=\"/pages/find-your-skin-type\" title=\"Find Your Skin Type\">Find your skin type</a><br/></li><li>The other skin types: <a href=\"/collections/dry-sensitive-skin-type\" title=\"Dry Sensitive Skin Type\">Dry Sensitive</a>, <a href=\"/collections/balanced-skin-type\" title=\"Balanced Skin Type\">Balanced</a>, <a href=\"/collections/oily-skin-type\" title=\"Oily Skin Type\">Oily</a>, <a href=\"/collections/oily-sensitive-skin-type\" title=\"Oily Sensitive Skin Type\">Oily Sensitive</a><br/></li><li><a href=\"/blogs/ingredients\" title=\"Ingredients\">How we choose our ingredients</a>, and the science behind them</li>"
+            },
+            {
+              "key": "hero_overlay_colour",
+              "type": "color",
+              "value": "#f47d5e"
             }
           ]
         },
@@ -420,6 +440,11 @@
               "key": "links_html",
               "type": "multi_line_text_field",
               "value": "<li>See the three Balanced moisturisers: <a href=\"/products/flow-balanced-a-light-face-moisturiser-for-balanced-skin\" title=\"Flow &mdash; Balanced, a light face moisturiser for balanced skin\">Flow</a>, <a href=\"/products/core-balanced-a-cushioning-body-moisturiser-for-balanced-skin\" title=\"Core &mdash; Balanced, a cushioning body moisturiser for balanced skin\">Core</a> and <a href=\"/products/deep-balanced-a-rich-moisturiser-for-balanced-skin-for-hands-elbows-and-feet\" title=\"Deep &mdash; Balanced, a rich moisturiser for balanced skin, for hands, elbows and feet\">Deep</a><br/></li><li>Not sure this is you? <a href=\"/pages/find-your-skin-type\" title=\"Find Your Skin Type\">Find your skin type</a><br/></li><li>The other skin types: <a href=\"/collections/dry-skin-type\" title=\"Dry Skin Type\">Dry</a>, <a href=\"/collections/dry-sensitive-skin-type\" title=\"Dry Sensitive Skin Type\">Dry Sensitive</a>, <a href=\"/collections/oily-skin-type\" title=\"Oily Skin Type\">Oily</a>, <a href=\"/collections/oily-sensitive-skin-type\" title=\"Oily Sensitive Skin Type\">Oily Sensitive</a><br/></li><li><a href=\"/blogs/ingredients\" title=\"Ingredients\">How we choose our ingredients</a>, and the science behind them</li>"
+            },
+            {
+              "key": "hero_overlay_colour",
+              "type": "color",
+              "value": "#6bbbcc"
             }
           ]
         },

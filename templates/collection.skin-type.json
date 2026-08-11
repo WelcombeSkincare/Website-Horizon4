@@ -35,7 +35,7 @@
             "video_position": "cover",
             "background_image_position": "cover",
             "toggle_overlay": true,
-            "overlay_color": "#80a89e82",
+            "overlay_color": "{{ collection.metafields.custom.hero_overlay_colour.value }}",
             "overlay_style": "solid",
             "gradient_direction": "to top",
             "border": "none",
@@ -114,7 +114,9 @@
       "block_order": [
         "group_XFYnb4"
       ],
-      "custom_css": [],
+      "custom_css": [
+        ".overlay--solid { opacity: 0.6; }"
+      ],
       "name": "t:names.hero",
       "settings": {
         "media_type_1": "image",
