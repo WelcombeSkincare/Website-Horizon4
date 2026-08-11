@@ -110,6 +110,13 @@
       "15351435345818755577": {
         "type": "shopify://apps/pandectes-gdpr/blocks/banner/58c0baa2-6cc1-480c-9ea6-38d6d559556a",
         "disabled": false,
+        "settings": {
+          "fast_load": true
+        }
+      },
+      "2573364899785410738": {
+        "type": "shopify://apps/appstle-pickup-delivery/blocks/appstle-pickup-delivery/019c428d-4002-7bca-8b91-511aae3fd0c9",
+        "disabled": false,
         "settings": {}
       }
     },
