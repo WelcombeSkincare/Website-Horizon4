@@ -1,0 +1,58 @@
+{
+  "metaobjects": {
+    "nodes": [
+      {
+        "id": "gid://shopify/Metaobject/208399204664",
+        "handle": "store-commerce-meta-rjjigxw3",
+        "type": "store_commerce_meta",
+        "fields": [
+          {
+            "key": "shipping_short",
+            "type": "single_line_text_field",
+            "value": "Made by hand in small batches, so we dispatch within two working days. UK delivery £5.99, free over £40."
+          },
+          {
+            "key": "shipping_html",
+            "type": "multi_line_text_field",
+            "value": "<p>Everything is made by hand in Welcombe in small batches. Most orders leave within two working days. If your skin type happens to be out of stock we make it for you and dispatch within seven days, and we will tell you if that applies to your order.</p>\n\n<p>Standard arrives two to three working days after dispatch. Express arrives the next working day after dispatch. We deliver across the UK only.</p>\n\n<table class=\"bd-spec\">\n  <tr><th>Standard, under £40</th><td>£5.99</td></tr>\n  <tr><th>Standard, £40 and over</th><td>Free</td></tr>\n  <tr><th>Express, under £80</th><td>£7.99</td></tr>\n  <tr><th>Express, £80 and over</th><td>Free</td></tr>\n  <tr><th>Local delivery, over £20</th><td>Free</td></tr>\n</table>\n\n<p>Local delivery covers EX21, EX22, EX23, EX31, EX32, EX33, EX37, EX38 and EX39. If that is you, we bring it to you.</p>"
+          },
+          {
+            "key": "shipping_url",
+            "type": "url",
+            "value": "https://biotaderm.com/policies/shipping-policy"
+          },
+          {
+            "key": "returns_short",
+            "type": "single_line_text_field",
+            "value": "Give it two weeks. If it is not right we will swap it for a different skin type or refund you, and we pay the return postage."
+          },
+          {
+            "key": "returns_html",
+            "type": "multi_line_text_field",
+            "value": "<p>We call it the Two-Week Trial. Use it properly for a fortnight, and if it does not suit your skin, tell us. We will swap it for a different skin type or refund you, whichever you would rather, any time up to sixty days from delivery.</p>\n\n<p>Send back whatever is left in the bottle. Opened is fine, half-used is fine, and we pay the return postage. There is no minimum amount you have to have left, because a fortnight of daily use on the face is only fifteen to twenty millilitres of a hundred and fifty, and we would rather trust you than police it.</p>\n\n<p>Sometimes we will refund you without asking for the bottle back. That is our call rather than something to ask for, and it usually means the postage would cost more than sending you a fresh one.</p>\n\n<p>This sits on top of your statutory rights, it does not replace them. You keep the fourteen-day cancellation right under the Consumer Contracts Regulations 2013, and your rights over faulty goods under the Consumer Rights Act 2015, both of which are set out in the returns policy.</p>"
+          },
+          {
+            "key": "returns_url",
+            "type": "url",
+            "value": "https://biotaderm.com/policies/refund-policy"
+          },
+          {
+            "key": "review_policy",
+            "type": "multi_line_text_field",
+            "value": "We publish reviews as they come, favourable or not, with one exception. We do not publish reviews that describe a change to a skin condition, or before-and-after accounts, because we hold what customers write to the same evidence standard we hold our own copy to. If your review is not published, that is why, and we will tell you."
+          },
+          {
+            "key": "faqs_shared",
+            "type": "list.metaobject_reference",
+            "value": "[\"gid://shopify/Metaobject/208398942520\",\"gid://shopify/Metaobject/208398975288\",\"gid://shopify/Metaobject/208399008056\",\"gid://shopify/Metaobject/208399040824\"]"
+          },
+          {
+            "key": "faq_index_url",
+            "type": "url",
+            "value": null
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,2432 @@
+{
+  "metaobjectDefinitions": {
+    "nodes": [
+      {
+        "type": "images",
+        "name": "Images",
+        "fieldDefinitions": [
+          {
+            "key": "image",
+            "name": "Image",
+            "type": {
+              "name": "file_reference"
+            }
+          }
+        ]
+      },
+      {
+        "type": "shopify--product-form",
+        "name": "Product form",
+        "fieldDefinitions": [
+          {
+            "key": "label",
+            "name": "Label",
+            "type": {
+              "name": "single_line_text_field"
+            }
+          },
+          {
+            "key": "taxonomy_reference",
+            "name": "Base product form",
+            "type": {
+              "name": "product_taxonomy_value_reference"
+            }
+          }
+        ]
+      },
+      {
+        "type": "shopify--constitutive-ingredients",
+        "name": "Constitutive ingredients",
+        "fieldDefinitions": [
+          {
+            "key": "label",
+            "name": "Label",
+            "type": {
+              "name": "single_line_text_field"
+            }
+          },
+          {
+            "key": "taxonomy_reference",
+            "name": "Base constitutive ingredients",
+            "type": {
+              "name": "product_taxonomy_value_reference"
+            }
+          }
+        ]
+      },
+      {
+        "type": "shopify--package-type",
+        "name": "Package type",
+        "fieldDefinitions": [
+          {
+            "key": "label",
+            "name": "Label",
+            "type": {
+              "name": "single_line_text_field"
+            }
+          },
+          {
+            "key": "taxonomy_reference",
+            "name": "Base package type",
+            "type": {
+              "name": "product_taxonomy_value_reference"
+            }
+          }
+        ]
+      },
+      {
+        "type": "shopify--suitable-for-skin-type",
+        "name": "Suitable for skin type",
+        "fieldDefinitions": [
+          {
+            "key": "label",
+            "name": "Label",
+            "type": {
+              "name": "single_line_text_field"
+            }
+          },
+          {
+            "key": "taxonomy_reference",
+            "name": "Base suitable for skin type",
+            "type": {
+              "name": "product_taxonomy_value_reference"
+            }
+          }
+        ]
+      },
+      {
+        "type": "shopify--cosmetic-function",
+        "name": "Cosmetic function",
+        "fieldDefinitions": [
+          {
+            "key": "label",
+            "name": "Label",
+            "type": {
+              "name": "single_line_text_field"
+            }
+          },
+          {
+            "key": "taxonomy_reference",
+            "name": "Base cosmetic function",
+            "type": {
+              "name": "product_taxonomy_value_reference"
+            }
+          }
+        ]
+      },
+      {
+        "type": "shopify--age-group",
+        "name": "Age group",
+        "fieldDefinitions": [
+          {
+            "key": "label",
+            "name": "Label",
+            "type": {
+              "name": "single_line_text_field"
+            }
+          },
+          {
+            "key": "taxonomy_reference",
+            "name": "Base age group",
+            "type": {
+              "name": "product_taxonomy_value_reference"
+            }
+          }
+        ]
+      },
+      {
+        "type": "shopify--product-certifications-standards",
+        "name": "Product certifications & standards",
+        "fieldDefinitions": [
+          {
+            "key": "label",
+            "name": "Label",
+            "type": {
+              "name": "single_line_text_field"
+            }
+          },
+          {
+            "key": "taxonomy_reference",
+            "name": "Base product certifications & standards",
+            "type": {
+              "name": "product_taxonomy_value_reference"
+            }
+          }
+        ]
+      },
+      {
+        "type": "shopify--fragrance-level",
+        "name": "Fragrance level",
+        "fieldDefinitions": [
+          {
+            "key": "label",
+            "name": "Label",
+            "type": {
+              "name": "single_line_text_field"
+            }
+          },
+          {
+            "key": "taxonomy_reference",
+            "name": "Base fragrance level",
+            "type": {
+              "name": "product_taxonomy_value_reference"
+            }
+          }
+        ]
+      },
+      {
+        "type": "shopify--ingredient-origin",
+        "name": "Ingredient origin",
+        "fieldDefinitions": [
+          {
+            "key": "label",
+            "name": "Label",
+            "type": {
+              "name": "single_line_text_field"
+            }
+          },
+          {
+            "key": "taxonomy_reference",
+            "name": "Base ingredient origin",
+            "type": {
+              "name": "product_taxonomy_value_reference"
+            }
+          }
+        ]
+      },
+      {
+        "type": "shopify--material",
+        "name": "Material",
+        "fieldDefinitions": [
+          {
+            "key": "label",
+            "name": "Label",
+            "type": {
+              "name": "single_line_text_field"
+            }
+          },
+          {
+            "key": "taxonomy_reference",
+            "name": "Base material",
+            "type": {
+              "name": "product_taxonomy_value_reference"
+            }
+          }
+        ]
+      },
+      {
+        "type": "shopify--dispenser-type",
+        "name": "Dispenser type",
+        "fieldDefinitions": [
+          {
+            "key": "label",
+            "name": "Label",
+            "type": {
+              "name": "single_line_text_field"
+            }
+          },
+          {
+            "key": "taxonomy_reference",
+            "name": "Base dispenser type",
+            "type": {
+              "name": "product_taxonomy_value_reference"
+            }
+          }
+        ]
+      },
+      {
+        "type": "shopify--target-gender",
+        "name": "Target gender",
+        "fieldDefinitions": [
+          {
+            "key": "label",
+            "name": "Label",
+            "type": {
+              "name": "single_line_text_field"
+            }
+          },
+          {
+            "key": "taxonomy_reference",
+            "name": "Base target gender",
+            "type": {
+              "name": "product_taxonomy_value_reference"
+            }
+          }
+        ]
+      },
+      {
+        "type": "shopify--moisturizer-type",
+        "name": "Moisturizer type",
+        "fieldDefinitions": [
+          {
+            "key": "label",
+            "name": "Label",
+            "type": {
+              "name": "single_line_text_field"
+            }
+          },
+          {
+            "key": "taxonomy_reference",
+            "name": "Base moisturizer type",
+            "type": {
+              "name": "product_taxonomy_value_reference"
+            }
+          }
+        ]
+      },
+      {
+        "type": "shopify--skin-care-features",
+        "name": "Skin care features",
+        "fieldDefinitions": [
+          {
+            "key": "label",
+            "name": "Label",
+            "type": {
+              "name": "single_line_text_field"
+            }
+          },
+          {
+            "key": "taxonomy_reference",
+            "name": "Base skin care features",
+            "type": {
+              "name": "product_taxonomy_value_reference"
+            }
+          }
+        ]
+      },
+      {
+        "type": "shopify--texture",
+        "name": "Texture",
+        "fieldDefinitions": [
+          {
+            "key": "label",
+            "name": "Label",
+            "type": {
+              "name": "single_line_text_field"
+            }
+          },
+          {
+            "key": "taxonomy_reference",
+            "name": "Base texture",
+            "type": {
+              "name": "product_taxonomy_value_reference"
+            }
+          }
+        ]
+      },
+      {
+        "type": "shopify--skin-care-effect",
+        "name": "Skin care effect",
+        "fieldDefinitions": [
+          {
+            "key": "label",
+            "name": "Label",
+            "type": {
+              "name": "single_line_text_field"
+            }
+          },
+          {
+            "key": "taxonomy_reference",
+            "name": "Base skin care effect",
+            "type": {
+              "name": "product_taxonomy_value_reference"
+            }
+          }
+        ]
+      },
+      {
+        "type": "shopify--disclosure-us-cpsc-choking_small_parts",
+        "name": "Choking Hazard — Small Parts (US)",
+        "fieldDefinitions": [
+          {
+            "key": "taxonomy_reference",
+            "name": "Taxonomy reference",
+            "type": {
+              "name": "product_taxonomy_disclosure_reference"
+            }
+          },
+          {
+            "key": "parent_id",
+            "name": "Parent disclosure ID",
+            "type": {
+              "name": "single_line_text_field"
+            }
+          },
+          {
+            "key": "description",
+            "name": "Description",
+            "type": {
+              "name": "single_line_text_field"
+            }
+          },
+          {
+            "key": "title",
+            "name": "Title",
+            "type": {
+              "name": "single_line_text_field"
+            }
+          },
+          {
+            "key": "internal_label",
+            "name": "Internal label",
+            "type": {
+              "name": "single_line_text_field"
+            }
+          },
+          {
+            "key": "content",
+            "name": "Content",
+            "type": {
+              "name": "rich_text_field"
+            }
+          },
+          {
+            "key": "symbol",
+            "name": "Symbol",
+            "type": {
+              "name": "file_reference"
+            }
+          },
+          {
+            "key": "jurisdictions",
+            "name": "Jurisdictions",
+            "type": {
+              "name": "list.jurisdiction"
+            }
+          },
+          {
+            "key": "legal_citation",
+            "name": "Legal citation",
+            "type": {
+              "name": "single_line_text_field"
+            }
+          },
+          {
+            "key": "display_requirements",
+            "name": "Display requirements",
+            "type": {
+              "name": "single_line_text_field"
+            }
+          },
+          {
+            "key": "display_preferences",
+            "name": "Display preferences",
+            "type": {
+              "name": "json"
+            }
+          },
+          {
+            "key": "source",
+            "name": "Source",
+            "type": {
+              "name": "single_line_text_field"
+            }
+          }
+        ]
+      },
+      {
+        "type": "shopify--disclosure-us-cpsc-choking_balloons",
+        "name": "Choking Hazard — Balloons (US)",
+        "fieldDefinitions": [
+          {
+            "key": "taxonomy_reference",
+            "name": "Taxonomy reference",
+            "type": {
+              "name": "product_taxonomy_disclosure_reference"
+            }
+          },
+          {
+            "key": "parent_id",
+            "name": "Parent disclosure ID",
+            "type": {
+              "name": "single_line_text_field"
+            }
+          },
+          {
+            "key": "description",
+            "name": "Description",
+            "type": {
+              "name": "single_line_text_field"
+            }
+          },
+          {
+            "key": "title",
+            "name": "Title",
+            "type": {
+              "name": "single_line_text_field"
+            }
+          },
+          {
+            "key": "internal_label",
+            "name": "Internal label",
+            "type": {
+              "name": "single_line_text_field"
+            }
+          },
+          {
+            "key": "content",
+            "name": "Content",
+            "type": {
+              "name": "rich_text_field"
+            }
+          },
+          {
+            "key": "symbol",
+            "name": "Symbol",
+            "type": {
+              "name": "file_reference"
+            }
+          },
+          {
+            "key": "jurisdictions",
+            "name": "Jurisdictions",
+            "type": {
+              "name": "list.jurisdiction"
+            }
+          },
+          {
+            "key": "legal_citation",
+            "name": "Legal citation",
+            "type": {
+              "name": "single_line_text_field"
+            }
+          },
+          {
+            "key": "display_requirements",
+            "name": "Display requirements",
+            "type": {
+              "name": "single_line_text_field"
+            }
+          },
+          {
+            "key": "display_preferences",
+            "name": "Display preferences",
+            "type": {
+              "name": "json"
+            }
+          },
+          {
+            "key": "source",
+            "name": "Source",
+            "type": {
+              "name": "single_line_text_field"
+            }
+          }
+        ]
+      },
+      {
+        "type": "shopify--disclosure-custom",
+        "name": "Custom disclosure",
+        "fieldDefinitions": [
+          {
+            "key": "title",
+            "name": "Title",
+            "type": {
+              "name": "single_line_text_field"
+            }
+          },
+          {
+            "key": "internal_label",
+            "name": "Internal label",
+            "type": {
+              "name": "single_line_text_field"
+            }
+          },
+          {
+            "key": "content",
+            "name": "Content",
+            "type": {
+              "name": "rich_text_field"
+            }
+          },
+          {
+            "key": "symbol",
+            "name": "Symbol",
+            "type": {
+              "name": "file_reference"
+            }
+          },
+          {
+            "key": "jurisdictions",
+            "name": "Jurisdictions",
+            "type": {
+              "name": "list.jurisdiction"
+            }
+          },
+          {
+            "key": "display_preferences",
+            "name": "Display preferences",
+            "type": {
+              "name": "json"
+            }
+          }
+        ]
+      },
+      {
+        "type": "shopify--disclosure-us-ca-prop65-reproductive",
+        "name": "Prop 65 — Reproductive Harm (US-CA)",
+        "fieldDefinitions": [
+          {
+            "key": "taxonomy_reference",
+            "name": "Taxonomy reference",
+            "type": {
+              "name": "product_taxonomy_disclosure_reference"
+            }
+          },
+          {
+            "key": "parent_id",
+            "name": "Parent disclosure ID",
+            "type": {
+              "name": "single_line_text_field"
+            }
+          },
+          {
+            "key": "description",
+            "name": "Description",
+            "type": {
+              "name": "single_line_text_field"
+            }
+          },
+          {
+            "key": "title",
+            "name": "Title",
+            "type": {
+              "name": "single_line_text_field"
+            }
+          },
+          {
+            "key": "internal_label",
+            "name": "Internal label",
+            "type": {
+              "name": "single_line_text_field"
+            }
+          },
+          {
+            "key": "content",
+            "name": "Content",
+            "type": {
+              "name": "rich_text_field"
+            }
+          },
+          {
+            "key": "symbol",
+            "name": "Symbol",
+            "type": {
+              "name": "file_reference"
+            }
+          },
+          {
+            "key": "jurisdictions",
+            "name": "Jurisdictions",
+            "type": {
+              "name": "list.jurisdiction"
+            }
+          },
+          {
+            "key": "legal_citation",
+            "name": "Legal citation",
+            "type": {
+              "name": "single_line_text_field"
+            }
+          },
+          {
+            "key": "display_requirements",
+            "name": "Display requirements",
+            "type": {
+              "name": "single_line_text_field"
+            }
+          },
+          {
+            "key": "display_preferences",
+            "name": "Display preferences",
+            "type": {
+              "name": "json"
+            }
+          },
+          {
+            "key": "source",
+            "name": "Source",
+            "type": {
+              "name": "single_line_text_field"
+            }
+          }
+        ]
+      },
+      {
+        "type": "shopify--disclosure-us-cpsc-choking_small_balls",
+        "name": "Choking Hazard — Small Balls (US)",
+        "fieldDefinitions": [
+          {
+            "key": "taxonomy_reference",
+            "name": "Taxonomy reference",
+            "type": {
+              "name": "product_taxonomy_disclosure_reference"
+            }
+          },
+          {
+            "key": "parent_id",
+            "name": "Parent disclosure ID",
+            "type": {
+              "name": "single_line_text_field"
+            }
+          },
+          {
+            "key": "description",
+            "name": "Description",
+            "type": {
+              "name": "single_line_text_field"
+            }
+          },
+          {
+            "key": "title",
+            "name": "Title",
+            "type": {
+              "name": "single_line_text_field"
+            }
+          },
+          {
+            "key": "internal_label",
+            "name": "Internal label",
+            "type": {
+              "name": "single_line_text_field"
+            }
+          },
+          {
+            "key": "content",
+            "name": "Content",
+            "type": {
+              "name": "rich_text_field"
+            }
+          },
+          {
+            "key": "symbol",
+            "name": "Symbol",
+            "type": {
+              "name": "file_reference"
+            }
+          },
+          {
+            "key": "jurisdictions",
+            "name": "Jurisdictions",
+            "type": {
+              "name": "list.jurisdiction"
+            }
+          },
+          {
+            "key": "legal_citation",
+            "name": "Legal citation",
+            "type": {
+              "name": "single_line_text_field"
+            }
+          },
+          {
+            "key": "display_requirements",
+            "name": "Display requirements",
+            "type": {
+              "name": "single_line_text_field"
+            }
+          },
+          {
+            "key": "display_preferences",
+            "name": "Display preferences",
+            "type": {
+              "name": "json"
+            }
+          },
+          {
+            "key": "source",
+            "name": "Source",
+            "type": {
+              "name": "single_line_text_field"
+            }
+          }
+        ]
+      },
+      {
+        "type": "shopify--disclosure-us-ca-prop65-cancer_reproductive",
+        "name": "Prop 65 — Cancer and Reproductive Harm (US-CA)",
+        "fieldDefinitions": [
+          {
+            "key": "taxonomy_reference",
+            "name": "Taxonomy reference",
+            "type": {
+              "name": "product_taxonomy_disclosure_reference"
+            }
+          },
+          {
+            "key": "parent_id",
+            "name": "Parent disclosure ID",
+            "type": {
+              "name": "single_line_text_field"
+            }
+          },
+          {
+            "key": "description",
+            "name": "Description",
+            "type": {
+              "name": "single_line_text_field"
+            }
+          },
+          {
+            "key": "title",
+            "name": "Title",
+            "type": {
+              "name": "single_line_text_field"
+            }
+          },
+          {
+            "key": "internal_label",
+            "name": "Internal label",
+            "type": {
+              "name": "single_line_text_field"
+            }
+          },
+          {
+            "key": "content",
+            "name": "Content",
+            "type": {
+              "name": "rich_text_field"
+            }
+          },
+          {
+            "key": "symbol",
+            "name": "Symbol",
+            "type": {
+              "name": "file_reference"
+            }
+          },
+          {
+            "key": "jurisdictions",
+            "name": "Jurisdictions",
+            "type": {
+              "name": "list.jurisdiction"
+            }
+          },
+          {
+            "key": "legal_citation",
+            "name": "Legal citation",
+            "type": {
+              "name": "single_line_text_field"
+            }
+          },
+          {
+            "key": "display_requirements",
+            "name": "Display requirements",
+            "type": {
+              "name": "single_line_text_field"
+            }
+          },
+          {
+            "key": "display_preferences",
+            "name": "Display preferences",
+            "type": {
+              "name": "json"
+            }
+          },
+          {
+            "key": "source",
+            "name": "Source",
+            "type": {
+              "name": "single_line_text_field"
+            }
+          }
+        ]
+      },
+      {
+        "type": "shopify--disclosure-us-ca-prop65-alcohol",
+        "name": "Prop 65 — Alcohol (US-CA)",
+        "fieldDefinitions": [
+          {
+            "key": "taxonomy_reference",
+            "name": "Taxonomy reference",
+            "type": {
+              "name": "product_taxonomy_disclosure_reference"
+            }
+          },
+          {
+            "key": "parent_id",
+            "name": "Parent disclosure ID",
+            "type": {
+              "name": "single_line_text_field"
+            }
+          },
+          {
+            "key": "description",
+            "name": "Description",
+            "type": {
+              "name": "single_line_text_field"
+            }
+          },
+          {
+            "key": "title",
+            "name": "Title",
+            "type": {
+              "name": "single_line_text_field"
+            }
+          },
+          {
+            "key": "internal_label",
+            "name": "Internal label",
+            "type": {
+              "name": "single_line_text_field"
+            }
+          },
+          {
+            "key": "content",
+            "name": "Content",
+            "type": {
+              "name": "rich_text_field"
+            }
+          },
+          {
+            "key": "symbol",
+            "name": "Symbol",
+            "type": {
+              "name": "file_reference"
+            }
+          },
+          {
+            "key": "jurisdictions",
+            "name": "Jurisdictions",
+            "type": {
+              "name": "list.jurisdiction"
+            }
+          },
+          {
+            "key": "legal_citation",
+            "name": "Legal citation",
+            "type": {
+              "name": "single_line_text_field"
+            }
+          },
+          {
+            "key": "display_requirements",
+            "name": "Display requirements",
+            "type": {
+              "name": "single_line_text_field"
+            }
+          },
+          {
+            "key": "display_preferences",
+            "name": "Display preferences",
+            "type": {
+              "name": "json"
+            }
+          },
+          {
+            "key": "source",
+            "name": "Source",
+            "type": {
+              "name": "single_line_text_field"
+            }
+          }
+        ]
+      },
+      {
+        "type": "shopify--disclosure-us-cpsc-choking_marbles",
+        "name": "Choking Hazard — Marbles (US)",
+        "fieldDefinitions": [
+          {
+            "key": "taxonomy_reference",
+            "name": "Taxonomy reference",
+            "type": {
+              "name": "product_taxonomy_disclosure_reference"
+            }
+          },
+          {
+            "key": "parent_id",
+            "name": "Parent disclosure ID",
+            "type": {
+              "name": "single_line_text_field"
+            }
+          },
+          {
+            "key": "description",
+            "name": "Description",
+            "type": {
+              "name": "single_line_text_field"
+            }
+          },
+          {
+            "key": "title",
+            "name": "Title",
+            "type": {
+              "name": "single_line_text_field"
+            }
+          },
+          {
+            "key": "internal_label",
+            "name": "Internal label",
+            "type": {
+              "name": "single_line_text_field"
+            }
+          },
+          {
+            "key": "content",
+            "name": "Content",
+            "type": {
+              "name": "rich_text_field"
+            }
+          },
+          {
+            "key": "symbol",
+            "name": "Symbol",
+            "type": {
+              "name": "file_reference"
+            }
+          },
+          {
+            "key": "jurisdictions",
+            "name": "Jurisdictions",
+            "type": {
+              "name": "list.jurisdiction"
+            }
+          },
+          {
+            "key": "legal_citation",
+            "name": "Legal citation",
+            "type": {
+              "name": "single_line_text_field"
+            }
+          },
+          {
+            "key": "display_requirements",
+            "name": "Display requirements",
+            "type": {
+              "name": "single_line_text_field"
+            }
+          },
+          {
+            "key": "display_preferences",
+            "name": "Display preferences",
+            "type": {
+              "name": "json"
+            }
+          },
+          {
+            "key": "source",
+            "name": "Source",
+            "type": {
+              "name": "single_line_text_field"
+            }
+          }
+        ]
+      },
+      {
+        "type": "shopify--disclosure-us-ca-prop65-cancer",
+        "name": "Prop 65 — Cancer (US-CA)",
+        "fieldDefinitions": [
+          {
+            "key": "taxonomy_reference",
+            "name": "Taxonomy reference",
+            "type": {
+              "name": "product_taxonomy_disclosure_reference"
+            }
+          },
+          {
+            "key": "parent_id",
+            "name": "Parent disclosure ID",
+            "type": {
+              "name": "single_line_text_field"
+            }
+          },
+          {
+            "key": "description",
+            "name": "Description",
+            "type": {
+              "name": "single_line_text_field"
+            }
+          },
+          {
+            "key": "title",
+            "name": "Title",
+            "type": {
+              "name": "single_line_text_field"
+            }
+          },
+          {
+            "key": "internal_label",
+            "name": "Internal label",
+            "type": {
+              "name": "single_line_text_field"
+            }
+          },
+          {
+            "key": "content",
+            "name": "Content",
+            "type": {
+              "name": "rich_text_field"
+            }
+          },
+          {
+            "key": "symbol",
+            "name": "Symbol",
+            "type": {
+              "name": "file_reference"
+            }
+          },
+          {
+            "key": "jurisdictions",
+            "name": "Jurisdictions",
+            "type": {
+              "name": "list.jurisdiction"
+            }
+          },
+          {
+            "key": "legal_citation",
+            "name": "Legal citation",
+            "type": {
+              "name": "single_line_text_field"
+            }
+          },
+          {
+            "key": "display_requirements",
+            "name": "Display requirements",
+            "type": {
+              "name": "single_line_text_field"
+            }
+          },
+          {
+            "key": "display_preferences",
+            "name": "Display preferences",
+            "type": {
+              "name": "json"
+            }
+          },
+          {
+            "key": "source",
+            "name": "Source",
+            "type": {
+              "name": "single_line_text_field"
+            }
+          }
+        ]
+      },
+      {
+        "type": "shopify--active-ingredient",
+        "name": "Active ingredient",
+        "fieldDefinitions": [
+          {
+            "key": "label",
+            "name": "Label",
+            "type": {
+              "name": "single_line_text_field"
+            }
+          },
+          {
+            "key": "taxonomy_reference",
+            "name": "Base active ingredient",
+            "type": {
+              "name": "product_taxonomy_value_reference"
+            }
+          }
+        ]
+      },
+      {
+        "type": "ingredient_blog",
+        "name": "Ingredient Blog",
+        "fieldDefinitions": [
+          {
+            "key": "botanical_name",
+            "name": "Botanical name",
+            "type": {
+              "name": "single_line_text_field"
+            }
+          },
+          {
+            "key": "inci",
+            "name": "INCI",
+            "type": {
+              "name": "single_line_text_field"
+            }
+          },
+          {
+            "key": "chipy",
+            "name": "Chips",
+            "type": {
+              "name": "list.single_line_text_field"
+            }
+          },
+          {
+            "key": "standfirst_emphasis",
+            "name": "Standfirst emphasis",
+            "type": {
+              "name": "single_line_text_field"
+            }
+          },
+          {
+            "key": "photo",
+            "name": "Photo",
+            "type": {
+              "name": "file_reference"
+            }
+          },
+          {
+            "key": "photo_alt_caption",
+            "name": "Photo alt / caption",
+            "type": {
+              "name": "single_line_text_field"
+            }
+          },
+          {
+            "key": "at_a_glance_role",
+            "name": "At a glance — role",
+            "type": {
+              "name": "single_line_text_field"
+            }
+          },
+          {
+            "key": "at_a_glance_source",
+            "name": "At a glance — source",
+            "type": {
+              "name": "single_line_text_field"
+            }
+          },
+          {
+            "key": "at_a_glance_processing",
+            "name": "At a glance — processing",
+            "type": {
+              "name": "single_line_text_field"
+            }
+          },
+          {
+            "key": "at_a_glance_also_known_as",
+            "name": "At a glance — also known as",
+            "type": {
+              "name": "single_line_text_field"
+            }
+          },
+          {
+            "key": "function_intro",
+            "name": "Function intro",
+            "type": {
+              "name": "single_line_text_field"
+            }
+          },
+          {
+            "key": "label_string",
+            "name": "Label string",
+            "type": {
+              "name": "single_line_text_field"
+            }
+          },
+          {
+            "key": "label_highlight_term",
+            "name": "Label highlight term",
+            "type": {
+              "name": "single_line_text_field"
+            }
+          },
+          {
+            "key": "label_note",
+            "name": "Label note",
+            "type": {
+              "name": "multi_line_text_field"
+            }
+          },
+          {
+            "key": "ethos",
+            "name": "Ethos Icons",
+            "type": {
+              "name": "list.metaobject_reference"
+            }
+          },
+          {
+            "key": "patch_test_line",
+            "name": "Patch-test line",
+            "type": {
+              "name": "single_line_text_field"
+            }
+          },
+          {
+            "key": "footer_scope_line",
+            "name": "Footer scope line",
+            "type": {
+              "name": "single_line_text_field"
+            }
+          },
+          {
+            "key": "function_card_title",
+            "name": "Function card title",
+            "type": {
+              "name": "list.single_line_text_field"
+            }
+          },
+          {
+            "key": "function_card_body",
+            "name": "Function card body",
+            "type": {
+              "name": "list.single_line_text_field"
+            }
+          },
+          {
+            "key": "function_card_chip_text",
+            "name": "Function card chip text",
+            "type": {
+              "name": "list.single_line_text_field"
+            }
+          },
+          {
+            "key": "function_card_chip_colour",
+            "name": "Function card chip colour",
+            "type": {
+              "name": "list.color"
+            }
+          },
+          {
+            "key": "suitability_chip_text",
+            "name": "Suitability chip text",
+            "type": {
+              "name": "list.single_line_text_field"
+            }
+          },
+          {
+            "key": "suitability_chip_colour",
+            "name": "Suitability chip colour",
+            "type": {
+              "name": "list.color"
+            }
+          },
+          {
+            "key": "dont_claim_marketed_as",
+            "name": "Dont claim marketed as",
+            "type": {
+              "name": "list.single_line_text_field"
+            }
+          },
+          {
+            "key": "dont_claim_correction",
+            "name": "Dont claim correction",
+            "type": {
+              "name": "list.single_line_text_field"
+            }
+          },
+          {
+            "key": "reference_citation",
+            "name": "Reference citation",
+            "type": {
+              "name": "list.single_line_text_field"
+            }
+          },
+          {
+            "key": "reference_link",
+            "name": "Reference link",
+            "type": {
+              "name": "list.link"
+            }
+          },
+          {
+            "key": "standfirst_lead",
+            "name": "Standfirst lead",
+            "type": {
+              "name": "multi_line_text_field"
+            }
+          },
+          {
+            "key": "what_it_is_body",
+            "name": "What it is (body)",
+            "type": {
+              "name": "multi_line_text_field"
+            }
+          },
+          {
+            "key": "teardown_intro",
+            "name": "Dont claim intro",
+            "type": {
+              "name": "multi_line_text_field"
+            }
+          },
+          {
+            "key": "teardown_closing",
+            "name": "Dont claim closing",
+            "type": {
+              "name": "multi_line_text_field"
+            }
+          },
+          {
+            "key": "on_the_label_body",
+            "name": "On the label (body)",
+            "type": {
+              "name": "multi_line_text_field"
+            }
+          },
+          {
+            "key": "suitability_body",
+            "name": "Suitability (body)",
+            "type": {
+              "name": "multi_line_text_field"
+            }
+          },
+          {
+            "key": "modest_bonus",
+            "name": "Modest bonus",
+            "type": {
+              "name": "multi_line_text_field"
+            }
+          }
+        ]
+      },
+      {
+        "type": "ingredient_function_card",
+        "name": "ingredient_function_card",
+        "fieldDefinitions": [
+          {
+            "key": "title",
+            "name": "Title",
+            "type": {
+              "name": "single_line_text_field"
+            }
+          },
+          {
+            "key": "body",
+            "name": "Body",
+            "type": {
+              "name": "multi_line_text_field"
+            }
+          },
+          {
+            "key": "evidence_chip",
+            "name": "Evidence chip",
+            "type": {
+              "name": "metaobject_reference"
+            }
+          }
+        ]
+      },
+      {
+        "type": "ingredient_claim",
+        "name": "ingredient_claim",
+        "fieldDefinitions": [
+          {
+            "key": "marketed_as",
+            "name": "Marketed as",
+            "type": {
+              "name": "single_line_text_field"
+            }
+          },
+          {
+            "key": "correction",
+            "name": "Correction",
+            "type": {
+              "name": "multi_line_text_field"
+            }
+          }
+        ]
+      },
+      {
+        "type": "ingredient_reference",
+        "name": "Ingredient Reference",
+        "fieldDefinitions": [
+          {
+            "key": "citation",
+            "name": "Citation",
+            "type": {
+              "name": "multi_line_text_field"
+            }
+          },
+          {
+            "key": "link",
+            "name": "Link",
+            "type": {
+              "name": "url"
+            }
+          }
+        ]
+      },
+      {
+        "type": "chips",
+        "name": "Ingredient Function Chip",
+        "fieldDefinitions": [
+          {
+            "key": "chip_text",
+            "name": "Chip text",
+            "type": {
+              "name": "single_line_text_field"
+            }
+          },
+          {
+            "key": "chip_colour",
+            "name": "Chip colour",
+            "type": {
+              "name": "color"
+            }
+          }
+        ]
+      },
+      {
+        "type": "ethos_icon",
+        "name": "Ethos Icon",
+        "fieldDefinitions": [
+          {
+            "key": "icon",
+            "name": "Icon",
+            "type": {
+              "name": "file_reference"
+            }
+          },
+          {
+            "key": "label",
+            "name": "Label",
+            "type": {
+              "name": "single_line_text_field"
+            }
+          },
+          {
+            "key": "colour",
+            "name": "Colour",
+            "type": {
+              "name": "color"
+            }
+          }
+        ]
+      },
+      {
+        "type": "product_page_meta",
+        "name": "product_page_meta",
+        "fieldDefinitions": [
+          {
+            "key": "style",
+            "name": "style",
+            "type": {
+              "name": "single_line_text_field"
+            }
+          },
+          {
+            "key": "chips",
+            "name": "chips",
+            "type": {
+              "name": "list.metaobject_reference"
+            }
+          },
+          {
+            "key": "back_label",
+            "name": "back_label",
+            "type": {
+              "name": "single_line_text_field"
+            }
+          },
+          {
+            "key": "back_url",
+            "name": "back_url",
+            "type": {
+              "name": "url"
+            }
+          },
+          {
+            "key": "subtitle",
+            "name": "subtitle",
+            "type": {
+              "name": "single_line_text_field"
+            }
+          },
+          {
+            "key": "hero_intro",
+            "name": "hero_intro",
+            "type": {
+              "name": "multi_line_text_field"
+            }
+          },
+          {
+            "key": "size_label",
+            "name": "size_label",
+            "type": {
+              "name": "single_line_text_field"
+            }
+          },
+          {
+            "key": "glance_skin_type",
+            "name": "glance_skin_type",
+            "type": {
+              "name": "single_line_text_field"
+            }
+          },
+          {
+            "key": "glance_texture",
+            "name": "glance_texture",
+            "type": {
+              "name": "single_line_text_field"
+            }
+          },
+          {
+            "key": "glance_best_for",
+            "name": "glance_best_for",
+            "type": {
+              "name": "single_line_text_field"
+            }
+          },
+          {
+            "key": "glance_formulation",
+            "name": "glance_formulation",
+            "type": {
+              "name": "single_line_text_field"
+            }
+          },
+          {
+            "key": "what_it_is_html",
+            "name": "what_it_is_html",
+            "type": {
+              "name": "multi_line_text_field"
+            }
+          },
+          {
+            "key": "how_to_use_html",
+            "name": "how_to_use_html",
+            "type": {
+              "name": "multi_line_text_field"
+            }
+          },
+          {
+            "key": "key_ingredients_intro",
+            "name": "key_ingredients_intro",
+            "type": {
+              "name": "multi_line_text_field"
+            }
+          },
+          {
+            "key": "key_ingredients_html",
+            "name": "key_ingredients_html",
+            "type": {
+              "name": "multi_line_text_field"
+            }
+          },
+          {
+            "key": "fragrance_eyebrow",
+            "name": "fragrance_eyebrow",
+            "type": {
+              "name": "single_line_text_field"
+            }
+          },
+          {
+            "key": "fragrance_html",
+            "name": "fragrance_html",
+            "type": {
+              "name": "multi_line_text_field"
+            }
+          },
+          {
+            "key": "formulation_intro",
+            "name": "formulation_intro",
+            "type": {
+              "name": "single_line_text_field"
+            }
+          },
+          {
+            "key": "formulation_html",
+            "name": "formulation_html",
+            "type": {
+              "name": "multi_line_text_field"
+            }
+          },
+          {
+            "key": "formulation_footnote",
+            "name": "formulation_footnote",
+            "type": {
+              "name": "single_line_text_field"
+            }
+          },
+          {
+            "key": "ethos",
+            "name": "ethos",
+            "type": {
+              "name": "list.metaobject_reference"
+            }
+          },
+          {
+            "key": "ethos_footer",
+            "name": "ethos_footer",
+            "type": {
+              "name": "single_line_text_field"
+            }
+          },
+          {
+            "key": "lifestyle_image",
+            "name": "lifestyle_image",
+            "type": {
+              "name": "file_reference"
+            }
+          },
+          {
+            "key": "lifestyle_caption",
+            "name": "lifestyle_caption",
+            "type": {
+              "name": "single_line_text_field"
+            }
+          },
+          {
+            "key": "feel_texture",
+            "name": "Feel - texture",
+            "type": {
+              "name": "single_line_text_field"
+            }
+          },
+          {
+            "key": "feel_absorbency",
+            "name": "Feel - absorbency",
+            "type": {
+              "name": "single_line_text_field"
+            }
+          },
+          {
+            "key": "feel_scent",
+            "name": "Feel - scent",
+            "type": {
+              "name": "single_line_text_field"
+            }
+          },
+          {
+            "key": "safety_short",
+            "name": "Safety one-liner",
+            "type": {
+              "name": "single_line_text_field"
+            }
+          },
+          {
+            "key": "pack_intro",
+            "name": "Pack intro",
+            "type": {
+              "name": "single_line_text_field"
+            }
+          },
+          {
+            "key": "pack_spec_html",
+            "name": "Pack spec table",
+            "type": {
+              "name": "multi_line_text_field"
+            }
+          },
+          {
+            "key": "faqs",
+            "name": "Product FAQs",
+            "type": {
+              "name": "list.metaobject_reference"
+            }
+          },
+          {
+            "key": "internal_name",
+            "name": "Internal name",
+            "type": {
+              "name": "single_line_text_field"
+            }
+          }
+        ]
+      },
+      {
+        "type": "chip",
+        "name": "chip",
+        "fieldDefinitions": [
+          {
+            "key": "label",
+            "name": "`label`",
+            "type": {
+              "name": "single_line_text_field"
+            }
+          },
+          {
+            "key": "colour",
+            "name": "colour",
+            "type": {
+              "name": "color"
+            }
+          },
+          {
+            "key": "url",
+            "name": "url",
+            "type": {
+              "name": "url"
+            }
+          }
+        ]
+      },
+      {
+        "type": "shopify--body-area",
+        "name": "Body area",
+        "fieldDefinitions": [
+          {
+            "key": "label",
+            "name": "Label",
+            "type": {
+              "name": "single_line_text_field"
+            }
+          },
+          {
+            "key": "taxonomy_reference",
+            "name": "Base body area",
+            "type": {
+              "name": "product_taxonomy_value_reference"
+            }
+          }
+        ]
+      },
+      {
+        "type": "faq_item",
+        "name": "FAQ Item",
+        "fieldDefinitions": [
+          {
+            "key": "question",
+            "name": "Question",
+            "type": {
+              "name": "single_line_text_field"
+            }
+          },
+          {
+            "key": "answer_html",
+            "name": "Answer",
+            "type": {
+              "name": "multi_line_text_field"
+            }
+          }
+        ]
+      },
+      {
+        "type": "store_commerce_meta",
+        "name": "Store Commerce Meta",
+        "fieldDefinitions": [
+          {
+            "key": "shipping_short",
+            "name": "Shipping one-liner",
+            "type": {
+              "name": "single_line_text_field"
+            }
+          },
+          {
+            "key": "shipping_html",
+            "name": "Shipping detail",
+            "type": {
+              "name": "multi_line_text_field"
+            }
+          },
+          {
+            "key": "shipping_url",
+            "name": "Shipping page URL",
+            "type": {
+              "name": "url"
+            }
+          },
+          {
+            "key": "returns_short",
+            "name": "Returns one-liner",
+            "type": {
+              "name": "single_line_text_field"
+            }
+          },
+          {
+            "key": "returns_html",
+            "name": "Returns detail",
+            "type": {
+              "name": "multi_line_text_field"
+            }
+          },
+          {
+            "key": "returns_url",
+            "name": "Returns page URL",
+            "type": {
+              "name": "url"
+            }
+          },
+          {
+            "key": "review_policy",
+            "name": "Review policy",
+            "type": {
+              "name": "multi_line_text_field"
+            }
+          },
+          {
+            "key": "faqs_shared",
+            "name": "Store-wide FAQs",
+            "type": {
+              "name": "list.metaobject_reference"
+            }
+          },
+          {
+            "key": "faq_index_url",
+            "name": "FAQ index URL",
+            "type": {
+              "name": "url"
+            }
+          }
+        ]
+      },
+      {
+        "type": "shopify--cosmetic-finish",
+        "name": "Cosmetic finish",
+        "fieldDefinitions": [
+          {
+            "key": "label",
+            "name": "Label",
+            "type": {
+              "name": "single_line_text_field"
+            }
+          },
+          {
+            "key": "taxonomy_reference",
+            "name": "Base cosmetic finish",
+            "type": {
+              "name": "product_taxonomy_value_reference"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "productDefs": {
+    "nodes": [
+      {
+        "namespace": "mm-google-shopping",
+        "key": "custom_product",
+        "name": "Google: Custom Product",
+        "type": {
+          "name": "boolean"
+        },
+        "description": "Use to indicate whether or not the unique product identifiers (UPIs) GTIN, MPN, and brand are available for your product."
+      },
+      {
+        "namespace": "shopify",
+        "key": "product-form",
+        "name": "Product form",
+        "type": {
+          "name": "list.metaobject_reference"
+        },
+        "description": "Defines the format or presentation of a product, typically for health and beauty; e.g. lotion, serum"
+      },
+      {
+        "namespace": "shopify--discovery--product_search_boost",
+        "key": "queries",
+        "name": "Search product boosts",
+        "type": {
+          "name": "list.single_line_text_field"
+        },
+        "description": "List of search queries for which a product gets higher rank in search results"
+      },
+      {
+        "namespace": "shopify--discovery--product_recommendation",
+        "key": "related_products",
+        "name": "Related products",
+        "type": {
+          "name": "list.product_reference"
+        },
+        "description": "List of related products"
+      },
+      {
+        "namespace": "shopify--discovery--product_recommendation",
+        "key": "related_products_display",
+        "name": "Related products settings",
+        "type": {
+          "name": "single_line_text_field"
+        },
+        "description": "Determines how related products are displayed along with algorithmic product recommendations"
+      },
+      {
+        "namespace": "shopify--discovery--product_recommendation",
+        "key": "complementary_products",
+        "name": "Complementary products",
+        "type": {
+          "name": "list.product_reference"
+        },
+        "description": "List of complementary products"
+      },
+      {
+        "namespace": "shopify",
+        "key": "age-group",
+        "name": "Age group",
+        "type": {
+          "name": "list.metaobject_reference"
+        },
+        "description": "Defines the target age range for a product, such as adults or kids"
+      },
+      {
+        "namespace": "shopify",
+        "key": "constitutive-ingredients",
+        "name": "Constitutive ingredients",
+        "type": {
+          "name": "list.metaobject_reference"
+        },
+        "description": "Specifies the main components used in a product's formulation, e.g. beeswax, rosehip oil"
+      },
+      {
+        "namespace": "shopify",
+        "key": "cosmetic-function",
+        "name": "Cosmetic function",
+        "type": {
+          "name": "list.metaobject_reference"
+        },
+        "description": "Defines the intended benefit or effect of a cosmetic product, e.g. soothing, healing"
+      },
+      {
+        "namespace": "shopify",
+        "key": "package-type",
+        "name": "Package type",
+        "type": {
+          "name": "list.metaobject_reference"
+        },
+        "description": "Defines the type of packaging for a product, e.g. jar, pump"
+      },
+      {
+        "namespace": "shopify",
+        "key": "product-certifications-standards",
+        "name": "Product certifications & standards",
+        "type": {
+          "name": "list.metaobject_reference"
+        },
+        "description": "Indicates the certifications or standards a product meets, such as organic or cruelty free"
+      },
+      {
+        "namespace": "shopify",
+        "key": "suitable-for-skin-type",
+        "name": "Suitable for skin type",
+        "type": {
+          "name": "list.metaobject_reference"
+        },
+        "description": "Specifies products for specific skin conditions, such as dry, aging, or sensitive"
+      },
+      {
+        "namespace": "shopify",
+        "key": "material",
+        "name": "Material",
+        "type": {
+          "name": "list.metaobject_reference"
+        },
+        "description": "Defines a product's primary material, such as cotton or wool"
+      },
+      {
+        "namespace": "shopify",
+        "key": "target-gender",
+        "name": "Target gender",
+        "type": {
+          "name": "list.metaobject_reference"
+        },
+        "description": "Identifies the intended gender for a product, such as female, male or unisex"
+      },
+      {
+        "namespace": "shopify",
+        "key": "dispenser-type",
+        "name": "Dispenser type",
+        "type": {
+          "name": "list.metaobject_reference"
+        },
+        "description": "Specifies the format for dispensing the product, typically in health and beauty; e.g. stick, jar"
+      },
+      {
+        "namespace": "shopify",
+        "key": "texture",
+        "name": "Texture",
+        "type": {
+          "name": "list.metaobject_reference"
+        },
+        "description": "Defines the feel or consistency of a product, such as creamy, matte, or absorbent"
+      },
+      {
+        "namespace": "shopify",
+        "key": "skin-care-effect",
+        "name": "Skin care effect",
+        "type": {
+          "name": "list.metaobject_reference"
+        },
+        "description": "Defines the intended benefits of skin care products, e.g. anti-aging, plumping"
+      },
+      {
+        "namespace": "shopify",
+        "key": "fragrance-level",
+        "name": "Fragrance level",
+        "type": {
+          "name": "list.metaobject_reference"
+        },
+        "description": "Specifies the scent intensity of a product, e.g. unscented, lightly scented"
+      },
+      {
+        "namespace": "shopify",
+        "key": "ingredient-origin",
+        "name": "Ingredient origin",
+        "type": {
+          "name": "list.metaobject_reference"
+        },
+        "description": "Specifies the source of product ingredients, e.g. natural, synthetic"
+      },
+      {
+        "namespace": "shopify",
+        "key": "skin-care-features",
+        "name": "Skin care features",
+        "type": {
+          "name": "list.metaobject_reference"
+        },
+        "description": "Identifies the benefits of skin care items, such as long lasting or UVA/UVB protection"
+      },
+      {
+        "namespace": "shopify",
+        "key": "moisturizer-type",
+        "name": "Moisturizer type",
+        "type": {
+          "name": "list.metaobject_reference"
+        },
+        "description": "Identifies the usage time of the moisturizer, like all day or night care"
+      },
+      {
+        "namespace": "shopify",
+        "key": "active-ingredient",
+        "name": "Active ingredient",
+        "type": {
+          "name": "list.metaobject_reference"
+        },
+        "description": "Identifies primary substances in personal care items, e.g. vitamin A, retinol"
+      },
+      {
+        "namespace": "custom",
+        "key": "product_page_meta",
+        "name": "product_page_meta",
+        "type": {
+          "name": "metaobject_reference"
+        },
+        "description": ""
+      },
+      {
+        "namespace": "shopify",
+        "key": "body-area",
+        "name": "Body area",
+        "type": {
+          "name": "list.metaobject_reference"
+        },
+        "description": "Specifies the body part the product is designed for, e.g. face, bikini line"
+      },
+      {
+        "namespace": "shopify",
+        "key": "cosmetic-finish",
+        "name": "Cosmetic finish",
+        "type": {
+          "name": "list.metaobject_reference"
+        },
+        "description": "Defines the cosmetic finish of a product, e.g. matte, natural"
+      },
+      {
+        "namespace": "mm-google-shopping",
+        "key": "age_group",
+        "name": "Google: Age group",
+        "type": {
+          "name": "single_line_text_field"
+        },
+        "description": "Google Shopping age_group. Set to adult."
+      },
+      {
+        "namespace": "mm-google-shopping",
+        "key": "condition",
+        "name": "Google: Condition",
+        "type": {
+          "name": "single_line_text_field"
+        },
+        "description": "Google Shopping condition. Set to new."
+      },
+      {
+        "namespace": "mm-google-shopping",
+        "key": "gender",
+        "name": "Google: Gender",
+        "type": {
+          "name": "single_line_text_field"
+        },
+        "description": "Google Shopping gender. Set to unisex."
+      },
+      {
+        "namespace": "mm-google-shopping",
+        "key": "unit_pricing_measure",
+        "name": "Google: Unit pricing measure",
+        "type": {
+          "name": "single_line_text_field"
+        },
+        "description": "Google Shopping unit_pricing_measure. Required in the UK for goods sold by volume. Set to 150 ml."
+      },
+      {
+        "namespace": "mm-google-shopping",
+        "key": "unit_pricing_base_measure",
+        "name": "Google: Unit pricing base measure",
+        "type": {
+          "name": "single_line_text_field"
+        },
+        "description": "Google Shopping unit_pricing_base_measure. The denominator for the displayed unit price. Set to 100 ml."
+      },
+      {
+        "namespace": "mm-google-shopping",
+        "key": "custom_label_0",
+        "name": "Google: Custom label 0 (texture)",
+        "type": {
+          "name": "single_line_text_field"
+        },
+        "description": "Google Ads campaign segmentation by texture. Flow, Core or Deep. Not customer facing."
+      },
+      {
+        "namespace": "mm-google-shopping",
+        "key": "custom_label_1",
+        "name": "Google: Custom label 1 (skin type)",
+        "type": {
+          "name": "single_line_text_field"
+        },
+        "description": "Google Ads campaign segmentation by skin type. Not customer facing."
+      }
+    ]
+  },
+  "collectionDefs": {
+    "nodes": [
+      {
+        "namespace": "ecomposer",
+        "key": "collections",
+        "name": "Define sub collections for current collection",
+        "type": {
+          "name": "list.collection_reference"
+        },
+        "description": "Set the sub collection for curernt collection."
+      },
+      {
+        "namespace": "custom",
+        "key": "intro_html",
+        "name": "Collection intro HTML",
+        "type": {
+          "name": "multi_line_text_field"
+        },
+        "description": "Opening editorial paragraph on the collection page. Raw HTML."
+      },
+      {
+        "namespace": "custom",
+        "key": "hero_title",
+        "name": "Hero title",
+        "type": {
+          "name": "single_line_text_field"
+        },
+        "description": "Large hero heading, e.g. Dry Sensitive. Plain text."
+      },
+      {
+        "namespace": "custom",
+        "key": "hero_subtitle_html",
+        "name": "Hero subtitle HTML",
+        "type": {
+          "name": "multi_line_text_field"
+        },
+        "description": "Hero standfirst. Inner HTML only - no outer <p> tags. Use </p><p> to start a new paragraph."
+      },
+      {
+        "namespace": "custom",
+        "key": "hero_overlay_colour",
+        "name": "Hero overlay colour",
+        "type": {
+          "name": "color"
+        },
+        "description": "Tint over the hero image, matching the skin type or texture colour."
+      },
+      {
+        "namespace": "custom",
+        "key": "behaviour_html",
+        "name": "How this skin behaves HTML",
+        "type": {
+          "name": "multi_line_text_field"
+        },
+        "description": "Inner HTML only - no outer <p> tags. Use </p><p> to start a new paragraph."
+      },
+      {
+        "namespace": "custom",
+        "key": "approach_html",
+        "name": "What it needs HTML",
+        "type": {
+          "name": "multi_line_text_field"
+        },
+        "description": "Inner HTML only - no outer <p> tags."
+      },
+      {
+        "namespace": "custom",
+        "key": "blend_html",
+        "name": "The blend HTML",
+        "type": {
+          "name": "multi_line_text_field"
+        },
+        "description": "Inner HTML only - no outer <p> tags."
+      },
+      {
+        "namespace": "custom",
+        "key": "textures_html",
+        "name": "Three textures HTML",
+        "type": {
+          "name": "multi_line_text_field"
+        },
+        "description": "Inner HTML only - no outer <p> tags."
+      },
+      {
+        "namespace": "custom",
+        "key": "care_heading",
+        "name": "Care section heading",
+        "type": {
+          "name": "single_line_text_field"
+        },
+        "description": "e.g. Looking after Dry Sensitive skin. Plain text."
+      },
+      {
+        "namespace": "custom",
+        "key": "care_advice_html",
+        "name": "Care advice HTML",
+        "type": {
+          "name": "multi_line_text_field"
+        },
+        "description": "Inner HTML only - no outer <p> tags."
+      },
+      {
+        "namespace": "custom",
+        "key": "outlook_html",
+        "name": "Outlook HTML",
+        "type": {
+          "name": "multi_line_text_field"
+        },
+        "description": "Closing 'not a fixed label' passage. Inner HTML only - no outer <p> tags."
+      },
+      {
+        "namespace": "custom",
+        "key": "links_html",
+        "name": "Related links HTML",
+        "type": {
+          "name": "multi_line_text_field"
+        },
+        "description": "List items only - the <ul> wrapper is supplied by the template. Each item must be an <li>...</li>."
+      },
+      {
+        "namespace": "custom",
+        "key": "hero_overlay",
+        "name": "Hero overlay colour (RGBA hex)",
+        "type": {
+          "name": "single_line_text_field"
+        },
+        "description": "8-digit hex with alpha, e.g. #80a89e82. Tints the hero image to the skin type or texture colour."
+      }
+    ]
+  },
+  "pageDefs": {
+    "nodes": [
+      {
+        "namespace": "custom",
+        "key": "general_shipping",
+        "name": "General Shipping",
+        "type": {
+          "name": "multi_line_text_field"
+        },
+        "description": "General Shipping information"
+      },
+      {
+        "namespace": "custom",
+        "key": "return_policy",
+        "name": "Return Policy",
+        "type": {
+          "name": "multi_line_text_field"
+        },
+        "description": "Return Policy"
+      },
+      {
+        "namespace": "custom",
+        "key": "banner_image_single_",
+        "name": "Image 1",
+        "type": {
+          "name": "file_reference"
+        },
+        "description": "First image - can be used for banner"
+      },
+      {
+        "namespace": "custom",
+        "key": "multi_image_list",
+        "name": "Multi Image List 1",
+        "type": {
+          "name": "list.file_reference"
+        },
+        "description": "List of image or video files"
+      },
+      {
+        "namespace": "custom",
+        "key": "linked_products",
+        "name": "Linked Products",
+        "type": {
+          "name": "list.product_reference"
+        },
+        "description": "list of products linked to this page"
+      },
+      {
+        "namespace": "custom",
+        "key": "multi_line_text_1",
+        "name": "Multi Line 1",
+        "type": {
+          "name": "multi_line_text_field"
+        },
+        "description": "Multi Line "
+      },
+      {
+        "namespace": "custom",
+        "key": "json",
+        "name": "JSON",
+        "type": {
+          "name": "json"
+        },
+        "description": "JSON Field"
+      },
+      {
+        "namespace": "custom",
+        "key": "bdbodytext",
+        "name": "Page Colour 1",
+        "type": {
+          "name": "color"
+        },
+        "description": ""
+      },
+      {
+        "namespace": "custom",
+        "key": "image_2",
+        "name": "Image 2",
+        "type": {
+          "name": "file_reference"
+        },
+        "description": ""
+      },
+      {
+        "namespace": "custom",
+        "key": "image_3",
+        "name": "Image 3",
+        "type": {
+          "name": "file_reference"
+        },
+        "description": ""
+      },
+      {
+        "namespace": "custom",
+        "key": "image_4",
+        "name": "Image 4",
+        "type": {
+          "name": "file_reference"
+        },
+        "description": ""
+      },
+      {
+        "namespace": "custom",
+        "key": "multi_line_2",
+        "name": "Multi Line 2",
+        "type": {
+          "name": "multi_line_text_field"
+        },
+        "description": ""
+      },
+      {
+        "namespace": "custom",
+        "key": "multi_line_3",
+        "name": "Multi Line 3",
+        "type": {
+          "name": "multi_line_text_field"
+        },
+        "description": ""
+      },
+      {
+        "namespace": "custom",
+        "key": "collection",
+        "name": "Collection",
+        "type": {
+          "name": "collection_reference"
+        },
+        "description": ""
+      },
+      {
+        "namespace": "custom",
+        "key": "rich_text_1",
+        "name": "Rich Text 1",
+        "type": {
+          "name": "rich_text_field"
+        },
+        "description": ""
+      }
+    ]
+  }
+}

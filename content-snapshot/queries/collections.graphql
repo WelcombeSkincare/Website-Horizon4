@@ -1,0 +1,9 @@
+query {
+  collections(first: 60) {
+    nodes {
+      handle title templateSuffix
+      custom: metafields(first: 40, namespace: "custom") { nodes { key type value } }
+      seo: metafields(first: 10, namespace: "global") { nodes { key type value } }
+    }
+  }
+}

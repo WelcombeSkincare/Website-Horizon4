@@ -1,0 +1,14 @@
+query {
+  metaobjectDefinitions(first: 60) {
+    nodes { type name fieldDefinitions { key name type { name } } }
+  }
+  productDefs: metafieldDefinitions(first: 60, ownerType: PRODUCT) {
+    nodes { namespace key name type { name } description }
+  }
+  collectionDefs: metafieldDefinitions(first: 60, ownerType: COLLECTION) {
+    nodes { namespace key name type { name } description }
+  }
+  pageDefs: metafieldDefinitions(first: 60, ownerType: PAGE) {
+    nodes { namespace key name type { name } description }
+  }
+}

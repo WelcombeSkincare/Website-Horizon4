@@ -1,0 +1,18 @@
+{
+  "metaobjects": {
+    "nodes": [
+      {
+        "id": "gid://shopify/Metaobject/1107525944",
+        "handle": "images-82a9jb2p",
+        "type": "images",
+        "fields": [
+          {
+            "key": "image",
+            "type": "file_reference",
+            "value": null
+          }
+        ]
+      }
+    ]
+  }
+}

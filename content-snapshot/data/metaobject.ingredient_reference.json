@@ -1,0 +1,74 @@
+{
+  "metaobjects": {
+    "nodes": [
+      {
+        "id": "gid://shopify/Metaobject/200799519032",
+        "handle": "rigano-l-deola-m-zaccariotto-f-colleoni-t-lionetti-n-a-new-gelling-agent-and-rheology-modifier-in-cosmetics-caesalpinia-spinosa-gum-cosmetics-2019-6-2-34",
+        "type": "ingredient_reference",
+        "fields": [
+          {
+            "key": "citation",
+            "type": "multi_line_text_field",
+            "value": "Rigano L, Deola M, Zaccariotto F, Colleoni T, Lionetti N. A New Gelling Agent and Rheology Modifier in Cosmetics: Caesalpinia spinosa Gum. Cosmetics 2019;6(2):34."
+          },
+          {
+            "key": "link",
+            "type": "url",
+            "value": "https://doi.org/10.3390/cosmetics6020034"
+          }
+        ]
+      },
+      {
+        "id": "gid://shopify/Metaobject/200799551800",
+        "handle": "souza-crf-melo-mo-maia-campos-pmbg-film-forming-moisturizing-and-sensory-properties-of-a-cosmetic-formulation-containing-tara-gum-and-brazilian-berry-extracts-aaps-pharm-sci-tech-2024-25-71",
+        "type": "ingredient_reference",
+        "fields": [
+          {
+            "key": "citation",
+            "type": "multi_line_text_field",
+            "value": "Souza CRF, Melo MO, Maia Campos PMBG. Film-Forming, Moisturizing, and Sensory Properties of a Cosmetic Formulation Containing Tara Gum and Brazilian Berry Extracts. AAPS PharmSciTech 2024;25:71."
+          },
+          {
+            "key": "link",
+            "type": "url",
+            "value": "https://doi.org/10.1208/s12249-024-02790-1"
+          }
+        ]
+      },
+      {
+        "id": "gid://shopify/Metaobject/200799584568",
+        "handle": "de-melo-mo-maia-campos-pmbg-application-of-biophysical-and-skin-imaging-techniques-to-evaluate-the-film-forming-effect-of-cosmetic-formulations-international-journal-of-cosmetic-science-2019-41-579-584",
+        "type": "ingredient_reference",
+        "fields": [
+          {
+            "key": "citation",
+            "type": "multi_line_text_field",
+            "value": "de Melo MO, Maia Campos PMBG. Application of biophysical and skin imaging techniques to evaluate the film-forming effect of cosmetic formulations. International Journal of Cosmetic Science 2019;41:579-584."
+          },
+          {
+            "key": "link",
+            "type": "url",
+            "value": "https://doi.org/10.1111/ics.12577"
+          }
+        ]
+      },
+      {
+        "id": "gid://shopify/Metaobject/200799617336",
+        "handle": "johnson-w-jr-heldreth-b-bergfeld-wf-et-al-cosmetic-ingredient-review-expert-panel-safety-assessment-of-galactomannans-as-used-in-cosmetics-international-journal-of-toxicology-2015-34-suppl-1-35-s-65-s",
+        "type": "ingredient_reference",
+        "fields": [
+          {
+            "key": "citation",
+            "type": "multi_line_text_field",
+            "value": "Johnson W Jr, Heldreth B, Bergfeld WF, et al. (Cosmetic Ingredient Review Expert Panel). Safety Assessment of Galactomannans as Used in Cosmetics. International Journal of Toxicology 2015;34(Suppl 1):35S-65S."
+          },
+          {
+            "key": "link",
+            "type": "url",
+            "value": "https://doi.org/10.1177/1091581815586798"
+          }
+        ]
+      }
+    ]
+  }
+}

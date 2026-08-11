@@ -1,0 +1,426 @@
+{
+  "products": {
+    "nodes": [
+      {
+        "handle": "dry-sensitive-flow-moisturiser",
+        "title": "Flow Dry Sensitive Light Moisturiser",
+        "templateSuffix": "biotaderm",
+        "custom": {
+          "nodes": [
+            {
+              "key": "how_to_use",
+              "type": "multi_line_text_field",
+              "value": "Warm a small amount between your fingertips and press it into clean skin, morning and/or night, before any cosmetics or sunscreen. If your skin is highly reactive, patch test first."
+            },
+            {
+              "key": "product_page_meta",
+              "type": "metaobject_reference",
+              "value": "gid://shopify/Metaobject/208283074872"
+            }
+          ]
+        },
+        "seo": {
+          "nodes": [
+            {
+              "key": "title_tag",
+              "type": "string",
+              "value": "Flow Dry Sensitive Face Moisturiser | Biotaderm"
+            }
+          ]
+        }
+      },
+      {
+        "handle": "dry-flow-moisturiser",
+        "title": "Flow Dry Light Moisturiser",
+        "templateSuffix": "biotaderm",
+        "custom": {
+          "nodes": [
+            {
+              "key": "how_to_use",
+              "type": "multi_line_text_field",
+              "value": "Warm a small amount between your fingertips and press it into clean skin, morning and/or night, before any cosmetics or sunscreen."
+            },
+            {
+              "key": "product_page_meta",
+              "type": "metaobject_reference",
+              "value": "gid://shopify/Metaobject/208407527736"
+            }
+          ]
+        },
+        "seo": {
+          "nodes": [
+            {
+              "key": "title_tag",
+              "type": "string",
+              "value": "Flow Dry Face Moisturiser | Biotaderm"
+            }
+          ]
+        }
+      },
+      {
+        "handle": "flow-balanced-a-light-face-moisturiser-for-balanced-skin",
+        "title": "Flow Balanced Light Moisturiser",
+        "templateSuffix": "biotaderm",
+        "custom": {
+          "nodes": [
+            {
+              "key": "how_to_use",
+              "type": "multi_line_text_field",
+              "value": "Warm a small amount between your fingertips and press it into clean skin, morning and/or night, before any cosmetics or sunscreen."
+            },
+            {
+              "key": "product_page_meta",
+              "type": "metaobject_reference",
+              "value": "gid://shopify/Metaobject/208407593272"
+            }
+          ]
+        },
+        "seo": {
+          "nodes": [
+            {
+              "key": "title_tag",
+              "type": "string",
+              "value": "Flow Balanced Face Moisturiser | Biotaderm"
+            }
+          ]
+        }
+      },
+      {
+        "handle": "flow-oily-a-light-face-moisturiser-for-oily-skin",
+        "title": "Flow Oily Light Moisturiser",
+        "templateSuffix": "biotaderm",
+        "custom": {
+          "nodes": [
+            {
+              "key": "how_to_use",
+              "type": "multi_line_text_field",
+              "value": "Warm a small amount between your fingertips and press it into clean skin, morning and/or night, before any cosmetics or sunscreen."
+            },
+            {
+              "key": "product_page_meta",
+              "type": "metaobject_reference",
+              "value": "gid://shopify/Metaobject/208407658808"
+            }
+          ]
+        },
+        "seo": {
+          "nodes": [
+            {
+              "key": "title_tag",
+              "type": "string",
+              "value": "Flow Oily Face Moisturiser | Biotaderm"
+            }
+          ]
+        }
+      },
+      {
+        "handle": "flow-oily-sensitive-a-light-face-moisturiser-for-oily-sensitive-skin",
+        "title": "Flow Oily Sensitive Light Moisturiser",
+        "templateSuffix": "biotaderm",
+        "custom": {
+          "nodes": [
+            {
+              "key": "how_to_use",
+              "type": "multi_line_text_field",
+              "value": "Warm a small amount between your fingertips and press it into clean skin, morning and/or night, before any cosmetics or sunscreen. If your skin is highly reactive, patch test first."
+            },
+            {
+              "key": "product_page_meta",
+              "type": "metaobject_reference",
+              "value": "gid://shopify/Metaobject/208407724344"
+            }
+          ]
+        },
+        "seo": {
+          "nodes": [
+            {
+              "key": "title_tag",
+              "type": "string",
+              "value": "Flow Oily Sensitive Face Moisturiser | Biotaderm"
+            }
+          ]
+        }
+      },
+      {
+        "handle": "core-dry-sensitive-a-cushioning-body-moisturiser-for-dry-sensitive-skin",
+        "title": "Core Dry Sensitive Everyday Moisturiser",
+        "templateSuffix": "biotaderm",
+        "custom": {
+          "nodes": [
+            {
+              "key": "how_to_use",
+              "type": "multi_line_text_field",
+              "value": "Massage a small amount into the skin until it's fully absorbed, once or twice a day. If your skin is highly reactive, patch test first."
+            },
+            {
+              "key": "product_page_meta",
+              "type": "metaobject_reference",
+              "value": "gid://shopify/Metaobject/208408019256"
+            }
+          ]
+        },
+        "seo": {
+          "nodes": [
+            {
+              "key": "title_tag",
+              "type": "string",
+              "value": "Core Dry Sensitive Body Moisturiser | Biotaderm"
+            }
+          ]
+        }
+      },
+      {
+        "handle": "core-dry-a-cushioning-body-moisturiser-for-dry-skin",
+        "title": "Core Dry Everyday Moisturiser",
+        "templateSuffix": "biotaderm",
+        "custom": {
+          "nodes": [
+            {
+              "key": "how_to_use",
+              "type": "multi_line_text_field",
+              "value": "Massage a small amount into the skin until it's fully absorbed, once or twice a day."
+            },
+            {
+              "key": "product_page_meta",
+              "type": "metaobject_reference",
+              "value": "gid://shopify/Metaobject/208408117560"
+            }
+          ]
+        },
+        "seo": {
+          "nodes": [
+            {
+              "key": "title_tag",
+              "type": "string",
+              "value": "Core Dry Body Moisturiser | Biotaderm"
+            }
+          ]
+        }
+      },
+      {
+        "handle": "core-balanced-a-cushioning-body-moisturiser-for-balanced-skin",
+        "title": "Core Balanced Everyday Moisturiser",
+        "templateSuffix": "biotaderm",
+        "custom": {
+          "nodes": [
+            {
+              "key": "how_to_use",
+              "type": "multi_line_text_field",
+              "value": "Massage a small amount into the skin until it's fully absorbed, once or twice a day."
+            },
+            {
+              "key": "product_page_meta",
+              "type": "metaobject_reference",
+              "value": "gid://shopify/Metaobject/208408674616"
+            }
+          ]
+        },
+        "seo": {
+          "nodes": [
+            {
+              "key": "title_tag",
+              "type": "string",
+              "value": "Core Balanced Body Moisturiser | Biotaderm"
+            }
+          ]
+        }
+      },
+      {
+        "handle": "core-oily-a-light-body-moisturiser-for-oily-skin",
+        "title": "Core Oily Everyday Moisturiser",
+        "templateSuffix": "biotaderm",
+        "custom": {
+          "nodes": [
+            {
+              "key": "how_to_use",
+              "type": "multi_line_text_field",
+              "value": "Massage a small amount into the skin until it's fully absorbed, once or twice a day."
+            },
+            {
+              "key": "product_page_meta",
+              "type": "metaobject_reference",
+              "value": "gid://shopify/Metaobject/208409100600"
+            }
+          ]
+        },
+        "seo": {
+          "nodes": [
+            {
+              "key": "title_tag",
+              "type": "string",
+              "value": "Core Oily Body Moisturiser | Biotaderm"
+            }
+          ]
+        }
+      },
+      {
+        "handle": "core-oily-sensitive-a-light-body-moisturiser-for-oily-sensitive-skin",
+        "title": "Core Oily Sensitive Everyday Moisturiser",
+        "templateSuffix": "biotaderm",
+        "custom": {
+          "nodes": [
+            {
+              "key": "how_to_use",
+              "type": "multi_line_text_field",
+              "value": "Massage a small amount into the skin until it's fully absorbed, once or twice a day. If your skin is highly reactive, patch test first."
+            },
+            {
+              "key": "product_page_meta",
+              "type": "metaobject_reference",
+              "value": "gid://shopify/Metaobject/208409264440"
+            }
+          ]
+        },
+        "seo": {
+          "nodes": [
+            {
+              "key": "title_tag",
+              "type": "string",
+              "value": "Core Oily Sensitive Body Moisturiser | Biotaderm"
+            }
+          ]
+        }
+      },
+      {
+        "handle": "deep-dry-sensitive-a-rich-moisturiser-for-dry-sensitive-skin-for-hands-elbows-and-feet",
+        "title": "Deep Dry Sensitive Rich Moisturiser",
+        "templateSuffix": "biotaderm",
+        "custom": {
+          "nodes": [
+            {
+              "key": "how_to_use",
+              "type": "multi_line_text_field",
+              "value": "Smooth a small amount into drier areas such as hands, elbows and feet, once or twice a day. If your skin is highly reactive, patch test first."
+            },
+            {
+              "key": "product_page_meta",
+              "type": "metaobject_reference",
+              "value": "gid://shopify/Metaobject/208409395512"
+            }
+          ]
+        },
+        "seo": {
+          "nodes": [
+            {
+              "key": "title_tag",
+              "type": "string",
+              "value": "Deep Dry Sensitive Moisturiser for Hands & Feet | Biotaderm"
+            }
+          ]
+        }
+      },
+      {
+        "handle": "deep-dry-a-rich-moisturiser-for-dry-skin-for-hands-elbows-and-feet",
+        "title": "Deep Dry Rich Moisturiser",
+        "templateSuffix": "biotaderm",
+        "custom": {
+          "nodes": [
+            {
+              "key": "how_to_use",
+              "type": "multi_line_text_field",
+              "value": "Smooth a small amount into drier areas such as hands, elbows and feet, once or twice a day."
+            },
+            {
+              "key": "product_page_meta",
+              "type": "metaobject_reference",
+              "value": "gid://shopify/Metaobject/208409493816"
+            }
+          ]
+        },
+        "seo": {
+          "nodes": [
+            {
+              "key": "title_tag",
+              "type": "string",
+              "value": "Deep Dry Moisturiser for Hands & Feet | Biotaderm"
+            }
+          ]
+        }
+      },
+      {
+        "handle": "deep-balanced-a-rich-moisturiser-for-balanced-skin-for-hands-elbows-and-feet",
+        "title": "Deep Balanced Rich Moisturiser",
+        "templateSuffix": "biotaderm",
+        "custom": {
+          "nodes": [
+            {
+              "key": "how_to_use",
+              "type": "multi_line_text_field",
+              "value": "Smooth a small amount into drier areas such as hands, elbows and feet, once or twice a day."
+            },
+            {
+              "key": "product_page_meta",
+              "type": "metaobject_reference",
+              "value": "gid://shopify/Metaobject/208409526584"
+            }
+          ]
+        },
+        "seo": {
+          "nodes": [
+            {
+              "key": "title_tag",
+              "type": "string",
+              "value": "Deep Balanced Moisturiser for Hands & Feet | Biotaderm"
+            }
+          ]
+        }
+      },
+      {
+        "handle": "deep-oily-a-richer-moisturiser-for-oily-skin-for-hands-elbows-and-feet",
+        "title": "Deep Oily Rich Moisturiser",
+        "templateSuffix": "biotaderm",
+        "custom": {
+          "nodes": [
+            {
+              "key": "how_to_use",
+              "type": "multi_line_text_field",
+              "value": "Smooth a small amount into drier areas such as hands, elbows and feet, once or twice a day."
+            },
+            {
+              "key": "product_page_meta",
+              "type": "metaobject_reference",
+              "value": "gid://shopify/Metaobject/208409559352"
+            }
+          ]
+        },
+        "seo": {
+          "nodes": [
+            {
+              "key": "title_tag",
+              "type": "string",
+              "value": "Deep Oily Moisturiser for Hands & Feet | Biotaderm"
+            }
+          ]
+        }
+      },
+      {
+        "handle": "deep-oily-sensitive-a-richer-moisturiser-for-oily-sensitive-skin-for-hands-elbows-and-feet",
+        "title": "Deep Oily Sensitive Rich Moisturiser",
+        "templateSuffix": "biotaderm",
+        "custom": {
+          "nodes": [
+            {
+              "key": "how_to_use",
+              "type": "multi_line_text_field",
+              "value": "Smooth a small amount into drier areas such as hands, elbows and feet, once or twice a day. If your skin is highly reactive, patch test first."
+            },
+            {
+              "key": "product_page_meta",
+              "type": "metaobject_reference",
+              "value": "gid://shopify/Metaobject/208409690424"
+            }
+          ]
+        },
+        "seo": {
+          "nodes": [
+            {
+              "key": "title_tag",
+              "type": "string",
+              "value": "Deep Oily Sensitive Moisturiser for Hands & Feet | Biotaderm"
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

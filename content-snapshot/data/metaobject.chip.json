@@ -1,0 +1,270 @@
+{
+  "metaobjects": {
+    "nodes": [
+      {
+        "id": "gid://shopify/Metaobject/203540037944",
+        "handle": "dry-sensitive-type-1",
+        "type": "chip",
+        "fields": [
+          {
+            "key": "label",
+            "type": "single_line_text_field",
+            "value": "Dry Sensitive · Type 1"
+          },
+          {
+            "key": "colour",
+            "type": "color",
+            "value": "#80a89e"
+          },
+          {
+            "key": "url",
+            "type": "url",
+            "value": "https://biotaderm.com/collections/dry-sensitive-skin-type"
+          }
+        ]
+      },
+      {
+        "id": "gid://shopify/Metaobject/203540103480",
+        "handle": "for-the-face",
+        "type": "chip",
+        "fields": [
+          {
+            "key": "label",
+            "type": "single_line_text_field",
+            "value": "For the face"
+          },
+          {
+            "key": "colour",
+            "type": "color",
+            "value": "#6d6e71"
+          },
+          {
+            "key": "url",
+            "type": "url",
+            "value": "https://biotaderm.com/collections/flow-texture"
+          }
+        ]
+      },
+      {
+        "id": "gid://shopify/Metaobject/203540136248",
+        "handle": "10-plant-oils",
+        "type": "chip",
+        "fields": [
+          {
+            "key": "label",
+            "type": "single_line_text_field",
+            "value": "10% Plant Oils"
+          },
+          {
+            "key": "colour",
+            "type": "color",
+            "value": "#876c66"
+          },
+          {
+            "key": "url",
+            "type": "url",
+            "value": null
+          }
+        ]
+      },
+      {
+        "id": "gid://shopify/Metaobject/208282747192",
+        "handle": "9-plant-oils",
+        "type": "chip",
+        "fields": [
+          {
+            "key": "label",
+            "type": "single_line_text_field",
+            "value": "9% Plant Oils"
+          },
+          {
+            "key": "colour",
+            "type": "color",
+            "value": "#876c66"
+          },
+          {
+            "key": "url",
+            "type": "url",
+            "value": null
+          }
+        ]
+      },
+      {
+        "id": "gid://shopify/Metaobject/208407134520",
+        "handle": "dry-type-2",
+        "type": "chip",
+        "fields": [
+          {
+            "key": "label",
+            "type": "single_line_text_field",
+            "value": "Dry · Type 2"
+          },
+          {
+            "key": "colour",
+            "type": "color",
+            "value": "#F47D5E"
+          },
+          {
+            "key": "url",
+            "type": "url",
+            "value": "https://biotaderm.com/collections/dry-skin-type"
+          }
+        ]
+      },
+      {
+        "id": "gid://shopify/Metaobject/208407167288",
+        "handle": "balanced-type-3",
+        "type": "chip",
+        "fields": [
+          {
+            "key": "label",
+            "type": "single_line_text_field",
+            "value": "Balanced · Type 3"
+          },
+          {
+            "key": "colour",
+            "type": "color",
+            "value": "#6BBBCC"
+          },
+          {
+            "key": "url",
+            "type": "url",
+            "value": "https://biotaderm.com/collections/balanced-skin-type"
+          }
+        ]
+      },
+      {
+        "id": "gid://shopify/Metaobject/208407200056",
+        "handle": "oily-type-4",
+        "type": "chip",
+        "fields": [
+          {
+            "key": "label",
+            "type": "single_line_text_field",
+            "value": "Oily · Type 4"
+          },
+          {
+            "key": "colour",
+            "type": "color",
+            "value": "#C2CA53"
+          },
+          {
+            "key": "url",
+            "type": "url",
+            "value": "https://biotaderm.com/collections/oily-skin-type"
+          }
+        ]
+      },
+      {
+        "id": "gid://shopify/Metaobject/208407232824",
+        "handle": "oily-sensitive-type-5",
+        "type": "chip",
+        "fields": [
+          {
+            "key": "label",
+            "type": "single_line_text_field",
+            "value": "Oily Sensitive · Type 5"
+          },
+          {
+            "key": "colour",
+            "type": "color",
+            "value": "#A37594"
+          },
+          {
+            "key": "url",
+            "type": "url",
+            "value": "https://biotaderm.com/collections/oily-sensitive-skin-type"
+          }
+        ]
+      },
+      {
+        "id": "gid://shopify/Metaobject/208407265592",
+        "handle": "for-all-over",
+        "type": "chip",
+        "fields": [
+          {
+            "key": "label",
+            "type": "single_line_text_field",
+            "value": "For all over"
+          },
+          {
+            "key": "colour",
+            "type": "color",
+            "value": "#6d6e71"
+          },
+          {
+            "key": "url",
+            "type": "url",
+            "value": "https://biotaderm.com/collections/core-texture"
+          }
+        ]
+      },
+      {
+        "id": "gid://shopify/Metaobject/208407298360",
+        "handle": "for-hands-feet-and-rough-patches",
+        "type": "chip",
+        "fields": [
+          {
+            "key": "label",
+            "type": "single_line_text_field",
+            "value": "For hands, feet and rough patches"
+          },
+          {
+            "key": "colour",
+            "type": "color",
+            "value": "#6d6e71"
+          },
+          {
+            "key": "url",
+            "type": "url",
+            "value": "https://biotaderm.com/collections/deep-texture"
+          }
+        ]
+      },
+      {
+        "id": "gid://shopify/Metaobject/208407331128",
+        "handle": "14-plant-oils",
+        "type": "chip",
+        "fields": [
+          {
+            "key": "label",
+            "type": "single_line_text_field",
+            "value": "14% Plant Oils"
+          },
+          {
+            "key": "colour",
+            "type": "color",
+            "value": "#876c66"
+          },
+          {
+            "key": "url",
+            "type": "url",
+            "value": null
+          }
+        ]
+      },
+      {
+        "id": "gid://shopify/Metaobject/208407363896",
+        "handle": "19-plant-oils",
+        "type": "chip",
+        "fields": [
+          {
+            "key": "label",
+            "type": "single_line_text_field",
+            "value": "19% Plant Oils"
+          },
+          {
+            "key": "colour",
+            "type": "color",
+            "value": "#876c66"
+          },
+          {
+            "key": "url",
+            "type": "url",
+            "value": null
+          }
+        ]
+      }
+    ]
+  }
+}

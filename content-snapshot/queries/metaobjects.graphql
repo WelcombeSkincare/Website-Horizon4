@@ -1,0 +1,5 @@
+query MO($type: String!) {
+  metaobjects(type: $type, first: 250) {
+    nodes { id handle type fields { key type value } }
+  }
+}

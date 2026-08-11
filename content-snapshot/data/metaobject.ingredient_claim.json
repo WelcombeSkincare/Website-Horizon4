@@ -1,0 +1,57 @@
+{
+  "metaobjects": {
+    "nodes": [
+      {
+        "id": "gid://shopify/Metaobject/200799355192",
+        "handle": "a-hydrating-active",
+        "type": "ingredient_claim",
+        "fields": [
+          {
+            "key": "marketed_as",
+            "type": "single_line_text_field",
+            "value": "A hydrating active"
+          },
+          {
+            "key": "correction",
+            "type": "multi_line_text_field",
+            "value": "The hydration story traces to a different, branded material that pairs a modified version of the gum with a large dose of glycerin, so the glycerin is doing much of the work. The purified seed powder we use has not been shown on its own to hydrate."
+          }
+        ]
+      },
+      {
+        "id": "gid://shopify/Metaobject/200799420728",
+        "handle": "a-microbiome-ingredient",
+        "type": "ingredient_claim",
+        "fields": [
+          {
+            "key": "marketed_as",
+            "type": "single_line_text_field",
+            "value": "A microbiome ingredient"
+          },
+          {
+            "key": "correction",
+            "type": "multi_line_text_field",
+            "value": "The microbiome and anti-biofilm claims trace to extracts of the tree's pods, a separate part of the plant with a different chemistry. No microbiome study exists on the seed gum itself."
+          }
+        ]
+      },
+      {
+        "id": "gid://shopify/Metaobject/200799453496",
+        "handle": "an-anti-ageing-ingredient",
+        "type": "ingredient_claim",
+        "fields": [
+          {
+            "key": "marketed_as",
+            "type": "single_line_text_field",
+            "value": "An anti-ageing ingredient"
+          },
+          {
+            "key": "correction",
+            "type": "multi_line_text_field",
+            "value": "Anti-ageing language comes from marketing around a multi-component branded complex, not from any primary evidence for the gum. We leave it out."
+          }
+        ]
+      }
+    ]
+  }
+}

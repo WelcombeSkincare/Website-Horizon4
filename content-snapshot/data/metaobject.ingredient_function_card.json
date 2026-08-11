@@ -1,0 +1,72 @@
+{
+  "metaobjects": {
+    "nodes": [
+      {
+        "id": "gid://shopify/Metaobject/200799191352",
+        "handle": "it-thickens",
+        "type": "ingredient_function_card",
+        "fields": [
+          {
+            "key": "title",
+            "type": "single_line_text_field",
+            "value": "It thickens"
+          },
+          {
+            "key": "body",
+            "type": "multi_line_text_field",
+            "value": "Tara gum sets the viscosity of a cream, the difference between something that runs off your fingers and something that stays where you put it."
+          },
+          {
+            "key": "evidence_chip",
+            "type": "metaobject_reference",
+            "value": "gid://shopify/Metaobject/200791523640"
+          }
+        ]
+      },
+      {
+        "id": "gid://shopify/Metaobject/200799256888",
+        "handle": "it-steadies-the-emulsion",
+        "type": "ingredient_function_card",
+        "fields": [
+          {
+            "key": "title",
+            "type": "single_line_text_field",
+            "value": "It steadies the emulsion"
+          },
+          {
+            "key": "body",
+            "type": "multi_line_text_field",
+            "value": "Oil and water would rather separate. Tara gum helps hold them together over the life of the product, consistent from the first pump to the last."
+          },
+          {
+            "key": "evidence_chip",
+            "type": "metaobject_reference",
+            "value": "gid://shopify/Metaobject/200791523640"
+          }
+        ]
+      },
+      {
+        "id": "gid://shopify/Metaobject/200799322424",
+        "handle": "it-improves-the-feel",
+        "type": "ingredient_function_card",
+        "fields": [
+          {
+            "key": "title",
+            "type": "single_line_text_field",
+            "value": "It improves the feel"
+          },
+          {
+            "key": "body",
+            "type": "multi_line_text_field",
+            "value": "Against other natural thickeners such as xanthan, tara gum gives a smoother, less stringy, less tacky slip, a large part of why we chose it."
+          },
+          {
+            "key": "evidence_chip",
+            "type": "metaobject_reference",
+            "value": "gid://shopify/Metaobject/200791589176"
+          }
+        ]
+      }
+    ]
+  }
+}

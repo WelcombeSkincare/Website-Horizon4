@@ -1,0 +1,57 @@
+{
+  "metaobjects": {
+    "nodes": [
+      {
+        "id": "gid://shopify/Metaobject/200791523640",
+        "handle": "well-characterised",
+        "type": "chips",
+        "fields": [
+          {
+            "key": "chip_text",
+            "type": "single_line_text_field",
+            "value": "Well characterised"
+          },
+          {
+            "key": "chip_colour",
+            "type": "color",
+            "value": "#68903c"
+          }
+        ]
+      },
+      {
+        "id": "gid://shopify/Metaobject/200791589176",
+        "handle": "small-sensory-studies",
+        "type": "chips",
+        "fields": [
+          {
+            "key": "chip_text",
+            "type": "single_line_text_field",
+            "value": "Small sensory studies"
+          },
+          {
+            "key": "chip_colour",
+            "type": "color",
+            "value": "#9a8f2e"
+          }
+        ]
+      },
+      {
+        "id": "gid://shopify/Metaobject/200819245368",
+        "handle": "well-characterised-1",
+        "type": "chips",
+        "fields": [
+          {
+            "key": "chip_text",
+            "type": "single_line_text_field",
+            "value": "Well characterised"
+          },
+          {
+            "key": "chip_colour",
+            "type": "color",
+            "value": "#68903c"
+          }
+        ]
+      }
+    ]
+  }
+}

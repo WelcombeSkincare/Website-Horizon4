@@ -1,0 +1,182 @@
+{
+  "metaobjects": {
+    "nodes": [
+      {
+        "id": "gid://shopify/Metaobject/200798994744",
+        "handle": "natural",
+        "type": "ethos_icon",
+        "fields": [
+          {
+            "key": "icon",
+            "type": "file_reference",
+            "value": "gid://shopify/MediaImage/53713207918904"
+          },
+          {
+            "key": "label",
+            "type": "single_line_text_field",
+            "value": "Natural"
+          },
+          {
+            "key": "colour",
+            "type": "color",
+            "value": "#7bb65c"
+          }
+        ]
+      },
+      {
+        "id": "gid://shopify/Metaobject/200799093048",
+        "handle": "gentle-skin-friendly",
+        "type": "ethos_icon",
+        "fields": [
+          {
+            "key": "icon",
+            "type": "file_reference",
+            "value": "gid://shopify/MediaImage/53713210868024"
+          },
+          {
+            "key": "label",
+            "type": "single_line_text_field",
+            "value": "Gentle, skin friendly"
+          },
+          {
+            "key": "colour",
+            "type": "color",
+            "value": "#627879"
+          }
+        ]
+      },
+      {
+        "id": "gid://shopify/Metaobject/200799125816",
+        "handle": "cruelty-free",
+        "type": "ethos_icon",
+        "fields": [
+          {
+            "key": "icon",
+            "type": "file_reference",
+            "value": "gid://shopify/MediaImage/53713209229624"
+          },
+          {
+            "key": "label",
+            "type": "single_line_text_field",
+            "value": "Cruelty free"
+          },
+          {
+            "key": "colour",
+            "type": "color",
+            "value": "#a0af99"
+          }
+        ]
+      },
+      {
+        "id": "gid://shopify/Metaobject/201037807928",
+        "handle": "microbiome-friendly",
+        "type": "ethos_icon",
+        "fields": [
+          {
+            "key": "icon",
+            "type": "file_reference",
+            "value": "gid://shopify/MediaImage/53791157223736"
+          },
+          {
+            "key": "label",
+            "type": "single_line_text_field",
+            "value": "Microbiome friendly"
+          },
+          {
+            "key": "colour",
+            "type": "color",
+            "value": "#963c3d"
+          }
+        ]
+      },
+      {
+        "id": "gid://shopify/Metaobject/201037873464",
+        "handle": "climate-clear",
+        "type": "ethos_icon",
+        "fields": [
+          {
+            "key": "icon",
+            "type": "file_reference",
+            "value": "gid://shopify/MediaImage/53791157158200"
+          },
+          {
+            "key": "label",
+            "type": "single_line_text_field",
+            "value": "Climate Clear"
+          },
+          {
+            "key": "colour",
+            "type": "color",
+            "value": "#68903c"
+          }
+        ]
+      },
+      {
+        "id": "gid://shopify/Metaobject/201037906232",
+        "handle": "formulation-clear",
+        "type": "ethos_icon",
+        "fields": [
+          {
+            "key": "icon",
+            "type": "file_reference",
+            "value": "gid://shopify/MediaImage/53791157256504"
+          },
+          {
+            "key": "label",
+            "type": "single_line_text_field",
+            "value": "Formulation Clear"
+          },
+          {
+            "key": "colour",
+            "type": "color",
+            "value": "#8a9ca2"
+          }
+        ]
+      },
+      {
+        "id": "gid://shopify/Metaobject/201037939000",
+        "handle": "science-led",
+        "type": "ethos_icon",
+        "fields": [
+          {
+            "key": "icon",
+            "type": "file_reference",
+            "value": "gid://shopify/MediaImage/53791157289272"
+          },
+          {
+            "key": "label",
+            "type": "single_line_text_field",
+            "value": "Science led"
+          },
+          {
+            "key": "colour",
+            "type": "color",
+            "value": "#d15a63"
+          }
+        ]
+      },
+      {
+        "id": "gid://shopify/Metaobject/201038004536",
+        "handle": "ethical-business",
+        "type": "ethos_icon",
+        "fields": [
+          {
+            "key": "icon",
+            "type": "file_reference",
+            "value": "gid://shopify/MediaImage/53791157125432"
+          },
+          {
+            "key": "label",
+            "type": "single_line_text_field",
+            "value": "Ethical Business"
+          },
+          {
+            "key": "colour",
+            "type": "color",
+            "value": "#6b6e31"
+          }
+        ]
+      }
+    ]
+  }
+}

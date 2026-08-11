@@ -1,0 +1,159 @@
+{
+  "metaobjects": {
+    "nodes": [
+      {
+        "id": "gid://shopify/Metaobject/208282943800",
+        "handle": "flow-core-or-deep-how-do-i-choose",
+        "type": "faq_item",
+        "fields": [
+          {
+            "key": "question",
+            "type": "single_line_text_field",
+            "value": "Flow, Core or Deep? How do I choose?"
+          },
+          {
+            "key": "answer_html",
+            "type": "multi_line_text_field",
+            "value": "<p>By where you are putting it rather than by how dry your skin feels. Flow is the lightest of the three and is built for the face, at around nine percent plant oils. Core carries more and suits the body. Deep carries most and is for hands, elbows and feet, the places that take a battering.</p>\n<p>The skin type is the second choice, and that one is about how your skin behaves. This is the Dry Sensitive formulation, for skin that feels tight after washing and tends to object to new products.</p>"
+          }
+        ]
+      },
+      {
+        "id": "gid://shopify/Metaobject/208282976568",
+        "handle": "can-i-use-flow-on-my-body-as-well-as-my-face",
+        "type": "faq_item",
+        "fields": [
+          {
+            "key": "question",
+            "type": "single_line_text_field",
+            "value": "Can I use Flow on my body as well as my face?"
+          },
+          {
+            "key": "answer_html",
+            "type": "multi_line_text_field",
+            "value": "<p>You can, though you will get through it quickly. Flow is formulated light enough for facial skin, so on arms and legs you end up using rather a lot of a 150ml bottle to cover ground that Core would handle with less. If you want one product for both, Core is the more sensible buy.</p>"
+          }
+        ]
+      },
+      {
+        "id": "gid://shopify/Metaobject/208283009336",
+        "handle": "my-skin-reacts-to-essential-oils-is-this-one-safe-for-me",
+        "type": "faq_item",
+        "fields": [
+          {
+            "key": "question",
+            "type": "single_line_text_field",
+            "value": "My skin reacts to essential oils. Is this one safe for me?"
+          },
+          {
+            "key": "answer_html",
+            "type": "multi_line_text_field",
+            "value": "<p>There is one essential oil in here, vetiver root oil, at a tenth of a percent. It is named on the label under its own name rather than hidden inside a parfum listing, so you can see exactly what you are dealing with.</p>\n<p>Whether that suits you is something only your skin can answer. If you have reacted to aromatics before, patch test on the inside of your forearm and leave it a couple of days before putting it near your face.</p>"
+          }
+        ]
+      },
+      {
+        "id": "gid://shopify/Metaobject/208398942520",
+        "handle": "why-do-you-publish-every-percentage",
+        "type": "faq_item",
+        "fields": [
+          {
+            "key": "question",
+            "type": "single_line_text_field",
+            "value": "Why do you publish every percentage?"
+          },
+          {
+            "key": "answer_html",
+            "type": "multi_line_text_field",
+            "value": "<p>Because a list of ingredients tells you what is present, and a percentage tells you whether it is doing anything. It is easy to put a fashionable oil on a label at a level too low to matter, purely so the name can appear on the front. Publishing the number makes that impossible to hide, for us as much as anyone.</p>\n<p>It also keeps us honest while we are still formulating, because we know the figure will be printed.</p>"
+          }
+        ]
+      },
+      {
+        "id": "gid://shopify/Metaobject/208398975288",
+        "handle": "what-is-the-refill-for",
+        "type": "faq_item",
+        "fields": [
+          {
+            "key": "question",
+            "type": "single_line_text_field",
+            "value": "What is the refill for?"
+          },
+          {
+            "key": "answer_html",
+            "type": "multi_line_text_field",
+            "value": "<p>The aluminium bottle is infinitely recyclable and the pump is not, so we sell the pump once and the bottle as many times as you like. Keep the pump, screw it onto the next bottle, and buy the refill. It saves you a pound and saves a pump.</p>"
+          }
+        ]
+      },
+      {
+        "id": "gid://shopify/Metaobject/208399008056",
+        "handle": "why-is-there-vetiver-in-all-of-your-products",
+        "type": "faq_item",
+        "fields": [
+          {
+            "key": "question",
+            "type": "single_line_text_field",
+            "value": "Why is there vetiver in all of your products?"
+          },
+          {
+            "key": "answer_html",
+            "type": "multi_line_text_field",
+            "value": "<p>It is the only aromatic we use, at a tenth of a percent, and it is named on every label under its own name rather than folded into a \"parfum\" listing. It is there for the antioxidant properties the research credits it with, and for the quiet earthy note it gives the blend.</p>\n<p>It also means the honest description of our products is \"no synthetic fragrance\" rather than \"fragrance-free\". One is true. The other would not be.</p>"
+          }
+        ]
+      },
+      {
+        "id": "gid://shopify/Metaobject/208399040824",
+        "handle": "how-do-i-know-which-skin-type-i-am",
+        "type": "faq_item",
+        "fields": [
+          {
+            "key": "question",
+            "type": "single_line_text_field",
+            "value": "How do I know which skin type I am?"
+          },
+          {
+            "key": "answer_html",
+            "type": "multi_line_text_field",
+            "value": "<p>Dry skin feels tight after washing. Oily skin shines by the afternoon. Balanced does neither, most of the time. The sensitive versions are for skin that reacts to new products regardless of which of those it is.</p>\n<p>If you pick wrong, the Two-Week Trial exists precisely so that it costs you nothing to swap.</p>"
+          }
+        ]
+      },
+      {
+        "id": "gid://shopify/Metaobject/208407429432",
+        "handle": "can-i-use-core-on-my-face",
+        "type": "faq_item",
+        "fields": [
+          {
+            "key": "question",
+            "type": "single_line_text_field",
+            "value": "Can I use Core on my face?"
+          },
+          {
+            "key": "answer_html",
+            "type": "multi_line_text_field",
+            "value": "<p>Yes, and plenty of people do, particularly in winter. Core carries around fourteen percent plant oils against Flow's nine, so it sits heavier and takes longer to sink in. If you wear make-up or sunscreen over the top you will probably prefer Flow on your face and Core everywhere else.</p>"
+          }
+        ]
+      },
+      {
+        "id": "gid://shopify/Metaobject/208407462200",
+        "handle": "is-deep-only-for-hands-and-feet",
+        "type": "faq_item",
+        "fields": [
+          {
+            "key": "question",
+            "type": "single_line_text_field",
+            "value": "Is Deep only for hands and feet?"
+          },
+          {
+            "key": "answer_html",
+            "type": "multi_line_text_field",
+            "value": "<p>No. It is built for skin that is thick, dry and hard-worked, which usually means hands, heels, elbows and knees, but it goes anywhere that needs it. Shins in winter, for example.</p>\n<p>At around nineteen percent plant oils it is the richest thing we make, so on the face it will feel like a lot for most people.</p>"
+          }
+        ]
+      }
+    ]
+  }
+}

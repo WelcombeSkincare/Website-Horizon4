@@ -1,0 +1,509 @@
+{
+  "collections": {
+    "nodes": [
+      {
+        "handle": "dry-sensitive-skin-type",
+        "title": "Dry Sensitive Skin Type",
+        "templateSuffix": "collection-dry-sensitiv",
+        "custom": {
+          "nodes": [
+            {
+              "key": "intro_html",
+              "type": "multi_line_text_field",
+              "value": "Skin that feels tight and flaky, and that stings, reddens or flares more readily than most. Dry Sensitive skin struggles to hold on to moisture, and as it does, the things that cause irritation find it easier to get in. It asks for the gentlest, most careful care we make, and that is exactly what this part of the range is built to give it."
+            },
+            {
+              "key": "hero_title",
+              "type": "single_line_text_field",
+              "value": "Dry Sensitive"
+            },
+            {
+              "key": "hero_subtitle_html",
+              "type": "multi_line_text_field",
+              "value": "Dry skin that's easily upset. <br/>The most careful end of our range."
+            },
+            {
+              "key": "hero_overlay",
+              "type": "single_line_text_field",
+              "value": "#80a89e82"
+            },
+            {
+              "key": "behaviour_html",
+              "type": "multi_line_text_field",
+              "value": "Dry Sensitive skin tends to feel tight, often soon after washing, and can look dull or show flaky patches by the afternoon. New products frequently sting or prickle before they settle, if they settle at all. It reddens or goes blotchy easily, in cold wind, after a hot shower, or for no obvious reason. And it can feel itchy or rough in a way that steadier skin simply doesn't.<br/><br/>If several of those are familiar and they happen often rather than once in a while, you're likely in the right place. If you're not certain, the s<a href=\"/pages/find-your-skin-type\" title=\"Find Your Skin Type\">kin type finder</a> takes a couple of minutes and will point you the right way.<br/>"
+            },
+            {
+              "key": "approach_html",
+              "type": "multi_line_text_field",
+              "value": "Dry Sensitive skin has two things going on at once. It loses moisture too easily, and because its barrier is doing less of its job, the things that cause irritation reach it more readily. So the work is twofold. Put moisture back and help the skin hold on to it. And keep everything calm and simple, so as not to add to the upset.<br/><br/>That shapes every choice in these moisturisers. Rich, barrier-supporting plant oils to replenish what dry skin loses. Soothing, well-tolerated ingredients rather than anything sharp or stripping. And a deliberately short supporting cast, because the more you put on reactive skin, the more there is for it to react to. The idea throughout is to support your skin, not to push it around.<br/>"
+            },
+            {
+              "key": "blend_html",
+              "type": "multi_line_text_field",
+              "value": "Every Dry Sensitive moisturiser shares the same blend of five cold-pressed organic oils, chosen for this skin type and carried at a different richness in each of the three textures.<br/><br/><a href=\"/blogs/ingredients/evening-primrose-oenothera-biennis-oil\" title=\"Oenothera Biennis (Evening Primrose) Oil\">Evening primrose</a> brings gamma-linolenic acid, a rare omega-6 fatty acid the research links to barrier support, particularly where dry skin struggles to hold moisture. <a href=\"/blogs/ingredients/baobob-adansonia-digitata-seed-oil\" title=\"Adansonia Digitata (Baobab) Seed Oil\">Baobab</a> and <a href=\"/blogs/ingredients/tamanu-calophyllum-inophyllum-seed-oil\" title=\"Calophyllum Inophyllum (Tamanu) Seed Oil\">tamanu</a> are stable, conditioning oils rich in the fatty acids and sterols that dry skin draws on. <a href=\"/blogs/ingredients/seabuckthorn-hippophae-rhamnoides-fruit-oil\" title=\"Hippophae Rhamnoides (Seabuckthorn) Fruit Oil\">Sea buckthorn</a> adds omega-7 and carotenoids. And <a href=\"/blogs/ingredients/dragon-fruit-hylocereus-undatus-seed-oil\" title=\"Hylocereus Undatus (Dragon Fruit) Seed Oil\">dragon fruit</a> seed oil rounds the blend out with a light, well-balanced fatty acid profile.<br/><br/>Around those five sits a supporting cast shared across the whole range. <a href=\"/blogs/ingredients/squalane\" title=\"Squalane\">Squalane</a>, a lightweight oil close to one the skin makes for itself. Soothing <a href=\"/blogs/ingredients/allantoin\" title=\"Allantoin\">allantoin</a>. A prebiotic and postbiotic pairing chosen to support the skin's own microbiome, where the evidence is still emerging and we would rather say so than overstate it. And our signature <a href=\"/blogs/ingredients/bladder-wrack-fucus-vesiculosus-extract\" title=\"Fucus Vesiculosus (Bladderwrack) Extract\">bladderwrack</a>, the same Atlantic seaweed species we know from the rocks below Welcombe, though the extract itself is produced in France from that species. The coast is the kinship here, not the supply chain.<br/><br/>Every ingredient, and the exact amount of each, is published on each product page. That's the whole point of how we work, and each one links through to its own page if you want to read further.<br/>"
+            },
+            {
+              "key": "textures_html",
+              "type": "multi_line_text_field",
+              "value": "The same Dry Sensitive blend comes in three textures, so you can match the richness to where you're using it.<br/><br/>Flow is the lightest, made for the face. Core is richer and more cushioning, for the body. Deep is the richest, for the areas that turn driest, the hands, elbows and feet.<br/><br/>Same blend throughout. More or less of it, depending on what the skin is asking for."
+            },
+            {
+              "key": "care_heading",
+              "type": "single_line_text_field",
+              "value": "Looking after Dry Sensitive skin"
+            },
+            {
+              "key": "care_advice_html",
+              "type": "multi_line_text_field",
+              "value": "A few gentle habits tend to help this skin type as much as any single product does.<br/><br/>Wash a little less than you think you need to, with lukewarm rather than hot water, and something mild rather than a foaming or heavily scented cleanser. Pat dry rather than rub. Moisturise while the skin is still slightly damp, which helps hold the water in. Introduce new things one at a time, with a patch test, so that if something doesn't suit you, you know exactly what it was. Shelter the skin from cold wind and strong sun, both of which reactive skin feels keenly. And give any change a few weeks, because Dry Sensitive skin rewards patience and consistency far more than it rewards novelty.<br/><br/>You'll have noticed we never use synthetic fragrance, which is one of the more common triggers for skin like this. There's a single essential oil in the range, <a href=\"/blogs/ingredients/vetiver-vetiveria-zizanioides-root-oil\" title=\"Vetiveria Zizanoides (Vetiver) Root Oil\">vetiver</a>, at a low level and chosen on purpose, and it appears on every label so you can see exactly how much is there.<br/>"
+            },
+            {
+              "key": "outlook_html",
+              "type": "multi_line_text_field",
+              "value": "Dry Sensitive isn't a fixed label. Cared for gently and consistently, skin that's been struggling often calms over time, holding moisture a little better and reacting a little less. For some people that means the skin gradually settles toward the steadier Dry type, and the careful routine becomes less of a daily preoccupation. It's gradual, it comes from kind and steady care rather than from any single product working magic, and it's a good reason to treat where your skin is today as a starting point rather than a verdict. If it changes, the skin type finder is always there to place yourself again."
+            },
+            {
+              "key": "links_html",
+              "type": "multi_line_text_field",
+              "value": "<li>See the three Dry Sensitive moisturisers: <a href=\"/products/dry-sensitive-flow-moisturiser\" title=\"Flow &mdash; Dry Sensitive, a light face moisturiser for dry, sensitive skin\">Flow</a>, <a href=\"/products/core-dry-sensitive-a-cushioning-body-moisturiser-for-dry-sensitive-skin\" title=\"Core &mdash; Dry Sensitive, a cushioning body moisturiser for dry, sensitive skin\">Core</a> and <a href=\"/products/deep-dry-sensitive-a-rich-moisturiser-for-dry-sensitive-skin-for-hands-elbows-and-feet\" title=\"Deep &mdash; Dry Sensitive, a rich moisturiser for dry, sensitive skin, for hands, elbows and feet\">Deep</a><br/></li><li>Not sure this is you? <a href=\"/pages/find-your-skin-type\" title=\"Find Your Skin Type\">Find your skin type</a><br/></li><li>The other skin types: <a href=\"/collections/dry-skin-type\" title=\"Dry Skin Type\">Dry</a>, <a href=\"/collections/balanced-skin-type\" title=\"Balanced Skin Type\">Balanced</a>, <a href=\"/collections/oily-skin-type\" title=\"Oily Skin Type\">Oily</a>, <a href=\"/collections/oily-sensitive-skin-type\" title=\"Oily Sensitive Skin Type\">Oily Sensitive</a><br/></li><li><a href=\"/blogs/ingredients\" title=\"Ingredients\">How we choose our ingredients</a>, and the science behind them</li>"
+            }
+          ]
+        },
+        "seo": {
+          "nodes": [
+            {
+              "key": "title_tag",
+              "type": "string",
+              "value": "Dry Sensitive Skin: Moisturisers and Care | Biotaderm"
+            },
+            {
+              "key": "description_tag",
+              "type": "string",
+              "value": "Dry, easily upset skin that stings, reddens or flakes. See how to care for Dry Sensitive skin and the three gentle moisturisers made for it, every ingredient published."
+            }
+          ]
+        }
+      },
+      {
+        "handle": "oily-skin-type",
+        "title": "Oily Skin Type",
+        "templateSuffix": "collection-oily",
+        "custom": {
+          "nodes": [
+            {
+              "key": "hero_title",
+              "type": "single_line_text_field",
+              "value": "Oily"
+            },
+            {
+              "key": "hero_subtitle_html",
+              "type": "multi_line_text_field",
+              "value": "Skin that makes plenty of its own oil, <br/>and does better for a lighter touch."
+            },
+            {
+              "key": "hero_overlay",
+              "type": "single_line_text_field",
+              "value": "#c2ca539e"
+            },
+            {
+              "key": "intro_html",
+              "type": "multi_line_text_field",
+              "value": "Skin that shines through the day, especially across the forehead and nose, with more visible pores. Oily skin makes more surface oil than it strictly needs, but it rarely reacts, and its natural oiliness gives it some protection. It doesn't want stripping back. It wants light hydration that works with it, and that's what this part of the range is built to give it."
+            },
+            {
+              "key": "behaviour_html",
+              "type": "multi_line_text_field",
+              "value": "Oily skin tends to shine by the middle of the day, particularly across the T-zone. Make-up may start to slide, a tissue pressed to the skin comes away with a shine, and pores are usually easier to see. What it doesn't often do is feel tight, flake, or react badly to new products.<br/><br/>If your skin is more shine than tightness and generally takes things in its stride, you're in the right place. If you're not sure, the <a href=\"/pages/find-your-skin-type\" title=\"Find Your Skin Type\">skin type finder</a> will point you the right way.<br/>"
+            },
+            {
+              "key": "approach_html",
+              "type": "multi_line_text_field",
+              "value": "Oily skin gets more advice thrown at it than any other type, most of it about stripping the oil away. That tends to backfire, because skin stripped of its oil often responds by making more. So the approach here is the opposite of a fight. Light hydration from oils chosen to suit oily skin, to support it rather than provoke it.<br/><br/>Oily skin still needs moisture, and skipping it altogether is a common way to end up shinier, not less. So the oils are light and low-comedogenic, and the textures are kept as light as the range goes. Support, not strip.<br/>"
+            },
+            {
+              "key": "blend_html",
+              "type": "multi_line_text_field",
+              "value": "Every Oily moisturiser shares the same blend of four cold-pressed organic oils, chosen for this skin type, and it's the lightest blend in the range.<br/><br/><a href=\"/blogs/ingredients/grape-vitis-vinifera-seed-oil\" title=\"Vitis Vinifera (Grape) Seed Oil\">Grape </a>seed is a light, fast-absorbing oil high in linoleic acid, the essential fatty acid the skin uses to keep its barrier in order, and a natural fit for oily skin. <a href=\"/blogs/ingredients/rose-hip-rosa-canina-seed-oil\" title=\"Rosa Canina (Rose Hip) Fruit Oil\">Rose </a>hip is similarly light and linoleic-rich, and the research credits it with supporting skin texture and tone. <a href=\"/blogs/ingredients/argan-argania-spinosa-kernel-oil\" title=\"Argania Spinosa (Argan) Kernel Oil\">Argan </a>sits at a modest level as a conditioning note, described for its fatty acids and vitamin E rather than the marketing that tends to surround it. And <a href=\"/blogs/ingredients/dragon-fruit-hylocereus-undatus-seed-oil\" title=\"Hylocereus Undatus (Dragon Fruit) Seed Oil\">dragon fruit </a>seed oil adds a light, well-balanced profile.<br/><br/>Around those four sits a supporting cast shared across the whole range. <a href=\"/blogs/ingredients/squalane\" title=\"Squalane\">Squalane</a>, a lightweight oil close to one the skin makes for itself. Soothing <a href=\"/blogs/ingredients/allantoin\" title=\"Allantoin\">allantoin</a>. A prebiotic and postbiotic pairing chosen to support the skin's own microbiome, where the evidence is still emerging and we would rather say so than overstate it. And our signature <a href=\"/blogs/ingredients/bladder-wrack-fucus-vesiculosus-extract\" title=\"Fucus Vesiculosus (Bladderwrack) Extract\">bladderwrack</a>, the same Atlantic seaweed species we know from the rocks below Welcombe, though the extract itself is produced in France from that species. The coast is the kinship here, not the supply chain.<br/><br/>Every ingredient, and the exact amount of each, is published on each product page. That's the whole point of how we work, and each one links through to its own page if you want to read further.<br/>"
+            },
+            {
+              "key": "textures_html",
+              "type": "multi_line_text_field",
+              "value": "The same Oily blend comes in three textures, so you can match the richness to where you're using it. All three stay light, since that's what this skin type is after.<br/><br/><strong>Flow </strong>is the lightest, made for the face. <strong>Core </strong>is a touch richer, for the body. <strong>Deep </strong>is the richest of the three, for the areas that turn dry even on oily skin, the hands, elbows and feet.<br/><br/>Same blend throughout. More or less of it, depending on what the skin is asking for.<br/>"
+            },
+            {
+              "key": "care_heading",
+              "type": "single_line_text_field",
+              "value": "Looking after Oily skin"
+            },
+            {
+              "key": "care_advice_html",
+              "type": "multi_line_text_field",
+              "value": "A couple of habits help oily skin far more than any amount of stripping does.<br/><br/>Don't skip moisturiser. It's the single most common mistake with oily skin, and going without often leaves the skin drier underneath and oilier on top. Cleanse gently rather than harshly, with lukewarm water, since hot water and aggressive cleansers strip the skin and prompt it to make even more oil to compensate. Reach for lighter textures. And give antioxidants and sensible sun protection a place, both of which suit this skin type well. Working with your skin beats waging war on it.<br/><br/>You'll have noticed we never use synthetic fragrance. There's a single essential oil in the range, <a href=\"/blogs/ingredients/vetiver-vetiveria-zizanioides-root-oil\" title=\"Vetiveria Zizanoides (Vetiver) Root Oil\">vetiver</a>, at a low level and chosen on purpose, and it appears on every label so you can see exactly how much is there.<br/>"
+            },
+            {
+              "key": "outlook_html",
+              "type": "multi_line_text_field",
+              "value": "Oily isn't a fixed label. Looked after steadily, without the stripping that provokes more oil, oily skin often calms down over time, and for some people it gradually settles toward the steadier Balanced type. It's gradual, it comes from working with your skin rather than against it rather than from any single product working magic, and it's a good reason to treat where your skin is today as a starting point. If it changes, the skin type finder is always there to place yourself again."
+            },
+            {
+              "key": "links_html",
+              "type": "multi_line_text_field",
+              "value": "<li>See the three Oily Skin moisturisers: <a href=\"/products/flow-oily-a-light-face-moisturiser-for-oily-skin\" title=\"Flow &mdash; Oily, a light face moisturiser for oily skin\">Flow</a>, <a href=\"/products/core-oily-a-light-body-moisturiser-for-oily-skin\" title=\"Core &mdash; Oily, a light body moisturiser for oily skin\">Core</a> and <a href=\"/products/deep-oily-a-richer-moisturiser-for-oily-skin-for-hands-elbows-and-feet\" title=\"Deep &mdash; Oily, a richer moisturiser for oily skin, for hands, elbows and feet\">Deep</a><br/></li><li>Not sure this is you? <a href=\"/pages/find-your-skin-type\" title=\"Find Your Skin Type\">Find your skin type</a><br/></li><li>The other skin types: <a href=\"/collections/dry-sensitive-skin-type\" title=\"Dry Sensitive Skin Type\">Dry Sensitive</a>, <a href=\"/collections/dry-skin-type\" title=\"Dry Skin Type\">Dry</a>, <a href=\"/collections/balanced-skin-type\" title=\"Balanced Skin Type\">Balanced</a>, <a href=\"/collections/oily-sensitive-skin-type\" title=\"Oily Sensitive Skin Type\">Oily Sensitive</a><br/></li><li><a href=\"/blogs/ingredients\" title=\"Ingredients\">How we choose our ingredients</a>, and the science behind them</li>"
+            }
+          ]
+        },
+        "seo": {
+          "nodes": [
+            {
+              "key": "title_tag",
+              "type": "string",
+              "value": "Oily Skin: Moisturisers and Care | Biotaderm"
+            },
+            {
+              "key": "description_tag",
+              "type": "string",
+              "value": "Oily skin that shines through the day. See how to care for oily skin without stripping it, and the three light moisturisers made for it, with every ingredient published."
+            }
+          ]
+        }
+      },
+      {
+        "handle": "moisturiser",
+        "title": "Moisturiser",
+        "templateSuffix": "",
+        "custom": {
+          "nodes": []
+        },
+        "seo": {
+          "nodes": [
+            {
+              "key": "title_tag",
+              "type": "string",
+              "value": "Shop All Moisturisers | Biotaderm"
+            },
+            {
+              "key": "description_tag",
+              "type": "string",
+              "value": "Every Biotaderm moisturiser in one place. Three textures, five skin types, fifteen products, with every ingredient and its percentage published."
+            }
+          ]
+        }
+      },
+      {
+        "handle": "oily-sensitive-skin-type",
+        "title": "Oily Sensitive Skin Type",
+        "templateSuffix": "collection-oily-sensitive",
+        "custom": {
+          "nodes": [
+            {
+              "key": "hero_title",
+              "type": "single_line_text_field",
+              "value": "Oily Sensitive"
+            },
+            {
+              "key": "hero_subtitle_html",
+              "type": "multi_line_text_field",
+              "value": "Oily and easily upset at once, <br/>which asks for doing less, not more."
+            },
+            {
+              "key": "hero_overlay",
+              "type": "single_line_text_field",
+              "value": "#A375949E"
+            },
+            {
+              "key": "intro_html",
+              "type": "multi_line_text_field",
+              "value": "Skin that shines through the day and also reddens, stings or flares easily. Oily and sensitive is an awkward pairing, because the skin makes plenty of surface oil yet reacts to many of the things commonly used to manage it. The answer is restraint: light hydration, kept simple, and that's what this part of the range is built to give it."
+            },
+            {
+              "key": "behaviour_html",
+              "type": "multi_line_text_field",
+              "value": "Oily Sensitive skin shines by the middle of the day, with visible pores, and also reddens or goes blotchy easily, stings when you try something new, and flares more readily than settled oily skin. It's the combination that gives it away: plenty of oil, and plenty of reactivity alongside it.<br/><br/>If both of those sound like your skin, you're in the right place. If you're not certain, the <a href=\"/pages/find-your-skin-type\" title=\"Find Your Skin Type\">skin type finder</a> takes a couple of minutes."
+            },
+            {
+              "key": "approach_html",
+              "type": "multi_line_text_field",
+              "value": "Oily Sensitive skin pulls in two directions. It's oily, so it doesn't want anything heavy, and it's reactive, so it doesn't want anything harsh. The sensible answer to both is to do less. Light hydration from oils chosen to suit oily skin, a deliberately simple formula with a short supporting cast, and nothing sharp or stripping that might set it off.<br/><br/>The more you put on reactive skin, the more there is for it to react to, so restraint is the whole strategy here. Support, not control, and with a lighter hand than anywhere else in the range.<br/>"
+            },
+            {
+              "key": "blend_html",
+              "type": "multi_line_text_field",
+              "value": "Every Oily Sensitive moisturiser shares the same blend of four cold-pressed organic oils, chosen for this skin type and kept light.<br/><br/><a href=\"/blogs/ingredients/grape-vitis-vinifera-seed-oil\" title=\"Vitis Vinifera (Grape) Seed Oil\">Grape seed</a> is a light, fast-absorbing oil high in linoleic acid, the essential fatty acid the skin uses to keep its barrier in order, and a good fit for oily skin. <a href=\"/blogs/ingredients/pomegranate-punica-granatum-seed-oil\" title=\"Punica Granatum (Pomegranate) Seed Oil\">Pomegranate</a> brings punicic acid and antioxidant polyphenols. <a href=\"/blogs/ingredients/argan-argania-spinosa-kernel-oil\" title=\"Argania Spinosa (Argan) Kernel Oil\">Argan </a>sits at a modest level as a conditioning note, described for its fatty acids and vitamin E rather than the marketing that tends to surround it. And <a href=\"/blogs/ingredients/dragon-fruit-hylocereus-undatus-seed-oil\" title=\"Hylocereus Undatus (Dragon Fruit) Seed Oil\">dragon fruit</a> seed oil adds a light, well-balanced profile.<br/><br/>Around those four sits a supporting cast shared across the whole range. <a href=\"/blogs/ingredients/squalane\" title=\"Squalane\">Squalane</a>, a lightweight oil close to one the skin makes for itself. Soothing <a href=\"/blogs/ingredients/allantoin\" title=\"Allantoin\">allantoin</a>. A prebiotic and postbiotic pairing chosen to support the skin's own microbiome, where the evidence is still emerging and we would rather say so than overstate it. And our signature <a href=\"/blogs/ingredients/bladder-wrack-fucus-vesiculosus-extract\" title=\"Fucus Vesiculosus (Bladderwrack) Extract\">bladderwrack</a>, the same Atlantic seaweed species we know from the rocks below Welcombe, though the extract itself is produced in France from that species. The coast is the kinship here, not the supply chain.<br/><br/>Every ingredient, and the exact amount of each, is published on each product page. That's the whole point of how we work, and each one links through to its own page if you want to read further."
+            },
+            {
+              "key": "textures_html",
+              "type": "multi_line_text_field",
+              "value": "The same Oily Sensitive blend comes in three textures, so you can match the richness to where you're using it. All three stay light and simple, since that's what this skin type is after.<br/><br/><strong>Flow </strong>is the lightest, made for the face. <strong>Core </strong>is a touch richer, for the body. <strong>Deep </strong>is the richest of the three, for the areas that turn dry even on oily skin, the hands, elbows and feet.<br/><br/>Same blend throughout. More or less of it, depending on what the skin is asking for."
+            },
+            {
+              "key": "care_heading",
+              "type": "single_line_text_field",
+              "value": "Looking after Oily Sensitive skin"
+            },
+            {
+              "key": "care_advice_html",
+              "type": "multi_line_text_field",
+              "value": "This skin type does best on a short, gentle routine.<br/><br/>Cleanse gently rather than harshly, with lukewarm water, since stripping the skin tends to provoke both more oil and more reaction. Keep the routine simple, and resist piling on strong actives, since reactive skin has less tolerance for them. Introduce new things one at a time, with a patch test, so that if something doesn't suit you, you know exactly what it was. And give any change a few weeks. With this skin type, less really is more.<br/><br/>You'll have noticed we never use synthetic fragrance, which is one of the more common triggers for skin like this. There's a single essential oil in the range, <a href=\"/blogs/ingredients/vetiver-vetiveria-zizanioides-root-oil\" title=\"Vetiveria Zizanoides (Vetiver) Root Oil\">vetiver</a>, at a low level and chosen on purpose, and it appears on every label so you can see exactly how much is there.<br/>"
+            },
+            {
+              "key": "outlook_html",
+              "type": "multi_line_text_field",
+              "value": "Oily Sensitive isn't a fixed label. Cared for gently and simply, the reactivity often calms over time, and for some people the skin gradually settles toward the steadier Oily type, where there's less to tiptoe around. It's gradual, it comes from a kind, consistent, uncomplicated routine rather than any single product working magic, and it's a good reason to treat where your skin is today as a starting point. If it changes, the skin type finder is always there to place yourself again."
+            },
+            {
+              "key": "links_html",
+              "type": "multi_line_text_field",
+              "value": "<li>See the three Oily Sensitive moisturisers: <a href=\"/products/flow-oily-sensitive-a-light-face-moisturiser-for-oily-sensitive-skin\" title=\"Flow &mdash; Oily Sensitive, a light face moisturiser for oily, sensitive skin\">Flow</a>, <a href=\"/products/core-oily-sensitive-a-light-body-moisturiser-for-oily-sensitive-skin\" title=\"Core &mdash; Oily Sensitive, a light body moisturiser for oily, sensitive skin\">Core</a> and <a href=\"/products/deep-oily-sensitive-a-richer-moisturiser-for-oily-sensitive-skin-for-hands-elbows-and-feet\" title=\"Deep &mdash; Oily Sensitive, a richer moisturiser for oily, sensitive skin, for hands, elbows and feet\">Deep</a><br/></li><li>Not sure this is you? <a href=\"/pages/find-your-skin-type\" title=\"Find Your Skin Type\">Find your skin type</a><br/></li><li>The other skin types: <a href=\"/collections/dry-sensitive-skin-type\" title=\"Dry Sensitive Skin Type\">Dry Sensitive</a>, <a href=\"/collections/dry-skin-type\" title=\"Dry Skin Type\">Dry</a>, <a href=\"/collections/balanced-skin-type\" title=\"Balanced Skin Type\">Balanced</a>, <a href=\"/collections/oily-skin-type\" title=\"Oily Skin Type\">Oily</a><br/></li><li><a href=\"/blogs/ingredients\" title=\"Ingredients\">How we choose our ingredients</a>, and the science behind them</li>"
+            }
+          ]
+        },
+        "seo": {
+          "nodes": [
+            {
+              "key": "title_tag",
+              "type": "string",
+              "value": "Oily Sensitive Skin: Moisturisers and Care | Biotaderm"
+            },
+            {
+              "key": "description_tag",
+              "type": "string",
+              "value": "Oily skin that also reddens, stings and flares. See how to care for oily, sensitive skin with a simple routine, and the three light moisturisers made for it."
+            }
+          ]
+        }
+      },
+      {
+        "handle": "dry-skin-type",
+        "title": "Dry Skin Type",
+        "templateSuffix": "collection-dry-2",
+        "custom": {
+          "nodes": [
+            {
+              "key": "hero_title",
+              "type": "single_line_text_field",
+              "value": "Dry"
+            },
+            {
+              "key": "hero_subtitle_html",
+              "type": "multi_line_text_field",
+              "value": "Skin that runs dry, and needs its moisture giving back."
+            },
+            {
+              "key": "hero_overlay",
+              "type": "single_line_text_field",
+              "value": "#f47d5ea3"
+            },
+            {
+              "key": "intro_html",
+              "type": "multi_line_text_field",
+              "value": "Skin that feels tight and can flake, and drinks up moisture almost as fast as you apply it. Dry skin struggles to hold on to water, and while it's steadier than Dry Sensitive, it can have the odd reactive spell if it's left short for too long. What it wants above all is steady, lasting hydration, and that's what this part of the range is built to give it."
+            },
+            {
+              "key": "behaviour_html",
+              "type": "multi_line_text_field",
+              "value": "Dry skin tends to feel tight, especially after washing, and can look dull or show flaky patches by the afternoon. Moisturiser seems to sink in and vanish, and the skin often wants more before long. It's mostly settled, but it can sting or feel rough now and then, particularly in winter or after a hot shower. What it rarely does is shine.<br/><br/>If that sounds like your skin most of the time, you're in the right place. If you're not sure, the <a href=\"/pages/find-your-skin-type\" title=\"Find Your Skin Type\">skin type finder</a> will point you the right way.<br/>"
+            },
+            {
+              "key": "approach_html",
+              "type": "multi_line_text_field",
+              "value": "Dry skin has one main thing to solve. It loses moisture faster than it makes it, so the tightness and flaking creep back not long after you've moisturised. The answer is to put that moisture back and, just as importantly, help the skin hold on to it. That means richer, barrier-supporting plant oils, and humectants that draw water in and keep it there.<br/><br/>Looked after steadily, the occasional reactive spell tends to fade. Left short for too long, dry skin can tip toward the more reactive Dry Sensitive type, which is the one thing worth heading off. As everywhere in the range, the aim is to support your skin, not to push it around.<br/>"
+            },
+            {
+              "key": "blend_html",
+              "type": "multi_line_text_field",
+              "value": "Every Dry moisturiser shares the same blend of five cold-pressed organic oils, chosen for this skin type and carried at a different richness in each of the three textures.<br/><br/><a href=\"/blogs/ingredients/evening-primrose-oenothera-biennis-oil\" title=\"Oenothera Biennis (Evening Primrose) Oil\">Evening primrose</a> brings gamma-linolenic acid, a rare omega-6 fatty acid the research links to barrier support where dry skin struggles to hold moisture. <a href=\"/blogs/ingredients/baobob-adansonia-digitata-seed-oil\" title=\"Adansonia Digitata (Baobab) Seed Oil\">Baobab</a> and <a href=\"/blogs/ingredients/tamanu-calophyllum-inophyllum-seed-oil\" title=\"Calophyllum Inophyllum (Tamanu) Seed Oil\">tamanu</a> are stable, conditioning oils rich in the fatty acids and sterols dry skin draws on. <a href=\"/blogs/ingredients/seabuckthorn-hippophae-rhamnoides-fruit-oil\" title=\"Hippophae Rhamnoides (Seabuckthorn) Fruit Oil\">Sea buckthorn</a> adds omega-7 and carotenoids. And <a href=\"/blogs/ingredients/jojoba-seed-simmondsia-chinensis-seed-oil\" title=\"Simmondsia Chinensis (Jojoba) Seed Oil\">jojoba</a>, a liquid wax unusually close to the skin's own sebum, softens the blend and helps it sit comfortably without feeling heavy.<br/><br/>Around those five sits a supporting cast shared across the whole range. <a href=\"/blogs/ingredients/squalane\" title=\"Squalane\">Squalane</a>, a lightweight oil close to one the skin makes for itself. Soothing <a href=\"/blogs/ingredients/allantoin\" title=\"Allantoin\">allantoin</a>. A prebiotic and postbiotic pairing chosen to support the skin's own microbiome, where the evidence is still emerging and we would rather say so than overstate it. And our signature <a href=\"/blogs/ingredients/bladder-wrack-fucus-vesiculosus-extract\" title=\"Fucus Vesiculosus (Bladderwrack) Extract\">bladderwrack</a>, the same Atlantic seaweed species we know from the rocks below Welcombe, though the extract itself is produced in France from that species. The coast is the kinship here, not the supply chain.<br/><br/>Every ingredient, and the exact amount of each, is published on each product page. That's the whole point of how we work, and each one links through to its own page if you want to read further.<br/>"
+            },
+            {
+              "key": "textures_html",
+              "type": "multi_line_text_field",
+              "value": "The same Dry blend comes in three textures, so you can match the richness to where you're using it.<br/><br/><strong>Flow</strong> is the lightest, made for the face. <strong>Core </strong>is richer and more cushioning, for the body. <strong>Deep </strong>is the richest, for the areas that turn driest, the hands, elbows and feet.<br/><br/>Same blend throughout. More or less of it, depending on what the skin is asking for.<br/>"
+            },
+            {
+              "key": "care_heading",
+              "type": "single_line_text_field",
+              "value": "Looking after Dry skin"
+            },
+            {
+              "key": "care_advice_html",
+              "type": "multi_line_text_field",
+              "value": "A few gentle habits help this skin type as much as any single product does.<br/><br/>Moisturise while the skin is still slightly damp, which helps trap the water in. Wash with lukewarm rather than hot water, and something mild rather than a stripping, heavily foaming cleanser, since hot water and harsh soap pull out the very oils dry skin is short of in the first place. Try not to over-wash. Shelter the skin from cold wind and drying central heating. And be consistent, because dry skin responds far better to steady daily care than to the occasional heavy treatment.<br/><br/>You'll have noticed we never use synthetic fragrance. There's a single essential oil in the range, <a href=\"/blogs/ingredients/vetiver-vetiveria-zizanioides-root-oil\" title=\"Vetiveria Zizanoides (Vetiver) Root Oil\">vetiver</a>, at a low level and chosen on purpose, and it appears on every label so you can see exactly how much is there."
+            },
+            {
+              "key": "outlook_html",
+              "type": "multi_line_text_field",
+              "value": "Dry isn't a fixed label. Cared for consistently, dry skin often gets better at holding moisture over time, and for some people it gradually settles toward the steadier Balanced type, where the daily upkeep gets easier. It's gradual, it comes from steady care rather than from any single product working magic, and it's a good reason to treat where your skin is today as a starting point rather than a verdict. If it changes, the skin type finder is always there to place yourself again."
+            },
+            {
+              "key": "links_html",
+              "type": "multi_line_text_field",
+              "value": "<li>See the three Dry moisturisers: <a href=\"/products/dry-flow-moisturiser\" title=\"Flow &mdash; Dry, a light face moisturiser for dry skin\">Flow</a>, <a href=\"/products/core-dry-a-cushioning-body-moisturiser-for-dry-skin\" title=\"Core &mdash; Dry, a cushioning body moisturiser for dry skin\">Core</a> and <a href=\"/products/deep-dry-sensitive-a-rich-moisturiser-for-dry-sensitive-skin-for-hands-elbows-and-feet-copy\" title=\"Deep &mdash; Dry, a rich moisturiser for dry skin, for hands, elbows and feet\">Deep</a><br/></li><li>Not sure this is you? <a href=\"/pages/find-your-skin-type\" title=\"Find Your Skin Type\">Find your skin type</a><br/></li><li>The other skin types: <a href=\"/collections/dry-sensitive-skin-type\" title=\"Dry Sensitive Skin Type\">Dry Sensitive</a>, <a href=\"/collections/balanced-skin-type\" title=\"Balanced Skin Type\">Balanced</a>, <a href=\"/collections/oily-skin-type\" title=\"Oily Skin Type\">Oily</a>, <a href=\"/collections/oily-sensitive-skin-type\" title=\"Oily Sensitive Skin Type\">Oily Sensitive</a><br/></li><li><a href=\"/blogs/ingredients\" title=\"Ingredients\">How we choose our ingredients</a>, and the science behind them</li>"
+            }
+          ]
+        },
+        "seo": {
+          "nodes": [
+            {
+              "key": "title_tag",
+              "type": "string",
+              "value": "Dry Skin: Moisturisers and Care | Biotaderm"
+            },
+            {
+              "key": "description_tag",
+              "type": "string",
+              "value": "Dry skin that feels tight, flakes and drinks up moisture. See how to care for dry skin and the three moisturisers made for it, with every ingredient published."
+            }
+          ]
+        }
+      },
+      {
+        "handle": "balanced-skin-type",
+        "title": "Balanced Skin Type",
+        "templateSuffix": "collection-balanced",
+        "custom": {
+          "nodes": [
+            {
+              "key": "hero_title",
+              "type": "single_line_text_field",
+              "value": "Balanced"
+            },
+            {
+              "key": "hero_subtitle_html",
+              "type": "multi_line_text_field",
+              "value": "The easy one to take for granted."
+            },
+            {
+              "key": "hero_overlay",
+              "type": "single_line_text_field",
+              "value": "#80a89e82"
+            },
+            {
+              "key": "intro_html",
+              "type": "multi_line_text_field",
+              "value": "Skin that's mostly comfortable, neither tight nor shiny, and doesn't ask for much. Balanced skin is the most tolerant type and the least prone to trouble. This is also where most combination skin sits, a little oilier through the T-zone and a little drier on the cheeks. The job here isn't to fix anything. It's to keep a good thing good."
+            },
+            {
+              "key": "behaviour_html",
+              "type": "multi_line_text_field",
+              "value": "Balanced skin stays comfortable through most of the day. It isn't tight after washing, doesn't flake, and doesn't shine much beyond perhaps a little across the nose. It takes most products in its stride and rarely stings or flares. If you're a touch oilier in the T-zone and drier on the cheeks, that combination usually sits here too.<br/><br/>If your skin mostly just gets on with things, you're in the right place. If you're not sure, the <a href=\"/pages/find-your-skin-type\" title=\"Find Your Skin Type\">skin type finder</a> takes a couple of minutes.<br/>"
+            },
+            {
+              "key": "approach_html",
+              "type": "multi_line_text_field",
+              "value": "Balanced skin is the one that's easy to overlook, precisely because it behaves. It doesn't need rescuing, and the commonest mistake is doing too much to it. What it wants is light, unfussy hydration that keeps it comfortable, plus a little antioxidant support to help protect it over the longer term. The research points to antioxidants as a sensible, low-drama way to look after skin that's already in good shape.<br/><br/>Balanced skin can drift toward dry or oily with age, season or a change in routine, so the quiet aim is simply to keep it where it is. Support, not control, as ever.<br/>"
+            },
+            {
+              "key": "blend_html",
+              "type": "multi_line_text_field",
+              "value": "Every Balanced moisturiser shares the same even blend of five cold-pressed organic oils, chosen for this skin type and carried at a different richness in each of the three textures. This is the most balanced blend we make, five oils at the same weight.<br/><br/><a href=\"/blogs/ingredients/jojoba-seed-simmondsia-chinensis-seed-oil\" title=\"Simmondsia Chinensis (Jojoba) Seed Oil\">Jojoba</a>, a liquid wax unusually close to the skin's own sebum, suits skin you want to keep just as it is. <a href=\"/blogs/ingredients/rose-hip-rosa-canina-seed-oil\" title=\"Rosa Canina (Rose Hip) Fruit Oil\">Rose hip</a> is light and high in linoleic acid, the essential fatty acid the skin draws on to keep its barrier in order. <a href=\"/blogs/ingredients/pomegranate-punica-granatum-seed-oil\" title=\"Punica Granatum (Pomegranate) Seed Oil\">Pomegranate</a> brings punicic acid and antioxidant polyphenols. <a href=\"/blogs/ingredients/baobob-adansonia-digitata-seed-oil\" title=\"Adansonia Digitata (Baobab) Seed Oil\">Baobab</a> adds stable, conditioning fatty acids and sterols. And <a href=\"/blogs/ingredients/dragon-fruit-hylocereus-undatus-seed-oil\" title=\"Hylocereus Undatus (Dragon Fruit) Seed Oil\">dragon fruit</a> seed oil rounds the blend out with a light, well-balanced profile.<br/><br/>Around those five sits a supporting cast shared across the whole range. <a href=\"/blogs/ingredients/squalane\" title=\"Squalane\">Squalane</a>, a lightweight oil close to one the skin makes for itself. Soothing <a href=\"/blogs/ingredients/allantoin\" title=\"Allantoin\">allantoin</a>. A prebiotic and postbiotic pairing chosen to support the skin's own microbiome, where the evidence is still emerging and we would rather say so than overstate it. And our signature <a href=\"/blogs/ingredients/bladder-wrack-fucus-vesiculosus-extract\" title=\"Fucus Vesiculosus (Bladderwrack) Extract\">bladderwrack</a>, the same Atlantic seaweed species we know from the rocks below Welcombe, though the extract itself is produced in France from that species. The coast is the kinship here, not the supply chain.<br/><br/>Every ingredient, and the exact amount of each, is published on each product page. That's the whole point of how we work, and each one links through to its own page if you want to read further."
+            },
+            {
+              "key": "textures_html",
+              "type": "multi_line_text_field",
+              "value": "The same Balanced blend comes in three textures, so you can match the richness to where you're using it.<br/><br/><strong>Flow </strong>is the lightest, made for the face. <strong>Core </strong>is richer and more cushioning, for the body. <strong>Deep </strong>is the richest, for the areas that turn driest, the hands, elbows and feet.<br/><br/>Same blend throughout. More or less of it, depending on what the skin is asking for."
+            },
+            {
+              "key": "care_heading",
+              "type": "single_line_text_field",
+              "value": "Looking after Balanced skin"
+            },
+            {
+              "key": "care_advice_html",
+              "type": "multi_line_text_field",
+              "value": "The main thing with balanced skin is not to overthink it.<br/><br/>Keep the routine simple and consistent, and resist the urge to pile on strong actives your skin doesn't actually need, since that's the quickest way to upset a good balance. Cleanse gently, moisturise to stay comfortable, and give your skin a little antioxidant support and sensible sun protection to help keep it the way it is. That's genuinely most of it. Balanced skin rewards a light touch more than a busy one.<br/><br/>You'll have noticed we never use synthetic fragrance. There's a single essential oil in the range, <a href=\"/blogs/ingredients/vetiver-vetiveria-zizanioides-root-oil\" title=\"Vetiveria Zizanoides (Vetiver) Root Oil\">vetiver</a>, at a low level and chosen on purpose, and it appears on every label so you can see exactly how much is there.<br/>"
+            },
+            {
+              "key": "outlook_html",
+              "type": "multi_line_text_field",
+              "value": "Balanced skin sits in a good place, but it isn't fixed there. It can drift toward dry or oily with age, environment, health or a change in routine. The reassuring part is that steady, gentle care tends to keep it where it is, and if it does shift, kind and consistent care can help bring it back toward the middle over time. It's gradual, and it comes from looking after your skin steadily rather than from any single product working magic. If your skin changes, the skin type finder is always there to place yourself again"
+            },
+            {
+              "key": "links_html",
+              "type": "multi_line_text_field",
+              "value": "<li>See the three Balanced moisturisers: <a href=\"/products/flow-balanced-a-light-face-moisturiser-for-balanced-skin\" title=\"Flow &mdash; Balanced, a light face moisturiser for balanced skin\">Flow</a>, <a href=\"/products/core-balanced-a-cushioning-body-moisturiser-for-balanced-skin\" title=\"Core &mdash; Balanced, a cushioning body moisturiser for balanced skin\">Core</a> and <a href=\"/products/deep-balanced-a-rich-moisturiser-for-balanced-skin-for-hands-elbows-and-feet\" title=\"Deep &mdash; Balanced, a rich moisturiser for balanced skin, for hands, elbows and feet\">Deep</a><br/></li><li>Not sure this is you? <a href=\"/pages/find-your-skin-type\" title=\"Find Your Skin Type\">Find your skin type</a><br/></li><li>The other skin types: <a href=\"/collections/dry-skin-type\" title=\"Dry Skin Type\">Dry</a>, <a href=\"/collections/dry-sensitive-skin-type\" title=\"Dry Sensitive Skin Type\">Dry Sensitive</a>, <a href=\"/collections/oily-skin-type\" title=\"Oily Skin Type\">Oily</a>, <a href=\"/collections/oily-sensitive-skin-type\" title=\"Oily Sensitive Skin Type\">Oily Sensitive</a><br/></li><li><a href=\"/blogs/ingredients\" title=\"Ingredients\">How we choose our ingredients</a>, and the science behind them</li>"
+            }
+          ]
+        },
+        "seo": {
+          "nodes": [
+            {
+              "key": "title_tag",
+              "type": "string",
+              "value": "Balanced Skin: Moisturisers and Care | Biotaderm"
+            },
+            {
+              "key": "description_tag",
+              "type": "string",
+              "value": "Comfortable, even, low-maintenance skin, including most combination skin. See how to care for balanced skin and the three moisturisers made for it, every ingredient published."
+            }
+          ]
+        }
+      },
+      {
+        "handle": "core-texture",
+        "title": "Core",
+        "templateSuffix": "collection-core",
+        "custom": {
+          "nodes": []
+        },
+        "seo": {
+          "nodes": [
+            {
+              "key": "title_tag",
+              "type": "string",
+              "value": "Core: Body Moisturisers | Biotaderm"
+            },
+            {
+              "key": "description_tag",
+              "type": "string",
+              "value": "Core is our cushioning moisturiser, made for the body. Five skin-type blends, with every ingredient published. Find your skin type and choose yours."
+            }
+          ]
+        }
+      },
+      {
+        "handle": "deep-texture",
+        "title": "Deep",
+        "templateSuffix": "collection-deep",
+        "custom": {
+          "nodes": []
+        },
+        "seo": {
+          "nodes": [
+            {
+              "key": "title_tag",
+              "type": "string",
+              "value": "Deep: Rich Moisturisers for Hands, Elbows and Feet | Biotaderm"
+            },
+            {
+              "key": "description_tag",
+              "type": "string",
+              "value": "Deep is our richest moisturiser, for the driest areas. Five skin-type blends, with every ingredient published. Find your skin type and choose yours."
+            }
+          ]
+        }
+      },
+      {
+        "handle": "flow-texture",
+        "title": "Flow",
+        "templateSuffix": "collection-flow",
+        "custom": {
+          "nodes": []
+        },
+        "seo": {
+          "nodes": [
+            {
+              "key": "description_tag",
+              "type": "string",
+              "value": "Flow is our lightest moisturiser, made for the face. Five skin-type blends, with every ingredient published. Find your skin type and choose yours."
+            },
+            {
+              "key": "title_tag",
+              "type": "string",
+              "value": "Flow: Light Face Moisturisers | Biotaderm"
+            }
+          ]
+        }
+      }
+    ]
+  }
+}
