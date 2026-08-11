@@ -4,6 +4,37 @@
   Design ref: Biotaderm Home Page v2 handoff, footer spec.
 {%- endcomment -%}
 
+{%- comment -%}
+  PER-COLLECTION HERO OVERLAY OPACITY - hosted here, not in a stock Horizon file.
+
+  templates/collection.texture.json binds the hero overlay to a Color metafield,
+  but Shopify Color metafields only store 6-digit hex - they reject alpha
+  ("Value must be a hex color code."). The three texture heroes each carried a
+  different alpha (#D7E0DDB5 / #80A89E82 / #4E6D6C9E), so the alpha has to come
+  from somewhere else or all three heroes would render fully opaque.
+
+  Painting an opaque colour on an EMPTY div at opacity N is identical to painting
+  that colour with alpha N, so the alpha is carried by custom.hero_overlay_alpha
+  and applied here. Same technique the skin-type template already uses, except
+  that one can hardcode 0.6 in custom_css because all five share an alpha.
+
+  This cannot live in the {% stylesheet %} block below - that is a static asset
+  and does not render Liquid. It cannot live in the template's own custom_css
+  either: custom_css silently accepts a dynamic source and then renders nothing
+  (verified 2026-08-11). Hence a real <style> tag in a section we own.
+
+  Selector uses a suffix match because Shopify prefixes the rendered id with a
+  volatile template instance number; the trailing section key is ours and stable.
+
+  The template.suffix guard matters: the superseded collection-flow/-core/-deep
+  templates share the same hero section key and already carry 8-digit overlays,
+  so an unguarded rule would double-apply the alpha to them while both exist.
+{%- endcomment -%}
+{%- assign hero_alpha = collection.metafields.custom.hero_overlay_alpha.value -%}
+{%- if template.suffix == 'texture' and hero_alpha != blank -%}
+  <style>[id$="__hero_GUBQBy"] .overlay--solid { opacity: {{ hero_alpha }}; }</style>
+{%- endif -%}
+
 <div class="bd-ft" data-bd-ft>
   <div class="bd-ft-ethos">
     {%- for block in section.blocks -%}
