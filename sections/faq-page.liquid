@@ -1,0 +1,661 @@
+{%- comment -%}
+  sections/faq-page.liquid
+  FAQ page (design handoff "content pages", page 1).
+
+  Shape: sticky category index on the left, accordion questions on the right.
+  A visitor arrives with ONE question and should reach its answer in one action,
+  then be able to send a colleague straight to it - hence the per-question
+  permalinks.
+
+  Blocks are FLAT and ordered, the same pattern home-formulation.liquid uses for
+  ingredient rows: a `category` block opens a group and every `question` block
+  after it belongs to that group until the next `category`. Shopify has no
+  nested blocks, so do not try to build them.
+
+  Index counts are DERIVED from the blocks, never typed. A hand-typed count goes
+  stale the first time somebody adds a question in the admin.
+
+  Anchors come from `question | handleize`, so a permalink survives reordering.
+  Renaming a question changes its URL - that is the accepted trade, because the
+  alternative (block.id) is opaque and changes if the block is recreated.
+
+  Accordion is the theme's own `accordion-custom-component`, which brings the
+  animation, prefers-reduced-motion handling and the plus/minus icon transition
+  in `summary-icon-styles`. Do NOT hand-roll one.
+{%- endcomment -%}
+
+{%- liquid
+  assign sw = section.settings.section_width | default: 'normal'
+
+  # --- pass 1: where does each category start? -------------------------------
+  assign cat_starts = ''
+  for block in section.blocks
+    if block.type == 'category'
+      assign cat_starts = cat_starts | append: forloop.index0 | append: ','
+    endif
+  endfor
+  assign cat_index = cat_starts | split: ','
+-%}
+
+<div class="bd-faq page-width-{{ sw }}" data-bd-faq>
+
+  {%- comment -%} INTRO BAND {%- endcomment -%}
+  <div class="bd-faq-intro">
+    {%- if section.settings.eyebrow != blank -%}
+      <p class="bd-faq-eyebrow">{{ section.settings.eyebrow }}</p>
+    {%- endif -%}
+    {%- if section.settings.heading != blank -%}
+      <h1 class="bd-faq-h1">{{ section.settings.heading }}</h1>
+    {%- endif -%}
+    {%- if section.settings.standfirst != blank -%}
+      <div class="bd-faq-standfirst">{{ section.settings.standfirst }}</div>
+    {%- endif -%}
+  </div>
+
+  {%- comment -%} BODY {%- endcomment -%}
+  <div class="bd-faq-body">
+
+    {%- comment -%} STICKY INDEX - counts derived from blocks {%- endcomment -%}
+    <aside class="bd-faq-index">
+      <details class="bd-faq-index-wrap" open>
+        <summary class="bd-faq-index-label">{{ section.settings.index_label | default: 'On this page' }}</summary>
+        <nav class="bd-faq-index-list">
+          {%- for start in cat_index -%}
+            {%- liquid
+              assign s_i = start | plus: 0
+              assign nxt = forloop.index
+              if nxt < cat_index.size
+                assign e_i = cat_index[nxt] | plus: 0
+              else
+                assign e_i = section.blocks.size
+              endif
+
+              assign qn = 0
+              assign label = ''
+              for b in section.blocks
+                if forloop.index0 == s_i
+                  assign label = b.settings.label
+                endif
+                if forloop.index0 > s_i and forloop.index0 < e_i and b.type == 'question'
+                  assign qn = qn | plus: 1
+                endif
+              endfor
+              assign anchor = label | handleize
+            -%}
+            {%- if label != blank -%}
+              <a class="bd-faq-index-row" href="#{{ anchor }}">
+                <span>{{ label }}</span>
+                <span class="bd-faq-index-count">{{ qn }}</span>
+              </a>
+            {%- endif -%}
+          {%- endfor -%}
+        </nav>
+        <button type="button" class="bd-faq-toggle-all" data-bd-faq-toggle data-expanded="false">
+          {{ section.settings.expand_label | default: 'Expand all' }}
+        </button>
+      </details>
+    </aside>
+
+    {%- comment -%} QUESTIONS {%- endcomment -%}
+    <div class="bd-faq-main">
+      {%- for block in section.blocks -%}
+
+        {%- if block.type == 'category' -%}
+          {%- unless forloop.first -%}</div></section>{%- endunless -%}
+          <section class="bd-faq-cat" id="{{ block.settings.label | handleize }}" {{ block.shopify_attributes }}>
+            <h2 class="bd-faq-cat-h2">{{ block.settings.label }}</h2>
+            <span class="bd-faq-cat-rule" aria-hidden="true"></span>
+            <div class="bd-faq-rows">
+
+        {%- elsif block.type == 'question' -%}
+          {%- liquid
+            assign qid = block.settings.question | handleize
+            assign first_open = false
+            if forloop.index0 == 1
+              assign first_open = true
+            endif
+          -%}
+          {%- capture faq_row -%}
+            <details class="details bd-faq-row" id="{{ qid }}"{% if first_open %} open{% endif %} {{ block.shopify_attributes }}>
+              <summary class="details__header bd-faq-summary">
+                <span class="bd-faq-q">{{ block.settings.question }}</span>
+                <span class="svg-wrapper icon-plus bd-faq-icon">
+                  {{- 'icon-plus.svg' | inline_asset_content -}}
+                </span>
+              </summary>
+              <div class="details-content bd-faq-answer">
+                {{ block.settings.answer }}
+
+                {%- comment -%} SET PIECES {%- endcomment -%}
+                {%- case block.settings.set_piece -%}
+
+                  {%- when 'finder' -%}
+                    <div class="bd-faq-card bd-faq-finder">
+                      <div class="bd-faq-swatches" aria-hidden="true">
+                        <span style="background:#80A89E"></span>
+                        <span style="background:#F47D5E"></span>
+                        <span style="background:#6BBBCC"></span>
+                        <span style="background:#C2CA53"></span>
+                        <span style="background:#A37594"></span>
+                      </div>
+                      <div class="bd-faq-finder-copy">
+                        <p class="bd-faq-card-title">{{ section.settings.finder_title | default: 'Two questions, five types' }}</p>
+                        <p class="bd-faq-card-sub">{{ section.settings.finder_sub | default: 'Takes a couple of minutes.' }}</p>
+                      </div>
+                      <a class="bd-faq-btn" href="{{ section.settings.finder_url | default: '/pages/find-your-skin-type' }}">
+                        {{ section.settings.finder_label | default: 'Find your skin type' }}
+                      </a>
+                    </div>
+
+                  {%- when 'textures' -%}
+                    <div class="bd-faq-grid-3">
+                      {%- assign words = 'FLOW,CORE,DEEP' | split: ',' -%}
+                      {%- assign figs = section.settings.texture_figures | default: '9%+,14%+,19%+' | split: ',' -%}
+                      {%- assign caps = section.settings.texture_captions | default: 'Sinks in quickly. Made for the face.|Richer and more cushioning. Made for the body.|The substantial one for hands, elbows, knees and feet.' | split: '|' -%}
+                      {%- for w in words -%}
+                        <div class="bd-faq-card bd-faq-tex">
+                          <p class="bd-faq-tex-word{% if forloop.last %} is-deep{% endif %}">{{ w }}</p>
+                          <p class="bd-faq-tex-fig">{{ figs[forloop.index0] }}</p>
+                          <p class="bd-faq-card-sub">{{ caps[forloop.index0] }}</p>
+                        </div>
+                      {%- endfor -%}
+                    </div>
+
+                  {%- when 'dose' -%}
+                    <div class="bd-faq-card bd-faq-media">
+                      <div class="bd-faq-media-img is-43">
+                        {%- if block.settings.image_1 != blank -%}
+                          {{ block.settings.image_1 | image_url: width: 720 | image_tag: loading: 'lazy', alt: block.settings.image_1_alt }}
+                        {%- else -%}
+                          <span class="bd-faq-img-empty" aria-hidden="true"></span>
+                        {%- endif -%}
+                      </div>
+                      <div>
+                        <p class="bd-faq-card-title">{{ block.settings.piece_title | default: 'This much, for a face' }}</p>
+                        <p class="bd-faq-card-sub">{{ block.settings.piece_body | default: 'One short press of the pump. If it is still visible on the skin after a minute, it was too much.' }}</p>
+                      </div>
+                    </div>
+
+                  {%- when 'bottle_base' -%}
+                    <div class="bd-faq-card bd-faq-media">
+                      <div class="bd-faq-media-img is-11">
+                        {%- if block.settings.image_1 != blank -%}
+                          {{ block.settings.image_1 | image_url: width: 720 | image_tag: loading: 'lazy', alt: block.settings.image_1_alt }}
+                        {%- else -%}
+                          <span class="bd-faq-img-empty" aria-hidden="true"></span>
+                        {%- endif -%}
+                      </div>
+                      <dl class="bd-faq-keyrows">
+                        <div><dt>On the label</dt><dd>Open-jar symbol with 6M beside it &mdash; six months once opened.</dd></div>
+                        <div><dt>On the base</dt><dd>Batch number and the date it was made.</dd></div>
+                      </dl>
+                    </div>
+
+                  {%- when 'organic_key' -%}
+                    <div class="bd-faq-card bd-faq-key">
+                      {%- comment -%}
+                        HTML entities on purpose: a literal * ^ # can be eaten by a
+                        Markdown or Liquid pipeline on the way through the admin.
+                      {%- endcomment -%}
+                      <div class="bd-faq-key-row"><span class="bd-faq-key-sym">&#42;</span><span>certified organic</span></div>
+                      <div class="bd-faq-key-row"><span class="bd-faq-key-sym">&#94;</span><span>cold-pressed</span></div>
+                      <div class="bd-faq-key-row"><span class="bd-faq-key-sym">&#35;</span><span>upcycled &mdash; made from a by-product of another process</span></div>
+                    </div>
+
+                  {%- when 'refill_pair' -%}
+                    <div class="bd-faq-grid-2">
+                      {%- assign pair_titles = 'With the pump,Refill, no pump' | split: ',' -%}
+                      <div class="bd-faq-card bd-faq-pair">
+                        <div class="bd-faq-media-img is-34">
+                          {%- if block.settings.image_1 != blank -%}
+                            {{ block.settings.image_1 | image_url: width: 640 | image_tag: loading: 'lazy', alt: block.settings.image_1_alt }}
+                          {%- else -%}<span class="bd-faq-img-empty" aria-hidden="true"></span>{%- endif -%}
+                        </div>
+                        <p class="bd-faq-pair-title">With the pump</p>
+                      </div>
+                      <div class="bd-faq-card bd-faq-pair">
+                        <div class="bd-faq-media-img is-34">
+                          {%- if block.settings.image_2 != blank -%}
+                            {{ block.settings.image_2 | image_url: width: 640 | image_tag: loading: 'lazy', alt: block.settings.image_2_alt }}
+                          {%- else -%}<span class="bd-faq-img-empty" aria-hidden="true"></span>{%- endif -%}
+                        </div>
+                        <p class="bd-faq-pair-title">Refill, no pump</p>
+                      </div>
+                    </div>
+
+                  {%- when 'delivery_pair' -%}
+                    {%- comment -%}
+                      Prices are schema settings, never hardcoded, so the FAQ cannot
+                      drift from the shipping policy. Shopify's real shipping rates
+                      live in admin settings and are not readable from Liquid, so
+                      the shipping policy remains the authority - keep them in step.
+                    {%- endcomment -%}
+                    <div class="bd-faq-grid-2">
+                      <div class="bd-faq-card bd-faq-price">
+                        <p class="bd-faq-price-label">Standard</p>
+                        <p class="bd-faq-price-fig">{{ section.settings.delivery_standard_price }}</p>
+                        <p class="bd-faq-card-sub">{{ section.settings.delivery_standard_threshold }}</p>
+                      </div>
+                      <div class="bd-faq-card bd-faq-price">
+                        <p class="bd-faq-price-label">Express</p>
+                        <p class="bd-faq-price-fig">{{ section.settings.delivery_express_price }}</p>
+                        <p class="bd-faq-card-sub">{{ section.settings.delivery_express_threshold }}</p>
+                      </div>
+                    </div>
+                {%- endcase -%}
+
+                {%- comment -%} CAVEAT INSET - claims discipline, do not drop {%- endcomment -%}
+                {%- if block.settings.caveat != blank -%}
+                  <div class="bd-faq-inset">{{ block.settings.caveat }}</div>
+                {%- endif -%}
+
+                {%- comment -%} ETHOS FOOTER {%- endcomment -%}
+                {%- if block.settings.ethos_icon != 'none' and block.settings.ethos_icon != blank -%}
+                  <div class="bd-faq-ethos">
+                    {%- comment -%}
+                      <img>, not inline_asset_content: these SVGs carry an
+                      <?xml?> prolog, which is invalid inside an HTML body.
+                      footer-main.liquid already renders them this way.
+                    {%- endcomment -%}
+                    <img
+                      class="bd-faq-ethos-icon"
+                      src="{{ block.settings.ethos_icon | append: '.svg' | asset_url }}"
+                      alt=""
+                      width="26"
+                      height="26"
+                      loading="lazy"
+                    >
+                    <span class="bd-faq-ethos-label">{{ block.settings.ethos_label }}</span>
+                  </div>
+                {%- endif -%}
+
+                <a class="bd-faq-permalink" href="#{{ qid }}">{{ section.settings.permalink_label | default: 'Link to this answer' }}</a>
+              </div>
+            </details>
+          {%- endcapture -%}
+          {%- render 'accordion-custom-component', children: faq_row -%}
+
+        {%- endif -%}
+      {%- endfor -%}
+      {%- if section.blocks.size > 0 -%}</div></section>{%- endif -%}
+
+      {%- comment -%} CLOSING CARD {%- endcomment -%}
+      {%- if section.settings.closing_heading != blank -%}
+        <div class="bd-faq-closing">
+          <div>
+            <p class="bd-faq-closing-h">{{ section.settings.closing_heading }}</p>
+            {%- if section.settings.closing_body != blank -%}
+              <div class="bd-faq-closing-b">{{ section.settings.closing_body }}</div>
+            {%- endif -%}
+          </div>
+          {%- if section.settings.closing_button_label != blank -%}
+            <a class="bd-faq-btn bd-faq-btn--secondary" href="{{ section.settings.closing_button_url | default: '/pages/contact' }}">
+              {{ section.settings.closing_button_label }}
+            </a>
+          {%- endif -%}
+        </div>
+      {%- endif -%}
+    </div>
+  </div>
+</div>
+
+<script>
+  (() => {
+    const root = document.querySelector('[data-bd-faq]');
+    if (!root) return;
+
+    // Deep link: open the matching row on load and let the browser scroll to it.
+    // scroll-margin-top on .bd-faq-row clears the sticky header, so no
+    // scrollIntoView call is needed (and none is wanted - it fights the browser).
+    const openHash = () => {
+      const id = decodeURIComponent(location.hash.slice(1));
+      if (!id) return;
+      const el = root.querySelector('details[id="' + CSS.escape(id) + '"]');
+      if (el) el.open = true;
+    };
+    openHash();
+    window.addEventListener('hashchange', openHash);
+
+    // Expand all / collapse all.
+    const btn = root.querySelector('[data-bd-faq-toggle]');
+    if (btn) {
+      btn.addEventListener('click', () => {
+        const expand = btn.dataset.expanded !== 'true';
+        root.querySelectorAll('details.bd-faq-row').forEach((d) => { d.open = expand; });
+        btn.dataset.expanded = String(expand);
+        btn.textContent = expand ? btn.dataset.collapseLabel : btn.dataset.expandLabel;
+      });
+      btn.dataset.expandLabel = btn.textContent.trim();
+      btn.dataset.collapseLabel = {{ section.settings.collapse_label | default: 'Collapse all' | json }};
+    }
+  })();
+</script>
+
+{% stylesheet %}
+.bd-faq {
+  --bd-gutter: 80px;
+  --bd-oyster: #E0E1E2;
+  --bd-tide: #4E6D6C;
+}
+.bd-faq-intro,
+.bd-faq-body {
+  padding-inline: max(var(--bd-gutter), calc((100% - var(--page-content-width, 120rem)) / 2));
+}
+.bd-faq-intro {
+  background: #FFFFFF;
+  border-bottom: 1px solid var(--bd-oyster);
+  padding-block: 84px 64px;
+}
+.bd-faq-eyebrow {
+  font-family: 'Roboto Condensed', sans-serif;
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: #57585C;
+  margin: 0 0 20px;
+}
+.bd-faq-h1 {
+  font-family: 'Roboto Condensed', sans-serif;
+  font-weight: 400;
+  font-size: 56px;
+  line-height: 1.08;
+  color: #161617;
+  max-width: 16ch;
+  margin: 0 0 24px;
+}
+.bd-faq-standfirst { font-size: 20px; line-height: 1.55; color: #4B4C4F; max-width: 62ch; }
+.bd-faq-standfirst p { margin: 0 0 10px; }
+.bd-faq-standfirst p:last-child { margin-bottom: 0; }
+.bd-faq-standfirst a { color: #161617; text-decoration: underline; }
+
+.bd-faq-body {
+  background: #FAF7F5;
+  padding-block: 64px 96px;
+  display: grid;
+  /* minmax(0,1fr), never a bare 1fr: a bare 1fr takes a min-content floor from
+     the widest child and pushes the other column out of the viewport. */
+  grid-template-columns: 236px minmax(0, 1fr);
+  gap: 72px;
+  align-items: start;
+}
+
+/* --- sticky index --- */
+.bd-faq-index { position: sticky; top: 108px; }
+.bd-faq-index-wrap > summary { list-style: none; }
+.bd-faq-index-wrap > summary::-webkit-details-marker { display: none; }
+.bd-faq-index-label {
+  font-family: 'Roboto Condensed', sans-serif;
+  font-weight: 700;
+  font-size: 11px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: #57585C;
+  border-bottom: 1px solid var(--bd-oyster);
+  padding-bottom: 12px;
+  cursor: default;
+}
+.bd-faq-index-list { display: block; padding-top: 4px; }
+.bd-faq-index-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 9px 0;
+  font-size: 15px;
+  color: #4B4C4F;
+  text-decoration: none;
+}
+.bd-faq-index-row:hover { color: #161617; text-decoration: underline; }
+.bd-faq-index-count { color: #57585C; font-variant-numeric: tabular-nums; }
+.bd-faq-toggle-all {
+  display: block;
+  width: 100%;
+  text-align: left;
+  margin-top: 4px;
+  padding-top: 16px;
+  border: 0;
+  border-top: 1px solid var(--bd-oyster);
+  background: none;
+  font: inherit;
+  font-size: 14px;
+  color: #57585C;
+  text-decoration: underline;
+  cursor: pointer;
+}
+.bd-faq-toggle-all:hover { color: #161617; }
+
+/* --- categories and rows --- */
+.bd-faq-main { max-width: 74ch; }
+.bd-faq-cat { scroll-margin-top: 120px; }
+.bd-faq-cat + .bd-faq-cat { margin-top: 64px; }
+.bd-faq-cat-h2 {
+  font-family: 'Roboto Condensed', sans-serif;
+  font-weight: 400;
+  font-size: 32px;
+  color: #3F4042;
+  margin: 0 0 4px;
+}
+.bd-faq-cat-rule { display: block; width: 44px; height: 2px; background: var(--bd-tide); margin-bottom: 8px; }
+
+.bd-faq-row { border-bottom: 1px solid var(--bd-oyster); scroll-margin-top: 120px; }
+.bd-faq-summary {
+  display: flex;
+  gap: 20px;
+  align-items: baseline;
+  justify-content: space-between;
+  padding: 22px 0;
+  cursor: pointer;
+  list-style: none;
+}
+.bd-faq-summary::-webkit-details-marker { display: none; }
+.bd-faq-q {
+  font-family: 'Roboto Condensed', sans-serif;
+  font-weight: 500;
+  font-size: 22px;
+  line-height: 1.3;
+  color: #414245;
+}
+.bd-faq-summary:hover .bd-faq-q { color: #161617; }
+.bd-faq-icon { color: #57585C; flex: 0 0 auto; }
+.bd-faq-answer { padding-bottom: 26px; display: flex; flex-direction: column; gap: 16px; }
+.bd-faq-answer p { font-size: 17px; line-height: 1.6; color: #494A4D; margin: 0; }
+.bd-faq-answer a { color: #161617; text-decoration: underline; }
+.bd-faq-permalink { font-size: 13px; color: #57585C; text-decoration: none; align-self: flex-start; }
+.bd-faq-permalink:hover { color: #161617; text-decoration: underline; }
+
+/* --- set pieces --- */
+.bd-faq-card { background: #FFFFFF; border: 1px solid var(--bd-oyster); border-radius: 4px; }
+.bd-faq-card-title { font-family: 'Roboto Condensed', sans-serif; font-size: 21px; color: #3F4042; margin: 0 0 4px; }
+.bd-faq-card-sub { font-size: 15px; color: #57585C; margin: 0; line-height: 1.55; }
+.bd-faq-grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; }
+.bd-faq-grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 16px; }
+
+.bd-faq-finder { display: flex; gap: 32px; flex-wrap: wrap; align-items: center; padding: 30px 32px; }
+.bd-faq-swatches { display: flex; gap: 8px; }
+.bd-faq-swatches span { width: 34px; height: 34px; border-radius: 50%; display: block; }
+.bd-faq-finder-copy { flex: 1 1 200px; }
+
+.bd-faq-tex { padding: 22px 20px; }
+.bd-faq-tex-word { font-family: 'Roboto Condensed', sans-serif; font-weight: 700; font-size: 13px; letter-spacing: .06em; color: var(--bd-tide); margin: 0 0 6px; }
+.bd-faq-tex-word.is-deep { color: #263E40; }
+.bd-faq-tex-fig { font-family: 'Roboto Condensed', sans-serif; font-size: 30px; color: #3F4042; margin: 0 0 6px; }
+
+.bd-faq-media { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; padding: 20px; align-items: center; }
+.bd-faq-media-img { background: #FAF7F5; border-radius: 4px; overflow: hidden; }
+.bd-faq-media-img.is-43 { aspect-ratio: 4 / 3; }
+.bd-faq-media-img.is-11 { aspect-ratio: 1 / 1; }
+.bd-faq-media-img.is-34 { aspect-ratio: 3 / 4; }
+.bd-faq-media-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.bd-faq-img-empty { display: block; width: 100%; height: 100%; }
+
+.bd-faq-keyrows { margin: 0; }
+.bd-faq-keyrows > div { padding: 10px 0; border-bottom: 1px solid var(--bd-oyster); }
+.bd-faq-keyrows > div:last-child { border-bottom: 0; }
+.bd-faq-keyrows dt { font-family: 'Roboto Condensed', sans-serif; font-weight: 700; font-size: 11px; letter-spacing: .09em; text-transform: uppercase; color: #57585C; }
+.bd-faq-keyrows dd { margin: 4px 0 0; font-size: 15px; color: #494A4D; }
+
+.bd-faq-key { padding: 6px 24px; }
+.bd-faq-key-row { display: flex; gap: 18px; align-items: baseline; padding: 14px 0; border-bottom: 1px solid var(--bd-oyster); font-size: 16px; color: #494A4D; }
+.bd-faq-key-row:last-child { border-bottom: 0; }
+.bd-faq-key-sym { flex: 0 0 44px; font-family: 'Roboto Condensed', sans-serif; font-weight: 700; font-size: 26px; color: #161617; }
+
+.bd-faq-pair { padding: 14px; }
+.bd-faq-pair-title { font-family: 'Roboto Condensed', sans-serif; font-size: 19px; color: #3F4042; margin: 12px 0 0; }
+.bd-faq-price { padding: 22px 24px; }
+.bd-faq-price-label { font-family: 'Roboto Condensed', sans-serif; font-weight: 700; font-size: 13px; letter-spacing: .08em; text-transform: uppercase; color: #57585C; margin: 0 0 6px; }
+.bd-faq-price-fig { font-family: 'Roboto Condensed', sans-serif; font-size: 26px; color: #3F4042; margin: 0 0 4px; }
+
+.bd-faq-inset { background: #FBFBF2; border-left: 2px solid var(--bd-tide); border-radius: 0 4px 4px 0; padding: 18px 22px; }
+.bd-faq-inset p { margin: 0; font-size: 16px; }
+
+.bd-faq-ethos { display: flex; gap: 12px; align-items: center; border-top: 1px solid var(--bd-oyster); padding-top: 16px; }
+.bd-faq-ethos-icon { width: 26px; height: 26px; flex: 0 0 26px; display: block; }
+.bd-faq-ethos-label { font-family: 'Roboto Condensed', sans-serif; font-weight: 700; font-size: 11px; letter-spacing: .09em; text-transform: uppercase; color: #57585C; }
+
+.bd-faq-closing { background: #FFFFFF; border: 1px solid var(--bd-oyster); border-top: 3px solid var(--bd-tide); padding: 34px 36px; margin-top: 56px; display: flex; gap: 28px; flex-wrap: wrap; align-items: center; justify-content: space-between; }
+.bd-faq-closing-h { font-family: 'Roboto Condensed', sans-serif; font-size: 26px; color: #3F4042; margin: 0 0 8px; }
+.bd-faq-closing-b p { margin: 0; font-size: 16px; color: #494A4D; }
+.bd-faq-closing-b a { color: #161617; text-decoration: underline; }
+
+.bd-faq-btn {
+  display: inline-block;
+  font-family: 'Roboto Condensed', sans-serif;
+  font-weight: 700;
+  font-size: 15px;
+  background: #161617;
+  color: #FFFFFF;
+  border: 2px solid #161617;
+  border-radius: 14px;
+  padding: 12px 24px;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background-color .16s ease, border-color .16s ease;
+}
+.bd-faq-btn:hover { background: #3F4042; border-color: #3F4042; }
+.bd-faq-btn--secondary { background: transparent; color: #161617; }
+.bd-faq-btn--secondary:hover { background: #0000000f; border-color: #161617; }
+
+@media (max-width: 749px) {
+  .bd-faq { --bd-gutter: 20px; }
+  .bd-faq-intro { padding-block: 44px 32px; }
+  .bd-faq-h1 { font-size: 34px; }
+  .bd-faq-standfirst { font-size: 17px; }
+  .bd-faq-body { grid-template-columns: 1fr; gap: 28px; padding-block: 32px 56px; }
+  .bd-faq-index { position: static; }
+  .bd-faq-index-label { cursor: pointer; }
+  .bd-faq-cat-h2 { font-size: 26px; }
+  .bd-faq-q { font-size: 19px; }
+  .bd-faq-main { max-width: none; }
+}
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "FAQ page",
+  "tag": "section",
+  "class": "shopify-section--bd-faq",
+  "settings": [
+    {
+      "type": "select",
+      "id": "section_width",
+      "label": "Section width",
+      "options": [
+        { "value": "narrow", "label": "Narrow" },
+        { "value": "normal", "label": "Normal" },
+        { "value": "wide", "label": "Wide" },
+        { "value": "content", "label": "Content width" }
+      ],
+      "default": "normal"
+    },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Support" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Frequently asked questions" },
+    { "type": "richtext", "id": "standfirst", "label": "Standfirst" },
+    { "type": "text", "id": "index_label", "label": "Index heading", "default": "On this page" },
+    { "type": "text", "id": "expand_label", "label": "Expand all label", "default": "Expand all" },
+    { "type": "text", "id": "collapse_label", "label": "Collapse all label", "default": "Collapse all" },
+    { "type": "text", "id": "permalink_label", "label": "Permalink label", "default": "Link to this answer" },
+
+    { "type": "header", "content": "Skin type finder card" },
+    { "type": "text", "id": "finder_title", "label": "Title", "default": "Two questions, five types" },
+    { "type": "text", "id": "finder_sub", "label": "Subtitle", "default": "Takes a couple of minutes." },
+    { "type": "text", "id": "finder_label", "label": "Button label", "default": "Find your skin type" },
+    { "type": "url", "id": "finder_url", "label": "Button link" },
+
+    { "type": "header", "content": "Texture comparison" },
+    { "type": "text", "id": "texture_figures", "label": "Figures (comma separated)", "default": "9%+,14%+,19%+" },
+    { "type": "textarea", "id": "texture_captions", "label": "Captions (pipe separated)", "default": "Sinks in quickly. Made for the face.|Richer and more cushioning. Made for the body.|The substantial one for hands, elbows, knees and feet." },
+
+    { "type": "header", "content": "Delivery" },
+    { "type": "paragraph", "content": "Shopify's real shipping rates are set in admin and cannot be read from Liquid. Keep these in step with the shipping policy, which is the authority." },
+    { "type": "text", "id": "delivery_standard_price", "label": "Standard price", "default": "£5.99" },
+    { "type": "text", "id": "delivery_standard_threshold", "label": "Standard free-over note", "default": "Free over £40" },
+    { "type": "text", "id": "delivery_express_price", "label": "Express price", "default": "£7.99" },
+    { "type": "text", "id": "delivery_express_threshold", "label": "Express free-over note", "default": "Free over £80" },
+
+    { "type": "header", "content": "Closing card" },
+    { "type": "text", "id": "closing_heading", "label": "Heading", "default": "Still not answered?" },
+    { "type": "richtext", "id": "closing_body", "label": "Body" },
+    { "type": "text", "id": "closing_button_label", "label": "Button label", "default": "Contact us" },
+    { "type": "url", "id": "closing_button_url", "label": "Button link" }
+  ],
+  "blocks": [
+    {
+      "type": "category",
+      "name": "Category",
+      "settings": [
+        { "type": "text", "id": "label", "label": "Category label", "default": "Choosing" }
+      ]
+    },
+    {
+      "type": "question",
+      "name": "Question",
+      "settings": [
+        { "type": "text", "id": "question", "label": "Question", "default": "A question" },
+        { "type": "richtext", "id": "answer", "label": "Answer" },
+        {
+          "type": "select",
+          "id": "set_piece",
+          "label": "Set piece",
+          "options": [
+            { "value": "none", "label": "None" },
+            { "value": "finder", "label": "Skin type finder card" },
+            { "value": "textures", "label": "Flow / Core / Deep comparison" },
+            { "value": "dose", "label": "Dose image and caption" },
+            { "value": "bottle_base", "label": "Bottle base and label key" },
+            { "value": "organic_key", "label": "Organic key legend" },
+            { "value": "refill_pair", "label": "Refill comparison pair" },
+            { "value": "delivery_pair", "label": "Delivery price pair" }
+          ],
+          "default": "none"
+        },
+        { "type": "text", "id": "piece_title", "label": "Set piece title" },
+        { "type": "textarea", "id": "piece_body", "label": "Set piece body" },
+        { "type": "image_picker", "id": "image_1", "label": "Image 1" },
+        { "type": "text", "id": "image_1_alt", "label": "Image 1 alt text" },
+        { "type": "image_picker", "id": "image_2", "label": "Image 2" },
+        { "type": "text", "id": "image_2_alt", "label": "Image 2 alt text" },
+        { "type": "richtext", "id": "caveat", "label": "Caveat inset" },
+        {
+          "type": "select",
+          "id": "ethos_icon",
+          "label": "Ethos icon",
+          "options": [
+            { "value": "none", "label": "None" },
+            { "value": "ethos-gentle", "label": "Gentle" },
+            { "value": "ethos-formulation", "label": "Formulation" },
+            { "value": "ethos-cruelty", "label": "Cruelty-free" },
+            { "value": "ethos-microbiome", "label": "Microbiome" },
+            { "value": "ethos-climate", "label": "Climate" },
+            { "value": "ethos-science", "label": "Science" },
+            { "value": "ethos-business", "label": "Business" },
+            { "value": "ethos-natural", "label": "Natural" }
+          ],
+          "default": "none"
+        },
+        { "type": "text", "id": "ethos_label", "label": "Ethos label" }
+      ]
+    }
+  ],
+  "presets": [{ "name": "FAQ page" }]
+}
+{% endschema %}

@@ -1,0 +1,118 @@
+{
+  "sections": {
+    "main": {
+      "type": "offer-page",
+      "blocks": {
+        "condition_1": {
+          "type": "condition",
+          "settings": {
+            "title": "Ten per cent off, starting with the order you are about to place.",
+            "body": "<p>It comes off at checkout. There is no code to find and nothing to sign up to.</p>"
+          }
+        },
+        "condition_2": {
+          "type": "condition",
+          "settings": {
+            "title": "It stays with you until 30 September 2027.",
+            "body": "<p>Every order in between, not just the first one. Buy in August and that is more than a year of it.</p>"
+          }
+        },
+        "condition_3": {
+          "type": "condition",
+          "settings": {
+            "title": "To be in, order something before 30 September 2026.",
+            "body": "<p>That is the whole qualification. After that date the offer closes to new customers, and anyone who bought before it keeps the discount for the full year.</p>"
+          }
+        },
+        "milestone_1": {
+          "type": "milestone",
+          "settings": {
+            "date": "Today",
+            "caption": "Order anything and the ten per cent comes off at checkout.",
+            "style": "filled"
+          }
+        },
+        "milestone_2": {
+          "type": "milestone",
+          "settings": {
+            "date": "30 September 2026",
+            "caption": "The offer closes to new customers. Order before this and you are in.",
+            "style": "filled"
+          }
+        },
+        "milestone_3": {
+          "type": "milestone",
+          "settings": {
+            "date": "30 September 2027",
+            "caption": "The discount ends, for everyone, whenever you joined.",
+            "style": "hollow"
+          }
+        },
+        "term_1": {
+          "type": "term",
+          "settings": {
+            "label": "Delivery",
+            "body": "<p>The ten per cent applies to the products, not to delivery. Delivery has its own free thresholds, set out in our <a href=\"/policies/shipping-policy\">delivery policy</a>.</p>"
+          }
+        },
+        "term_2": {
+          "type": "term",
+          "settings": {
+            "label": "Other codes",
+            "body": "<p>It does not stack with other promotional codes. Where two would apply, you get whichever is worth more.</p>"
+          }
+        },
+        "term_3": {
+          "type": "term",
+          "settings": {
+            "label": "End date",
+            "body": "<p>The discount ends on 30 September 2027 for everyone, whenever you joined. We are not going to pretend otherwise by calling it permanent.</p>"
+          }
+        },
+        "term_4": {
+          "type": "term",
+          "settings": {
+            "label": "Two-Week Trial",
+            "body": "<p>Every order also carries our <a href=\"/policies/refund-policy\">Two-Week Trial</a>. Give it a fortnight, and if it is not right we will swap it or refund it up to 60 days after delivery, with return postage on us. You send back whatever is left in the bottle.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "condition_1",
+        "condition_2",
+        "condition_3",
+        "milestone_1",
+        "milestone_2",
+        "milestone_3",
+        "term_1",
+        "term_2",
+        "term_3",
+        "term_4"
+      ],
+      "settings": {
+        "section_width": "normal",
+        "eyebrow": "Founding customers",
+        "heading": "Opening Offer",
+        "offer_line": "<p>Ten per cent off every order until September 2027. Buy once before 30 September 2026 and you are in.</p>",
+        "primary_button_label": "Shop the range",
+        "primary_button_url": "/collections/moisturiser",
+        "secondary_button_label": "Find your skin type",
+        "secondary_button_url": "/pages/find-your-skin-type",
+        "preamble": "<p>We opened this week. You have never heard of us, you have not met anyone who uses our products, and there is not a single review on this site yet. Buying from a brand in that position takes a bit of nerve.</p><p>The Opening Offer is what we can offer in return.</p>",
+        "how_heading": "How it works",
+        "timeline_eyebrow": "The dates, on one line",
+        "why_heading": "Why we are doing it",
+        "why_body": "<p>Because early customers carry a risk that later ones do not, and it seems fairer to price that in than to talk around it.</p><p>There is a second reason worth saying out loud. A business this size learns from the people using its products, not from a focus group. The first fifteen products came out of one chemist reading the literature. The next ones will have your fingerprints on them too, and the people who bought first are the ones we will be asking.</p>",
+        "smallprint_heading": "The small print, in plain English",
+        "close_button_label": "Shop the range",
+        "close_button_url": "/collections/moisturiser",
+        "close_note": "The discount comes off at checkout.",
+        "close_image_alt": "",
+        "legal": "<p>Welcombe Skincare Ltd, trading as Biotaderm. Registered in England and Wales, company number 13451607. Registered office: Darracott Farm, Welcombe, Devon EX39 6HG.</p>"
+      }
+    }
+  },
+  "order": [
+    "main"
+  ]
+}
