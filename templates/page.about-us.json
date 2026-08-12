@@ -1,0 +1,131 @@
+{
+  "sections": {
+    "main": {
+      "type": "about-page",
+      "blocks": {
+        "band_question": {
+          "type": "narrative",
+          "settings": {
+            "heading": "The question I couldn't put down",
+            "body": "<p>My son's skin reacted to ordinary high-street products when he was a baby, the kind most people never think twice about. I'm a chemist and biochemist by training, so rather than switching brands I started reading the labels. One question wouldn't leave me alone. How much of what goes into a typical skincare product is doing something for the skin, and how much is just along for the ride?</p><p>That is a dangerous question to put to a chemist. You don't stop at \"I wonder.\", you start reading the research.</p><p>My own skin has never been the straightforward kind either. Rosacea, and dermatographia, the trick of coming up in welts at the lightest scratch. A moisturiser is not an answer to either of those, and I would never pretend otherwise. What living in skin that complains does teach you is that good skincare is less about looks than about comfort, and that the gentle, unshowy version is usually the one that helps you through the day.</p>",
+            "links": ""
+          }
+        },
+        "band_literature": {
+          "type": "narrative",
+          "settings": {
+            "heading": "Six years in the literature",
+            "body": "<p>Label-reading turned into a standing habit and rolling eyes in the family! I spent well over six years reading the research on the human microbiome, the community of microbes that lives on us and in us. I started with the gut and worked my way to the skin, the more overlooked of the two.</p><p>The skin microbiome matters to skin health. It is still being mapped, and new discoveries continue to be revealed. On the evidence so far, the way to support it is with gentle, nourishing ingredients rather than a 'hack' or miracle compound of the month. This is a founding principle here at Biotaderm.</p>",
+            "links": "<p><a href=\"/pages/the-skin-microbiome\">The skin microbiome</a></p>"
+          }
+        },
+        "band_whatimade": {
+          "type": "narrative",
+          "settings": {
+            "heading": "What I made",
+            "body": "<p>Fifteen products, which sounds like a lot until you see the shape of it. Three textures across five skin types. Flow is the lightest, Core is the middle, Deep is the richest, the difference between them is how much nourishing cold-pressed organic oil each one carries. Every ingredient is chosen for its benefit to the skin, directly or indirectly.</p><p>Three principles determine the ingredients chosen.</p><p>Nature, which means natural, organic and naturally derived ingredients. We only use synthetic ingredients when they are the same as their natural counterparts and it is more environmentally sensible to do so.</p><p>Science, which means ingredients chosen on published research. We review all available science and research before choosing an ingredient.</p><p>Ethics, which means aluminium bottles that are refillable and widely recycled, a pump you keep, and B Corp certification I am working towards slowly and properly. Everything is vegan, and nothing is tested on animals, other than me.</p>",
+            "links": "",
+            "button_label": "Find your skin type",
+            "button_url": "/pages/find-your-skin-type",
+            "link_label": "Shop the range",
+            "link_url": "/collections/moisturiser",
+            "image_reserve": true,
+            "ratio": "169",
+            "image_alt": "The full range, fifteen products"
+          }
+        },
+        "band_label": {
+          "type": "narrative",
+          "settings": {
+            "heading": "Everything on the label",
+            "body": "<p>I publish the full formulation of every product. Every ingredient, and the amount, down to fractions of a percent. You can read the whole formulation before you buy and check it against whatever your skin doesn't get along with. We also back this up with a no quibble refund if our products don't work for you, see our <a href=\"/policies/refund-policy\">Refund Policy for more information</a>.</p><p>There is no synthetic fragrance in anything I make, and I never use the phrase \"parfum\" or \"fragrance\" on a label. So every ingredient is clearly shown. There is one essential oil in the range, vetiver, chosen deliberately and used at a low level, and you will find it declared on every product like everything else.</p>",
+            "links": "<p><a href=\"/pages/everything-on-the-label\">See a full formulation</a></p>",
+            "image_reserve": true,
+            "ratio": "11",
+            "image_alt": "The rear label, shot square-on"
+          }
+        },
+        "band_evidence": {
+          "type": "narrative",
+          "settings": {
+            "heading": "How the evidence gets handled",
+            "body": "<p>Reading research is not the same as running a study. I review published research; I don't conduct it. So the copy on this site credits the researchers rather than me, and you will not find me making a clinical claim.</p><p>Every ingredient has its own page, setting out what it does, how strong the evidence is, and the references behind it. My reasoning is there to be checked.</p><p>Replies to my email reach me. Not a team, not a script, not an AI.</p>",
+            "links": "<p><a href=\"/pages/how-we-handle-evidence\">How we handle evidence</a> ·<a href=\"/blogs/ingredients\"> Browse the ingredient library</a> ·<a href=\"/pages/contact\"> Contact</a></p>"
+          }
+        },
+        "break_coast": {
+          "type": "image_break",
+          "settings": {
+            "image_alt": "The north Devon coast where shore meets sea"
+          }
+        },
+        "band_coast": {
+          "type": "narrative",
+          "settings": {
+            "heading": "The coast",
+            "body": "<p>Biotaderm is made in Welcombe, a small, beautiful village right on the line where Devon meets Cornwall, with the Atlantic just below it. The coast shapes how the brand looks and feels, and it shows up in one ingredient.</p><p>Bladderwrack is the same Atlantic seaweed that grows on the rocks below the village. You will have stepped over it. Ours reaches us as a cold oil infusion, made in the UK by O&3 in Ripon, without heat or solvents, from that same species. The coast is kinship rather than a supply chain.</p>",
+            "links": "<p><a href=\"/blogs/ingredients/bladder-wrack-fucus-vesiculosus-extract\">Bladderwrack, Fucus vesiculosus</a></p>",
+            "image_reserve": true,
+            "ratio": "32",
+            "image_alt": "Bladderwrack on wet rock at low tide"
+          }
+        },
+        "trial": {
+          "type": "trial",
+          "settings": {
+            "body": "<p>Give anything you order two weeks. If it is not right, swap it or send it back within 60 days, and we pay the postage.</p><p><a href=\"/policies/refund-policy\">Returns and the Two-Week Trial</a></p>"
+          }
+        },
+        "panels": {
+          "type": "panel_pair",
+          "settings": {
+            "a_heading": "Our Opening Offer",
+            "a_body": "<p>To thank all our customers who purchase one or more of our products before the end of September 2026, we are offering 10% off the first order and then every order up until the end of September 2027. You don't need to do anything to get these discounts, they are automatically applied at checkout.</p>",
+            "b_heading": "Stay in touch",
+            "b_body": "<p>I will be publishing a number of articles in the coming weeks that cover a range of interesting areas relating to skin, body and microbiome research discoveries and how they link to our health and wellbeing. If you would like to hear about them first, please join the email list.</p>",
+            "b_button_label": "Sign up",
+            "b_button_url": "/pages/about-us#signup"
+          }
+        },
+        "close": {
+          "type": "close",
+          "settings": {
+            "body": "<p>The skincare shelves may be full of products promising to fix you by Friday. I wasn't interested in making another one. I wanted to make something considered, honest, and genuinely good for skin and the microbiome it carries, and then to tell you the truth about it. Support, not control. Work with your skin, not against it.</p>",
+            "mission": "Care for your skin and microbiome, formed in nature, led by science, guided by ethics.",
+            "signature": "Richard",
+            "button_label": "Find your skin type",
+            "button_url": "/pages/find-your-skin-type",
+            "link_label": "Shop the range",
+            "link_url": "/collections/moisturiser",
+            "image_reserve": true,
+            "image_alt": "Hands filling a bottle at the bench"
+          }
+        }
+      },
+      "block_order": [
+        "band_question",
+        "band_literature",
+        "band_whatimade",
+        "band_label",
+        "band_evidence",
+        "break_coast",
+        "band_coast",
+        "trial",
+        "panels",
+        "close"
+      ],
+      "settings": {
+        "section_width": "normal",
+        "eyebrow": "Welcombe, north Devon",
+        "heading": "The story behind Biotaderm",
+        "subheadline": "<p>Or, what happens when a chemist can't quite leave a question alone.</p>",
+        "lead": "<p>I'm Richard Bence, and I make Biotaderm, all of it. I formulate the products, mix the batches, fill the bottles and answer the emails. It is a small operation in Welcombe, on the north Devon coast bordering Cornwall, and it began with a problem I couldn't stop turning over.</p>",
+        "hero_image_alt": "Richard Bence at the bench in Welcombe",
+        "hero_reserve": true
+      }
+    }
+  },
+  "order": [
+    "main"
+  ]
+}

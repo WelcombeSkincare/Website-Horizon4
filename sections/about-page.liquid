@@ -1,0 +1,367 @@
+{%- comment -%}
+  sections/about-page.liquid
+  /pages/about-us (design handoff "About Us", spec About-Page-Spec-2026-08-12).
+
+  This is a PUBLISH as much as a rebuild: the live page body held only the
+  sub-headline and the opening paragraph. Everything from "The question I
+  couldn't put down" onward was drafted in July 2026 and never pasted in.
+
+  One section with ordered blocks, not thirteen sections. Every band is one of a
+  few shapes, chosen by block type. Sections 1 and 2 of the spec are the hero and
+  live in section settings, not blocks.
+
+  The Tidewater rule under each H2 is the page's main rhythm device - a 44x2px
+  ::after on the H2, repeated on every narrative heading.
+
+  DIVERGENCE FROM THE SPEC, on Richard's instruction: the spec's section 10
+  replaces the theme's eight-icon ethos strip with a four-item version. The
+  eight-icon strip stays as it is at the foot of every page, so the four-item
+  replacement is NOT built - adding it as well would duplicate the climate,
+  formulation and cruelty icons within one screen. The trial line that sat under
+  it is kept, as its own band.
+
+  The spec's section-order list still calls section 11 "Founders Club until
+  31 August". That list is stale - section 11's own copy is the Opening Offer,
+  which is what is built. "Founders Club" must not appear on the public site.
+
+  Sections 11 and 12 are ONE band with two halves (`panel_pair`), per the spec's
+  build note, so changing what runs there is a text edit and not a rebuild.
+{%- endcomment -%}
+
+{%- assign sw = section.settings.section_width | default: 'normal' -%}
+
+<div class="bd-ab page-width-{{ sw }}" data-bd-ab>
+
+  {%- comment -%} 1 + 2. HERO AND THE LEAD PARAGRAPH {%- endcomment -%}
+  <div class="bd-ab-hero">
+    <div class="bd-ab-hero-grid{% if section.settings.hero_image != blank or section.settings.hero_reserve %} has-image{% endif %}">
+      <div>
+        {%- if section.settings.eyebrow != blank -%}
+          <p class="bd-ab-eyebrow">{{ section.settings.eyebrow }}</p>
+        {%- endif -%}
+        {%- if section.settings.heading != blank -%}
+          <h1 class="bd-ab-h1">{{ section.settings.heading }}</h1>
+        {%- endif -%}
+        {%- if section.settings.subheadline != blank -%}
+          <div class="bd-ab-sub">{{ section.settings.subheadline }}</div>
+        {%- endif -%}
+      </div>
+      {%- if section.settings.hero_image != blank -%}
+        <div class="bd-ab-hero-img">
+          {{ section.settings.hero_image | image_url: width: 1400 | image_tag: loading: 'eager', alt: section.settings.hero_image_alt }}
+        </div>
+      {%- elsif section.settings.hero_reserve -%}
+        <div class="bd-ab-hero-img"><span class="bd-ab-empty" aria-hidden="true"></span></div>
+      {%- endif -%}
+    </div>
+    {%- if section.settings.lead != blank -%}
+      <div class="bd-ab-lead">{{ section.settings.lead }}</div>
+    {%- endif -%}
+  </div>
+
+  <div class="bd-ab-body">
+    {%- for block in section.blocks -%}
+      {%- case block.type -%}
+
+        {%- comment -%} NARRATIVE - the page's backbone {%- endcomment -%}
+        {%- when 'narrative' -%}
+          <section class="bd-ab-band{% if block.settings.image != blank or block.settings.image_reserve %} has-image{% endif %}"
+                   {% if block.settings.heading != blank %}id="{{ block.settings.heading | handleize }}"{% endif %}
+                   {{ block.shopify_attributes }}>
+            <div class="bd-ab-band-copy">
+              {%- if block.settings.heading != blank -%}
+                <h2 class="bd-ab-h2">{{ block.settings.heading }}</h2>
+              {%- endif -%}
+              {%- if block.settings.body != blank -%}
+                <div class="bd-ab-prose">{{ block.settings.body }}</div>
+              {%- endif -%}
+              {%- if block.settings.links != blank -%}
+                <div class="bd-ab-links">{{ block.settings.links }}</div>
+              {%- endif -%}
+              {%- if block.settings.button_label != blank or block.settings.link_label != blank -%}
+                <div class="bd-ab-ctas">
+                  {%- if block.settings.button_label != blank -%}
+                    <a class="bd-ab-btn" href="{{ block.settings.button_url }}">{{ block.settings.button_label }}</a>
+                  {%- endif -%}
+                  {%- if block.settings.link_label != blank -%}
+                    <a class="bd-ab-btn bd-ab-btn--secondary" href="{{ block.settings.link_url }}">{{ block.settings.link_label }}</a>
+                  {%- endif -%}
+                </div>
+              {%- endif -%}
+            </div>
+            {%- if block.settings.image != blank -%}
+              <div class="bd-ab-band-img bd-ab-ratio--{{ block.settings.ratio | default: '32' }}">
+                {{ block.settings.image | image_url: width: 1200 | image_tag: loading: 'lazy', alt: block.settings.image_alt }}
+              </div>
+            {%- elsif block.settings.image_reserve -%}
+              <div class="bd-ab-band-img bd-ab-ratio--{{ block.settings.ratio | default: '32' }}"><span class="bd-ab-empty" aria-hidden="true"></span></div>
+            {%- endif -%}
+          </section>
+
+        {%- comment -%} FULL-WIDTH IMAGE BREAK - the coastal breather {%- endcomment -%}
+        {%- when 'image_break' -%}
+          <div class="bd-ab-break" {{ block.shopify_attributes }}>
+            {%- if block.settings.image != blank -%}
+              {{ block.settings.image | image_url: width: 2560 | image_tag: loading: 'lazy', alt: block.settings.image_alt }}
+            {%- else -%}
+              <span class="bd-ab-empty" aria-hidden="true"></span>
+            {%- endif -%}
+          </div>
+
+        {%- comment -%} TRIAL LINE {%- endcomment -%}
+        {%- when 'trial' -%}
+          <div class="bd-ab-trial" {{ block.shopify_attributes }}>
+            <div class="bd-ab-prose">{{ block.settings.body }}</div>
+          </div>
+
+        {%- comment -%}
+          PANEL PAIR - spec sections 11 and 12 as ONE band with two halves, so
+          swapping what runs is a text edit rather than a rebuild.
+        {%- endcomment -%}
+        {%- when 'panel_pair' -%}
+          <div class="bd-ab-panels" {{ block.shopify_attributes }}>
+            <div class="bd-ab-panel">
+              {%- if block.settings.a_heading != blank -%}<h2 class="bd-ab-h2 bd-ab-h2--panel">{{ block.settings.a_heading }}</h2>{%- endif -%}
+              <div class="bd-ab-prose">{{ block.settings.a_body }}</div>
+            </div>
+            <div class="bd-ab-panel bd-ab-panel--alt">
+              {%- if block.settings.b_heading != blank -%}<h2 class="bd-ab-h2 bd-ab-h2--panel">{{ block.settings.b_heading }}</h2>{%- endif -%}
+              <div class="bd-ab-prose">{{ block.settings.b_body }}</div>
+              {%- if block.settings.b_button_label != blank -%}
+                <div class="bd-ab-ctas">
+                  <a class="bd-ab-btn" href="{{ block.settings.b_button_url }}">{{ block.settings.b_button_label }}</a>
+                </div>
+              {%- endif -%}
+            </div>
+          </div>
+
+        {%- comment -%} CLOSE - body, mission line, signature, CTAs {%- endcomment -%}
+        {%- when 'close' -%}
+          <section class="bd-ab-close" {{ block.shopify_attributes }}>
+            <div class="bd-ab-close-copy">
+              {%- if block.settings.body != blank -%}
+                <div class="bd-ab-prose">{{ block.settings.body }}</div>
+              {%- endif -%}
+              {%- if block.settings.mission != blank -%}
+                <p class="bd-ab-mission">{{ block.settings.mission }}</p>
+              {%- endif -%}
+              {%- if block.settings.signature != blank -%}
+                <p class="bd-ab-sig">{{ block.settings.signature }}</p>
+              {%- endif -%}
+              <div class="bd-ab-ctas">
+                {%- if block.settings.button_label != blank -%}
+                  <a class="bd-ab-btn" href="{{ block.settings.button_url }}">{{ block.settings.button_label }}</a>
+                {%- endif -%}
+                {%- if block.settings.link_label != blank -%}
+                  <a class="bd-ab-btn bd-ab-btn--secondary" href="{{ block.settings.link_url }}">{{ block.settings.link_label }}</a>
+                {%- endif -%}
+              </div>
+            </div>
+            {%- if block.settings.image != blank -%}
+              <div class="bd-ab-band-img bd-ab-ratio--32">
+                {{ block.settings.image | image_url: width: 1200 | image_tag: loading: 'lazy', alt: block.settings.image_alt }}
+              </div>
+            {%- elsif block.settings.image_reserve -%}
+              <div class="bd-ab-band-img bd-ab-ratio--32"><span class="bd-ab-empty" aria-hidden="true"></span></div>
+            {%- endif -%}
+          </section>
+
+      {%- endcase -%}
+    {%- endfor -%}
+  </div>
+</div>
+
+{% stylesheet %}
+.bd-ab { --bd-gutter: 80px; --bd-oyster: #E0E1E2; --bd-tide: #4E6D6C; }
+.bd-ab-hero, .bd-ab-body { padding-inline: max(var(--bd-gutter), calc((100% - var(--page-content-width, 120rem)) / 2)); }
+.bd-ab-hero { background: #FFFFFF; border-bottom: 1px solid var(--bd-oyster); padding-block: 84px 72px; }
+.bd-ab-hero-grid { max-width: 1240px; margin-inline: auto; }
+.bd-ab-hero-grid.has-image { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, .85fr); gap: 72px; align-items: center; }
+.bd-ab-hero-img { aspect-ratio: 3 / 2; background: #FAF7F5; border-radius: 4px; overflow: hidden; }
+.bd-ab-hero-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.bd-ab-empty { display: block; width: 100%; height: 100%; }
+
+.bd-ab-eyebrow { font-family: 'Roboto Condensed', sans-serif; font-weight: 700; font-size: 12px; letter-spacing: .12em; text-transform: uppercase; color: #57585C; margin: 0 0 22px; }
+.bd-ab-h1 { font-family: 'Roboto Condensed', sans-serif; font-weight: 400; font-size: clamp(38px, 4.6vw, 64px); line-height: 1.06; color: #161617; max-width: 20ch; margin: 0 0 20px; }
+.bd-ab-sub { font-family: 'Roboto Condensed', sans-serif; font-weight: 400; font-size: 26px; line-height: 1.3; color: #414245; max-width: 30ch; }
+.bd-ab-sub p { margin: 0; }
+.bd-ab-lead { max-width: 1240px; margin: 56px auto 0; }
+.bd-ab-lead p { font-size: 22px; line-height: 1.5; color: #414245; max-width: 62ch; margin: 0 0 16px; }
+.bd-ab-lead p:last-child { margin-bottom: 0; }
+
+.bd-ab-body { background: #FAF7F5; padding-block: 76px 88px; }
+.bd-ab-band { max-width: 1080px; margin-inline: auto; }
+.bd-ab-band.has-image { max-width: 1240px; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 460px); gap: 64px; align-items: center; }
+.bd-ab-band + .bd-ab-band, .bd-ab-band + .bd-ab-trial { margin-top: 80px; }
+.bd-ab-h2 {
+  font-family: 'Roboto Condensed', sans-serif; font-weight: 400; font-size: 40px;
+  line-height: 1.12; color: #3F4042; margin: 0 0 24px;
+}
+/* the page's main rhythm device - repeated on every narrative heading */
+.bd-ab-h2::after { content: ''; display: block; width: 44px; height: 2px; background: var(--bd-tide); margin-top: 18px; }
+.bd-ab-h2--panel { font-size: 30px; }
+.bd-ab-prose { display: flex; flex-direction: column; gap: 22px; }
+.bd-ab-prose p { font-size: 19px; line-height: 1.65; color: #494A4D; max-width: 62ch; margin: 0; }
+.bd-ab-prose a, .bd-ab-links a { color: #161617; text-decoration: underline; }
+.bd-ab-links { margin-top: 22px; font-size: 17px; color: #494A4D; }
+.bd-ab-links p { margin: 0; }
+
+.bd-ab-band-img { background: #FFFFFF; border: 1px solid var(--bd-oyster); border-radius: 4px; overflow: hidden; }
+.bd-ab-band-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.bd-ab-ratio--32 { aspect-ratio: 3 / 2; }
+.bd-ab-ratio--169 { aspect-ratio: 16 / 9; }
+.bd-ab-ratio--11 { aspect-ratio: 1 / 1; }
+
+.bd-ab-break {
+  margin: 80px auto; max-width: 1240px; aspect-ratio: 21 / 9;
+  background: #FFFFFF; border: 1px solid var(--bd-oyster); border-radius: 4px; overflow: hidden;
+}
+.bd-ab-break img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+.bd-ab-trial {
+  max-width: 1080px; margin: 64px auto 0; padding: 24px 28px;
+  background: #FBFBF2; border-left: 2px solid var(--bd-tide); border-radius: 0 4px 4px 0;
+}
+.bd-ab-trial .bd-ab-prose p { font-size: 17px; }
+
+.bd-ab-panels { max-width: 1240px; margin: 80px auto 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+.bd-ab-panel { background: #FFFFFF; border: 1px solid var(--bd-oyster); border-radius: 4px; padding: 40px 40px 44px; }
+.bd-ab-panel--alt { background: #FBFBF2; }
+.bd-ab-panel .bd-ab-prose p { font-size: 17px; }
+
+.bd-ab-close { max-width: 1240px; margin: 80px auto 0; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 460px); gap: 64px; align-items: center; }
+.bd-ab-mission { font-family: 'Roboto Condensed', sans-serif; font-size: 24px; line-height: 1.35; color: #3F4042; margin: 24px 0 0; max-width: 34ch; }
+.bd-ab-sig { font-family: 'Roboto Condensed', sans-serif; font-size: 19px; color: #57585C; margin: 14px 0 0; }
+.bd-ab-ctas { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 26px; }
+.bd-ab-btn {
+  display: inline-block; font-family: 'Roboto Condensed', sans-serif; font-weight: 700; font-size: 15px;
+  background: #161617; color: #FFFFFF; border: 2px solid #161617; border-radius: 14px;
+  padding: 12px 24px; text-decoration: none; white-space: nowrap;
+  transition: background-color .16s ease, border-color .16s ease;
+}
+.bd-ab-btn:hover { background: #3F4042; border-color: #3F4042; }
+.bd-ab-btn--secondary { background: transparent; color: #161617; }
+.bd-ab-btn--secondary:hover { background: #0000000f; }
+
+@media (max-width: 749px) {
+  .bd-ab { --bd-gutter: 20px; }
+  .bd-ab-hero { padding-block: 40px 32px; }
+  /* image above text on mobile, per the spec's separate 4:5 crop */
+  .bd-ab-hero-grid.has-image { grid-template-columns: 1fr; gap: 24px; }
+  .bd-ab-hero-grid.has-image > div:first-child { order: 2; }
+  .bd-ab-hero-img { order: 1; aspect-ratio: 4 / 5; }
+  .bd-ab-sub { font-size: 20px; }
+  .bd-ab-lead { margin-top: 32px; }
+  .bd-ab-lead p { font-size: 18px; }
+  .bd-ab-body { padding-block: 44px 56px; }
+  .bd-ab-band.has-image, .bd-ab-close { grid-template-columns: 1fr; gap: 24px; }
+  .bd-ab-band + .bd-ab-band, .bd-ab-band + .bd-ab-trial { margin-top: 48px; }
+  .bd-ab-h2 { font-size: 28px; }
+  .bd-ab-prose p { font-size: 17px; }
+  .bd-ab-break, .bd-ab-panels, .bd-ab-close { margin-top: 48px; }
+  .bd-ab-break { aspect-ratio: 16 / 9; margin-block: 48px; }
+  .bd-ab-panel { padding: 26px 22px 30px; }
+}
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "About page",
+  "tag": "section",
+  "class": "shopify-section--bd-about",
+  "settings": [
+    {
+      "type": "select",
+      "id": "section_width",
+      "label": "Section width",
+      "options": [
+        { "value": "narrow", "label": "Narrow" },
+        { "value": "normal", "label": "Normal" },
+        { "value": "wide", "label": "Wide" },
+        { "value": "content", "label": "Content width" }
+      ],
+      "default": "normal"
+    },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Welcombe, north Devon" },
+    { "type": "text", "id": "heading", "label": "H1", "default": "The story behind Biotaderm" },
+    { "type": "richtext", "id": "subheadline", "label": "Sub-headline" },
+    { "type": "richtext", "id": "lead", "label": "Lead paragraph", "info": "Sits under the hero with no heading. Let the opening run clean." },
+    { "type": "image_picker", "id": "hero_image", "label": "Founder portrait", "info": "3:2. A face leads on this page - do not put a product bottle in this frame." },
+    { "type": "text", "id": "hero_image_alt", "label": "Portrait alt text" },
+    { "type": "checkbox", "id": "hero_reserve", "label": "Reserve the portrait slot", "default": true }
+  ],
+  "blocks": [
+    {
+      "type": "narrative",
+      "name": "Narrative band",
+      "settings": [
+        { "type": "text", "id": "heading", "label": "Heading" },
+        { "type": "richtext", "id": "body", "label": "Body" },
+        { "type": "richtext", "id": "links", "label": "Link row" },
+        { "type": "text", "id": "button_label", "label": "Primary button label" },
+        { "type": "url", "id": "button_url", "label": "Primary button link" },
+        { "type": "text", "id": "link_label", "label": "Secondary button label" },
+        { "type": "url", "id": "link_url", "label": "Secondary button link" },
+        { "type": "image_picker", "id": "image", "label": "Image" },
+        { "type": "text", "id": "image_alt", "label": "Image alt text" },
+        { "type": "checkbox", "id": "image_reserve", "label": "Reserve the image slot", "default": false },
+        {
+          "type": "select",
+          "id": "ratio",
+          "label": "Image ratio",
+          "options": [
+            { "value": "32", "label": "3:2" },
+            { "value": "169", "label": "16:9" },
+            { "value": "11", "label": "1:1" }
+          ],
+          "default": "32"
+        }
+      ]
+    },
+    {
+      "type": "image_break",
+      "name": "Image break",
+      "settings": [
+        { "type": "image_picker", "id": "image", "label": "Image", "info": "Coastal, no product. 21:9." },
+        { "type": "text", "id": "image_alt", "label": "Alt text" }
+      ]
+    },
+    {
+      "type": "trial",
+      "name": "Trial line",
+      "settings": [
+        { "type": "richtext", "id": "body", "label": "Body", "info": "The Two-Week Trial is a usage recommendation, not a returns assurance. State the statutory right and the return window as separate facts." }
+      ]
+    },
+    {
+      "type": "panel_pair",
+      "name": "Panel pair",
+      "settings": [
+        { "type": "text", "id": "a_heading", "label": "Left heading" },
+        { "type": "richtext", "id": "a_body", "label": "Left body" },
+        { "type": "text", "id": "b_heading", "label": "Right heading" },
+        { "type": "richtext", "id": "b_body", "label": "Right body" },
+        { "type": "text", "id": "b_button_label", "label": "Right button label" },
+        { "type": "url", "id": "b_button_url", "label": "Right button link" }
+      ]
+    },
+    {
+      "type": "close",
+      "name": "Close",
+      "settings": [
+        { "type": "richtext", "id": "body", "label": "Body" },
+        { "type": "text", "id": "mission", "label": "Mission line" },
+        { "type": "text", "id": "signature", "label": "Signature" },
+        { "type": "text", "id": "button_label", "label": "Primary button label" },
+        { "type": "url", "id": "button_url", "label": "Primary button link" },
+        { "type": "text", "id": "link_label", "label": "Secondary button label" },
+        { "type": "url", "id": "link_url", "label": "Secondary button link" },
+        { "type": "image_picker", "id": "image", "label": "Image" },
+        { "type": "text", "id": "image_alt", "label": "Image alt text" },
+        { "type": "checkbox", "id": "image_reserve", "label": "Reserve the image slot", "default": true }
+      ]
+    }
+  ],
+  "presets": [{ "name": "About page" }]
+}
+{% endschema %}
