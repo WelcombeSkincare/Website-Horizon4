@@ -1,0 +1,317 @@
+{%- comment -%}
+  sections/science-page.liquid
+  /pages/our-science - the parent of the five science child pages
+  (design handoff "content pages", page 5).
+
+  Separate from science-child-page.liquid on purpose: the parent carries three
+  set pieces the children do not - the pillars card with the organic-shapes
+  device behind it, the five accent-topped route cards, and the closing button
+  pair. Bolting those onto the child section would have made it the biggest file
+  in the theme for one page's benefit.
+
+  The pillar cards are SELF-CONTAINED white cards on a normal 20px gap. Do not
+  rebuild them as a 1px-gap grid over a coloured parent: when auto-fit wrapped to
+  two columns the prototype rendered the third track as an empty grey cell.
+
+  The Science pillar's inset is a claims-discipline requirement - Biotaderm reads
+  the published science, it does not run it. It does not get cut for length.
+
+  The five route cards take a 3px top border in the five skin-type hues, in
+  canonical order. Decorative sequencing only, not a skin-type claim, and
+  confirmed with Richard. Never reassign the hues themselves.
+{%- endcomment -%}
+
+{%- assign sw = section.settings.section_width | default: 'normal' -%}
+
+<div class="bd-sc page-width-{{ sw }}" data-bd-sc>
+
+  {%- comment -%} HERO - the coast, not a laboratory {%- endcomment -%}
+  <div class="bd-sc-hero{% if section.settings.hero_image != blank or section.settings.hero_image_reserve %} has-image{% endif %}">
+    <div>
+      {%- if section.settings.eyebrow != blank -%}
+        <p class="bd-sc-eyebrow">{{ section.settings.eyebrow }}</p>
+      {%- endif -%}
+      {%- if section.settings.heading != blank -%}
+        <h1 class="bd-sc-h1">{{ section.settings.heading }}</h1>
+      {%- endif -%}
+      {%- if section.settings.standfirst != blank -%}
+        <div class="bd-sc-standfirst">{{ section.settings.standfirst }}</div>
+      {%- endif -%}
+      {%- if section.settings.intro != blank -%}
+        <div class="bd-sc-intro">{{ section.settings.intro }}</div>
+      {%- endif -%}
+    </div>
+    {%- if section.settings.hero_image != blank -%}
+      <div class="bd-sc-hero-img">
+        {{ section.settings.hero_image | image_url: width: 920 | image_tag: loading: 'eager', alt: section.settings.hero_image_alt }}
+      </div>
+    {%- elsif section.settings.hero_image_reserve -%}
+      <div class="bd-sc-hero-img"><span class="bd-sc-img-empty" aria-hidden="true"></span></div>
+    {%- endif -%}
+  </div>
+
+  <div class="bd-sc-body">
+
+    {%- comment -%} SKIN IS A LIVING SYSTEM {%- endcomment -%}
+    {%- if section.settings.living_body != blank -%}
+      <section class="bd-sc-split" id="{{ section.settings.living_heading | handleize }}">
+        <h2 class="bd-sc-h2">{{ section.settings.living_heading }}</h2>
+        <div class="bd-sc-prose">{{ section.settings.living_body }}</div>
+      </section>
+    {%- endif -%}
+
+    {%- comment -%} THREE PILLARS {%- endcomment -%}
+    {%- assign pillars = section.blocks | where: 'type', 'pillar' -%}
+    {%- if section.settings.pillars_heading != blank or pillars.size > 0 -%}
+      <section class="bd-sc-pillars" id="{{ section.settings.pillars_heading | handleize }}">
+        <div class="bd-sc-pillars-head">
+          {%- if section.settings.show_organic_shape -%}
+            {%- comment -%} flat, low-opacity, needs room around it - no shadows, no gradients {%- endcomment -%}
+            <span class="bd-sc-shape" aria-hidden="true">{% render 'home-organic-shape' %}</span>
+          {%- endif -%}
+          {%- if section.settings.pillars_heading != blank -%}
+            <h2 class="bd-sc-h2 bd-sc-h2--pillars">{{ section.settings.pillars_heading }}</h2>
+          {%- endif -%}
+          {%- if section.settings.pillars_intro != blank -%}
+            <div class="bd-sc-prose">{{ section.settings.pillars_intro }}</div>
+          {%- endif -%}
+        </div>
+
+        <div class="bd-sc-pillar-grid">
+          {%- for block in pillars -%}
+            <div class="bd-sc-pillar" {{ block.shopify_attributes }}>
+              <p class="bd-sc-pillar-label">{{ block.settings.label }}</p>
+              {%- if block.settings.body != blank -%}
+                <div class="bd-sc-pillar-body">{{ block.settings.body }}</div>
+              {%- endif -%}
+              {%- if block.settings.inset != blank -%}
+                <div class="bd-sc-inset">{{ block.settings.inset }}</div>
+              {%- endif -%}
+              {%- if block.settings.link_label != blank -%}
+                <a class="bd-sc-pillar-link" href="{{ block.settings.link_url }}">{{ block.settings.link_label }} &rarr;</a>
+              {%- endif -%}
+            </div>
+          {%- endfor -%}
+        </div>
+      </section>
+    {%- endif -%}
+
+    {%- comment -%} START WHEREVER YOU LIKE {%- endcomment -%}
+    {%- assign cards = section.blocks | where: 'type', 'card' -%}
+    {%- if cards.size > 0 -%}
+      <section class="bd-sc-routes" id="{{ section.settings.cards_heading | handleize }}">
+        <div class="bd-sc-routes-head">
+          {%- if section.settings.cards_heading != blank -%}
+            <h2 class="bd-sc-h2">{{ section.settings.cards_heading }}</h2>
+          {%- endif -%}
+          {%- if section.settings.cards_intro != blank -%}
+            <p class="bd-sc-routes-intro">{{ section.settings.cards_intro }}</p>
+          {%- endif -%}
+        </div>
+        <div class="bd-sc-route-grid">
+          {%- for block in cards -%}
+            <a class="bd-sc-route" href="{{ block.settings.url }}"
+               style="--bd-accent: {{ block.settings.accent | default: '#4E6D6C' }}"
+               {{ block.shopify_attributes }}>
+              <span class="bd-sc-route-title">{{ block.settings.heading }}</span>
+              <span class="bd-sc-route-body">{{ block.settings.body }}</span>
+            </a>
+          {%- endfor -%}
+        </div>
+      </section>
+    {%- endif -%}
+
+    {%- comment -%} ONE LEVEL DOWN {%- endcomment -%}
+    {%- if section.settings.close_body != blank -%}
+      <section class="bd-sc-split bd-sc-close">
+        <h2 class="bd-sc-h2">{{ section.settings.close_label }}</h2>
+        <div>
+          <div class="bd-sc-prose">{{ section.settings.close_body }}</div>
+          <div class="bd-sc-btns">
+            {%- if section.settings.button_1_label != blank -%}
+              <a class="bd-sc-btn" href="{{ section.settings.button_1_url }}">{{ section.settings.button_1_label }}</a>
+            {%- endif -%}
+            {%- if section.settings.button_2_label != blank -%}
+              <a class="bd-sc-btn bd-sc-btn--secondary" href="{{ section.settings.button_2_url }}">{{ section.settings.button_2_label }}</a>
+            {%- endif -%}
+          </div>
+        </div>
+      </section>
+    {%- endif -%}
+  </div>
+</div>
+
+{% stylesheet %}
+.bd-sc { --bd-gutter: 80px; --bd-oyster: #E0E1E2; --bd-tide: #4E6D6C; }
+.bd-sc-hero,
+.bd-sc-body { padding-inline: max(var(--bd-gutter), calc((100% - var(--page-content-width, 120rem)) / 2)); }
+.bd-sc-hero { background: #FFFFFF; padding-block: 80px 72px; }
+.bd-sc-hero.has-image {
+  display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 460px);
+  gap: 72px; align-items: center;
+}
+.bd-sc-hero-img { aspect-ratio: 4 / 5; background: #FAF7F5; border-radius: 4px; overflow: hidden; }
+.bd-sc-hero-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.bd-sc-img-empty { display: block; width: 100%; height: 100%; }
+
+.bd-sc-eyebrow {
+  font-family: 'Roboto Condensed', sans-serif; font-weight: 700; font-size: 12px;
+  letter-spacing: .12em; text-transform: uppercase; color: #57585C; margin: 0 0 22px;
+}
+.bd-sc-h1 { font-family: 'Roboto Condensed', sans-serif; font-weight: 400; font-size: 64px; line-height: 1.05; color: #161617; margin: 0 0 20px; }
+.bd-sc-standfirst { font-family: 'Roboto Condensed', sans-serif; font-weight: 400; font-size: 26px; line-height: 1.3; color: #3F4042; max-width: 26ch; margin-bottom: 20px; }
+.bd-sc-standfirst p { margin: 0; }
+.bd-sc-intro p { font-size: 18px; line-height: 1.6; color: #414245; max-width: 56ch; margin: 0 0 14px; }
+.bd-sc-intro p:last-child { margin-bottom: 0; }
+
+.bd-sc-body { background: #FAF7F5; padding-block: 72px 88px; }
+.bd-sc-split { display: grid; grid-template-columns: 300px minmax(0, 1fr); gap: 64px; align-items: start; }
+.bd-sc-h2 { font-family: 'Roboto Condensed', sans-serif; font-weight: 400; font-size: 40px; line-height: 1.1; color: #3F4042; margin: 0; }
+.bd-sc-prose p { font-size: 19px; line-height: 1.65; color: #494A4D; max-width: 60ch; margin: 0 0 16px; }
+.bd-sc-prose p:last-child { margin-bottom: 0; }
+.bd-sc-prose a, .bd-sc-pillar-body a, .bd-sc-inset a { color: #161617; text-decoration: underline; }
+
+/* --- pillars --- */
+.bd-sc-pillars { margin-top: 80px; }
+.bd-sc-pillars-head {
+  position: relative; overflow: hidden;
+  background: #FFFFFF; border: 1px solid var(--bd-oyster); border-radius: 4px;
+  padding: 52px 48px; margin-bottom: 20px;
+}
+.bd-sc-h2--pillars { max-width: 20ch; margin-bottom: 16px; position: relative; }
+.bd-sc-pillars-head .bd-sc-prose { position: relative; }
+.bd-sc-shape {
+  position: absolute; right: -60px; top: -40px; width: 320px; height: 320px;
+  opacity: .5; pointer-events: none; color: var(--bd-tide); display: block;
+}
+.bd-sc-shape svg { width: 100%; height: 100%; display: block; }
+
+/* self-contained cards on a normal gap - NOT a 1px-gap grid over a coloured parent */
+.bd-sc-pillar-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; }
+.bd-sc-pillar {
+  background: #FFFFFF; border: 1px solid var(--bd-oyster); border-radius: 4px;
+  padding: 30px 30px 32px; display: flex; flex-direction: column; gap: 14px;
+}
+.bd-sc-pillar-label {
+  font-family: 'Roboto Condensed', sans-serif; font-weight: 700; font-size: 13px;
+  letter-spacing: .12em; text-transform: uppercase; color: #57585C; margin: 0;
+}
+.bd-sc-pillar-body p { font-size: 16px; line-height: 1.6; color: #494A4D; margin: 0 0 10px; }
+.bd-sc-pillar-body p:last-child { margin-bottom: 0; }
+.bd-sc-inset { background: #FBFBF2; border-left: 2px solid var(--bd-tide); padding: 14px 18px; }
+.bd-sc-inset p { font-size: 15px; line-height: 1.55; color: #494A4D; margin: 0; }
+.bd-sc-pillar-link { margin-top: auto; font-size: 15px; color: #161617; text-decoration: underline; }
+
+/* --- route cards --- */
+.bd-sc-routes { margin-top: 80px; }
+.bd-sc-routes-head { margin-bottom: 24px; }
+.bd-sc-routes-intro { font-size: 18px; line-height: 1.6; color: #494A4D; margin: 12px 0 0; max-width: 60ch; }
+.bd-sc-route-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; }
+.bd-sc-route {
+  display: block; background: #FFFFFF; border: 1px solid var(--bd-oyster);
+  border-top: 3px solid var(--bd-accent); border-radius: 4px;
+  padding: 28px 28px 30px; text-decoration: none; transition: border-color .16s ease;
+}
+.bd-sc-route:hover { border-color: #57585C; border-top-color: var(--bd-accent); }
+.bd-sc-route-title { display: block; font-family: 'Roboto Condensed', sans-serif; font-size: 22px; color: #3F4042; margin-bottom: 8px; }
+.bd-sc-route-body { display: block; font-size: 15px; line-height: 1.55; color: #494A4D; }
+
+/* --- close --- */
+.bd-sc-close { margin-top: 80px; }
+.bd-sc-btns { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 24px; }
+.bd-sc-btn {
+  display: inline-block; font-family: 'Roboto Condensed', sans-serif; font-weight: 700;
+  font-size: 15px; background: #161617; color: #FFFFFF; border: 2px solid #161617;
+  border-radius: 14px; padding: 12px 24px; text-decoration: none; white-space: nowrap;
+  transition: background-color .16s ease, border-color .16s ease;
+}
+.bd-sc-btn:hover { background: #3F4042; border-color: #3F4042; }
+.bd-sc-btn--secondary { background: transparent; color: #161617; }
+.bd-sc-btn--secondary:hover { background: #0000000f; }
+
+@media (max-width: 749px) {
+  .bd-sc { --bd-gutter: 20px; }
+  .bd-sc-hero { padding-block: 40px 32px; }
+  .bd-sc-hero.has-image { grid-template-columns: 1fr; gap: 28px; }
+  .bd-sc-h1 { font-size: 34px; }
+  .bd-sc-standfirst { font-size: 20px; }
+  .bd-sc-intro p { font-size: 16px; }
+  .bd-sc-body { padding-block: 40px 56px; }
+  .bd-sc-split { grid-template-columns: 1fr; gap: 18px; }
+  .bd-sc-h2 { font-size: 28px; }
+  .bd-sc-pillars, .bd-sc-routes, .bd-sc-close { margin-top: 48px; }
+  .bd-sc-pillars-head { padding: 28px 22px; }
+  .bd-sc-shape { width: 200px; height: 200px; right: -50px; top: -30px; }
+  .bd-sc-prose p { font-size: 17px; }
+}
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Our Science page",
+  "tag": "section",
+  "class": "shopify-section--bd-science",
+  "settings": [
+    {
+      "type": "select",
+      "id": "section_width",
+      "label": "Section width",
+      "options": [
+        { "value": "narrow", "label": "Narrow" },
+        { "value": "normal", "label": "Normal" },
+        { "value": "wide", "label": "Wide" },
+        { "value": "content", "label": "Content width" }
+      ],
+      "default": "normal"
+    },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Science" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Our science" },
+    { "type": "richtext", "id": "standfirst", "label": "Standfirst" },
+    { "type": "richtext", "id": "intro", "label": "Intro" },
+    { "type": "image_picker", "id": "hero_image", "label": "Hero image", "info": "The coast, not a laboratory - a rock pool or bladderwrack on wet rock." },
+    { "type": "text", "id": "hero_image_alt", "label": "Hero image alt text" },
+    { "type": "checkbox", "id": "hero_image_reserve", "label": "Reserve the hero image slot", "default": true },
+    { "type": "header", "content": "Skin is a living system" },
+    { "type": "text", "id": "living_heading", "label": "Heading", "default": "Skin is a living system" },
+    { "type": "richtext", "id": "living_body", "label": "Body" },
+    { "type": "header", "content": "Three pillars" },
+    { "type": "text", "id": "pillars_heading", "label": "Heading", "default": "Formed in nature, led by science, guided by ethics" },
+    { "type": "richtext", "id": "pillars_intro", "label": "Intro" },
+    { "type": "checkbox", "id": "show_organic_shape", "label": "Show the organic shapes device", "default": true },
+    { "type": "header", "content": "Start wherever you like" },
+    { "type": "text", "id": "cards_heading", "label": "Heading", "default": "Start wherever you like" },
+    { "type": "text", "id": "cards_intro", "label": "Intro" },
+    { "type": "header", "content": "One level down" },
+    { "type": "text", "id": "close_label", "label": "Heading", "default": "One level down" },
+    { "type": "richtext", "id": "close_body", "label": "Body" },
+    { "type": "text", "id": "button_1_label", "label": "Button 1 label", "default": "Browse the ingredient library" },
+    { "type": "url", "id": "button_1_url", "label": "Button 1 link" },
+    { "type": "text", "id": "button_2_label", "label": "Button 2 label", "default": "Find your skin type" },
+    { "type": "url", "id": "button_2_url", "label": "Button 2 link" }
+  ],
+  "blocks": [
+    {
+      "type": "pillar",
+      "name": "Pillar",
+      "settings": [
+        { "type": "text", "id": "label", "label": "Label" },
+        { "type": "richtext", "id": "body", "label": "Body" },
+        { "type": "richtext", "id": "inset", "label": "Claims inset", "info": "Load-bearing where present. The Science pillar's inset states that Biotaderm reads the published science rather than running it - it does not get cut for length." },
+        { "type": "text", "id": "link_label", "label": "Link label" },
+        { "type": "url", "id": "link_url", "label": "Link" }
+      ]
+    },
+    {
+      "type": "card",
+      "name": "Route card",
+      "settings": [
+        { "type": "text", "id": "heading", "label": "Heading" },
+        { "type": "textarea", "id": "body", "label": "Body" },
+        { "type": "url", "id": "url", "label": "Link" },
+        { "type": "color", "id": "accent", "label": "Top border colour", "info": "The five skin-type hues in canonical order. Decorative sequencing here, not a skin-type claim.", "default": "#4E6D6C" }
+      ]
+    }
+  ],
+  "presets": [{ "name": "Our Science page" }]
+}
+{% endschema %}
