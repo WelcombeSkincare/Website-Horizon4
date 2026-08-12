@@ -174,7 +174,7 @@
         "ing_01": {
           "type": "ingredient",
           "settings": {
-            "name": "Glycerin^",
+            "name": "Glycerin*",
             "percentage": "6.00%",
             "bar_width": 100,
             "fill_class": "active"
@@ -192,7 +192,7 @@
         "ing_03": {
           "type": "ingredient",
           "settings": {
-            "name": "Hylocereus Undatus (Dragon Fruit) Seed Oil*",
+            "name": "Hylocereus Undatus (Dragon Fruit) Seed Oil*^",
             "percentage": "3.68%",
             "bar_width": 61,
             "fill_class": "active"
@@ -285,7 +285,7 @@
         "card_title": "CORE · DRY SENSITIVE",
         "card_subtitle": "The ten largest ingredients after water, by weight",
         "card_total": "10 of 26",
-        "footnote_left": "* cold-pressed organic · ^ organic · no synthetic fragrance",
+        "footnote_left": "* organic · ^ cold-pressed · no synthetic fragrance",
         "footnote_right": "Bars scaled to the largest shown · Aqua is 64.18% · full list on the product page"
       }
     },
