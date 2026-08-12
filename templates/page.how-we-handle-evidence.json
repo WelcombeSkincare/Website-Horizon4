@@ -1,0 +1,148 @@
+{
+  "sections": {
+    "main": {
+      "type": "science-child-page",
+      "blocks": {
+        "b_read": {
+          "type": "band",
+          "settings": {
+            "heading": "We read the science. We don't run it.",
+            "body": "<p>Biotaderm reviews published research and formulates on the basis of what it shows. We have not run our own clinical trials, and our copy never implies we have. That distinction sounds small. It is the whole foundation of the trust we are asking for.</p><p>So we credit the evidence, not ourselves. When the research supports something, we say the research supports it. We do not quietly promote ourselves to the role of the people who discovered it.</p>",
+            "variant": "plain",
+            "set_piece": "none",
+            "ethos_icon": "none"
+          }
+        },
+        "b_wording": {
+          "type": "band",
+          "settings": {
+            "heading": "Why the wording matters",
+            "body": "<p>You will notice the same phrases throughout the site. The research suggests. Studies indicate. The evidence points to. Those openings are not hedging for its own sake. They are accurate, because they put the credit where it belongs.</p><p>The moment a sentence hands Biotaderm the discovery, with an \"our research shows\" or a \"we've proven\", it stops being true, and truth is the entire proposition. Here is the test we apply to our own copy. \"Our research shows bladderwrack protects the skin\" becomes \"the research on bladderwrack points to antioxidant activity.\" Same ingredient, same story, told in a way we can actually stand behind.</p>",
+            "variant": "plain",
+            "set_piece": "chips",
+            "ethos_icon": "none",
+            "chips": "The research suggests|Studies indicate|The evidence points to"
+          }
+        },
+        "c_not": {
+          "type": "card",
+          "settings": {
+            "label": "We would not write",
+            "layout": "pair",
+            "variant": "struck",
+            "body": "<p>Our research shows bladderwrack protects the skin</p>"
+          }
+        },
+        "c_would": {
+          "type": "card",
+          "settings": {
+            "label": "We would write",
+            "layout": "pair",
+            "variant": "corrected",
+            "body": "<p>The research on bladderwrack points to antioxidant activity</p>"
+          }
+        },
+        "b_claim": {
+          "type": "band",
+          "settings": {
+            "heading": "What we will, and will not, claim",
+            "body": "<p>We only put a claim on a page when the published evidence supports it. When the evidence is genuinely strong, we will tell you. When it is early, thin, or still being argued over, we will tell you that too, rather than rounding it up into something firmer. A surprising amount of the science we find sits in that honest middle, and pretending otherwise would be the easiest way to lose the very thing this page exists to protect.</p>",
+            "variant": "plain",
+            "set_piece": "none",
+            "ethos_icon": "none"
+          }
+        },
+        "c_do": {
+          "type": "card",
+          "settings": {
+            "label": "We claim",
+            "layout": "pair",
+            "variant": "plain",
+            "body": "<p>Cosmetic claims. A moisturiser can support and comfort skin.</p>"
+          }
+        },
+        "c_dont": {
+          "type": "card",
+          "settings": {
+            "label": "We do not claim",
+            "layout": "pair",
+            "variant": "plain",
+            "body": "<p>Medical ones. It does not treat, cure or reverse anything.</p>"
+          }
+        },
+        "b_behind": {
+          "type": "band",
+          "settings": {
+            "heading": "Behind every claim",
+            "body": "<p>There is more work behind this than the finished copy shows. Before a claim goes on a page, it is weighed against the published literature, and if it is not well enough supported, it does not run. We would rather say less and mean all of it than say more and defend little of it. You do not need to see that process to benefit from it. You just need to know it happens, and that it is deliberately strict.</p>",
+            "variant": "plain",
+            "set_piece": "none",
+            "ethos_icon": "none"
+          }
+        },
+        "b_dark": {
+          "type": "band",
+          "settings": {
+            "heading": "Honesty is the strategy, not just the ethics",
+            "body": "<p>Being accurate where the rest of the category is vague is not only the right thing to do. It is the most durable advantage a small brand can have. It is also why the detail lives out in the open: every ingredient has its own page, with its own references, so you never have to take our word for it. If our reasoning does not hold up, you will be able to see that for yourself.</p>",
+            "variant": "dark",
+            "set_piece": "none",
+            "ethos_icon": "ethos-science",
+            "ethos_label": "Science-led"
+          }
+        },
+        "n_lib": {
+          "type": "next",
+          "settings": {
+            "heading": "Ingredient library",
+            "body": "What each ingredient does, and what the evidence shows.",
+            "url": "/blogs/ingredients"
+          }
+        },
+        "n_mb": {
+          "type": "next",
+          "settings": {
+            "heading": "The skin microbiome",
+            "body": "What the research actually says.",
+            "url": "/pages/the-skin-microbiome"
+          }
+        },
+        "n_label": {
+          "type": "next",
+          "settings": {
+            "heading": "Everything on the label",
+            "body": "Every ingredient, every percentage, published.",
+            "url": "/pages/everything-on-the-label"
+          }
+        }
+      },
+      "block_order": [
+        "b_read",
+        "b_wording",
+        "c_not",
+        "c_would",
+        "b_claim",
+        "c_do",
+        "c_dont",
+        "b_behind",
+        "b_dark",
+        "n_lib",
+        "n_mb",
+        "n_label"
+      ],
+      "settings": {
+        "section_width": "normal",
+        "measure": "narrow",
+        "eyebrow": "Science · Three of five",
+        "heading": "How we handle evidence",
+        "standfirst": "<p><em>We read the science. We don't run it. That one line governs everything we say.</em></p>",
+        "intro": "<p>Skincare has a trust problem, and most of it comes down to language. Brands borrow the authority of research without doing any, and the reader is left unable to tell a real finding from a well-dressed guess. We would rather be the brand you can check. So it is worth setting out, plainly, how we decide what we are willing to tell you.</p>",
+        "hero_image_reserve": false,
+        "next_heading": "Where to go next"
+      }
+    }
+  },
+  "order": [
+    "main"
+  ]
+}

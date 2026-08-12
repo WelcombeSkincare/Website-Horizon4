@@ -1,0 +1,153 @@
+{
+  "sections": {
+    "main": {
+      "type": "science-child-page",
+      "blocks": {
+        "b_publish": {
+          "type": "band",
+          "settings": {
+            "heading": "What we publish",
+            "body": "<p>For every product, the full picture is on the page. Each ingredient appears under its INCI name, the standardised name used on labels the world over, with a plain-English name alongside so you are not left translating Latin. The list runs in order of weight, most abundant first, and we carry that order all the way down to the smallest trace, which goes further than the labelling rules actually require. Beside each one sits its exact percentage.</p><p>We also mark how ingredients are made. A star means certified organic. A caret means cold-pressed. Most of the plant oils carry both, because they are both. A hash means upcycled, made from a by-product of another process. And where there is an aromatic in the formula, it is named outright as vetiver, never folded into a vague \"parfum\" or \"fragrance\". If it is in the bottle, it is on the label, under its own name.</p>",
+            "variant": "plain",
+            "set_piece": "mark_legend",
+            "ethos_icon": "none",
+            "mark_1": "certified organic",
+            "mark_2": "cold-pressed",
+            "mark_3": "upcycled — made from a by-product of another process"
+          }
+        },
+        "q_pct": {
+          "type": "quote",
+          "settings": {
+            "text": "A list of ingredients tells you what is present. A percentage tells you whether it is actually doing anything."
+          }
+        },
+        "b_why": {
+          "type": "band",
+          "settings": {
+            "heading": "Why percentages, not just a list",
+            "body": "<p>This is the quiet test that most transparency stops short of. It is easy to put a fashionable ingredient on a label at a level so low it could not possibly matter, purely so the name can appear on the front of the pack. Publishing the number makes that impossible to hide. If we name an oil as one of the reasons to buy a product, you can see exactly how much of it is in there, and hold us to it. The discipline runs both ways. Knowing the figure will be printed keeps us honest while we are still formulating.</p>",
+            "variant": "plain",
+            "set_piece": "none",
+            "ethos_icon": "ethos-formulation",
+            "ethos_label": "Every formulation published in full"
+          }
+        },
+        "b_lets": {
+          "type": "band",
+          "settings": {
+            "heading": "What it lets you do",
+            "body": "<p>Transparency is not decoration here. It is meant to be used.</p><p>If you react to a particular ingredient, you can check for it before you buy, and see how much is present. If you want to know how rich or how light a formula really is, the numbers tell you rather than the marketing. And if you ever want to compare us honestly against something else, you have the full picture to do it with. We would rather hand you the means to make your own decision than ask you to defer to ours. Skincare that respects your intelligence works better when you can see the workings.</p>",
+            "variant": "plain",
+            "set_piece": "none",
+            "ethos_icon": "none"
+          }
+        },
+        "c_check": {
+          "type": "card",
+          "settings": {
+            "title": "Check before you buy",
+            "body": "<p>React to a particular ingredient? Find it, and see exactly how much is present.</p>",
+            "layout": "trio",
+            "variant": "plain"
+          }
+        },
+        "c_texture": {
+          "type": "card",
+          "settings": {
+            "title": "Judge the texture",
+            "body": "<p>The oil load tells you how rich a product will feel before you open it.</p>",
+            "layout": "trio",
+            "variant": "plain"
+          }
+        },
+        "c_compare": {
+          "type": "card",
+          "settings": {
+            "title": "Compare us honestly",
+            "body": "<p>Put our numbers beside anyone else's. That is rather the point.</p>",
+            "layout": "trio",
+            "variant": "plain"
+          }
+        },
+        "b_howread": {
+          "type": "band",
+          "settings": {
+            "heading": "How to read a Biotaderm formulation",
+            "body": "<p>It is simpler than it looks. The order is the key: ingredients are listed from most to least, so whatever sits near the top makes up the bulk of the product, and the actives you have read about usually sit lower down, where a little does a lot. Each line gives you the INCI name, the everyday name in brackets, and the percentage. A star after a name means certified organic, a caret means cold-pressed, and a hash means upcycled. An oil carrying a star and a caret together is both organic and cold-pressed, which most of them are. The short legend at the foot of every list spells it out. That is the whole code.</p>",
+            "variant": "plain",
+            "set_piece": "annotated_line",
+            "ethos_icon": "none",
+            "annot_label": "One line, annotated",
+            "spec_name": "Simmondsia Chinensis (Jojoba) Seed Oil*^",
+            "spec_pct": "6.00%",
+            "annot_keys": "INCI name::The standardised international name, the same on every label worldwide.|In brackets::The plain English name, so you do not need the Latin.|The mark::How it was made — see the key above.|The percentage::How much is actually in there, by weight.",
+            "annot_footnote": "Illustrative line. Every product page carries its own full formulation."
+          }
+        },
+        "b_nothing": {
+          "type": "band",
+          "settings": {
+            "heading": "Nothing to hide, by design",
+            "body": "<p>Publishing everything is not a marketing flourish we can withdraw when it stops being convenient. It is structural. It is also, as it turns out, our most persuasive argument, because a formula you can inspect in full is a far stronger claim than any adjective. The reasoning behind each ingredient, with its references, sits in the ingredient library, and the discipline behind every claim is set out in how we handle evidence.</p>",
+            "variant": "plain",
+            "set_piece": "none",
+            "ethos_icon": "none"
+          }
+        },
+        "n_lib": {
+          "type": "next",
+          "settings": {
+            "heading": "Ingredient library",
+            "body": "What each ingredient does, and what the evidence shows.",
+            "url": "/blogs/ingredients"
+          }
+        },
+        "n_ev": {
+          "type": "next",
+          "settings": {
+            "heading": "How we handle evidence",
+            "body": "We read the science. We don't run it.",
+            "url": "/pages/how-we-handle-evidence"
+          }
+        },
+        "n_shop": {
+          "type": "next",
+          "settings": {
+            "heading": "Shop the range",
+            "body": "Fifteen moisturisers, every formulation published.",
+            "url": "/collections/moisturiser"
+          }
+        }
+      },
+      "block_order": [
+        "b_publish",
+        "q_pct",
+        "b_why",
+        "b_lets",
+        "c_check",
+        "c_texture",
+        "c_compare",
+        "b_howread",
+        "b_nothing",
+        "n_lib",
+        "n_ev",
+        "n_shop"
+      ],
+      "settings": {
+        "section_width": "normal",
+        "measure": "wide",
+        "eyebrow": "Science · Four of five",
+        "heading": "Everything on the label",
+        "standfirst": "<p><em>Every ingredient, every percentage, published. Here is why we do it, and how to read it.</em></p>",
+        "intro": "<p>Most skincare labels tell you what is in a product. Very few tell you how much. That gap is where a lot of the industry's tricks live, and closing it is one of the plainest promises we make. On every Biotaderm product you get the complete formulation: each ingredient, its proper name, and its exact percentage. Nothing rounded away, nothing left to trust.</p>",
+        "hero_image_alt": "The bottle's ingredient panel, shot square-on",
+        "hero_image_reserve": true,
+        "next_heading": "Where to go next"
+      }
+    }
+  },
+  "order": [
+    "main"
+  ]
+}

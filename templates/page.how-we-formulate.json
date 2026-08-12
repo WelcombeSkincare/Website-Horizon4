@@ -1,0 +1,152 @@
+{
+  "sections": {
+    "main": {
+      "type": "science-child-page",
+      "blocks": {
+        "b_three": {
+          "type": "band",
+          "settings": {
+            "heading": "Three kinds of ingredient do the real work",
+            "variant": "plain",
+            "set_piece": "none",
+            "ethos_icon": "none"
+          }
+        },
+        "pn_1": {
+          "type": "panel",
+          "settings": {
+            "numeral": "ONE",
+            "title": "<strong>Cold-pressed organic plant oils</strong>",
+            "body": "<p>The base of every product is cold-pressed organic plant oils, and both of those words are deliberate. Cold pressing avoids the heat and solvents of refining, which means it preserves the bioactive compounds that give a plant oil its character: carotenoids, tocopherols, phytosterols and the phenolics that refined oils tend to lose. The research credits these compounds with antioxidant and skin-conditioning qualities, and there is a practical bonus too, since a higher phenolic content also improves the oil's oxidative stability, so the product stays good for longer.</p><p>We choose these oils for what is in them, not for what they cost. The particular oils change with the skin type, but the reasoning does not.</p>"
+          }
+        },
+        "pn_2": {
+          "type": "panel",
+          "settings": {
+            "numeral": "TWO",
+            "title": "<strong>Prebiotics and postbiotics</strong>",
+            "body": "<p>These are the ingredients that speak to the microbiome directly, and they do it gently. Prebiotics are food for the microbes already living on your skin, and we use <a href=\"https://biotaderm.com/blogs/ingredients/inulin\">inulin</a>, a plant-derived prebiotic. Postbiotics are the useful compounds those microbes produce, and rather than putting live cultures in a jar, we include a <a href=\"https://biotaderm.com/blogs/ingredients/saccharomyces-barley-seed-ferment-filtrate\">Saccharomyces and barley seed ferment</a> that carries some of those compounds ready-made.</p><p>The research on topical pre- and postbiotics suggests they can help support a balanced microbiome, though it is a young field and we treat it as support rather than a cure. There is more on all of this on <a href=\"https://biotaderm.com/pages/the-skin-microbiome\">the skin microbiome page</a>.</p>"
+          }
+        },
+        "pn_3": {
+          "type": "panel",
+          "settings": {
+            "numeral": "THREE",
+            "title": "<strong>Atlantic algal extracts</strong>",
+            "body": "<p>One ingredient ties the whole range to where it is made. <a href=\"https://biotaderm.com/blogs/ingredients/bladder-wrack-fucus-vesiculosus-extract\">Bladderwrack</a>, <em>Fucus vesiculosus</em>, is the same Atlantic seaweed you can see on the rocks along the north Devon coast at low tide. Ours is a cold infusion in sunflower oil, supplied from the UK, so the connection to the coast is one of kinship and origin, not a supply chain we are pretending to have. Its compounds, including phlorotannins, fucoidans and phenolics, are credited in published research with antioxidant activity, and that is the part we lean on.</p>",
+            "image_alt": "Bladderwrack on wet rock at low tide"
+          }
+        },
+        "b_leaveout": {
+          "type": "band",
+          "settings": {
+            "heading": "What we leave out",
+            "body": "<p>Good formulation is as much about restraint as addition. We leave out synthetic fragrance entirely, and we never hide anything behind a \"parfum\" or \"fragrance\" catch-all. We also leave out fragrance-only ingredients, since these are among the more common triggers for irritation and allergy, and that matters most for sensitive skin. Every ingredient we do use is listed individually, most abundant first, so nothing is ever tucked out of sight.</p>",
+            "variant": "plain",
+            "set_piece": "none",
+            "ethos_icon": "ethos-gentle",
+            "ethos_label": "Gentle on skin, every time"
+          }
+        },
+        "b_vetiver": {
+          "type": "band",
+          "settings": {
+            "heading": "The one essential oil",
+            "body": "<p>There is a single essential oil in the range, and we would rather name it than let you wonder. <a href=\"https://biotaderm.com/blogs/ingredients/vetiver-vetiveria-zizanioides-root-oil\">Vetiver root oil</a>, from <em>Vetiveria Zizanioides</em>, is a natural essential oil obtained from the roots of the grass. It is not a synthetic fragrance and nothing like one. We include it at a low, carefully controlled level, chosen for the antioxidant properties the research credits it with and for the quiet natural note it lends the blend.</p><p>It is also unusual in a genuinely useful way. Most essential oils contain at least one of the fragrance allergens that labelling rules require you to declare. Vetiver is one of the few that contains none of them, so there is nothing on that list to declare here. That is a labelling fact, and we keep it separate from the question of comfort, because a concentrated aromatic can still be a lot for a fragile barrier. So the level is kept low, raised only gently across the lighter to richer textures, and if your skin runs reactive it is worth a patch test first.</p>",
+            "variant": "plain",
+            "set_piece": "none",
+            "ethos_icon": "none"
+          }
+        },
+        "c_vet_fact": {
+          "type": "card",
+          "settings": {
+            "label": "A labelling fact",
+            "layout": "pair",
+            "variant": "plain",
+            "body": "<p>Vetiver contains none of the declarable fragrance allergens, so nothing from that list appears on our labels.</p>"
+          }
+        },
+        "c_vet_comfort": {
+          "type": "card",
+          "settings": {
+            "label": "A separate question: comfort",
+            "layout": "pair",
+            "variant": "caveat",
+            "body": "<p>A concentrated aromatic can still be a lot for a fragile barrier. We keep the level low, and if your skin runs reactive it is worth a patch test.</p>"
+          }
+        },
+        "q_fragrance": {
+          "type": "quote",
+          "settings": {
+            "text": "This is why the honest description of the range is \"no synthetic fragrance\" rather than \"fragrance-free\". One is true. The other would not be."
+          }
+        },
+        "b_base": {
+          "type": "band",
+          "settings": {
+            "heading": "The base, and everything else",
+            "body": "<p>Around those actives sits a supporting cast that does the quiet structural work: an olive-derived emulsifier system, plant-derived squalane, a gentle gluconolactone, glycerin, vitamin E and a few others. None of it is hidden. Every ingredient and its exact percentage is published on the product page, and each one has its own entry in the <a href=\"https://biotaderm.com/blogs/ingredients\">ingredient library</a> if you want the detail and the sources.</p>",
+            "variant": "plain",
+            "set_piece": "none",
+            "ethos_icon": "ethos-formulation",
+            "ethos_label": "Every formulation published in full"
+          }
+        },
+        "n_label": {
+          "type": "next",
+          "settings": {
+            "heading": "Everything on the label",
+            "body": "Every ingredient, every percentage, published.",
+            "url": "/pages/everything-on-the-label"
+          }
+        },
+        "n_lib": {
+          "type": "next",
+          "settings": {
+            "heading": "Ingredient library",
+            "body": "What each ingredient does, and what the evidence actually shows.",
+            "url": "/blogs/ingredients"
+          }
+        },
+        "n_finder": {
+          "type": "next",
+          "settings": {
+            "heading": "Find your skin type",
+            "body": "Two questions, five types.",
+            "url": "/pages/find-your-skin-type"
+          }
+        }
+      },
+      "block_order": [
+        "b_three",
+        "pn_1",
+        "pn_2",
+        "pn_3",
+        "b_leaveout",
+        "b_vetiver",
+        "c_vet_fact",
+        "c_vet_comfort",
+        "q_fragrance",
+        "b_base",
+        "n_label",
+        "n_lib",
+        "n_finder"
+      ],
+      "settings": {
+        "section_width": "normal",
+        "measure": "wide",
+        "eyebrow": "Science · Two of five",
+        "heading": "How we formulate",
+        "standfirst": "<p><em>The thinking behind what goes in, and what stays out.</em></p>",
+        "intro": "<p>Every ingredient in a Biotaderm product has to earn its place. If it does not do a job the published evidence supports, it does not go in. If a claim cannot be supported by that evidence, it does not go on the label. That single rule keeps the formulas short, the range small, and the copy honest, and it is why you will not find a long list of on-trend extracts here doing very little.</p><p>What you will find is a small number of ingredient types chosen to work together, in a base built to be gentle. The idea running through all of it is the same one that runs through the rest of the brand. Support, not control.</p>",
+        "hero_image_alt": "Cold-pressed oil in a beaker on the bench",
+        "hero_image_reserve": true,
+        "next_heading": "Where to go next"
+      }
+    }
+  },
+  "order": [
+    "main"
+  ]
+}

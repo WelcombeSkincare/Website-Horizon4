@@ -1,0 +1,142 @@
+{
+  "sections": {
+    "main": {
+      "type": "science-child-page",
+      "blocks": {
+        "b_bcorp": {
+          "type": "band",
+          "settings": {
+            "heading": "Working toward B Corp",
+            "body": "<p>We are building the business toward B Corp certification. That is a company-level standard, not a product one, in which an independent body verifies a company's social and environmental performance, its transparency and its accountability across the whole operation. It is deliberately hard to earn, which is rather the point.</p>",
+            "caveat": "<p>We are in that process, not at the end of it. So we will tell you we are working toward it, and we will only call ourselves certified on the day we actually are. If you ever see us claim otherwise, hold us to this paragraph.</p>",
+            "variant": "plain",
+            "set_piece": "none",
+            "ethos_icon": "none"
+          }
+        },
+        "c_status": {
+          "type": "card",
+          "settings": {
+            "label": "Status",
+            "title": "In the process",
+            "layout": "pair",
+            "variant": "plain"
+          }
+        },
+        "c_notyet": {
+          "type": "card",
+          "settings": {
+            "label": "Not yet",
+            "title": "Certified",
+            "layout": "pair",
+            "variant": "plain"
+          }
+        },
+        "b_pack": {
+          "type": "band",
+          "settings": {
+            "heading": "Packaging",
+            "body": "<p>We prioritise aluminium. It can be recycled again and again without losing quality, and recycling it takes a fraction of the energy needed to make it new, which is not true of most alternatives. Around that, we keep plastic to a minimum rather than claiming to have none, because honest beats absolute. The aim is packaging that does its job protecting the product and then has somewhere sensible to go afterwards.</p>",
+            "variant": "plain",
+            "set_piece": "none",
+            "ethos_icon": "ethos-climate",
+            "ethos_label": "Refillable and recyclable aluminium bottles, reusable pump"
+          }
+        },
+        "b_range": {
+          "type": "band",
+          "settings": {
+            "heading": "A deliberately small range",
+            "body": "<p>It would be easy to grow the range for the sake of it. New launches sell, whether or not they add anything. We have chosen the opposite discipline. The range is three textures across five skin types, and each one has to earn its place by doing a real job for a real kind of skin. If a product would only be there to widen the shelf, we do not make it.</p>",
+            "variant": "plain",
+            "set_piece": "range_grid",
+            "ethos_icon": "none",
+            "range_footnote": "Fifteen products. Nothing here to widen the shelf."
+          }
+        },
+        "b_vegan": {
+          "type": "band",
+          "settings": {
+            "heading": "Vegan, and cruelty-free",
+            "body": "<p>Our products are vegan. They contain no animal-derived ingredients. That is a plain fact, so we state it plainly rather than decorating it.</p><p>On cruelty-free, a little honesty is in order. Testing cosmetics on animals is already banned by law in the UK and the EU, so no responsible brand here should be testing on animals in the first place. We treat that as the floor, not as something to award ourselves a medal for. The only person our products get tested on is the chemist who makes them.</p>",
+            "variant": "plain",
+            "set_piece": "none",
+            "ethos_icon": "ethos-cruelty",
+            "ethos_label": "Vegan and cruelty-free"
+          }
+        },
+        "b_suppliers": {
+          "type": "band",
+          "settings": {
+            "heading": "The suppliers we choose",
+            "body": "<p>We choose suppliers and distributors for their standards, not only their price. That shapes real decisions, from where an ingredient comes from to who we are willing to sell through. We would rather be careful about this than sweeping, so we will not claim to have audited every link in every chain. What we can say is that ethical standing is part of the decision, every time, and not an afterthought.</p>",
+            "variant": "plain",
+            "set_piece": "none",
+            "ethos_icon": "ethos-business",
+            "ethos_label": "Independent, Devon-based business"
+          }
+        },
+        "b_say": {
+          "type": "band",
+          "settings": {
+            "heading": "And what we say",
+            "body": "<p>Transparency belongs on this page too, because how a brand talks is an ethical choice as much as a marketing one. We publish every ingredient and every percentage, and we only make claims the published evidence supports. Those are set out in full on <a href=\"https://biotaderm.com/pages/everything-on-the-label\">everything on the label</a> and <a href=\"https://biotaderm.com/pages/how-we-handle-evidence\">how we handle evidence</a>.</p><p>The more personal side of why the brand exists lives on the <a href=\"https://biotaderm.com/pages/about\">about page</a>. This page is simply the practice behind the principles.</p>",
+            "variant": "rule",
+            "set_piece": "none",
+            "ethos_icon": "none"
+          }
+        },
+        "n_label": {
+          "type": "next",
+          "settings": {
+            "heading": "Everything on the label",
+            "body": "Every ingredient, every percentage, published.",
+            "url": "/pages/everything-on-the-label"
+          }
+        },
+        "n_ev": {
+          "type": "next",
+          "settings": {
+            "heading": "How we handle evidence",
+            "body": "We read the science. We don't run it.",
+            "url": "/pages/how-we-handle-evidence"
+          }
+        },
+        "n_shop": {
+          "type": "next",
+          "settings": {
+            "heading": "Shop the range",
+            "body": "Fifteen moisturisers across five skin types.",
+            "url": "/collections/moisturiser"
+          }
+        }
+      },
+      "block_order": [
+        "b_bcorp",
+        "c_status",
+        "c_notyet",
+        "b_pack",
+        "b_range",
+        "b_vegan",
+        "b_suppliers",
+        "b_say",
+        "n_label",
+        "n_ev",
+        "n_shop"
+      ],
+      "settings": {
+        "section_width": "normal",
+        "measure": "narrow",
+        "eyebrow": "Science · Five of five",
+        "heading": "Our ethics",
+        "standfirst": "<p><em>The standards behind the business, stated plainly and kept to what we can actually stand behind.</em></p>",
+        "intro": "<p>Ethics is easy to talk about and harder to prove, which is why so much of it in this industry arrives as warm words and vague badges. We would rather say less and mean it. What follows is what we do, described precisely enough that you could hold us to it, and nothing we cannot yet back up gets dressed up as though we can.</p>",
+        "hero_image_reserve": false,
+        "next_heading": "Where to go next"
+      }
+    }
+  },
+  "order": [
+    "main"
+  ]
+}
