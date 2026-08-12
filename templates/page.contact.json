@@ -139,10 +139,67 @@
         "padding-block-start": 32,
         "padding-block-end": 84
       }
+    },
+    "contact_channels": {
+      "type": "contact-channels",
+      "blocks": {
+        "ch_email": {
+          "type": "channel",
+          "settings": {
+            "label": "Email",
+            "value": "store@biotaderm.com",
+            "href": "mailto:store@biotaderm.com",
+            "note": "I answer emails within one working day, usually the same day."
+          }
+        },
+        "ch_phone": {
+          "type": "channel",
+          "settings": {
+            "label": "Phone",
+            "value": "01288 272800",
+            "href": "tel:+441288272800",
+            "note": "Better for anything urgent, though if it rings out it is because both hands are in a batch."
+          }
+        },
+        "n_include": {
+          "type": "note",
+          "settings": {
+            "heading": "What to include",
+            "body": "<p>If it is about an order, the order number saves us a round trip. If it is about your skin, tell us what it is doing rather than what you think it is - that is more useful.</p>"
+          }
+        },
+        "n_returns": {
+          "type": "note",
+          "settings": {
+            "heading": "Returns and the Two-Week Trial",
+            "body": "<p>The Two-Week Trial is our recommendation, not a returns policy: give a new moisturiser a fortnight before you judge it.</p><p>Separately, you have the 14-day statutory right to cancel, and we extend that to a 60-day return period from delivery, which includes those 14 days. If it is not right, tell us within that window and we will swap it or refund it, with return postage on us. See our <a href=\"/policies/refund-policy\">refund policy</a>.</p>"
+          }
+        },
+        "n_privacy": {
+          "type": "note",
+          "settings": {
+            "heading": "Privacy",
+            "body": "<p>We use what you send only to answer you. See our <a href=\"/policies/privacy-policy\">privacy policy</a>.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "ch_email",
+        "ch_phone",
+        "n_include",
+        "n_returns",
+        "n_privacy"
+      ],
+      "settings": {
+        "section_width": "normal",
+        "legal": "<p>Welcombe Skincare Ltd, trading as Biotaderm. Registered in England and Wales, company number 13451607.</p><p>Registered office: Darracott Farm, Welcombe, Devon EX39 6HG.</p>",
+        "map_alt": ""
+      }
     }
   },
   "order": [
     "main",
-    "form"
+    "form",
+    "contact_channels"
   ]
 }
