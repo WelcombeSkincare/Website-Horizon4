@@ -1,147 +1,7 @@
-/*
- * ------------------------------------------------------------
- * IMPORTANT: The contents of this file are auto-generated.
- *
- * This file may be updated by the Shopify admin theme editor
- * or related systems. Please exercise caution as any changes
- * made to this file may be overwritten.
- * ------------------------------------------------------------
- */
 {
   "sections": {
-    "main": {
-      "type": "main-page",
-      "blocks": {
-        "title": {
-          "type": "text",
-          "name": "t:names.title",
-          "settings": {
-            "text": "<h1>{{ closest.page.title }}</h1>",
-            "width": "100%",
-            "max_width": "normal",
-            "alignment": "center",
-            "type_preset": "h2",
-            "font": "var(--font-primary--family)",
-            "font_size": "",
-            "line_height": "normal",
-            "letter_spacing": "normal",
-            "case": "none",
-            "wrap": "pretty",
-            "background": false,
-            "background_color": "#00000026",
-            "corner_radius": 0,
-            "padding-block-start": 0,
-            "padding-block-end": 0,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
-          },
-          "blocks": {}
-        },
-        "content": {
-          "type": "text",
-          "name": "t:names.content",
-          "settings": {
-            "text": "{{ closest.page.content }}",
-            "width": "100%",
-            "max_width": "narrow",
-            "alignment": "center",
-            "type_preset": "rte",
-            "font": "var(--font-primary--family)",
-            "font_size": "",
-            "line_height": "normal",
-            "letter_spacing": "normal",
-            "case": "none",
-            "wrap": "pretty",
-            "background": false,
-            "background_color": "#00000026",
-            "corner_radius": 0,
-            "padding-block-start": 0,
-            "padding-block-end": 0,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
-          },
-          "blocks": {}
-        }
-      },
-      "block_order": [
-        "title",
-        "content"
-      ],
-      "settings": {
-        "content_direction": "column",
-        "gap": 32,
-        "background_color": "{{ settings.color_palette.background }}",
-        "padding-block-start": 40,
-        "padding-block-end": 0
-      }
-    },
-    "form": {
-      "type": "section",
-      "blocks": {
-        "contact_form_UwiCkQ": {
-          "type": "contact-form",
-          "settings": {
-            "width": "custom",
-            "custom_width": 50,
-            "width_mobile": "custom",
-            "custom_width_mobile": 100,
-            "padding-block-start": 0,
-            "padding-block-end": 0,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
-          },
-          "blocks": {
-            "submit-button": {
-              "type": "contact-form-submit-button",
-              "static": true,
-              "settings": {
-                "label": "Submit",
-                "style_class": "button",
-                "width": "fit-content",
-                "custom_width": 100,
-                "width_mobile": "fit-content",
-                "custom_width_mobile": 100
-              },
-              "blocks": {}
-            }
-          },
-          "block_order": []
-        }
-      },
-      "block_order": [
-        "contact_form_UwiCkQ"
-      ],
-      "name": "t:names.contact_form",
-      "settings": {
-        "content_direction": "column",
-        "vertical_on_mobile": true,
-        "horizontal_alignment": "flex-start",
-        "vertical_alignment": "center",
-        "align_baseline": false,
-        "horizontal_alignment_flex_direction_column": "center",
-        "vertical_alignment_flex_direction_column": "center",
-        "gap": 32,
-        "section_width": "page-width",
-        "section_height": "",
-        "section_height_custom": 50,
-        "background_media": "none",
-        "background_color": "{{ settings.color_palette.background }}",
-        "video_position": "cover",
-        "background_image_position": "cover",
-        "toggle_overlay": false,
-        "overlay_color": "#00000026",
-        "overlay_style": "solid",
-        "gradient_direction": "to top",
-        "border": "none",
-        "border_width": 1,
-        "border_opacity": 100,
-        "border_radius": 0,
-        "padding-block-start": 32,
-        "padding-block-end": 84
-      }
-    },
-    "contact_channels_top": {
-      "type": "contact-channels",
+    "contact": {
+      "type": "contact-page",
       "blocks": {
         "ch_email": {
           "type": "channel",
@@ -160,20 +20,49 @@
             "href": "tel:+441288272800",
             "note": "Better for anything urgent, though if it rings out it is because both hands are in a batch."
           }
+        },
+        "note_include": {
+          "type": "note",
+          "settings": {
+            "heading": "What to include",
+            "body": "<p>If it is about an order, the order number saves us a round trip. If it is about your skin, tell me what it is doing and what you have tried, and I will give you a straight answer even when the straight answer is that we do not make the thing you need.</p>"
+          }
+        },
+        "note_returns": {
+          "type": "note",
+          "settings": {
+            "heading": "Returns and the Two-Week Trial",
+            "body": "<p>If a product has not suited you, email and say so. You do not need to explain yourself, and you do not need to send a full bottle back. Everything you are entitled to is set out in our <a href=\"/policies/refund-policy\">returns policy</a>, including the 14-day statutory right to cancel and our extended 60-day return period.</p>"
+          }
+        },
+        "note_privacy": {
+          "type": "note",
+          "settings": {
+            "heading": "Privacy",
+            "body": "<p>Anything you send goes to me and nowhere else. What happens to it is in our <a href=\"/policies/privacy-policy\">privacy policy</a>.</p>"
+          }
         }
       },
       "block_order": [
         "ch_email",
-        "ch_phone"
+        "ch_phone",
+        "note_include",
+        "note_returns",
+        "note_privacy"
       ],
       "settings": {
-        "section_width": "normal"
+        "section_width": "normal",
+        "eyebrow": "Welcombe, north Devon",
+        "heading": "Contact",
+        "intro": "<p>Everything here is made by hand by one person, so the person answering this email is the person who made your moisturiser. That has an obvious drawback, which is that I am sometimes in the workshop rather than at the desk. It also means nobody is going to read you a script.</p>",
+        "form_heading": "Send a message",
+        "form_note": "It goes to the same inbox. Only the email address is required.",
+        "submit_label": "Send message",
+        "legal": "<p><strong>Welcombe Skincare Ltd</strong>, trading as Biotaderm<br>Darracott Farm, Welcombe, Devon EX39 6HG, United Kingdom<br>Registered in England and Wales, company number 13451607</p>"
       }
     }
   },
   "order": [
-    "main",
-    "contact_channels_top",
-    "form"
+    "contact"
   ]
 }
