@@ -155,7 +155,7 @@
           "type": "question",
           "settings": {
             "question": "Is it organic?",
-            "answer": "<p>Many of the oils are, and they are marked on every formulation table. A star means certified organic, a caret means cold-pressed, and most of the plant oils carry both. A hash means upcycled, made from a by-product of another process.</p> <p>The finished products are not certified organic. Certification covers the whole product and the whole process, and we have not been through it.</p>",
+            "answer": "<p>Many of the oils are, and they are marked on every formulation table. A star means organic, a caret means cold-pressed, and most of the plant oils carry both. A hash means upcycled, made from a by-product of another process.</p> <p>The finished products are not certified organic. Certification covers the whole product and the whole process, and we have not been through it.</p>",
             "set_piece": "organic_key",
             "ethos_icon": "none",
             "ethos_label": ""

@@ -7,11 +7,11 @@
           "type": "band",
           "settings": {
             "heading": "What we publish",
-            "body": "<p>For every product, the full picture is on the page. Each ingredient appears under its INCI name, the standardised name used on labels the world over, with a plain-English name alongside so you are not left translating Latin. The list runs in order of weight, most abundant first, and we carry that order all the way down to the smallest trace, which goes further than the labelling rules actually require. Beside each one sits its exact percentage.</p><p>We also mark how ingredients are made. A star means certified organic. A caret means cold-pressed. Most of the plant oils carry both, because they are both. A hash means upcycled, made from a by-product of another process. And where there is an aromatic in the formula, it is named outright as vetiver, never folded into a vague \"parfum\" or \"fragrance\". If it is in the bottle, it is on the label, under its own name.</p>",
+            "body": "<p>For every product, the full picture is on the page. Each ingredient appears under its INCI name, the standardised name used on labels the world over, with a plain-English name alongside so you are not left translating Latin. The list runs in order of weight, most abundant first, and we carry that order all the way down to the smallest trace, which goes further than the labelling rules actually require. Beside each one sits its exact percentage.</p><p>We also mark how ingredients are made. A star means organic. A caret means cold-pressed. Most of the plant oils carry both, because they are both. A hash means upcycled, made from a by-product of another process. And where there is an aromatic in the formula, it is named outright as vetiver, never folded into a vague \"parfum\" or \"fragrance\". If it is in the bottle, it is on the label, under its own name.</p>",
             "variant": "plain",
             "set_piece": "mark_legend",
             "ethos_icon": "none",
-            "mark_1": "certified organic",
+            "mark_1": "organic",
             "mark_2": "cold-pressed",
             "mark_3": "upcycled — made from a by-product of another process"
           }
@@ -74,7 +74,7 @@
           "type": "band",
           "settings": {
             "heading": "How to read a Biotaderm formulation",
-            "body": "<p>It is simpler than it looks. The order is the key: ingredients are listed from most to least, so whatever sits near the top makes up the bulk of the product, and the actives you have read about usually sit lower down, where a little does a lot. Each line gives you the INCI name, the everyday name in brackets, and the percentage. A star after a name means certified organic, a caret means cold-pressed, and a hash means upcycled. An oil carrying a star and a caret together is both organic and cold-pressed, which most of them are. The short legend at the foot of every list spells it out. That is the whole code.</p>",
+            "body": "<p>It is simpler than it looks. The order is the key: ingredients are listed from most to least, so whatever sits near the top makes up the bulk of the product, and the actives you have read about usually sit lower down, where a little does a lot. Each line gives you the INCI name, the everyday name in brackets, and the percentage. A star after a name means organic, a caret means cold-pressed, and a hash means upcycled. An oil carrying a star and a caret together is both organic and cold-pressed, which most of them are. The short legend at the foot of every list spells it out. That is the whole code.</p>",
             "variant": "plain",
             "set_piece": "annotated_line",
             "ethos_icon": "none",
