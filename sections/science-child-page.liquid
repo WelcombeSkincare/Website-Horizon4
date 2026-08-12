@@ -1,0 +1,683 @@
+{%- comment -%}
+  sections/science-child-page.liquid
+  The five children of /pages/our-science (design handoff "science pages").
+
+  ONE section, five templates. The pages share one grammar - hero band, a 300px
+  heading column against a 60ch body, white cards on Stone, Gorse insets for
+  claims caveats, a closing card row - so five near-identical sections would
+  triple the maintenance for no gain.
+
+  Blocks are FLAT and ordered, as in faq-page.liquid and home-formulation.liquid:
+  a `band` opens a group and every `card` / `reference` after it belongs to that
+  band until the next one. Shopify has no nested blocks.
+
+  CLAIMS CAVEATS ARE LOAD-BEARING. Each `caveat` exists because the brand's
+  claims discipline requires a limit to be stated next to the claim it limits.
+  They must not be cut for length, hidden behind a "read more", or moved to the
+  foot of the page away from what they qualify.
+
+  The narrow pages (how-we-handle-evidence, our-ethics) set `measure: narrow`,
+  which drops the container to 1000px and the heading column to 260px.
+
+  Every grid uses minmax(0, 1fr), never a bare 1fr - a bare 1fr takes a
+  min-content floor from its widest child and pushes the other column out of
+  the viewport.
+{%- endcomment -%}
+
+{%- liquid
+  assign sw = section.settings.section_width | default: 'normal'
+  assign measure = section.settings.measure | default: 'wide'
+-%}
+
+<div class="bd-sci bd-sci--{{ measure }} page-width-{{ sw }}" data-bd-sci>
+
+  {%- comment -%} HERO {%- endcomment -%}
+  <div class="bd-sci-hero{% if section.settings.hero_image != blank %} has-image{% endif %}">
+    <div class="bd-sci-hero-copy">
+      {%- if section.settings.eyebrow != blank -%}
+        <p class="bd-sci-eyebrow">{{ section.settings.eyebrow }}</p>
+      {%- endif -%}
+      {%- if section.settings.heading != blank -%}
+        <h1 class="bd-sci-h1">{{ section.settings.heading }}</h1>
+      {%- endif -%}
+      {%- if section.settings.standfirst != blank -%}
+        <div class="bd-sci-standfirst">{{ section.settings.standfirst }}</div>
+      {%- endif -%}
+      {%- if section.settings.intro != blank -%}
+        <div class="bd-sci-intro">{{ section.settings.intro }}</div>
+      {%- endif -%}
+    </div>
+    {%- if section.settings.hero_image != blank -%}
+      <div class="bd-sci-hero-img">
+        {{ section.settings.hero_image | image_url: width: 900 | image_tag: loading: 'eager', alt: section.settings.hero_image_alt }}
+      </div>
+    {%- elsif section.settings.hero_image_reserve -%}
+      <div class="bd-sci-hero-img"><span class="bd-sci-img-empty" aria-hidden="true"></span></div>
+    {%- endif -%}
+  </div>
+
+  <div class="bd-sci-body">
+    {%- assign open_band = false -%}
+    {%- for block in section.blocks -%}
+      {%- case block.type -%}
+
+        {%- comment -%} ---------- BAND ---------- {%- endcomment -%}
+        {%- when 'band' -%}
+          {%- if open_band -%}</div></section>{%- endif -%}
+          {%- assign open_band = true -%}
+          <section
+            class="bd-sci-band bd-sci-band--{{ block.settings.variant }}"
+            {% if block.settings.heading != blank %}id="{{ block.settings.heading | handleize }}"{% endif %}
+            {{ block.shopify_attributes }}
+          >
+            {%- if block.settings.heading != blank -%}
+              <h2 class="bd-sci-h2">{{ block.settings.heading }}</h2>
+            {%- else -%}
+              <div aria-hidden="true"></div>
+            {%- endif -%}
+            <div class="bd-sci-col">
+              {%- if block.settings.body != blank -%}
+                <div class="bd-sci-prose">{{ block.settings.body }}</div>
+              {%- endif -%}
+
+              {%- comment -%} SET PIECES that need no cards {%- endcomment -%}
+              {%- case block.settings.set_piece -%}
+
+                {%- when 'chips' -%}
+                  {%- assign chips = block.settings.chips | split: '|' -%}
+                  <ul class="bd-sci-chips">
+                    {%- for c in chips -%}<li class="bd-sci-chip">{{ c | strip }}</li>{%- endfor -%}
+                  </ul>
+
+                {%- when 'mark_legend' -%}
+                  {%- comment -%}
+                    HTML entities on purpose - a literal * ^ # can be eaten by a
+                    Liquid or Markdown pipeline on the way through the admin.
+                    Definitions come from settings so this page, the FAQ and the
+                    product legend can be kept in step.
+                  {%- endcomment -%}
+                  <div class="bd-sci-legend">
+                    {%- if block.settings.mark_1 != blank -%}
+                      <div class="bd-sci-legend-row"><span class="bd-sci-sym">&#42;</span><span>{{ block.settings.mark_1 }}</span></div>
+                    {%- endif -%}
+                    {%- if block.settings.mark_2 != blank -%}
+                      <div class="bd-sci-legend-row"><span class="bd-sci-sym">&#94;</span><span>{{ block.settings.mark_2 }}</span></div>
+                    {%- endif -%}
+                    {%- if block.settings.mark_3 != blank -%}
+                      <div class="bd-sci-legend-row"><span class="bd-sci-sym">&#35;</span><span>{{ block.settings.mark_3 }}</span></div>
+                    {%- endif -%}
+                  </div>
+
+                {%- when 'annotated_line' -%}
+                  {%- liquid
+                    assign spec_name = block.settings.spec_name
+                    assign spec_pct = block.settings.spec_pct
+                    if block.settings.spec_product != blank
+                      assign fm = block.settings.spec_product.metafields.custom.formulation_first_line
+                      if fm != blank
+                        assign spec_name = fm.value
+                      endif
+                    endif
+                  -%}
+                  <div class="bd-sci-annot">
+                    <p class="bd-sci-micro">{{ block.settings.annot_label | default: 'One line, annotated' }}</p>
+                    <div class="bd-sci-annot-row">
+                      <span class="bd-sci-annot-name">{{ spec_name }}</span>
+                      <span class="bd-sci-annot-pct">{{ spec_pct }}</span>
+                    </div>
+                    <div class="bd-sci-annot-keys">
+                      {%- assign keys = block.settings.annot_keys | split: '|' -%}
+                      {%- for k in keys -%}
+                        {%- assign kv = k | split: '::' -%}
+                        <div><span class="bd-sci-micro">{{ kv[0] | strip }}</span><span class="bd-sci-annot-def">{{ kv[1] | strip }}</span></div>
+                      {%- endfor -%}
+                    </div>
+                    {%- if block.settings.annot_footnote != blank -%}
+                      <p class="bd-sci-annot-foot">{{ block.settings.annot_footnote }}</p>
+                    {%- endif -%}
+                  </div>
+
+                {%- when 'range_grid' -%}
+                  {%- comment -%}
+                    Generated from the collections, not hardcoded. Fifteen hand-typed
+                    swatches would be wrong the first time the range changed, and the
+                    page's whole argument is that the range is deliberate.
+                    The five hues are fixed and load-bearing - never reassign them.
+                  {%- endcomment -%}
+                  {%- liquid
+                    assign type_handles = 'dry-sensitive-skin-type,dry-skin-type,balanced-skin-type,oily-skin-type,oily-sensitive-skin-type' | split: ','
+                    assign hues = '#80A89E,#F47D5E,#6BBBCC,#C2CA53,#A37594' | split: ','
+                    assign tex_handles = 'flow-texture,core-texture,deep-texture' | split: ','
+                  -%}
+                  <div class="bd-sci-range">
+                    <div class="bd-sci-range-grid">
+                      <span></span>
+                      {%- for h in type_handles -%}
+                        {%- assign col = collections[h] -%}
+                        <span class="bd-sci-range-head">{{ col.title | default: h }}</span>
+                      {%- endfor -%}
+                      {%- for th in tex_handles -%}
+                        {%- assign tex = collections[th] -%}
+                        <span class="bd-sci-range-word{% if forloop.last %} is-deep{% endif %}">{{ tex.title | default: th | upcase }}</span>
+                        {%- for h in type_handles -%}
+                          <span class="bd-sci-range-sw" style="background:{{ hues[forloop.index0] }}"></span>
+                        {%- endfor -%}
+                      {%- endfor -%}
+                    </div>
+                    {%- if block.settings.range_footnote != blank -%}
+                      <p class="bd-sci-range-foot">{{ block.settings.range_footnote }}</p>
+                    {%- endif -%}
+                  </div>
+              {%- endcase -%}
+
+              {%- comment -%} CAVEAT - load-bearing, sits beside what it limits {%- endcomment -%}
+              {%- if block.settings.caveat != blank -%}
+                <div class="bd-sci-caveat">{{ block.settings.caveat }}</div>
+              {%- endif -%}
+
+              {%- comment -%} ETHOS ROW {%- endcomment -%}
+              {%- if block.settings.ethos_icon != 'none' and block.settings.ethos_icon != blank -%}
+                <div class="bd-sci-ethos">
+                  <img
+                    class="bd-sci-ethos-icon{% if block.settings.variant == 'dark' %} is-reversed{% endif %}"
+                    src="{{ block.settings.ethos_icon | append: '.svg' | asset_url }}"
+                    alt=""
+                    width="32"
+                    height="32"
+                    loading="lazy"
+                  >
+                  <span class="bd-sci-ethos-label">{{ block.settings.ethos_label }}</span>
+                </div>
+              {%- endif -%}
+
+        {%- comment -%} ---------- CARDS (belong to the open band) ---------- {%- endcomment -%}
+        {%- when 'card' -%}
+          {%- assign prev = forloop.index0 | minus: 1 -%}
+          {%- unless section.blocks[prev].type == 'card' -%}
+            <div class="bd-sci-cards bd-sci-cards--{{ block.settings.layout | default: 'pair' }}">
+          {%- endunless -%}
+            <div class="bd-sci-card bd-sci-card--{{ block.settings.variant }}" {{ block.shopify_attributes }}>
+              {%- if block.settings.label != blank -%}
+                <p class="bd-sci-micro">{{ block.settings.label }}</p>
+              {%- endif -%}
+              {%- if block.settings.image != blank -%}
+                <div class="bd-sci-card-img">
+                  {{ block.settings.image | image_url: width: 640 | image_tag: loading: 'lazy', alt: block.settings.image_alt }}
+                </div>
+              {%- endif -%}
+              {%- if block.settings.title != blank -%}
+                <p class="bd-sci-card-title">{{ block.settings.title }}</p>
+              {%- endif -%}
+              {%- if block.settings.body != blank -%}
+                <div class="bd-sci-card-body">{{ block.settings.body }}</div>
+              {%- endif -%}
+              {%- if block.settings.link_label != blank -%}
+                <a class="bd-sci-card-link" href="{{ block.settings.link_url }}">{{ block.settings.link_label }} &rarr;</a>
+              {%- endif -%}
+            </div>
+          {%- assign nxt = forloop.index -%}
+          {%- unless section.blocks[nxt].type == 'card' -%}</div>{%- endunless -%}
+
+        {%- comment -%} ---------- NUMBERED PANELS ---------- {%- endcomment -%}
+        {%- when 'panel' -%}
+          {%- assign prev = forloop.index0 | minus: 1 -%}
+          {%- unless section.blocks[prev].type == 'panel' -%}<div class="bd-sci-panels">{%- endunless -%}
+            <div class="bd-sci-panel" {{ block.shopify_attributes }}>
+              <div class="bd-sci-panel-left">
+                <p class="bd-sci-panel-num">{{ block.settings.numeral }}</p>
+                <h3 class="bd-sci-panel-h3">{{ block.settings.title }}</h3>
+                {%- if block.settings.image != blank -%}
+                  <div class="bd-sci-panel-img">
+                    {{ block.settings.image | image_url: width: 600 | image_tag: loading: 'lazy', alt: block.settings.image_alt }}
+                  </div>
+                {%- endif -%}
+              </div>
+              <div class="bd-sci-panel-body">{{ block.settings.body }}</div>
+            </div>
+          {%- assign nxt = forloop.index -%}
+          {%- unless section.blocks[nxt].type == 'panel' -%}</div>{%- endunless -%}
+
+        {%- comment -%} ---------- REFERENCES ---------- {%- endcomment -%}
+        {%- when 'reference' -%}
+          {%- assign prev = forloop.index0 | minus: 1 -%}
+          {%- unless section.blocks[prev].type == 'reference' -%}<ol class="bd-sci-refs">{%- endunless -%}
+            <li class="bd-sci-ref" {{ block.shopify_attributes }}>
+              <span class="bd-sci-ref-n">{{ block.settings.number }}</span>
+              <span class="bd-sci-ref-t">
+                {%- if block.settings.url != blank -%}
+                  <a href="{{ block.settings.url }}" rel="nofollow">{{ block.settings.citation }}</a>
+                {%- else -%}
+                  {{ block.settings.citation }}
+                {%- endif -%}
+              </span>
+            </li>
+          {%- assign nxt = forloop.index -%}
+          {%- unless section.blocks[nxt].type == 'reference' -%}</ol>{%- endunless -%}
+
+        {%- comment -%} ---------- PULL QUOTE (breaks out of the band) ---------- {%- endcomment -%}
+        {%- when 'quote' -%}
+          {%- if open_band -%}</div></section>{%- assign open_band = false -%}{%- endif -%}
+          <blockquote class="bd-sci-quote" {{ block.shopify_attributes }}>{{ block.settings.text }}</blockquote>
+
+        {%- comment -%} ---------- WHERE TO GO NEXT ---------- {%- endcomment -%}
+        {%- when 'next' -%}
+          {%- assign prev = forloop.index0 | minus: 1 -%}
+          {%- unless section.blocks[prev].type == 'next' -%}
+            {%- if open_band -%}</div></section>{%- assign open_band = false -%}{%- endif -%}
+            <div class="bd-sci-next">
+              {%- if section.settings.next_heading != blank -%}
+                <h2 class="bd-sci-next-h">{{ section.settings.next_heading }}</h2>
+              {%- endif -%}
+              <div class="bd-sci-next-grid">
+          {%- endunless -%}
+              <a class="bd-sci-next-card" href="{{ block.settings.url }}" {{ block.shopify_attributes }}>
+                <span class="bd-sci-next-title">{{ block.settings.heading }}</span>
+                <span class="bd-sci-next-body">{{ block.settings.body }}</span>
+              </a>
+          {%- assign nxt = forloop.index -%}
+          {%- unless section.blocks[nxt].type == 'next' -%}</div></div>{%- endunless -%}
+
+      {%- endcase -%}
+    {%- endfor -%}
+    {%- if open_band -%}</div></section>{%- endif -%}
+  </div>
+</div>
+
+{% stylesheet %}
+.bd-sci {
+  --bd-gutter: 80px;
+  --bd-oyster: #E0E1E2;
+  --bd-tide: #4E6D6C;
+  --bd-head-col: 300px;
+  --bd-split-gap: 64px;
+  --bd-max: 1240px;
+}
+.bd-sci--narrow { --bd-head-col: 260px; --bd-split-gap: 56px; --bd-max: 1000px; }
+.bd-sci-hero,
+.bd-sci-body { padding-inline: max(var(--bd-gutter), calc((100% - var(--page-content-width, 120rem)) / 2)); }
+.bd-sci-hero > *,
+.bd-sci-body > * { max-width: var(--bd-max); margin-inline: auto; }
+
+.bd-sci-hero { background: #FFFFFF; padding-block: 80px 72px; }
+.bd-sci-hero.has-image {
+  display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 440px);
+  gap: 72px; align-items: center; max-width: var(--bd-max); margin-inline: auto;
+}
+.bd-sci-hero.has-image > * { max-width: none; }
+.bd-sci-hero-img { aspect-ratio: 4 / 5; background: #FAF7F5; border-radius: 4px; overflow: hidden; }
+.bd-sci-hero-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.bd-sci-img-empty { display: block; width: 100%; height: 100%; }
+
+.bd-sci-eyebrow {
+  font-family: 'Roboto Condensed', sans-serif; font-weight: 700;
+  font-size: 12px; letter-spacing: .12em; text-transform: uppercase;
+  color: #57585C; margin: 0 0 22px;
+}
+.bd-sci-h1 {
+  font-family: 'Roboto Condensed', sans-serif; font-weight: 400;
+  font-size: 64px; line-height: 1.05; color: #161617; margin: 0 0 20px;
+}
+.bd-sci--narrow .bd-sci-h1 { font-size: 68px; max-width: 18ch; }
+.bd-sci-standfirst {
+  font-family: 'Roboto Condensed', sans-serif; font-weight: 400;
+  font-size: 24px; line-height: 1.32; color: #3F4042; max-width: 44ch; margin-bottom: 20px;
+}
+.bd-sci--narrow .bd-sci-standfirst { font-size: 28px; max-width: 40ch; }
+.bd-sci-standfirst p { margin: 0; }
+.bd-sci-intro p { font-size: 18px; line-height: 1.55; color: #414245; max-width: 62ch; margin: 0 0 14px; }
+.bd-sci-intro p:last-child { margin-bottom: 0; }
+
+.bd-sci-body { background: #FAF7F5; padding-block: 72px 88px; }
+
+/* --- bands --- */
+.bd-sci-band {
+  display: grid; grid-template-columns: var(--bd-head-col) minmax(0, 1fr);
+  gap: var(--bd-split-gap); align-items: start;
+}
+.bd-sci-band + .bd-sci-band { margin-top: 76px; }
+.bd-sci-h2 {
+  font-family: 'Roboto Condensed', sans-serif; font-weight: 400;
+  font-size: 36px; line-height: 1.1; color: #3F4042; margin: 0;
+}
+.bd-sci-col { display: flex; flex-direction: column; gap: 22px; }
+.bd-sci-prose p { font-size: 18px; line-height: 1.65; color: #494A4D; max-width: 60ch; margin: 0 0 16px; }
+.bd-sci-prose p:last-child { margin-bottom: 0; }
+.bd-sci-prose a, .bd-sci-card-body a, .bd-sci-caveat a { color: #161617; text-decoration: underline; }
+
+.bd-sci-band--rule { border-top: 1px solid var(--bd-oyster); border-bottom: 1px solid var(--bd-oyster); padding-block: 56px; }
+.bd-sci-band--dark {
+  background: #263E40; border-radius: 4px; padding: 56px 52px; grid-template-columns: 1fr;
+  gap: 24px;
+}
+.bd-sci-band--dark .bd-sci-h2 { color: #FFFFFF; font-size: 34px; max-width: 26ch; }
+.bd-sci-band--dark .bd-sci-prose p { color: #E4EAEA; max-width: 62ch; }
+.bd-sci-band--dark .bd-sci-ethos { border-top-color: rgba(255,255,255,.25); }
+.bd-sci-band--dark .bd-sci-ethos-label { color: #A8BCBD; }
+
+/* --- caveat: load-bearing, never decoration --- */
+.bd-sci-caveat {
+  background: #FBFBF2; border-left: 2px solid var(--bd-tide);
+  border-radius: 0 4px 4px 0; padding: 20px 24px; max-width: 62ch;
+}
+.bd-sci-caveat p { font-size: 18px; line-height: 1.6; color: #494A4D; margin: 0 0 10px; }
+.bd-sci-caveat p:last-child { margin-bottom: 0; }
+
+/* --- ethos --- */
+.bd-sci-ethos { display: flex; gap: 12px; align-items: center; border-top: 1px solid var(--bd-oyster); padding-top: 18px; }
+.bd-sci-ethos-icon { width: 32px; height: 32px; flex: 0 0 32px; display: block; }
+/* monochrome reversal for legibility on the dark field - not a recolour */
+.bd-sci-ethos-icon.is-reversed { filter: brightness(0) invert(1); }
+.bd-sci-ethos-label {
+  font-family: 'Roboto Condensed', sans-serif; font-weight: 700;
+  font-size: 11px; letter-spacing: .09em; text-transform: uppercase; color: #57585C;
+}
+
+/* --- cards --- */
+.bd-sci-cards { display: grid; gap: 20px; }
+.bd-sci-cards--pair { grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
+.bd-sci-cards--trio { grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); }
+.bd-sci-card {
+  background: #FFFFFF; border: 1px solid var(--bd-oyster); border-radius: 4px;
+  padding: 28px 30px; display: flex; flex-direction: column; gap: 12px;
+}
+.bd-sci-card--caveat { background: #FBFBF2; border-left: 2px solid var(--bd-tide); }
+.bd-sci-card--accent { border-left: 3px solid var(--bd-tide); }
+.bd-sci-card-title { font-family: 'Roboto Condensed', sans-serif; font-size: 24px; color: #3F4042; margin: 0; }
+.bd-sci-card-body p { font-size: 16px; line-height: 1.6; color: #494A4D; margin: 0 0 10px; }
+.bd-sci-card-body p:last-child { margin-bottom: 0; }
+.bd-sci-card--struck .bd-sci-card-body p {
+  font-family: 'Roboto Condensed', sans-serif; font-size: 22px; color: #57585C;
+  text-decoration: line-through; text-decoration-thickness: 1px;
+}
+.bd-sci-card--corrected .bd-sci-card-body p { font-family: 'Roboto Condensed', sans-serif; font-size: 22px; color: #161617; }
+.bd-sci-card-link { margin-top: auto; font-size: 15px; color: #161617; text-decoration: underline; }
+.bd-sci-card-img { aspect-ratio: 1 / 1; background: #FAF7F5; border-radius: 4px; overflow: hidden; }
+.bd-sci-card-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.bd-sci-micro {
+  font-family: 'Roboto Condensed', sans-serif; font-weight: 700;
+  font-size: 11px; letter-spacing: .09em; text-transform: uppercase; color: #57585C; margin: 0;
+}
+
+/* --- numbered panels --- */
+.bd-sci-panels { display: flex; flex-direction: column; gap: 20px; }
+.bd-sci-panel {
+  background: #FFFFFF; border: 1px solid var(--bd-oyster); border-radius: 4px;
+  padding: 36px 40px; display: grid; grid-template-columns: 300px minmax(0, 1fr); gap: 48px;
+}
+.bd-sci-panel-num {
+  font-family: 'Roboto Condensed', sans-serif; font-weight: 700;
+  font-size: 13px; letter-spacing: .1em; color: var(--bd-tide); margin: 0 0 8px;
+}
+.bd-sci-panel-h3 { font-family: 'Roboto Condensed', sans-serif; font-weight: 400; font-size: 28px; color: #3F4042; margin: 0; }
+.bd-sci-panel-img { aspect-ratio: 1 / 1; margin-top: 18px; background: #FAF7F5; border-radius: 4px; overflow: hidden; }
+.bd-sci-panel-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.bd-sci-panel-body p { font-size: 17px; line-height: 1.65; color: #494A4D; max-width: 60ch; margin: 0 0 14px; }
+.bd-sci-panel-body p:last-child { margin-bottom: 0; }
+.bd-sci-panel-body a { color: #161617; text-decoration: underline; }
+
+/* --- chips --- */
+.bd-sci-chips { display: flex; flex-wrap: wrap; gap: 10px; list-style: none; margin: 0; padding: 0; }
+.bd-sci-chip {
+  background: #FFFFFF; border: 1px solid var(--bd-oyster); border-radius: 999px;
+  padding: 8px 18px; font-family: 'Roboto Condensed', sans-serif; font-size: 15px; color: #3F4042;
+}
+
+/* --- mark legend --- */
+.bd-sci-legend { background: #FFFFFF; border: 1px solid var(--bd-oyster); border-radius: 4px; padding: 8px 28px 10px; max-width: 52ch; }
+.bd-sci-legend-row {
+  display: grid; grid-template-columns: 44px minmax(0, 1fr); gap: 16px; align-items: baseline;
+  padding: 16px 0; border-bottom: 1px solid var(--bd-oyster); font-size: 16px; color: #494A4D;
+}
+.bd-sci-legend-row:last-child { border-bottom: 0; }
+.bd-sci-sym { font-family: 'Roboto Condensed', sans-serif; font-weight: 700; font-size: 26px; color: #161617; }
+
+/* --- annotated formulation line --- */
+.bd-sci-annot { background: #FFFFFF; border: 1px solid var(--bd-oyster); border-radius: 4px; padding: 30px 32px 26px; }
+.bd-sci-annot-row {
+  display: grid; grid-template-columns: minmax(0, 1fr) 72px; gap: 20px; align-items: baseline;
+  border-bottom: 1px solid var(--bd-oyster); padding: 16px 0 14px; margin-top: 14px;
+}
+.bd-sci-annot-name { font-size: 18px; color: #161617; }
+.bd-sci-annot-pct { font-size: 18px; text-align: right; color: #3F4042; font-variant-numeric: tabular-nums; }
+.bd-sci-annot-keys { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 14px 24px; margin-top: 18px; }
+.bd-sci-annot-def { display: block; font-size: 14px; line-height: 1.55; color: #494A4D; margin-top: 4px; }
+.bd-sci-annot-foot { font-size: 13px; color: #57585C; border-top: 1px solid var(--bd-oyster); padding-top: 12px; margin: 18px 0 0; }
+
+/* --- range grid --- */
+.bd-sci-range { background: #FFFFFF; border: 1px solid var(--bd-oyster); border-radius: 4px; padding: 30px 32px; }
+.bd-sci-range-grid { display: grid; grid-template-columns: 90px repeat(5, minmax(0, 1fr)); gap: 8px; align-items: center; }
+.bd-sci-range-head { font-size: 12px; color: #57585C; text-align: center; line-height: 1.2; }
+.bd-sci-range-word { font-family: 'Roboto Condensed', sans-serif; font-weight: 700; font-size: 13px; letter-spacing: .06em; color: var(--bd-tide); text-transform: uppercase; }
+.bd-sci-range-word.is-deep { color: #263E40; }
+.bd-sci-range-sw { height: 34px; border-radius: 3px; display: block; }
+.bd-sci-range-foot { font-size: 13px; color: #57585C; border-top: 1px solid var(--bd-oyster); padding-top: 12px; margin: 18px 0 0; }
+
+/* --- references --- */
+.bd-sci-refs { list-style: none; margin: 0; padding: 0; }
+.bd-sci-ref {
+  display: grid; grid-template-columns: 34px minmax(0, 1fr); gap: 14px;
+  padding: 16px 0; border-top: 1px solid var(--bd-oyster); font-size: 15px; line-height: 1.55; color: #494A4D;
+}
+.bd-sci-ref:last-child { border-bottom: 1px solid var(--bd-oyster); }
+.bd-sci-ref-n { color: #57585C; font-variant-numeric: tabular-nums; }
+.bd-sci-ref-t a { color: #161617; text-decoration: underline; }
+
+/* --- pull quote --- */
+.bd-sci-quote {
+  border-top: 1px solid var(--bd-oyster); border-bottom: 1px solid var(--bd-oyster);
+  padding: 56px 0; margin: 76px 0; text-align: center;
+  font-family: 'Roboto Condensed', sans-serif; font-weight: 400;
+  font-size: 40px; line-height: 1.2; color: #3F4042; max-width: 30ch;
+  margin-inline: auto;
+}
+
+/* --- where to go next --- */
+.bd-sci-next { margin-top: 80px; }
+.bd-sci-next-h { font-family: 'Roboto Condensed', sans-serif; font-weight: 400; font-size: 30px; color: #3F4042; margin: 0 0 20px; }
+.bd-sci-next-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; }
+.bd-sci-next-card {
+  display: block; background: #FFFFFF; border: 1px solid var(--bd-oyster);
+  border-top: 3px solid var(--bd-tide); border-radius: 4px; padding: 28px 30px;
+  text-decoration: none; transition: border-color .16s ease;
+}
+.bd-sci-next-card:hover { border-color: #57585C; border-top-color: var(--bd-tide); }
+.bd-sci-next-title { display: block; font-family: 'Roboto Condensed', sans-serif; font-size: 22px; color: #3F4042; margin-bottom: 8px; }
+.bd-sci-next-body { display: block; font-size: 15px; line-height: 1.55; color: #494A4D; }
+
+@media (max-width: 749px) {
+  .bd-sci { --bd-gutter: 20px; }
+  .bd-sci-hero { padding-block: 40px 32px; }
+  .bd-sci-hero.has-image { grid-template-columns: 1fr; gap: 28px; }
+  .bd-sci-h1, .bd-sci--narrow .bd-sci-h1 { font-size: 34px; }
+  .bd-sci-standfirst, .bd-sci--narrow .bd-sci-standfirst { font-size: 20px; }
+  .bd-sci-intro p { font-size: 16px; }
+  .bd-sci-body { padding-block: 40px 56px; }
+  .bd-sci-band { grid-template-columns: 1fr; gap: 18px; }
+  .bd-sci-band + .bd-sci-band { margin-top: 48px; }
+  .bd-sci-h2 { font-size: 26px; }
+  .bd-sci-band--dark { padding: 32px 24px; }
+  .bd-sci-panel { grid-template-columns: 1fr; gap: 20px; padding: 26px 22px; }
+  .bd-sci-quote { font-size: 26px; padding: 36px 0; margin: 48px 0; }
+  /* the range grid keeps its header row and scrolls rather than shrinking swatches */
+  .bd-sci-range { overflow-x: auto; }
+  .bd-sci-range-grid { min-width: 460px; }
+}
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Science child page",
+  "tag": "section",
+  "class": "shopify-section--bd-science-child",
+  "settings": [
+    {
+      "type": "select",
+      "id": "section_width",
+      "label": "Section width",
+      "options": [
+        { "value": "narrow", "label": "Narrow" },
+        { "value": "normal", "label": "Normal" },
+        { "value": "wide", "label": "Wide" },
+        { "value": "content", "label": "Content width" }
+      ],
+      "default": "normal"
+    },
+    {
+      "type": "select",
+      "id": "measure",
+      "label": "Measure",
+      "info": "Narrow (1000px) suits the argument pages - how we handle evidence, our ethics.",
+      "options": [
+        { "value": "wide", "label": "Wide (1240px)" },
+        { "value": "narrow", "label": "Narrow (1000px)" }
+      ],
+      "default": "wide"
+    },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "info": "Carries the position marker, e.g. \"Science - One of five\"." },
+    { "type": "text", "id": "heading", "label": "Heading" },
+    { "type": "richtext", "id": "standfirst", "label": "Standfirst" },
+    { "type": "richtext", "id": "intro", "label": "Intro" },
+    { "type": "image_picker", "id": "hero_image", "label": "Hero image" },
+    { "type": "text", "id": "hero_image_alt", "label": "Hero image alt text" },
+    { "type": "checkbox", "id": "hero_image_reserve", "label": "Reserve the hero image slot", "info": "Keeps the two-column hero while the photograph is being commissioned.", "default": false },
+    { "type": "text", "id": "next_heading", "label": "Where to go next heading", "default": "Where to go next" }
+  ],
+  "blocks": [
+    {
+      "type": "band",
+      "name": "Band",
+      "settings": [
+        { "type": "text", "id": "heading", "label": "Heading" },
+        { "type": "richtext", "id": "body", "label": "Body" },
+        { "type": "richtext", "id": "caveat", "label": "Claims caveat", "info": "Load-bearing. States the limit next to the claim it limits - never cut for length or moved away from it." },
+        {
+          "type": "select",
+          "id": "variant",
+          "label": "Variant",
+          "options": [
+            { "value": "plain", "label": "Plain" },
+            { "value": "rule", "label": "Rules top and bottom" },
+            { "value": "dark", "label": "Dark Atlantic panel" }
+          ],
+          "default": "plain"
+        },
+        {
+          "type": "select",
+          "id": "set_piece",
+          "label": "Set piece",
+          "options": [
+            { "value": "none", "label": "None" },
+            { "value": "chips", "label": "Approved phrasings (chips)" },
+            { "value": "mark_legend", "label": "Mark legend" },
+            { "value": "annotated_line", "label": "Annotated formulation line" },
+            { "value": "range_grid", "label": "Range grid" }
+          ],
+          "default": "none"
+        },
+        { "type": "text", "id": "chips", "label": "Chips", "info": "Pipe separated." },
+        { "type": "text", "id": "mark_1", "label": "Mark: star (*)" },
+        { "type": "text", "id": "mark_2", "label": "Mark: caret (^)" },
+        { "type": "text", "id": "mark_3", "label": "Mark: hash (#)" },
+        { "type": "text", "id": "annot_label", "label": "Annotated line label", "default": "One line, annotated" },
+        { "type": "product", "id": "spec_product", "label": "Specimen product", "info": "Preferred over typing a line, so the specimen cannot drift from the products." },
+        { "type": "text", "id": "spec_name", "label": "Specimen ingredient (fallback)" },
+        { "type": "text", "id": "spec_pct", "label": "Specimen percentage" },
+        { "type": "textarea", "id": "annot_keys", "label": "Annotation keys", "info": "Pipe separated, each \"label::definition\"." },
+        { "type": "text", "id": "annot_footnote", "label": "Annotated line footnote" },
+        { "type": "text", "id": "range_footnote", "label": "Range grid footnote" },
+        {
+          "type": "select",
+          "id": "ethos_icon",
+          "label": "Ethos icon",
+          "options": [
+            { "value": "none", "label": "None" },
+            { "value": "ethos-microbiome", "label": "Microbiome" },
+            { "value": "ethos-gentle", "label": "Gentle" },
+            { "value": "ethos-formulation", "label": "Formulation" },
+            { "value": "ethos-science", "label": "Science" },
+            { "value": "ethos-climate", "label": "Climate" },
+            { "value": "ethos-cruelty", "label": "Cruelty-free" },
+            { "value": "ethos-business", "label": "Business" },
+            { "value": "ethos-natural", "label": "Natural" }
+          ],
+          "default": "none"
+        },
+        { "type": "text", "id": "ethos_label", "label": "Ethos label" }
+      ]
+    },
+    {
+      "type": "card",
+      "name": "Card",
+      "settings": [
+        { "type": "text", "id": "label", "label": "Micro-label" },
+        { "type": "text", "id": "title", "label": "Title" },
+        { "type": "richtext", "id": "body", "label": "Body" },
+        { "type": "text", "id": "link_label", "label": "Link label" },
+        { "type": "url", "id": "link_url", "label": "Link" },
+        { "type": "image_picker", "id": "image", "label": "Image" },
+        { "type": "text", "id": "image_alt", "label": "Image alt text" },
+        {
+          "type": "select",
+          "id": "layout",
+          "label": "Row layout",
+          "options": [
+            { "value": "pair", "label": "Pair" },
+            { "value": "trio", "label": "Trio" }
+          ],
+          "default": "pair"
+        },
+        {
+          "type": "select",
+          "id": "variant",
+          "label": "Variant",
+          "options": [
+            { "value": "plain", "label": "Plain" },
+            { "value": "caveat", "label": "Caveat (Gorse, tide left border)" },
+            { "value": "accent", "label": "Accent left border" },
+            { "value": "struck", "label": "Struck through (we would not write)" },
+            { "value": "corrected", "label": "Corrected (we would write)" }
+          ],
+          "default": "plain"
+        }
+      ]
+    },
+    {
+      "type": "panel",
+      "name": "Numbered panel",
+      "settings": [
+        { "type": "text", "id": "numeral", "label": "Numeral word", "default": "ONE" },
+        { "type": "text", "id": "title", "label": "Title" },
+        { "type": "richtext", "id": "body", "label": "Body" },
+        { "type": "image_picker", "id": "image", "label": "Image" },
+        { "type": "text", "id": "image_alt", "label": "Image alt text" }
+      ]
+    },
+    {
+      "type": "reference",
+      "name": "Reference",
+      "settings": [
+        { "type": "text", "id": "number", "label": "Number" },
+        { "type": "richtext", "id": "citation", "label": "Citation" },
+        { "type": "url", "id": "url", "label": "Link (DOI or publisher)" }
+      ]
+    },
+    {
+      "type": "quote",
+      "name": "Pull quote",
+      "settings": [
+        { "type": "text", "id": "text", "label": "Quote", "info": "Lifted verbatim from this page's own body - not new copy." }
+      ]
+    },
+    {
+      "type": "next",
+      "name": "Where to go next card",
+      "settings": [
+        { "type": "text", "id": "heading", "label": "Heading" },
+        { "type": "textarea", "id": "body", "label": "Body" },
+        { "type": "url", "id": "url", "label": "Link" }
+      ]
+    }
+  ],
+  "presets": [{ "name": "Science child page" }]
+}
+{% endschema %}

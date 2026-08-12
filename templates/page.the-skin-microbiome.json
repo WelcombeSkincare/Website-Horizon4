@@ -1,0 +1,200 @@
+{
+  "sections": {
+    "main": {
+      "type": "science-child-page",
+      "blocks": {
+        "b_balance": {
+          "type": "band",
+          "settings": {
+            "heading": "Why balance matters more than cleanliness",
+            "body": "<p>Some of those residents earn their keep. Beneficial bacteria such as <em>Staphylococcus epidermidis</em> are credited in the research with helping to hold less welcome microbes in check and with supporting the skin barrier. When the community is thrown out of balance, a state researchers call dysbiosis, studies have associated it with conditions including acne, eczema and rosacea.</p><p>That association is exactly why balance is worth protecting. It is also where we want to be careful with our words. An association in the research is not a promise that a moisturiser treats any of those conditions, and we would never make that claim. What it does tell us is that skincare has a job to do in not making things worse.</p>",
+            "caveat": "<p>Skin mostly manages its own garden. Often the kindest thing a product can do is avoid trampling it.</p>",
+            "variant": "plain",
+            "set_piece": "none",
+            "ethos_icon": "none"
+          }
+        },
+        "b_support": {
+          "type": "band",
+          "settings": {
+            "heading": "Support, not control",
+            "body": "<p>Harsh cleansing, high-pH products and heavy fragrance can all disturb the balance, which means a surprising amount of microbiome-friendly formulating is really about what you leave out. We formulate at a skin-friendly, slightly acidic pH, because the research indicates the skin's commensal microbes prefer it, and we leave synthetic fragrance out entirely to lower the risk of irritation. That is the quiet version of microbiome care, and the one best supported by the evidence.</p><p>Two kinds of ingredient can lend a more active hand, and both work with the microbiome rather than against it.</p>",
+            "variant": "plain",
+            "set_piece": "none",
+            "ethos_icon": "none"
+          }
+        },
+        "b_feeding": {
+          "type": "band",
+          "settings": {
+            "heading": "Feeding and steering, gently",
+            "body": "<p>Prebiotics are food for the microbes already living on your skin. We use <a href=\"https://biotaderm.com/blogs/ingredients/inulin\">inulin</a>, a plant-derived prebiotic. Postbiotics are the useful compounds those microbes produce, and rather than adding live bacteria to a jar, we include a <a href=\"https://biotaderm.com/blogs/ingredients/saccharomyces-barley-seed-ferment-filtrate\">Saccharomyces and barley seed ferment</a> that delivers some of those compounds directly. The research on topical pre- and postbiotics suggests they can help support a balanced microbiome and a calmer barrier.</p><p>It is also a young field. A good deal of the microbiome language you will see in skincare runs ahead of the evidence, promising to rebuild or rebalance your skin in ways the studies do not yet support. We would rather say that plainly than join in. So we describe these ingredients as support, and we hold the bolder claims lightly until the science catches up.</p>",
+            "caveat": "<p>Every Biotaderm moisturiser carries both a prebiotic and a postbiotic, in a gentle base formulated at a skin-friendly pH, with no synthetic fragrance. The aim is modest and deliberate: to work with the system your skin already runs, rather than override it. Support, not control, applied to the smallest residents of all.</p>",
+            "variant": "plain",
+            "set_piece": "none",
+            "ethos_icon": "none"
+          }
+        },
+        "c_pre": {
+          "type": "card",
+          "settings": {
+            "label": "Prebiotic",
+            "title": "Inulin",
+            "body": "<p>Food for the microbes already living on your skin. A plant-derived prebiotic.</p>",
+            "link_label": "Read the entry",
+            "link_url": "/blogs/ingredients/inulin",
+            "layout": "pair",
+            "variant": "plain"
+          }
+        },
+        "c_post": {
+          "type": "card",
+          "settings": {
+            "label": "Postbiotic",
+            "title": "Saccharomyces and barley seed ferment",
+            "body": "<p>The useful compounds those microbes produce. Rather than adding live bacteria to a jar, we include a ferment that delivers some of those compounds directly.</p>",
+            "link_label": "Read the entry",
+            "link_url": "/blogs/ingredients/saccharomyces-hordeum-seed-ferment-filtrate",
+            "layout": "pair",
+            "variant": "plain"
+          }
+        },
+        "b_products": {
+          "type": "band",
+          "settings": {
+            "heading": "What this means for our products",
+            "body": "<p><a href=\"https://biotaderm.com/pages/how-we-formulate\">How we formulate</a> · <a href=\"https://biotaderm.com/pages/find-your-skin-type\">Find your skin type</a> · <a href=\"https://biotaderm.com/collections/all\">Shop the range</a></p>",
+            "variant": "rule",
+            "set_piece": "none",
+            "ethos_icon": "ethos-microbiome",
+            "ethos_label": "Made for your microbiome"
+          }
+        },
+        "b_refs": {
+          "type": "band",
+          "settings": {
+            "heading": "References",
+            "body": "<p>Eight sources. Every claim above traces to one of them.</p>",
+            "variant": "plain",
+            "set_piece": "none",
+            "ethos_icon": "none"
+          }
+        },
+        "ref_1": {
+          "type": "reference",
+          "settings": {
+            "number": "1",
+            "citation": "<p>Grice, E. A., and Segre, J. A. (2011). The skin microbiome. <em>Nature Reviews Microbiology</em>, 9(4), 244-253.</p>"
+          }
+        },
+        "ref_2": {
+          "type": "reference",
+          "settings": {
+            "number": "2",
+            "citation": "<p>Byrd, A. L., Belkaid, Y., and Segre, J. A. (2018). The human skin microbiome. <em>Nature Reviews Microbiology</em>, 16(3), 143-155.</p>"
+          }
+        },
+        "ref_3": {
+          "type": "reference",
+          "settings": {
+            "number": "3",
+            "citation": "<p>Sanford, J. A., and Gallo, R. L. (2013). Functions of the skin microbiota in health and disease. <em>Seminars in Immunology</em>, 25(5), 370-377.</p>"
+          }
+        },
+        "ref_4": {
+          "type": "reference",
+          "settings": {
+            "number": "4",
+            "citation": "<p>Flowers, L., and Grice, E. A. (2020). The skin microbiota: balancing risk and reward. <em>Cell Host and Microbe</em>, 28(2), 190-200.</p>"
+          }
+        },
+        "ref_5": {
+          "type": "reference",
+          "settings": {
+            "number": "5",
+            "citation": "<p>Dréno, B., and others (2016). Microbiome in healthy skin, update for dermatologists. <em>Journal of the European Academy of Dermatology and Venereology</em>, 30(12), 2038-2047.</p>"
+          }
+        },
+        "ref_6": {
+          "type": "reference",
+          "settings": {
+            "number": "6",
+            "citation": "<p>Sfriso, R., and others (2020). Revealing the secret life of skin, with the microbiome you are never alone. <em>International Journal of Cosmetic Science</em>, 42(2), 116-126.</p>"
+          }
+        },
+        "ref_7": {
+          "type": "reference",
+          "settings": {
+            "number": "7",
+            "citation": "<p>Fournière, M., and others (2020). Staphylococcus epidermidis and Cutibacterium acnes: two major sentinels of skin microbiota and the influence of cosmetics. <em>Microorganisms</em>, 8(11), 1752.</p>"
+          }
+        },
+        "ref_8": {
+          "type": "reference",
+          "settings": {
+            "number": "8",
+            "citation": "<p>Uberoi, A., and others (2021). Commensal microbiota regulates skin barrier function and repair via signalling through the aryl hydrocarbon receptor. <em>Cell Host and Microbe</em>, 29(8), 1235-1248.</p>"
+          }
+        },
+        "n_formulate": {
+          "type": "next",
+          "settings": {
+            "heading": "How we formulate",
+            "body": "The thinking behind what goes in, and what stays out.",
+            "url": "/pages/how-we-formulate"
+          }
+        },
+        "n_finder": {
+          "type": "next",
+          "settings": {
+            "heading": "Find your skin type",
+            "body": "Two questions, five types. It takes a couple of minutes.",
+            "url": "/pages/find-your-skin-type"
+          }
+        },
+        "n_shop": {
+          "type": "next",
+          "settings": {
+            "heading": "Shop the range",
+            "body": "Fifteen moisturisers across five skin types and three textures.",
+            "url": "/collections/moisturiser"
+          }
+        }
+      },
+      "block_order": [
+        "b_balance",
+        "b_support",
+        "b_feeding",
+        "c_pre",
+        "c_post",
+        "b_products",
+        "b_refs",
+        "ref_1",
+        "ref_2",
+        "ref_3",
+        "ref_4",
+        "ref_5",
+        "ref_6",
+        "ref_7",
+        "ref_8",
+        "n_formulate",
+        "n_finder",
+        "n_shop"
+      ],
+      "settings": {
+        "section_width": "normal",
+        "measure": "wide",
+        "eyebrow": "Science · One of five",
+        "heading": "The skin microbiome",
+        "standfirst": "<p>The bacteria living on your skin are not a problem to be scrubbed away. They are part of how healthy skin works. Here is what the research actually shows, and what it doesn't.</p>",
+        "intro": "<p>Most of us grow up thinking of bacteria as something to get rid of. Skin tells a more interesting story. Your skin is home to a busy community of bacteria, fungi and other microbes, known collectively as the skin microbiome, and the research suggests they are not passengers. They are part of how skin defends itself and keeps its barrier working. As one review put it, with the microbiome you are never alone.</p>",
+        "hero_image_alt": "Rock pool at low tide on the north Devon coast",
+        "hero_image_reserve": true,
+        "next_heading": "Where to go next"
+      }
+    }
+  },
+  "order": [
+    "main"
+  ]
+}
