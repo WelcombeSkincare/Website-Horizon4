@@ -34,8 +34,18 @@
           <p class="bd-cp-eyebrow">{{ section.settings.eyebrow }}</p>
         {%- endif -%}
         <h1 class="bd-cp-h1">{{ section.settings.heading | default: page.title }}</h1>
-        {%- if section.settings.intro != blank -%}
-          <div class="bd-cp-intro">{{ section.settings.intro }}</div>
+        {%- comment -%}
+          The intro is authored in the ADMIN page body, so Richard can edit it
+          without touching the theme. The schema setting is only a fallback for
+          when the section is used on a page with an empty body.
+
+          Only the intro belongs in that body. The notes, the contact details
+          and the registered address are rendered by this section further down -
+          if they are pasted back into the page body they will appear twice.
+        {%- endcomment -%}
+        {%- assign cp_intro = page.content | default: section.settings.intro -%}
+        {%- if cp_intro != blank -%}
+          <div class="bd-cp-intro">{{ cp_intro }}</div>
         {%- endif -%}
       </div>
       {%- if section.settings.hero_image != blank -%}
@@ -341,7 +351,7 @@
     { "type": "header", "content": "Hero" },
     { "type": "text", "id": "eyebrow", "label": "Eyebrow" },
     { "type": "text", "id": "heading", "label": "Heading", "info": "Renders as the page H1. Falls back to the page title." },
-    { "type": "richtext", "id": "intro", "label": "Intro" },
+    { "type": "richtext", "id": "intro", "label": "Intro (fallback)", "info": "The page body in the admin is used when it has content. This is only a fallback." },
     { "type": "image_picker", "id": "hero_image", "label": "Hero image", "info": "4:5 portrait. Richard at the bench — hands filling or capping. Craft, never research: no white coats, no microscopes." },
     { "type": "text", "id": "hero_image_alt", "label": "Hero image alt text" },
     { "type": "header", "content": "Form" },
