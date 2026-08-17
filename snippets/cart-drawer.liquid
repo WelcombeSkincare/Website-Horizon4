@@ -110,9 +110,13 @@
                 class="cart-drawer__content"
                 aria-label="{{ 'accessibility.cart' | t }}"
               >
+                {% render 'bd-cart-delivery-progress' %}
+                {% render 'bd-cart-refill-notice' %}
                 <scroll-hint class="cart-drawer__items">
                   {% render 'cart-products', context: 'drawer' %}
                 </scroll-hint>
+
+                {% render 'bd-cart-dispatch-line' %}
 
                 <div class="cart-drawer__summary">
                   {% render 'cart-summary', section_id: 'cart-drawer-section' %}

@@ -1,0 +1,63 @@
+{% doc %}
+  Biotaderm — per-line made-to-order note. Overselling is on, so a line whose
+  quantity exceeds stock says so here rather than surprising the customer later.
+  Nothing red: this is information, and the seven-day commitment sits below the items.
+
+  COPY NOT YET APPROVED. The two strings below are proposals.
+
+  @param {object} item - the cart line item
+{% enddoc %}
+
+{%- liquid
+  assign bd_stock = item.variant.inventory_quantity
+  if item.variant.inventory_management == blank
+    assign bd_stock = item.quantity
+  endif
+  if bd_stock < 0
+    assign bd_stock = 0
+  endif
+  assign bd_ready = bd_stock
+  if item.quantity < bd_stock
+    assign bd_ready = item.quantity
+  endif
+  assign bd_to_make = item.quantity | minus: bd_ready
+-%}
+
+{%- if bd_to_make > 0 -%}
+  <p class="bd-line-stock">
+    <span class="bd-line-stock__chip">Made to order</span>
+    <span>
+      {%- if bd_ready == 0 -%}
+        None in stock, so this one is made for you.
+      {%- else -%}
+        {{ bd_ready }} ready now, {{ bd_to_make }} made for you.
+      {%- endif -%}
+    </span>
+  </p>
+{%- endif -%}
+
+{% stylesheet %}
+  .bd-line-stock {
+    display: flex;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-block-start: 6px;
+    font-size: var(--font-size--xs);
+    line-height: 1.45;
+    color: rgb(var(--color-foreground-rgb) / var(--opacity-subdued-text));
+  }
+
+  .bd-line-stock__chip {
+    font-family: var(--font-subheading--family, inherit);
+    font-weight: 700;
+    font-size: 11px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: #4e6d6c;
+    background: #fbfbf2;
+    border: 1px solid rgb(var(--color-foreground-rgb) / var(--opacity-10-25));
+    border-radius: 999px;
+    padding: 3px 9px;
+  }
+{% endstylesheet %}

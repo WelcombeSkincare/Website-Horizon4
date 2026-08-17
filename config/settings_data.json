@@ -68,7 +68,7 @@
     "cart_type": "drawer",
     "cart_price_font": "subheading",
     "show_cart_note": false,
-    "show_add_discount_code": true,
+    "show_add_discount_code": false,
     "drawer_background_color": "{{ settings.color_palette.background }}",
     "drawer_text_color": "{{ settings.color_palette.foreground }}",
     "icon_stroke": "default",

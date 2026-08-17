@@ -1,0 +1,75 @@
+{% doc %}
+  Biotaderm — free delivery progress indicator for the cart drawer.
+  Information, not a nag: no timers, no urgency colour, no exclamation.
+  Threshold is set once, here, in pence.
+{% enddoc %}
+
+{%- liquid
+  assign bd_threshold = 4000
+  assign bd_subtotal = cart.total_price
+  assign bd_remaining = bd_threshold | minus: bd_subtotal
+  assign bd_pct = bd_subtotal | times: 100.0 | divided_by: bd_threshold
+  if bd_pct > 100
+    assign bd_pct = 100
+  endif
+-%}
+
+{%- unless cart.empty? -%}
+  <div class="bd-progress">
+    <p class="bd-progress__copy">
+      {%- if bd_remaining > 0 -%}
+        Your order is {{ bd_remaining | money }} from free UK delivery
+      {%- else -%}
+        Free UK delivery unlocked
+      {%- endif -%}
+    </p>
+    <div
+      class="bd-progress__track"
+      role="progressbar"
+      aria-valuemin="0"
+      aria-valuemax="100"
+      aria-valuenow="{{ bd_pct | round }}"
+    >
+      <span class="bd-progress__fill" style="width: {{ bd_pct }}%;"></span>
+    </div>
+    <p class="bd-progress__note">Standard UK delivery £5.99, free over £40.</p>
+  </div>
+{%- endunless -%}
+
+{% stylesheet %}
+  .bd-progress {
+    padding-block: var(--padding-md) var(--padding-lg);
+    padding-inline: var(--cart-drawer-padding, var(--padding-lg));
+    border-block-end: 1px solid rgb(var(--color-foreground-rgb) / var(--opacity-10-25));
+  }
+
+  .bd-progress__copy {
+    margin: 0 0 8px;
+    font-size: var(--font-size--sm);
+    line-height: 1.3;
+    color: var(--color-foreground);
+  }
+
+  .bd-progress__track {
+    height: 4px;
+    border-radius: 999px;
+    overflow: hidden;
+    background: rgb(var(--color-foreground-rgb) / var(--opacity-10-25));
+  }
+
+  /* Tidewater. The skin-type hues carry product meaning and are not used here. */
+  .bd-progress__fill {
+    display: block;
+    height: 100%;
+    border-radius: 999px;
+    background: #4e6d6c;
+    transition: width 240ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .bd-progress__note {
+    margin: 8px 0 0;
+    font-size: var(--font-size--xs);
+    line-height: 1.35;
+    color: rgb(var(--color-foreground-rgb) / var(--opacity-subdued-text));
+  }
+{% endstylesheet %}

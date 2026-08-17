@@ -1,0 +1,69 @@
+{% doc %}
+  Biotaderm — Two-Week Trial line and the member login prompt.
+
+  The login prompt must NOT name either scheme. It renders to logged-OUT
+  visitors, so naming the Founders Club there would advertise a closed,
+  retrospective scheme - twenty per cent for the seventeen customers who bought
+  before 11 August 2026 - to people who can never join it. "Founders Club" must
+  not appear anywhere on the public site.
+
+  The order confirmation email and the thank-you extension are a different
+  case: both are gated on membership, so they name the scheme correctly and are
+  left alone.
+
+  The wording also has to carry two schemes at once - Founders Club members,
+  and Opening Offer customers, who are segmented automatically and must equally
+  be logged in to redeem. Hence "member", naming neither.
+
+  @param {string} part - 'trial' renders the line above the checkout button.
+                         'login' renders the member prompt below it.
+{% enddoc %}
+
+{%- if part == 'trial' -%}
+  {%- unless cart.empty? -%}
+    <p class="bd-trial-line">
+      <span class="bd-trial-line__lead">Two-Week Trial.</span>
+      Give it a fortnight. If it's not right, swap it or send it back, return postage paid.
+    </p>
+  {%- endunless -%}
+{%- endif -%}
+
+{%- if part == 'login' -%}
+  {%- if customer == null -%}
+    <p class="bd-login-prompt">
+      Already a member?
+      <a href="{{ routes.account_login_url }}?return_url={{ routes.cart_url }}">Log in so your discount applies.</a>
+    </p>
+  {%- endif -%}
+{%- endif -%}
+
+{% stylesheet %}
+  .bd-trial-line {
+    margin: 0 0 12px;
+    font-size: var(--font-size--sm);
+    line-height: 1.5;
+    color: var(--color-foreground);
+  }
+
+  .bd-trial-line__lead {
+    font-family: var(--font-subheading--family, inherit);
+    font-weight: 700;
+    font-size: var(--font-size--sm);
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: #161617;
+  }
+
+  .bd-login-prompt {
+    margin: 4px 0 0;
+    text-align: center;
+    font-size: var(--font-size--xs);
+    color: rgb(var(--color-foreground-rgb) / var(--opacity-subdued-text));
+  }
+
+  .bd-login-prompt a {
+    color: var(--color-foreground);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+{% endstylesheet %}

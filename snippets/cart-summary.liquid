@@ -257,6 +257,8 @@
   </div>
 </div>
 
+{% render 'bd-cart-trial-and-login', part: 'trial' %}
+
 <div class="cart__ctas">
   <button
     type="submit"
@@ -272,6 +274,8 @@
       {{ 'content.checkout' | t }}
     </span>
   </button>
+
+  {% render 'bd-cart-trial-and-login', part: 'login' %}
 
   {% if additional_checkout_buttons and settings.show_accelerated_checkout_buttons %}
     <div

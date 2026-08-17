@@ -24,7 +24,33 @@ documented below. Check it after every Horizon update.
 
 ---
 
-## The one edited stock file
+## The edited stock files
+
+There are **four**. It was one until 13 August 2026, when the cart amendments
+added three more. Every one of these can be silently reverted by a Horizon
+update — the 4.1.3 → 4.1.4 update already did exactly that to three of our JSON
+templates — so **check all four after every Horizon upgrade**. They will not
+error when reverted; the cart additions will simply stop rendering.
+
+| File | Edit | Added |
+| :-- | :-- | :-- |
+| `sections/section.liquid` | third `section_width` option | Jul 2026 |
+| `snippets/cart-drawer.liquid` | 3 renders: delivery progress, refill notice, dispatch line | 13 Aug 2026 |
+| `snippets/cart-summary.liquid` | 2 renders: trial line above the button, login prompt below | 13 Aug 2026 |
+| `snippets/cart-products.liquid` | 1 render: per-line made-to-order note | 13 Aug 2026 |
+
+The three cart files are edited because there is no other way to reach those
+positions — the drawer is stock markup with no section or block hooks at the
+points the design needs. Everything they render lives in `snippets/bd-cart-*`,
+which Shopify does not ship, so only the five one-line `{% render %}` calls are
+at risk. Restoring them is re-adding five lines, not rebuilding anything.
+
+Quick check after an upgrade:
+
+```bash
+grep -c "render 'bd-cart" snippets/cart-drawer.liquid snippets/cart-summary.liquid snippets/cart-products.liquid
+# expect 3, 2, 1
+```
 
 ### `sections/section.liquid`
 

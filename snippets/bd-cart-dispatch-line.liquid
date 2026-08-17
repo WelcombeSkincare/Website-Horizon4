@@ -1,0 +1,21 @@
+{% doc %}
+  Biotaderm — made-to-order dispatch expectation. Settled wording, do not reword.
+  Sits below the line items, above the summary.
+{% enddoc %}
+
+{%- unless cart.empty? -%}
+  <p class="bd-dispatch-line">
+    Made by hand in small batches. If your choice is out of stock we'll make it for you and dispatch within 7 days.
+  </p>
+{%- endunless -%}
+
+{% stylesheet %}
+  .bd-dispatch-line {
+    margin: 0;
+    padding-block: var(--padding-md) var(--padding-lg);
+    padding-inline: var(--cart-drawer-padding, var(--padding-lg));
+    font-size: var(--font-size--xs);
+    line-height: 1.6;
+    color: rgb(var(--color-foreground-rgb) / var(--opacity-subdued-text));
+  }
+{% endstylesheet %}

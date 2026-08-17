@@ -1,0 +1,94 @@
+{% doc %}
+  Biotaderm — refill notice for the cart drawer.
+  Shows when the cart holds one or more "Refill Bottle only" variants and no
+  "Bottle with Pump" variant. A helpful note, not an error: no warning triangle,
+  no error colour.
+{% enddoc %}
+
+{%- liquid
+  assign bd_has_refill = false
+  assign bd_has_pump = false
+  for item in cart.items
+    if item.variant.title contains 'Refill'
+      assign bd_has_refill = true
+    endif
+    if item.variant.title contains 'Pump'
+      assign bd_has_pump = true
+    endif
+  endfor
+-%}
+
+{%- if bd_has_refill and bd_has_pump == false -%}
+  <script src="{{ 'bd-refill-swap.js' | asset_url }}" type="module" fetchpriority="low"></script>
+
+  <div class="bd-refill-notice">
+    <p class="bd-refill-notice__copy">
+      <svg class="bd-refill-notice__icon" width="15" height="20" viewBox="0 0 20 26" fill="none"
+        stroke="#4e6d6c" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M6.5 9h7a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2h-7a2 2 0 0 1-2-2V11a2 2 0 0 1 2-2Z" />
+        <path d="M8 9V6h4v3" />
+        <path d="M12 6V3h4v2h-2" />
+      </svg>
+      <span>Refill bottles come without a pump. A pump is needed, and we encourage you to use one from a previous order. If this is your first Biotaderm order, or you need a new pump, choose Bottle with Pump.</span>
+    </p>
+    <button type="button" class="bd-refill-notice__swap" data-bd-refill-swap>
+      Switch to Bottle with Pump (+£1.00)
+    </button>
+  </div>
+{%- endif -%}
+
+{% stylesheet %}
+  .bd-refill-notice {
+    margin-block: var(--margin-md) 0;
+    margin-inline: var(--cart-drawer-padding, var(--padding-lg));
+    padding: 12px 14px;
+    background: #fbfbf2;
+    border: 1px solid rgb(var(--color-foreground-rgb) / var(--opacity-10-25));
+    border-inline-start: 3px solid #4e6d6c;
+    border-radius: var(--style-border-radius-cards, 4px);
+  }
+
+  .bd-refill-notice__copy {
+    display: flex;
+    gap: 8px;
+    align-items: flex-start;
+    margin: 0 0 10px;
+    font-size: var(--font-size--sm);
+    line-height: 1.45;
+    color: var(--color-foreground);
+  }
+
+  .bd-refill-notice__icon {
+    flex: none;
+    margin-block-start: 1px;
+  }
+
+  /* Theme secondary button treatment: faint wash, Seaglass Dark border. */
+  .bd-refill-notice__swap {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 38px;
+    padding: 9px 18px;
+    cursor: pointer;
+    font-family: var(--font-subheading--family, inherit);
+    font-size: var(--font-size--sm);
+    font-weight: 700;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    color: #161617;
+    background: #0000000f;
+    border: 2px solid #3d6a75;
+    border-radius: var(--style-border-radius-buttons-secondary, 14px);
+    transition: background 140ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .bd-refill-notice__swap:hover {
+    background: #00000018;
+  }
+
+  .bd-refill-notice__swap[aria-busy='true'] {
+    opacity: 0.6;
+    pointer-events: none;
+  }
+{% endstylesheet %}
