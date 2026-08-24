@@ -11,6 +11,15 @@
     article editor. Everything around the prose comes from metafields.
   - Repeating groups (key cards, margin notes, references) are parallel
     single-line lists walked by index, the same convention as ingredient-page.
+  RICH TEXT, settled 19 Aug 2026 on the first populated post. standfirst,
+  caveat_body, in_practice and aside_body are rich_text_field reached through a
+  metaobject reference. All three obvious forms were tested live:
+    mf.<field>.value           -> Liquid object form, {"type"=>"root", ...}
+    mf.<field>                 -> the raw JSON string
+    mf.<field> | metafield_tag -> CORRECT, emits a rendered <p>
+  Use metafield_tag. Do not simplify it back. LIST fields keep .value, which
+  they need in order to iterate.
+
   - Multi-line fields (standfirst, aside body, in practice, caveat) hold their
     own block HTML and are output with .value so it renders.
   - The contents nav is built from the body's own h2 elements by the script at
@@ -28,6 +37,7 @@
 
 {%- liquid
   assign mf = article.metafields.custom.journal_post_meta.value
+
   assign blog_url = blog.url | default: routes.root_url
 -%}
 
@@ -41,7 +51,7 @@
     <h1>{{ article.title }}</h1>
 
     {%- if mf.standfirst != blank -%}
-      <div class="bd-jp-stand">{{ mf.standfirst.value }}</div>
+      <div class="bd-jp-stand">{{ mf.standfirst | metafield_tag }}</div>
     {%- endif -%}
 
     <div class="bd-jp-meta">
@@ -101,14 +111,14 @@
       {%- if mf.caveat_body != blank -%}
         <div class="bd-jp-caveat">
           <p class="bd-jp-caveat-label">{{ mf.caveat_heading | default: 'Where the evidence stops' }}</p>
-          {{ mf.caveat_body.value }}
+          {{ mf.caveat_body | metafield_tag }}
         </div>
       {%- endif -%}
 
       {%- if mf.in_practice != blank -%}
         <div class="bd-jp-practice">
           <p class="bd-jp-practice-label">In practice</p>
-          {{ mf.in_practice.value }}
+          {{ mf.in_practice | metafield_tag }}
         </div>
       {%- endif -%}
 
@@ -136,7 +146,7 @@
         {%- if mf.aside_body != blank -%}
           <div class="bd-jp-aside">
             {%- if mf.aside_heading != blank -%}<p class="bd-jp-aside-label">{{ mf.aside_heading }}</p>{%- endif -%}
-            {{ mf.aside_body.value }}
+            {{ mf.aside_body | metafield_tag }}
           </div>
         {%- endif -%}
         {%- if mf.note_text.value != blank -%}
