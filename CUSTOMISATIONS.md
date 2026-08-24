@@ -3,8 +3,8 @@
 This theme is Horizon **4.1.4** plus Biotaderm customisations.
 
 The goal is that **every custom thing lives in a file Shopify does not ship**, so a
-theme update can never silently revert it. There is currently **one** exception,
-documented below. Check it after every Horizon update.
+theme update can never silently revert it. There are currently **four** exceptions,
+documented below. Check them after every Horizon update.
 
 > **That goal is necessary but not sufficient - JSON templates are also at risk.**
 > The 4.1.3 -> 4.1.4 update (11 Aug 2026) created a *new theme with a new ID*
