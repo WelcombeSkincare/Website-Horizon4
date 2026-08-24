@@ -1,0 +1,13 @@
+{
+  "sections": {
+    "main": {
+      "type": "journal-post",
+      "settings": {
+        "show_related": true
+      }
+    }
+  },
+  "order": [
+    "main"
+  ]
+}

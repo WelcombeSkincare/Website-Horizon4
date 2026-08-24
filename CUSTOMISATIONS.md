@@ -122,23 +122,34 @@ Exclude from any comparison, as these are merchant data and are *meant* to diffe
 
 ## Our own files
 
-Safe from theme updates. Nothing here needs checking after an upgrade.
+Shopify does not ship these, so a Horizon update cannot overwrite them. **But the
+JSON templates that MOUNT them are not safe** - the 4.1.3 -> 4.1.4 upgrade rewrote
+three of ours back to stock sections without flagging a conflict. After any
+upgrade, check the section `type` values inside `templates/*.json`, not just that
+the files still exist.
 
-**Sections (11)** — `footer-main`, `home-ethos-strip`, `home-formulation`,
-`home-hero`, `home-image-text-band`, `home-newsletter`, `home-skin-sorter`,
-`home-texture-ladder`, `ingredient-page`, `ingredients-index`, `product-biotaderm`
+**Sections (20)**
+- Home: `home-ethos-strip`, `home-formulation`, `home-hero`, `home-image-text-band`,
+  `home-newsletter`, `home-skin-sorter`, `home-texture-ladder`
+- Content pages: `about-page`, `contact-page`, `faq-page`, `offer-page`, `policy-page`,
+  `science-page`, `science-child-page`
+- Ingredients: `ingredient-page`, `ingredients-index`
+- Journal: `journal-post`, `journal-index`
+- Product: `product-biotaderm`
+- Global: `footer-main`
 
-**Snippets (1)** — `home-organic-shape`
+**Snippets (7)** - `home-organic-shape`, `bd-cart-delivery-progress`,
+`bd-cart-refill-notice`, `bd-cart-dispatch-line`, `bd-cart-trial-and-login`,
+`bd-cart-line-stock`
 
-**Assets (13)** — `ethos-*.svg` (8), `home-*-standin.jpg` (3), `logo-horizontal-*.svg` (2)
+**Assets (14)** - `ethos-*.svg` (8), `home-*-standin.jpg` (3),
+`logo-horizontal-*.svg` (2), `bd-refill-swap.js`
 
-**Templates (18)** — the eight `collection.collection-*.json`, the ingredient and
-blog templates, `page.find-your-skin-type.json`, `product.biotaderm.json`
-
-Note that `bento-grid`, `grid-density-controls`, `chat-drawer` and the three
-`editorial-*-grid` snippets are **stock Horizon**, not ours — do not edit them.
-
----
+**Templates (14)** - `page.about-us`, `page.contact`, `page.cookie-policy`,
+`page.everything-on-the-label`, `page.faq`, `page.how-we-formulate`,
+`page.how-we-handle-evidence`, `page.opening-offer`, `page.our-ethics`,
+`page.our-science`, `page.the-skin-microbiome`, `collection.skin-type`,
+`collection.texture`, plus `article.journal` / `blog.journal`
 
 ## Known issues
 

@@ -1,0 +1,494 @@
+{%- comment -%}
+  sections/journal-post.liquid
+  Renders a Journal article: prose from article.content, furniture from the
+  journal_post_meta metaobject. Assigned via templates/article.journal.json.
+
+  Design ref: "Journal blog layout drafts" project, option 1b (structured
+  explainer) and 2a-2c (the same layout at 402px).
+
+  MODEL
+  - Prose stays in article.content so posts are written in the normal Shopify
+    article editor. Everything around the prose comes from metafields.
+  - Repeating groups (key cards, margin notes, references) are parallel
+    single-line lists walked by index, the same convention as ingredient-page.
+  - Multi-line fields (standfirst, aside body, in practice, caveat) hold their
+    own block HTML and are output with .value so it renders.
+  - The contents nav is built from the body's own h2 elements by the script at
+    the foot of this file. Nothing to author, nothing to keep in sync.
+
+  AUTHORING NOTES, AND TWO LIMITS
+  - A pull-out is authored as a blockquote in the article body. The stylesheet
+    below renders any blockquote as the Gorse pull-out panel.
+  - Margin notes render down the right rail in the order they are listed. They
+    cannot be pinned to a specific paragraph from a metafield; if a note must
+    sit beside one sentence, author it as a blockquote instead.
+  - Optional modules (key cards, aside, caveat, in practice, references) render
+    only when set.
+{%- endcomment -%}
+
+{%- liquid
+  assign mf = article.metafields.custom.journal_post_meta.value
+  assign blog_url = blog.url | default: routes.root_url
+-%}
+
+<article class="bd-jp">
+
+  <div class="bd-jp-head">
+    <nav class="bd-jp-crumb">
+      <a href="{{ blog_url }}">Journal</a>{% if mf.category != blank %} / {{ mf.category }}{% endif %}
+    </nav>
+
+    <h1>{{ article.title }}</h1>
+
+    {%- if mf.standfirst != blank -%}
+      <div class="bd-jp-stand">{{ mf.standfirst.value }}</div>
+    {%- endif -%}
+
+    <div class="bd-jp-meta">
+      {%- if mf.category != blank -%}
+        <span class="bd-jp-cat">{{ mf.category }}</span>
+        <span class="bd-jp-rule" aria-hidden="true"></span>
+      {%- endif -%}
+      {%- if mf.byline != blank -%}<span class="bd-jp-by">{{ mf.byline }}</span>{%- endif -%}
+      <span class="bd-jp-date">{{ article.published_at | date: '%-d %B %Y' }}</span>
+      {%- if mf.reading_time != blank -%}
+        <span class="bd-jp-read">{{ mf.reading_time }} minute read</span>
+      {%- endif -%}
+    </div>
+
+    {%- assign hero = mf.photo | default: article.image -%}
+    {%- if hero != blank -%}
+      <figure class="bd-jp-hero">
+        {{ hero | image_url: width: 1600 | image_tag:
+          alt: mf.photo_caption | default: article.title,
+          loading: 'eager',
+          widths: '600, 900, 1200, 1600',
+          sizes: '(min-width: 1280px) 1120px, 100vw' }}
+        {%- if mf.photo_caption != blank -%}
+          <figcaption>{{ mf.photo_caption }}</figcaption>
+        {%- endif -%}
+      </figure>
+    {%- endif -%}
+  </div>
+
+  <div class="bd-jp-grid">
+
+    <nav class="bd-jp-toc" data-jp-toc hidden>
+      <p class="bd-jp-toc-label">Contents</p>
+      <div class="bd-jp-toc-links" data-jp-toc-links></div>
+    </nav>
+
+    <div class="bd-jp-main">
+
+      {%- if mf.key_card_title.value != blank -%}
+        <div class="bd-jp-cards">
+          {%- for title in mf.key_card_title.value -%}
+            {%- assign i = forloop.index0 -%}
+            {%- assign n = forloop.index | prepend: '0' | slice: -2, 2 -%}
+            <div class="bd-jp-card">
+              <span class="bd-jp-card-n">{{ n }}</span>
+              <p class="bd-jp-card-t">{{ title }}</p>
+              <p class="bd-jp-card-b">{{ mf.key_card_body.value[i] }}</p>
+            </div>
+          {%- endfor -%}
+        </div>
+      {%- endif -%}
+
+      <div class="bd-jp-body rte" data-jp-body>
+        {{ article.content }}
+      </div>
+
+      {%- if mf.caveat_body != blank -%}
+        <div class="bd-jp-caveat">
+          <p class="bd-jp-caveat-label">{{ mf.caveat_heading | default: 'Where the evidence stops' }}</p>
+          {{ mf.caveat_body.value }}
+        </div>
+      {%- endif -%}
+
+      {%- if mf.in_practice != blank -%}
+        <div class="bd-jp-practice">
+          <p class="bd-jp-practice-label">In practice</p>
+          {{ mf.in_practice.value }}
+        </div>
+      {%- endif -%}
+
+      {%- if mf.reference_citation.value != blank -%}
+        <div class="bd-jp-refs-wrap">
+          <p class="bd-jp-refs-label">The research behind this page</p>
+          <p class="bd-jp-refnote">We review the published literature. We do not conduct the studies below.</p>
+          <ol class="bd-jp-refs">
+            {%- for citation in mf.reference_citation.value -%}
+              {%- assign i = forloop.index0 -%}
+              {%- comment -%}
+                reference_link is list.link, so each entry is an object. Output
+                link.url, never link — Liquid renders the object form otherwise.
+              {%- endcomment -%}
+              {%- assign link = mf.reference_link.value[i] -%}
+              <li>{{ citation }}{%- if link.url != blank %} <a href="{{ link.url }}" rel="nofollow">&rarr;</a>{% endif -%}</li>
+            {%- endfor -%}
+          </ol>
+        </div>
+      {%- endif -%}
+    </div>
+
+    {%- if mf.aside_body != blank or mf.note_text.value != blank -%}
+      <aside class="bd-jp-rail">
+        {%- if mf.aside_body != blank -%}
+          <div class="bd-jp-aside">
+            {%- if mf.aside_heading != blank -%}<p class="bd-jp-aside-label">{{ mf.aside_heading }}</p>{%- endif -%}
+            {{ mf.aside_body.value }}
+          </div>
+        {%- endif -%}
+        {%- if mf.note_text.value != blank -%}
+          {%- for note in mf.note_text.value -%}
+            <div class="bd-jp-note">
+              <p class="bd-jp-note-label">Margin note</p>
+              <p>{{ note }}</p>
+            </div>
+          {%- endfor -%}
+        {%- endif -%}
+      </aside>
+    {%- endif -%}
+  </div>
+
+  {%- if section.settings.show_related -%}
+    {%- assign related_count = 0 -%}
+    {%- capture related_cards -%}
+      {%- for post in blog.articles -%}
+        {%- if post.id != article.id and related_count < 3 -%}
+          {%- liquid
+            assign pmf = post.metafields.custom.journal_post_meta.value
+            assign pimg = pmf.photo | default: post.image
+            assign related_count = related_count | plus: 1
+          -%}
+          <a class="bd-jp-rel" href="{{ post.url }}">
+            {%- if pimg != blank -%}
+              {{ pimg | image_url: width: 600 | image_tag:
+                alt: post.title, loading: 'lazy', widths: '300, 600', sizes: '(max-width: 749px) 84px, 340px' }}
+            {%- else -%}
+              <span class="bd-jp-rel-noimg"></span>
+            {%- endif -%}
+            <span class="bd-jp-rel-body">
+              {%- if pmf.category != blank -%}<span class="bd-jp-rel-cat">{{ pmf.category }}</span>{%- endif -%}
+              <span class="bd-jp-rel-t">{{ post.title }}</span>
+              {%- if pmf.reading_time != blank -%}<span class="bd-jp-rel-read">{{ pmf.reading_time }} minute read</span>{%- endif -%}
+            </span>
+          </a>
+        {%- endif -%}
+      {%- endfor -%}
+    {%- endcapture -%}
+    {%- assign trimmed = related_cards | strip -%}
+    {%- unless trimmed == blank -%}
+      <div class="bd-jp-related">
+        <div class="bd-jp-related-in">
+          <p class="bd-jp-related-label">More from the Journal</p>
+          <div class="bd-jp-related-grid">{{ related_cards }}</div>
+        </div>
+      </div>
+    {%- endunless -%}
+  {%- endif -%}
+
+</article>
+
+<script>
+  (function () {
+    var root = document.querySelector('#shopify-section-{{ section.id }} .bd-jp');
+    if (!root) return;
+    var body = root.querySelector('[data-jp-body]');
+    var toc = root.querySelector('[data-jp-toc]');
+    var links = root.querySelector('[data-jp-toc-links]');
+    if (!body || !toc || !links) return;
+
+    var heads = body.querySelectorAll('h2');
+    if (heads.length < 2) return;
+
+    var anchors = [];
+    Array.prototype.forEach.call(heads, function (h, i) {
+      if (!h.id) {
+        var slug = (h.textContent || '').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+        h.id = 'jp-' + (slug || i);
+      }
+      var a = document.createElement('a');
+      a.href = '#' + h.id;
+      a.textContent = h.textContent;
+      links.appendChild(a);
+      anchors.push(a);
+    });
+    toc.hidden = false;
+
+    if (!('IntersectionObserver' in window)) return;
+    var seen = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (!e.isIntersecting) return;
+        var idx = Array.prototype.indexOf.call(heads, e.target);
+        anchors.forEach(function (a, i) {
+          if (i === idx) { a.setAttribute('aria-current', 'true'); }
+          else { a.removeAttribute('aria-current'); }
+        });
+      });
+    }, { rootMargin: '-80px 0px -70% 0px' });
+    Array.prototype.forEach.call(heads, function (h) { seen.observe(h); });
+  })();
+</script>
+
+{% stylesheet %}
+.bd-jp {
+  --jp-ink: #161617;
+  --jp-body: #494A4D;
+  --jp-soft: #57585C;
+  --jp-mute: #8A8177;
+  --jp-line: #E0E1E2;
+  --jp-stone: #FAF7F5;
+  --jp-gorse: #FBFBF2;
+  --jp-tide: #3D6A75;
+  --jp-seaglass: #6BBBCC;
+  --jp-madder: #963C3D;
+  --jp-head: 'Roboto Condensed', Arial, sans-serif;
+  --jp-text: var(--font-body--family, 'Poppins', system-ui, sans-serif);
+  color: var(--jp-body);
+  font-family: var(--jp-text);
+  display: block;
+}
+.bd-jp *, .bd-jp *::before, .bd-jp *::after { box-sizing: border-box; }
+.bd-jp a { color: var(--jp-tide); text-decoration: none; }
+.bd-jp a:hover { color: #C56A54; }
+.bd-jp a:focus-visible { outline: 2px solid var(--jp-seaglass); outline-offset: 2px; }
+
+/* Head */
+.bd-jp-head { max-width: 1280px; margin: 0 auto; padding: 56px 80px 0; }
+.bd-jp-crumb { font-size: 13px; line-height: 1.4; color: var(--jp-mute); margin: 0 0 22px; }
+.bd-jp-crumb a { color: var(--jp-mute); }
+.bd-jp h1 {
+  font-family: var(--jp-head); font-weight: 400; font-size: 62px; line-height: 1.02;
+  letter-spacing: -.01em; color: var(--jp-ink); margin: 0 0 24px; max-width: 20ch; text-wrap: pretty;
+}
+.bd-jp-stand { max-width: 54ch; margin: 0 0 28px; }
+.bd-jp-stand p { font-size: 24px; line-height: 1.5; color: #3F4042; margin: 0 0 12px; text-wrap: pretty; }
+.bd-jp-stand p:last-child { margin-bottom: 0; }
+.bd-jp-meta {
+  display: flex; align-items: center; flex-wrap: wrap; gap: 14px;
+  padding: 16px 0; border-top: 1px solid var(--jp-line); border-bottom: 1px solid var(--jp-line);
+  margin: 0 0 40px;
+}
+.bd-jp-cat {
+  font-family: var(--jp-head); font-weight: 700; font-size: 12px; line-height: 1;
+  letter-spacing: .14em; text-transform: uppercase; color: var(--jp-tide);
+}
+.bd-jp-rule { width: 1px; height: 14px; background: var(--jp-line); }
+.bd-jp-by { font-size: 14px; color: var(--jp-soft); }
+.bd-jp-date, .bd-jp-read { font-size: 14px; color: var(--jp-mute); }
+.bd-jp-read { margin-left: auto; }
+.bd-jp-hero { margin: 0; }
+.bd-jp-hero img { width: 100%; height: 400px; object-fit: cover; display: block; background: #F0EDEA; }
+.bd-jp-hero figcaption { font-size: 13px; font-style: italic; line-height: 1.5; color: var(--jp-mute); margin-top: 12px; }
+
+/* Grid */
+.bd-jp-grid {
+  max-width: 1280px; margin: 0 auto; padding: 56px 80px 88px;
+  display: grid; grid-template-columns: 200px minmax(0, 672px) 236px; gap: 56px; align-items: start;
+}
+
+/* Contents */
+.bd-jp-toc { position: sticky; top: 24px; }
+.bd-jp-toc-label {
+  font-family: var(--jp-head); font-weight: 700; font-size: 12px; line-height: 1;
+  letter-spacing: .14em; text-transform: uppercase; color: var(--jp-mute); margin: 0 0 14px;
+}
+.bd-jp-toc-links { display: flex; flex-direction: column; gap: 2px; border-left: 1px solid var(--jp-line); }
+.bd-jp-toc-links a {
+  padding: 7px 0 7px 14px; font-size: 14px; line-height: 1.4; color: var(--jp-soft);
+  transition: color 180ms ease;
+}
+.bd-jp-toc-links a[aria-current] {
+  margin-left: -1px; border-left: 2px solid var(--jp-seaglass); color: var(--jp-ink);
+}
+
+/* Key cards */
+.bd-jp-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin: 0 0 56px; }
+.bd-jp-card { background: #fff; border: 1px solid var(--jp-line); border-radius: 4px; padding: 20px; }
+.bd-jp-card-n { display: block; font-family: var(--jp-head); font-size: 15px; line-height: 1; color: var(--jp-seaglass); margin: 0 0 10px; }
+.bd-jp-card-t { font-family: var(--jp-head); font-size: 17px; line-height: 1.25; color: var(--jp-ink); margin: 0 0 8px; }
+.bd-jp-card-b { font-size: 14px; line-height: 1.55; color: var(--jp-soft); margin: 0; }
+
+/* Body */
+.bd-jp-body { font-size: 19px; line-height: 1.75; }
+.bd-jp-body > p { margin: 0 0 24px; }
+.bd-jp-body h2 {
+  display: flex; align-items: baseline; gap: 12px; scroll-margin-top: 80px;
+  font-family: var(--jp-head); font-weight: 400; font-size: 32px; line-height: 1.15;
+  color: var(--jp-ink); margin: 52px 0 18px;
+}
+.bd-jp-body h2::before {
+  content: ""; flex: none; width: 26px; height: 2px; background: var(--jp-seaglass);
+  display: inline-block; transform: translateY(-9px);
+}
+.bd-jp-body h3 { font-family: var(--jp-head); font-weight: 400; font-size: 24px; line-height: 1.2; color: var(--jp-ink); margin: 40px 0 14px; }
+.bd-jp-body ul, .bd-jp-body ol { margin: 0 0 24px; padding-left: 22px; }
+.bd-jp-body li { margin: 0 0 8px; }
+.bd-jp-body a { border-bottom: 1px solid rgba(61, 106, 117, .35); }
+.bd-jp-body img { max-width: 100%; height: auto; display: block; margin: 32px 0; }
+/* A blockquote in the body is the pull-out. */
+.bd-jp-body blockquote {
+  margin: 40px 0; padding: 24px 26px; background: var(--jp-gorse);
+  border: 1px solid var(--jp-line); border-radius: 4px;
+}
+.bd-jp-body blockquote p {
+  font-family: var(--jp-head); font-size: 24px; line-height: 1.4; color: var(--jp-ink); margin: 0;
+}
+
+/* Caveat */
+.bd-jp-caveat {
+  margin: 0 0 28px; padding: 22px 24px; background: #fff;
+  border: 1px solid var(--jp-line); border-top: 2px solid var(--jp-madder); border-radius: 0 0 4px 4px;
+}
+.bd-jp-caveat-label {
+  font-family: var(--jp-head); font-weight: 700; font-size: 11px; line-height: 1;
+  letter-spacing: .12em; text-transform: uppercase; color: var(--jp-madder); margin: 0 0 10px;
+}
+.bd-jp-caveat p { font-size: 17px; line-height: 1.7; margin: 0 0 12px; }
+.bd-jp-caveat p:last-child { margin-bottom: 0; }
+
+/* In practice */
+.bd-jp-practice { margin: 0 0 40px; padding: 30px 32px; background: #fff; border: 1px solid var(--jp-line); border-radius: 4px; }
+.bd-jp-practice-label {
+  font-family: var(--jp-head); font-weight: 700; font-size: 12px; line-height: 1;
+  letter-spacing: .14em; text-transform: uppercase; color: var(--jp-tide); margin: 0 0 16px;
+}
+.bd-jp-practice p { font-size: 18px; line-height: 1.7; margin: 0 0 16px; }
+.bd-jp-practice p:last-child { margin-bottom: 0; }
+
+/* References */
+.bd-jp-refs-wrap { padding-top: 28px; border-top: 1px solid var(--jp-line); }
+.bd-jp-refs-label {
+  font-family: var(--jp-head); font-weight: 700; font-size: 12px; line-height: 1;
+  letter-spacing: .14em; text-transform: uppercase; color: var(--jp-mute); margin: 0 0 8px;
+}
+.bd-jp-refnote { font-style: italic; font-size: 15px; line-height: 1.6; color: var(--jp-mute); margin: 0 0 20px; }
+.bd-jp-refs { margin: 0; padding: 0; list-style: none; counter-reset: r; display: grid; grid-template-columns: 1fr 1fr; gap: 14px 28px; }
+.bd-jp-refs li {
+  counter-increment: r; position: relative; padding-left: 32px;
+  font-size: 13.5px; line-height: 1.55; color: var(--jp-soft);
+}
+.bd-jp-refs li::before {
+  content: counter(r, decimal-leading-zero); position: absolute; left: 0; top: 1px;
+  font-family: var(--jp-head); font-size: 13.5px; line-height: 1.55; color: var(--jp-seaglass);
+}
+
+/* Right rail */
+.bd-jp-rail { display: flex; flex-direction: column; gap: 20px; }
+.bd-jp-aside { background: #fff; border: 1px solid var(--jp-line); border-radius: 4px; padding: 18px 20px; }
+.bd-jp-aside-label {
+  font-family: var(--jp-head); font-weight: 700; font-size: 11px; line-height: 1;
+  letter-spacing: .12em; text-transform: uppercase; color: var(--jp-mute); margin: 0 0 12px;
+}
+.bd-jp-aside p { font-size: 13.5px; line-height: 1.6; margin: 0 0 10px; }
+.bd-jp-aside p:last-child { margin-bottom: 0; }
+.bd-jp-note { border-left: 1px solid var(--jp-line); padding: 2px 0 2px 16px; }
+.bd-jp-note-label {
+  font-family: var(--jp-head); font-weight: 700; font-size: 11px; line-height: 1;
+  letter-spacing: .12em; text-transform: uppercase; color: var(--jp-tide); margin: 0 0 8px;
+}
+.bd-jp-note p { font-size: 13.5px; line-height: 1.65; color: var(--jp-soft); margin: 0; }
+
+/* Related */
+.bd-jp-related { background: #fff; border-top: 1px solid var(--jp-line); padding: 64px 80px 72px; }
+.bd-jp-related-in { max-width: 1120px; margin: 0 auto; }
+.bd-jp-related-label {
+  font-family: var(--jp-head); font-weight: 700; font-size: 12px; line-height: 1;
+  letter-spacing: .14em; text-transform: uppercase; color: var(--jp-mute); margin: 0 0 28px;
+}
+.bd-jp-related-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 26px; }
+.bd-jp-rel {
+  display: flex; flex-direction: column; background: var(--jp-stone);
+  border: 1px solid var(--jp-line); border-radius: 4px; overflow: hidden;
+  transition: border-color 180ms ease, transform 180ms ease;
+}
+.bd-jp-rel:hover { border-color: #B9C7C2; transform: translateY(-2px); }
+.bd-jp-rel img, .bd-jp-rel-noimg { width: 100%; height: 170px; object-fit: cover; display: block; background: #F0EDEA; }
+.bd-jp-rel-body { padding: 16px 18px 20px; display: flex; flex-direction: column; gap: 8px; }
+.bd-jp-rel-cat {
+  font-family: var(--jp-head); font-weight: 700; font-size: 11px; line-height: 1;
+  letter-spacing: .12em; text-transform: uppercase; color: var(--jp-tide);
+}
+.bd-jp-rel-t { font-family: var(--jp-head); font-size: 19px; line-height: 1.2; color: var(--jp-ink); }
+.bd-jp-rel-read { font-size: 13.5px; line-height: 1.4; color: var(--jp-mute); }
+
+/* ---- Tablet ---- */
+@media screen and (max-width: 1100px) {
+  .bd-jp-head { padding-left: 40px; padding-right: 40px; }
+  .bd-jp-grid { padding: 44px 40px 72px; grid-template-columns: minmax(0, 672px) 236px; gap: 40px; }
+  .bd-jp-toc { display: none; }
+  .bd-jp-related { padding-left: 40px; padding-right: 40px; }
+  .bd-jp-related-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* ---- Mobile: design refs 2a-2c ---- */
+@media screen and (max-width: 749px) {
+  .bd-jp-head { padding: 20px 20px 0; }
+  .bd-jp h1 { font-size: 36px; line-height: 1.06; max-width: none; margin-bottom: 16px; }
+  .bd-jp-stand { margin-bottom: 20px; }
+  .bd-jp-stand p { font-size: 18px; line-height: 1.55; }
+  .bd-jp-meta { gap: 8px 10px; padding: 14px 0; margin-bottom: 20px; }
+  .bd-jp-cat { flex-basis: 100%; }
+  .bd-jp-rule { display: none; }
+  .bd-jp-by, .bd-jp-date, .bd-jp-read { font-size: 13.5px; }
+  .bd-jp-hero { margin-left: -20px; margin-right: -20px; }
+  .bd-jp-hero img { height: 240px; }
+  .bd-jp-hero figcaption { padding: 0 20px; }
+
+  /* Contents becomes a sticky, horizontally scrolling pill strip. */
+  .bd-jp-toc {
+    display: block; position: sticky; top: 0; z-index: 5; margin: 20px 0 0;
+    background: var(--jp-stone); border-top: 1px solid var(--jp-line); border-bottom: 1px solid var(--jp-line);
+    padding: 10px 20px;
+  }
+  .bd-jp-toc-label { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+  .bd-jp-toc-links {
+    flex-direction: row; gap: 6px; border-left: 0;
+    overflow-x: auto; scrollbar-width: none; -webkit-overflow-scrolling: touch;
+  }
+  .bd-jp-toc-links::-webkit-scrollbar { display: none; }
+  .bd-jp-toc-links a {
+    flex: none; padding: 7px 12px; border-radius: 100px; white-space: nowrap;
+    font-family: var(--jp-head); font-weight: 700; font-size: 11px; line-height: 1;
+    letter-spacing: .08em; text-transform: uppercase;
+  }
+  .bd-jp-toc-links a[aria-current] { margin-left: 0; border-left: 0; background: #fff; border: 1px solid var(--jp-line); }
+
+  .bd-jp-grid { display: block; padding: 24px 20px 40px; }
+  .bd-jp-cards { grid-template-columns: 1fr; gap: 12px; margin-bottom: 28px; }
+  .bd-jp-body { font-size: 17px; }
+  .bd-jp-body > p { margin-bottom: 20px; }
+  .bd-jp-body h2 { font-size: 27px; gap: 10px; margin: 36px 0 16px; }
+  .bd-jp-body h2::before { width: 22px; transform: translateY(-8px); }
+  .bd-jp-body blockquote { margin: 24px 0; padding: 20px 22px; }
+  .bd-jp-body blockquote p { font-size: 22px; line-height: 1.35; }
+  .bd-jp-caveat p { font-size: 16px; }
+  .bd-jp-practice { padding: 22px 24px; margin-bottom: 24px; }
+  .bd-jp-practice p { font-size: 16px; }
+  .bd-jp-refs { grid-template-columns: 1fr; gap: 12px; }
+  .bd-jp-refs li { padding-left: 28px; font-size: 13px; line-height: 1.6; }
+  .bd-jp-rail { margin-top: 28px; gap: 16px; }
+  .bd-jp-related { padding: 28px 20px 32px; }
+  .bd-jp-related-grid { grid-template-columns: 1fr; gap: 14px; }
+  .bd-jp-rel { flex-direction: row; gap: 14px; padding: 14px; }
+  .bd-jp-rel img, .bd-jp-rel-noimg { width: 84px; height: 84px; flex: none; }
+  .bd-jp-rel-body { padding: 0; gap: 5px; }
+  .bd-jp-rel-t { font-size: 17px; line-height: 1.15; }
+}
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Journal post",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "show_related",
+      "label": "Show \"More from the Journal\"",
+      "default": true,
+      "info": "Shows up to three other posts from this blog."
+    }
+  ]
+}
+{% endschema %}

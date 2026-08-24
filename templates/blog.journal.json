@@ -1,0 +1,17 @@
+{
+  "sections": {
+    "main": {
+      "type": "journal-index",
+      "settings": {
+        "eyebrow": "Journal",
+        "heading": "Skin, ingredients and the evidence behind them",
+        "intro": "Explainers written to be useful whether or not you buy anything. We review the published research, and where the evidence stops we say so.",
+        "lead_post": true,
+        "show_filters": true
+      }
+    }
+  },
+  "order": [
+    "main"
+  ]
+}
