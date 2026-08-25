@@ -11,17 +11,23 @@
     article editor. Everything around the prose comes from metafields.
   - Repeating groups (key cards, margin notes, references) are parallel
     single-line lists walked by index, the same convention as ingredient-page.
-  RICH TEXT, settled 19 Aug 2026 on the first populated post. standfirst,
-  caveat_body, in_practice and aside_body are rich_text_field reached through a
-  metaobject reference. All three obvious forms were tested live:
-    mf.<field>.value           -> Liquid object form, {"type"=>"root", ...}
-    mf.<field>                 -> the raw JSON string
-    mf.<field> | metafield_tag -> CORRECT, emits a rendered <p>
-  Use metafield_tag. Do not simplify it back. LIST fields keep .value, which
-  they need in order to iterate.
-
-  - Multi-line fields (standfirst, aside body, in practice, caveat) hold their
-    own block HTML and are output with .value so it renders.
+  BLOCK HTML, revised 25 Aug 2026. standfirst, caveat_body, in_practice and
+  aside_body were rich_text_field; they are now multi_line_text_field so that
+  block HTML can be authored into them directly. That change alters how they
+  must be output:
+    rich_text_field  | metafield_tag -> <div class="metafield-rich_text_field">
+                                        containing real <p> children
+    multi_line_text_field | metafield_tag -> <span class="metafield-multi_line_
+                                        text_field"> with <br /> for newlines,
+                                        and NO <p> at all
+  Every rule styling these four blocks is a `p` descendant selector
+  (.bd-jp-stand p, .bd-jp-caveat p, .bd-jp-practice p, .bd-jp-aside p), so
+  metafield_tag now matches nothing and the block silently loses its
+  typography. Output the raw value instead: Liquid does not auto-escape, so
+  authored <p> markup renders and the existing CSS matches again.
+  Author these four fields AS HTML, wrapping each paragraph in <p>...</p>.
+  A bare unwrapped string will render, but unstyled.
+  LIST fields keep .value, which they need in order to iterate.
   - The contents nav is built from the body's own h2 elements by the script at
     the foot of this file. Nothing to author, nothing to keep in sync.
 
@@ -51,7 +57,7 @@
     <h1>{{ article.title }}</h1>
 
     {%- if mf.standfirst != blank -%}
-      <div class="bd-jp-stand">{{ mf.standfirst | metafield_tag }}</div>
+      <div class="bd-jp-stand">{{ mf.standfirst }}</div>
     {%- endif -%}
 
     <div class="bd-jp-meta">
@@ -111,14 +117,14 @@
       {%- if mf.caveat_body != blank -%}
         <div class="bd-jp-caveat">
           <p class="bd-jp-caveat-label">{{ mf.caveat_heading | default: 'Where the evidence stops' }}</p>
-          {{ mf.caveat_body | metafield_tag }}
+          {{ mf.caveat_body }}
         </div>
       {%- endif -%}
 
       {%- if mf.in_practice != blank -%}
         <div class="bd-jp-practice">
           <p class="bd-jp-practice-label">In practice</p>
-          {{ mf.in_practice | metafield_tag }}
+          {{ mf.in_practice }}
         </div>
       {%- endif -%}
 
@@ -146,7 +152,7 @@
         {%- if mf.aside_body != blank -%}
           <div class="bd-jp-aside">
             {%- if mf.aside_heading != blank -%}<p class="bd-jp-aside-label">{{ mf.aside_heading }}</p>{%- endif -%}
-            {{ mf.aside_body | metafield_tag }}
+            {{ mf.aside_body }}
           </div>
         {%- endif -%}
         {%- if mf.note_text.value != blank -%}
