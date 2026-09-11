@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "main": {
@@ -28,8 +37,8 @@
           "type": "band",
           "settings": {
             "heading": "Feeding and steering, gently",
-            "body": "<p>Prebiotics are food for the microbes already living on your skin. We use <a href=\"https://biotaderm.com/blogs/ingredients/inulin\">inulin</a>, a plant-derived prebiotic. Postbiotics are the useful compounds those microbes produce, and rather than adding live bacteria to a jar, we include a <a href=\"https://biotaderm.com/blogs/ingredients/saccharomyces-barley-seed-ferment-filtrate\">Saccharomyces and barley seed ferment</a> that delivers some of those compounds directly. The research on topical pre- and postbiotics suggests they can help support a balanced microbiome and a calmer barrier.</p><p>It is also a young field. A good deal of the microbiome language you will see in skincare runs ahead of the evidence, promising to rebuild or rebalance your skin in ways the studies do not yet support. We would rather say that plainly than join in. So we describe these ingredients as support, and we hold the bolder claims lightly until the science catches up.</p>",
-            "caveat": "<p>Every Biotaderm moisturiser carries both a prebiotic and a postbiotic, in a gentle base formulated at a skin-friendly pH, with no synthetic fragrance. The aim is modest and deliberate: to work with the system your skin already runs, rather than override it. Support, not control, applied to the smallest residents of all.</p>",
+            "body": "<p>Prebiotics are food for the microbes already living on your skin. We use <a href=\"https://biotaderm.com/blogs/ingredients/inulin\">inulin</a>, a plant-derived prebiotic, with selective feeding shown in the laboratory but not yet on human skin. We also include a <a href=\"https://biotaderm.com/blogs/ingredients/chlorella-vulgaris-extract\">chlorella extract</a>. Its maker's evidence, from a small study, shows it holding back the more troublesome species while sparing the helpful ones. That is their data, and we grade it as such.</p><p>It is a young field. A good deal of the microbiome language you will see in skincare runs ahead of the evidence, promising to rebuild or rebalance your skin in ways the studies do not yet support. We would rather say that plainly than join in. So we describe these ingredients as support, and hold the bolder claims lightly until the science catches up.</p>",
+            "caveat": "<p>Every Biotaderm moisturiser is built at a skin-friendly pH, carries a plant prebiotic, and leaves out synthetic fragrance. The aim is modest and deliberate: to work with the system your skin already runs, rather than override it. Support, not control, applied to the smallest residents of all.</p>",
             "variant": "plain",
             "set_piece": "none",
             "ethos_icon": "none"
@@ -50,11 +59,11 @@
         "c_post": {
           "type": "card",
           "settings": {
-            "label": "Postbiotic",
-            "title": "Saccharomyces and barley seed ferment",
-            "body": "<p>The useful compounds those microbes produce. Rather than adding live bacteria to a jar, we include a ferment that delivers some of those compounds directly.</p>",
+            "label": "Microalgal active",
+            "title": "Chlorella extract",
+            "body": "<p>Supplier evidence for holding back the less welcome species while sparing the helpful ones. A small study, and their data.</p>",
             "link_label": "Read the entry",
-            "link_url": "/blogs/ingredients/saccharomyces-hordeum-seed-ferment-filtrate",
+            "link_url": "/blogs/ingredients/chlorella-vulgaris-extract",
             "layout": "pair",
             "variant": "plain"
           }

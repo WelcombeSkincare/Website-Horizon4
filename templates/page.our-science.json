@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "main": {
@@ -16,7 +25,7 @@
           "type": "pillar",
           "settings": {
             "label": "Science",
-            "body": "<p>We think about skin the way current research does, as an ecosystem worth supporting. Prebiotics feed the microbes already living on your skin. Postbiotics are the useful compounds those microbes produce. Together they nudge things toward balance rather than stripping everything back and starting again. The discipline that matters most sits underneath all of it: Biotaderm reads the published science, it does not run it. So we credit the research, never ourselves, and we only claim what the evidence will actually carry.</p>",
+            "body": "<p>We think about skin the way current research does, as an ecosystem worth supporting. The biggest decision sits under the ingredient list: whether the product you leave on your skin is at the acidity its ecosystem needs. Ours is. Above that, a plant prebiotic feeds the residents, and nothing in the formula strips them back. Underneath all of it sits the discipline that matters most: Biotaderm reads the published science, it does not run it. We credit the research, never ourselves, and claim only what the evidence will carry.</p>",
             "inset": "<p>Biotaderm reads the published science, it does not run it. So we credit the research, never ourselves, and we only claim what the evidence will actually carry.</p>",
             "link_label": "How we handle evidence",
             "link_url": "/pages/how-we-handle-evidence"

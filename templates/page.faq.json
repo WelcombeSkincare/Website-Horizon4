@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "main": {
@@ -23,7 +32,7 @@
           "type": "question",
           "settings": {
             "question": "What is the difference between Flow, Core and Deep?",
-            "answer": "<p>How much cold-pressed oil each one carries. That is the only thing that changes.</p> <p>Flow is over 9% plant oils, sinks in quickly and is made for the face. Core is over 14%, richer and more cushioning, made for the body. Deep is over 19%, the substantial one for hands, elbows, knees and feet.</p> <p>Same five oils, same prebiotics and postbiotics, three weights. You are choosing by where you are putting it and how rich you like it to feel.</p>",
+            "answer": "<p>How much cold-pressed oil each one carries. That is the only thing that changes.</p> <p>Flow is over 9% plant oils, sinks in quickly and is made for the face. Core is over 14%, richer and more cushioning, made for the body. Deep is over 19%, the substantial one for hands, elbows, knees and feet.</p> <p>Same five oils, same prebiotic, same pH, three weights. You are choosing by where you are putting it and how rich you like it to feel.</p>",
             "set_piece": "textures",
             "ethos_icon": "none",
             "ethos_label": ""
@@ -165,7 +174,7 @@
           "type": "question",
           "settings": {
             "question": "What is all the microbiome talk about?",
-            "answer": "<p>Your skin carries its own community of bacteria and fungi. The research points fairly consistently in one direction: skin tends to do better when that community is supported rather than stripped.</p> <p>So three things in every formula are aimed at it. Inulin, a prebiotic that feeds the microbes already living there. A Saccharomyces and barley seed ferment, which is a postbiotic. And chlorella. There is no synthetic fragrance and no harsh surfactant working against them.</p> <p>The caveat belongs here too. Skin microbiome science is young, and a good deal of it is still in cell culture rather than on faces. <a href=\"/pages/our-science\">Our Science</a> sets out what the evidence supports and where it runs out.</p>",
+            "answer": "<p>Your skin carries its own community of bacteria and fungi, and the research points fairly consistently one way: skin does better when that community is supported rather than stripped.</p> <p>The biggest thing we do about it is not an ingredient. Every product is built at the slightly acidic pH the skin's residents prefer, with nothing harsh working against them. Beyond that, inulin, a plant prebiotic, feeds the microbes already there, and a chlorella extract has supplier evidence for holding back the less welcome species while sparing the helpful ones.</p> <p>One caveat. Skin microbiome science is young, and much of it is still in cell culture rather than on faces. <a href=\"/pages/our-science\">Our Science</a> sets out what the evidence supports and where it runs out.</p>",
             "set_piece": "none",
             "ethos_icon": "ethos-microbiome",
             "ethos_label": "Made for your microbiome",

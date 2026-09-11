@@ -189,7 +189,7 @@
             "height": "fill",
             "custom_height": 100,
             "background_media": "none",
-            "background_color": "#D3E3FD",
+            "background_color": "#d3e3fd",
             "video_position": "cover",
             "background_image_position": "cover",
             "toggle_overlay": false,
@@ -841,7 +841,7 @@
           "name": "t:names.button",
           "settings": {
             "label": "Read more about Dry and its three moisturisers",
-            "link": "shopify://collections/dry-sensitive-skin-type",
+            "link": "shopify://collections/dry-skin-type",
             "open_in_new_tab": false,
             "style_class": "button-custom",
             "custom_button_background": "{{ settings.color_palette.color7 }}",
@@ -951,7 +951,7 @@
           "name": "t:names.button",
           "settings": {
             "label": "Read more about Balanced and its three moisturisers",
-            "link": "shopify://collections/dry-sensitive-skin-type",
+            "link": "shopify://collections/balanced-skin-type",
             "open_in_new_tab": false,
             "style_class": "button-custom",
             "custom_button_background": "{{ settings.color_palette.color3 }}",
@@ -1061,7 +1061,7 @@
           "name": "t:names.button",
           "settings": {
             "label": "Read more about Oily and its three moisturisers",
-            "link": "shopify://collections/dry-sensitive-skin-type",
+            "link": "shopify://collections/oily-skin-type",
             "open_in_new_tab": false,
             "style_class": "button-custom",
             "custom_button_background": "{{ settings.color_palette.color14 }}",
@@ -1171,7 +1171,7 @@
           "name": "t:names.button",
           "settings": {
             "label": "Read more about Oily Sensitive and its three moisturisers",
-            "link": "shopify://collections/dry-sensitive-skin-type",
+            "link": "shopify://collections/oily-sensitive-skin-type",
             "open_in_new_tab": false,
             "style_class": "button-custom",
             "custom_button_background": "{{ settings.color_palette.color15 }}",

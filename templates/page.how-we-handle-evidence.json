@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "main": {
@@ -17,7 +26,7 @@
           "type": "band",
           "settings": {
             "heading": "Why the wording matters",
-            "body": "<p>You will notice the same phrases throughout the site. The research suggests. Studies indicate. The evidence points to. Those openings are not hedging for its own sake. They are accurate, because they put the credit where it belongs.</p><p>The moment a sentence hands Biotaderm the discovery, with an \"our research shows\" or a \"we've proven\", it stops being true, and truth is the entire proposition. Here is the test we apply to our own copy. \"Our research shows bladderwrack protects the skin\" becomes \"the research on bladderwrack points to antioxidant activity.\" Same ingredient, same story, told in a way we can actually stand behind.</p>",
+            "body": "<p>You will notice the same phrases throughout the site. The research suggests. Studies indicate. The evidence points to. Those openings are not hedging for its own sake. They are accurate, because they put the credit where it belongs.</p><p>The moment a sentence hands Biotaderm the discovery, with an \"our research shows\" or a \"we've proven\", it stops being true, and truth is the entire proposition. Here is the test we apply to our own copy. \"Our research shows rosehip oil repairs the skin\" becomes \"the research on cold-pressed rosehip oil points to its carotenoids and fatty acids.\" Same ingredient, same story, told in a way we can actually stand behind.</p>",
             "variant": "plain",
             "set_piece": "chips",
             "ethos_icon": "none",
@@ -30,7 +39,7 @@
             "label": "We would not write",
             "layout": "pair",
             "variant": "struck",
-            "body": "<p>Our research shows bladderwrack protects the skin</p>"
+            "body": "<p>Our research shows rosehip oil repairs the skin</p>"
           }
         },
         "c_would": {
@@ -39,7 +48,7 @@
             "label": "We would write",
             "layout": "pair",
             "variant": "corrected",
-            "body": "<p>The research on bladderwrack points to antioxidant activity</p>"
+            "body": "<p>The research on cold-pressed rosehip oil points to its carotenoids and fatty acids</p>"
           }
         },
         "b_claim": {
