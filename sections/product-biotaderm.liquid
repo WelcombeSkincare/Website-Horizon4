@@ -124,6 +124,29 @@
   .bd-pp .bd-buyrow { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; justify-content: center; }
   .bd-pp .bd-size { font-size: 14px; color: var(--ink-h4); }
 
+  /* ---- Buy block: the page side ----
+     The buy controls are Horizon blocks now (product-price, variant-picker,
+     buy-buttons), so the bespoke look is applied to them rather than to markup of
+     our own. Everything here is scoped to .bd-pp, which is the section wrapper --
+     and deliberately so: the quick-add modal morphs this subtree OUT of the
+     section, losing the .bd-pp ancestor, so none of this follows it into the
+     modal. There the content gets Horizon's own modal styling, which is what we
+     want. */
+  .bd-pp .bd-buyblock__details { display: flex; flex-direction: column; align-items: center; }
+  .bd-pp .bd-buyblock__group { display: flex; flex-direction: column; align-items: center; gap: 14px; width: 100%; }
+  /* The blocks render as one lump in block_order (price, variant-picker,
+     buy-buttons), so the size label is put back beside the price with flex order
+     rather than by DOM position. Page-side only - the modal never sees .bd-pp,
+     and hides .bd-size anyway as it is not on Horizon's allowlist. */
+  .bd-pp .bd-buyblock__group > product-price { order: 0; }
+  .bd-pp .bd-buyblock__group > .bd-size      { order: 1; margin-top: -8px; }
+  .bd-pp .bd-buyblock__group > variant-picker { order: 2; }
+  .bd-pp .bd-buyblock__group > .buy-buttons-block { order: 3; }
+  .bd-pp .bd-buyblock__group > .bd-buyrow--page { order: 4; }
+  .bd-pp .bd-buyblock product-price { font-family: 'Roboto Condensed', sans-serif; font-weight: 700;
+    font-size: 32px; line-height: 1.1; color: var(--ink-h1); }
+  .bd-pp .bd-buyrow--page { margin-top: 2px; }
+
   .bd-pp .bd-main { max-width: 900px; margin: 0 auto; padding: 0 24px; }
   .bd-pp .bd-shape { position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%);
     width: 560px; height: 560px; pointer-events: none; opacity: .2; }
@@ -376,13 +399,57 @@
         {% # theme-check-enable UnknownFilter %}
       >
         <div class="product-details bd-buyblock__details">
-          <div class="bd-buyrow">
-            <span class="bd-price" style="font-size:32px;" data-bd-price>{{ default_variant.price | money }}</span>
-            {%- if m.size_label != blank -%}<span class="bd-size">{{ m.size_label }}</span>{%- endif -%}
+          {%- comment -%}
+            Hidden on this page by Horizon's own `.view-product-title { display: none }`
+            (blocks/_product-details.liquid); the quick-add modal un-hides it with
+            `.quick-add-modal__content .view-product-title { display: flex }`. So this is
+            the title the modal shows, and it costs nothing here.
+          {%- endcomment -%}
+          <div class="view-product-title">
+            <a href="{{ product.selected_or_first_available_variant.url }}">{{ product.title }}</a>
           </div>
-          {% content_for 'blocks' %}
-          <div class="bd-buyrow">
-            <a href="#bd-key-ingredients" class="bd-btn bd-btn--ghost">See the ingredients</a>
+
+          <div class="group-block bd-buyblock__group">
+            {%- comment -%}
+              price, variant-picker and buy-buttons, from templates/product.biotaderm.json.
+
+              The price MUST be Horizon's <product-price> block rather than a bespoke
+              span. Inside the modal, Horizon hides everything in .product-details that is
+              not on an allowlist:
+
+                .quick-add-modal__content .product-details
+                  *:not(.group-block, .buy-buttons-block, .view-product-title,
+                        variant-picker, product-price, product-inventory, ...)
+                  { display: none !important }   (snippets/quick-add-modal-styles.liquid)
+
+              A bespoke price span is not on that list, so it renders in the DOM with the
+              correct text and is then hidden - which is exactly how the modal came to show
+              no price at all. `.group-block` is allowlisted, but only while it contains one
+              of those elements, which is why this wrapper holds the blocks themselves.
+            {%- endcomment -%}
+            {%- comment -%}
+              This is `content_for 'blocks'` (plural), NOT three singular
+              `content_for 'block', type:.., id:..` calls. The singular form renders a
+              STATIC block built from the block's schema defaults and silently discards
+              the settings held in templates/product.biotaderm.json. That surfaced as
+              the pickup-availability panel reappearing even though
+              show_pickup_availability is false there.
+
+              The consequence is that the blocks arrive as one lump in block_order, so
+              the size label is positioned with flex `order` in the stylesheet rather
+              than by DOM position. It stays a SIBLING of <product-price>: a wrapping
+              div is not on the modal allowlist above and would take the price with it.
+            {%- endcomment -%}
+            {%- if m.size_label != blank -%}<span class="bd-size">{{ m.size_label }}</span>{%- endif -%}
+            {% content_for 'blocks' %}
+
+            {%- comment -%}
+              Page-only extras. Not allowlisted, so the modal drops them - which is what we
+              want: the modal is a buy control, not a second product page.
+            {%- endcomment -%}
+            <div class="bd-buyrow bd-buyrow--page">
+              <a href="#bd-key-ingredients" class="bd-btn bd-btn--ghost">See the ingredients</a>
+            </div>
           </div>
         </div>
       </product-component>
@@ -621,6 +688,7 @@
     }
   ],
   "blocks": [
+    { "type": "price" },
     { "type": "variant-picker" },
     { "type": "buy-buttons" }
   ],

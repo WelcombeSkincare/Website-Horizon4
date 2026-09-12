@@ -98,6 +98,65 @@
   .section--page-width-content { --page-margin: 40px; }
 }
 
+/* ---------------------------------------------------------------------------
+   Quick-add modal, media-less variant.
+
+   Same reason as the rule above: this has to be global, and a section's
+   {% stylesheet %} is only loaded on pages where that section actually renders.
+   The quick-add modal opens on COLLECTION pages, where
+   sections/product-biotaderm.liquid never renders - so keeping this in that
+   section, where it logically belongs, meant it was absent exactly where it was
+   needed.
+
+   Horizon lays the modal out as a 7-column grid: media gallery in columns 1-3,
+   .product-details in `grid-column: 4 / -1`. Our product page gallery is bespoke,
+   not a Horizon media-gallery, and duplicating it into the buy block would mean
+   loading every product image on every collection page. So we supply no media,
+   which leaves columns 1-3 empty and lets the variant picker blow the grid out to
+   full width (1fr is minmax(auto, 1fr), so a wide child expands it). That is the
+   864px, mostly-empty dialog.
+
+   `:not(:has(.product-information__media))` confines this to the media-less case,
+   so a stock Horizon product with real media keeps its two-column modal.
+   --------------------------------------------------------------------------- */
+.quick-add-modal__content:not(:has(.product-information__media)) {
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-rows: auto;
+}
+
+.quick-add-modal__content:not(:has(.product-information__media)) .product-details {
+  grid-column: 1 / -1;
+  grid-row: auto;
+  height: auto;
+  padding: var(--padding-2xl, 24px);
+}
+
+.quick-add-modal__content:not(:has(.product-information__media)) .product-details > .group-block {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-lg, 16px);
+}
+
+/* The dialog sizes to its content, so the grid fix alone still leaves it wide.
+
+   Desktop only, deliberately. Horizon's fixed size is itself set inside
+   `@media (min-width: 750px)`; below that the modal is a full-bleed bottom sheet
+   (`position: fixed; margin: auto 0 0 0`). Applying a max-width there doesn't
+   centre it - the zero left margin just pins the narrowed sheet to the left edge.
+
+   `fit-content`, not `auto`: on a top-layer <dialog> `height: auto` still resolves
+   against the flex parent and keeps the full 616px, whereas `fit-content` collapses
+   to the content box. Horizon uses fit-content for its own mobile case for the same
+   reason. */
+@media screen and (min-width: 750px) {
+  dialog.quick-add-modal:not(:has(.product-information__media)) {
+    width: 100%;
+    max-width: min(30rem, calc(100vw - 2rem));
+    height: fit-content;
+    max-height: min(38.5rem, 96vh);
+  }
+}
+
 .bd-ft { background: #ffffff; border-top: 1px solid #E0E1E2; }
 .bd-ft-ethos {
   display: flex;
