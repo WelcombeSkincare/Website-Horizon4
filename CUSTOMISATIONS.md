@@ -26,11 +26,12 @@ documented below. Check them after every Horizon update.
 
 ## The edited stock files
 
-There are **four**. It was one until 13 August 2026, when the cart amendments
-added three more. Every one of these can be silently reverted by a Horizon
-update — the 4.1.3 → 4.1.4 update already did exactly that to three of our JSON
-templates — so **check all four after every Horizon upgrade**. They will not
-error when reverted; the cart additions will simply stop rendering.
+There are **five**. It was one until 13 August 2026, when the cart amendments
+added three more, and a fifth on 12 September 2026. Every one of these can be
+silently reverted by a Horizon update — the 4.1.3 → 4.1.4 update already did
+exactly that to three of our JSON templates — so **check all five after every
+Horizon upgrade**. They will not error when reverted; the cart additions will
+simply stop rendering, and the button labels will revert to "Add to cart".
 
 | File | Edit | Added |
 | :-- | :-- | :-- |
@@ -38,6 +39,7 @@ error when reverted; the cart additions will simply stop rendering.
 | `snippets/cart-drawer.liquid` | 3 renders: delivery progress, refill notice, dispatch line | 13 Aug 2026 |
 | `snippets/cart-summary.liquid` | 2 renders: trial line above the button, login prompt below | 13 Aug 2026 |
 | `snippets/cart-products.liquid` | 1 render: per-line made-to-order note | 13 Aug 2026 |
+| `locales/en.default.json` | "Add to cart" → "Add to bag" (brand voice), 4 strings | 12 Sep 2026 |
 
 The three cart files are edited because there is no other way to reach those
 positions — the drawer is stock markup with no section or block hooks at the
@@ -50,7 +52,20 @@ Quick check after an upgrade:
 ```bash
 grep -c "render 'bd-cart" snippets/cart-drawer.liquid snippets/cart-summary.liquid snippets/cart-products.liquid
 # expect 3, 2, 1
+
+grep -c "Add to bag" locales/en.default.json
+# expect 2   (actions.add_to_cart and products.product.add_to_cart)
 ```
+
+### `locales/en.default.json`
+
+The store says "bag", not "cart", everywhere a customer can see it. Horizon's
+stock strings say "cart". Four strings are overridden — `actions.add_to_cart`,
+`products.product.add_to_cart`, `.added_to_cart` and `.add_to_cart_error`.
+
+This only started mattering on 12 September 2026, when the product page's
+hand-rolled buy form was replaced by Horizon's own `buy-buttons` block, which
+takes its label from the locale rather than from markup we control.
 
 ### `sections/section.liquid`
 

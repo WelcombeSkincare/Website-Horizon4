@@ -26,6 +26,18 @@
   {%- endif -%}
 {%- endfor -%}
 
+{%- comment -%}
+  Variant id -> formatted price, for the bespoke price displays (hero + sticky bar).
+  Horizon's variant-picker owns variant state; it announces changes as
+  `shopify:product:select`, and the script at the foot of this section reads this map
+  to keep those two displays in step. Built in Liquid so the money format follows the
+  store's own currency settings rather than being reconstructed in JS.
+{%- endcomment -%}
+{%- capture bd_price_map -%}
+  {%- for v in product.variants -%}"{{ v.id }}": {{ v.price | money | json }}{%- unless forloop.last -%}, {%- endunless -%}{%- endfor -%}
+{%- endcapture -%}
+{%- assign bd_price_map = bd_price_map | strip -%}
+
 {%- comment -%} FAQPage structured data, built from the same records the block renders. {%- endcomment -%}
 {%- if m.faqs != blank -%}
 <script type="application/ld+json">
@@ -270,18 +282,16 @@
         <span class="bd-rc7" style="font-size:19px; color:var(--ink-h1); white-space:nowrap;">{{ product.title }}</span>
         {%- if m.subtitle != blank -%}<span style="font-size:13px; color:var(--ink-h4); white-space:nowrap;">{{ m.subtitle }}</span>{%- endif -%}
       </div>
+      {%- comment -%}
+        The bar deliberately carries no variant control of its own. It used to mirror
+        the hero's radios, but the hero's selector is now Horizon's <variant-picker>,
+        which owns variant state; a second, independent set of radios would drift out
+        of step with it. The button scrolls to the real picker rather than submitting a
+        form it no longer has. The price stays live via `shopify:product:select`.
+      {%- endcomment -%}
       <div class="bd-bar__buy">
-        <div class="bd-seg bd-seg--sm" role="radiogroup" aria-label="Format">
-          {%- for v in product.variants -%}
-            <span style="position:relative;">
-              <input type="radio" name="bd-format-bar" id="bd-fmt-bar-{{ v.id }}" value="{{ v.id }}"
-                     data-price="{{ v.price | money }}" {% if v == default_variant %}checked{% endif %} data-bd-variant>
-              <label for="bd-fmt-bar-{{ v.id }}">{{ v.title }}</label>
-            </span>
-          {%- endfor -%}
-        </div>
         <span class="bd-price" style="font-size:20px;" data-bd-price>{{ default_variant.price | money }}</span>
-        <button type="submit" form="bd-pp-form" class="bd-btn bd-btn--sm">Add to bag</button>
+        <a href="#bd-buy" class="bd-btn bd-btn--sm">Add to bag</a>
       </div>
     </div>
   </div>
@@ -338,28 +348,44 @@
       {%- if m.subtitle != blank -%}<p class="bd-subtitle">{{ m.subtitle }}</p>{%- endif -%}
       {%- if m.hero_intro != blank -%}<div class="bd-lead bd-prose">{{ m.hero_intro }}</div>{%- endif -%}
 
-      {%- comment -%} BUY BLOCK — real product form; sticky button submits this same form {%- endcomment -%}
-      <form method="post" action="{{ routes.cart_add_url }}" id="bd-pp-form" class="bd-buyblock" data-bd-form>
-        <input type="hidden" name="id" value="{{ default_variant.id }}" data-bd-id>
-        <div class="bd-seg" role="radiogroup" aria-label="Format">
-          {%- for v in product.variants -%}
-            <span style="position:relative;">
-              <input type="radio" name="bd-format" id="bd-fmt-{{ v.id }}" value="{{ v.id }}"
-                     data-price="{{ v.price | money }}" {% if v == default_variant %}checked{% endif %}
-                     {% unless v.available %}disabled{% endunless %} data-bd-variant>
-              <label for="bd-fmt-{{ v.id }}">{{ v.title }}</label>
-            </span>
-          {%- endfor -%}
+      {%- comment -%}
+        BUY BLOCK - Horizon-native.
+
+        This wrapper is load-bearing twice over:
+
+        1. `data-product-grid-content` on <product-component> is the exact hook
+           assets/quick-add.js scrapes when "Choose" is pressed on a collection page.
+           It fetches THIS page, pulls this element out and morphs it into the
+           quick-add modal. Without the attribute the modal opens blank, because
+           quick-add.js calls #openQuickAddModal() unconditionally - a missing hook
+           fails silently rather than erroring.
+
+        2. The variant picker and add-to-cart are real theme blocks, not hand-rolled
+           markup, so Horizon's own JS owns the cart round-trip: it opens the cart
+           drawer, updates the header badge and re-renders the cart sections. The
+           previous hand-rolled POST to /cart/add.js did none of that.
+
+        Blocks are defined in templates/product.biotaderm.json.
+      {%- endcomment -%}
+      <product-component
+        id="bd-buy"
+        class="bd-buyblock"
+        data-product-grid-content
+        {% # theme-check-disable UnknownFilter %}
+        view-event-payload="{{ product | standard_event_data: 'view' | escape }}"
+        {% # theme-check-enable UnknownFilter %}
+      >
+        <div class="product-details bd-buyblock__details">
+          <div class="bd-buyrow">
+            <span class="bd-price" style="font-size:32px;" data-bd-price>{{ default_variant.price | money }}</span>
+            {%- if m.size_label != blank -%}<span class="bd-size">{{ m.size_label }}</span>{%- endif -%}
+          </div>
+          {% content_for 'blocks' %}
+          <div class="bd-buyrow">
+            <a href="#bd-key-ingredients" class="bd-btn bd-btn--ghost">See the ingredients</a>
+          </div>
         </div>
-        <div class="bd-buyrow">
-          <span class="bd-price" style="font-size:32px;" data-bd-price>{{ default_variant.price | money }}</span>
-          {%- if m.size_label != blank -%}<span class="bd-size">{{ m.size_label }}</span>{%- endif -%}
-        </div>
-        <div class="bd-buyrow">
-          <button type="submit" class="bd-btn" data-bd-add>Add to bag</button>
-          <a href="#bd-key-ingredients" class="bd-btn bd-btn--ghost">See the ingredients</a>
-        </div>
-      </form>
+      </product-component>
 
       {%- comment -%}
         Safety one-liner. Sits under the buy form, where the decision happens.
@@ -522,22 +548,6 @@
   var root = document.querySelector('#shopify-section-{{ section.id }} [data-bd-pp]');
   if (!root) return;
 
-  /* ---- Variant selection: sync radios, price, hidden id ---- */
-  var idInput = root.querySelector('[data-bd-id]');
-  var priceEls = root.querySelectorAll('[data-bd-price]');
-  function selectVariant(id, price) {
-    if (idInput) idInput.value = id;
-    priceEls.forEach(function (el) { if (price) el.textContent = price; });
-    root.querySelectorAll('[data-bd-variant]').forEach(function (r) {
-      if (r.value === id) r.checked = true;
-    });
-  }
-  root.querySelectorAll('[data-bd-variant]').forEach(function (r) {
-    r.addEventListener('change', function () {
-      if (this.checked) selectVariant(this.value, this.getAttribute('data-price'));
-    });
-  });
-
   /* ---- Gallery: thumbnail swaps main; main opens lightbox ---- */
   var mainImg = root.querySelector('[data-bd-main]');
   var lbImg = root.querySelector('[data-bd-lightbox-img]');
@@ -574,32 +584,24 @@
     }, { rootMargin: '-72px 0px 0px 0px' }).observe(hero);
   }
 
-  /* ---- Add to cart → Horizon AJAX drawer ----
-     INTEGRATION POINT (see README): Steel/Horizon exposes a cart-drawer web
-     component. We add via /cart/add.js then ask the theme to refresh/open it.
-     If your build differs, this is the one place to adjust. */
-  var form = root.querySelector('[data-bd-form]');
-  if (form) {
-    form.addEventListener('submit', function (e) {
-      e.preventDefault();
-      var btn = form.querySelector('[data-bd-add]');
-      var label = btn ? btn.textContent : '';
-      if (btn) btn.textContent = 'Adding…';
-      fetch('{{ routes.cart_add_url }}.js', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-        body: JSON.stringify({ items: [{ id: idInput.value, quantity: 1 }] })
-      }).then(function (r) { return r.json(); }).then(function () {
-        // Horizon: open/refresh the cart drawer. Adjust selector/event to your theme.
-        var drawer = document.querySelector('cart-drawer');
-        if (drawer && typeof drawer.open === 'function') { drawer.open(); }
-        document.dispatchEvent(new CustomEvent('cart:refresh', { bubbles: true }));
-        document.dispatchEvent(new CustomEvent('cart:open', { bubbles: true }));
-        if (btn) btn.textContent = 'Added to bag ✓';
-        setTimeout(function () { if (btn) btn.textContent = label || 'Add to bag'; }, 1600);
-      }).catch(function () { form.submit(); /* hard fallback to /cart */ });
-    });
-  }
+  /* ---- Price sync ----
+     Horizon's variant-picker owns variant state now, so we no longer track radios
+     ourselves. It announces every change as `shopify:product:select` with the new
+     variant id in event.detail.variantId; we use that to keep the bespoke
+     price displays (hero + sticky bar) in step. Add-to-cart itself is entirely
+     Horizon's - product-form-component handles the POST, the drawer and the badge. */
+  var BD_PRICES = { {{ bd_price_map }} };
+  document.addEventListener('shopify:product:select', function (e) {
+    /* ProductSelectEvent puts optionValueId / variantId / connectedProductUrl
+       directly on .detail. The event also carries `product`, `selectedOptions` and
+       `promise` as its own properties, which can read like a second nesting level -
+       there isn't one. */
+    var vid = e && e.detail && e.detail.variantId;
+    if (!vid) return;
+    var money = BD_PRICES[String(vid)];
+    if (!money) return;
+    root.querySelectorAll('[data-bd-price]').forEach(function (el) { el.textContent = money; });
+  });
 })();
 </script>
 
@@ -617,6 +619,10 @@
       "type": "paragraph",
       "content": "All editorial content is read from the product's custom.product_page_meta metaobject reference. Variants, price, and images come from the product itself."
     }
+  ],
+  "blocks": [
+    { "type": "variant-picker" },
+    { "type": "buy-buttons" }
   ],
   "presets": [
     { "name": "Biotaderm product" }
