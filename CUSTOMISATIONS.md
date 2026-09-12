@@ -166,6 +166,33 @@ the files still exist.
 `page.our-science`, `page.the-skin-microbiome`, `collection.skin-type`,
 `collection.texture`, plus `article.journal` / `blog.journal`
 
+## Horizon traps that have already cost time
+
+**A section's `{% stylesheet %}` only loads on pages where that section renders.**
+Anything global has to live in a section that renders everywhere -
+`sections/footer-main.liquid` is where we put it. Two rules live there for this
+reason: `.section--page-width-content`, and the quick-add modal layout (the modal
+opens on *collection* pages, where `product-biotaderm.liquid` never renders).
+
+**`content_for 'block', type:.., id:..` (singular) ignores the template JSON.**
+It renders a static block from the block's own schema defaults. Use
+`{% content_for 'blocks' %}` (plural) whenever the settings in
+`templates/*.json` matter. Symptom when this bites: a setting you have clearly
+set to `false` behaves as `true`.
+
+**Push the section before the template** when a template gains a block type the
+section did not previously allow. The server validates the template against the
+schema it already holds, so a combined push fails with
+`Block type 'x' is not allowed in 'sections/y.liquid'`.
+
+**The quick-add modal hides anything not on an allowlist.** Inside
+`.product-details`, everything that is not `.group-block`, `.buy-buttons-block`,
+`.view-product-title`, `variant-picker`, `product-price`, `product-inventory` or
+`.view-more-details__wrapper` gets `display: none !important`
+(`snippets/quick-add-modal-styles.liquid`). Bespoke markup renders into the modal
+and is then invisible, with no error. Never wrap an allowlisted element in a
+non-allowlisted div - the wrapper is hidden and takes the contents with it.
+
 ## Known issues
 
 - **Duplicated collection templates.** The eight `collection.collection-*.json`
