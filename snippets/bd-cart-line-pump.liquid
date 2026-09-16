@@ -1,0 +1,75 @@
+{% doc %}
+  Biotaderm — per-line pump offer.
+
+  Any pump fits any bottle, so the cart cannot know whether a customer needs one:
+  that depends on what they already own. This is therefore an OFFER on every
+  refill line, never a warning, and never suppressed by what another line holds.
+
+  It replaced a single cart-wide button that had three faults. It was hidden
+  whenever any pump was anywhere in the cart, so a cart holding one pump and two
+  refills said nothing at all. It swapped every refill line at once, with no way
+  to choose per product. And it advertised "+£1.00" while charging £1.00 per
+  unit, so swapping two refills cost £2.00.
+
+  One click converts ONE unit, so the price on the control is always the true
+  price of the click. A refill line of two becomes one with-pump and one refill,
+  and the remaining refill still carries the offer.
+
+  @param {object} item - the cart line item
+{% enddoc %}
+
+{%- liquid
+  assign bd_pump = nil
+  if item.variant.title contains 'Refill'
+    # Match the variant that differs only in the package-type option. Every product
+    # currently carries one option with two values, but matching on the value rather
+    # than on position survives a product that later gains a second option.
+    for v in item.product.variants
+      if v.title contains 'Pump' and v.available
+        assign bd_pump = v
+        break
+      endif
+    endfor
+  endif
+-%}
+
+{%- if bd_pump -%}
+  {%- assign bd_delta = bd_pump.price | minus: item.variant.price -%}
+  <button
+    type="button"
+    class="bd-line-pump"
+    data-bd-add-pump
+    data-refill-id="{{ item.variant.id }}"
+    data-pump-id="{{ bd_pump.id }}"
+  >
+    Needs a pump? Add one
+    {%- if bd_delta > 0 %} · +{{ bd_delta | money }}{% endif -%}
+  </button>
+{%- endif -%}
+
+{% stylesheet %}
+  .bd-line-pump {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    margin-block-start: 6px;
+    padding: 0;
+    background: none;
+    border: 0;
+    cursor: pointer;
+    font-size: var(--font-size--xs, 0.8125rem);
+    line-height: 1.4;
+    color: #3d6a75;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+
+  .bd-line-pump:hover {
+    color: #f47d5e;
+  }
+
+  .bd-line-pump[aria-busy='true'] {
+    opacity: 0.55;
+    pointer-events: none;
+  }
+{% endstylesheet %}

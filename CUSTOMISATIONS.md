@@ -38,20 +38,20 @@ simply stop rendering, and the button labels will revert to "Add to cart".
 | `sections/section.liquid` | third `section_width` option | Jul 2026 |
 | `snippets/cart-drawer.liquid` | 3 renders: delivery progress, refill notice, dispatch line | 13 Aug 2026 |
 | `snippets/cart-summary.liquid` | 2 renders: trial line above the button, login prompt below | 13 Aug 2026 |
-| `snippets/cart-products.liquid` | 1 render: per-line made-to-order note | 13 Aug 2026 |
+| `snippets/cart-products.liquid` | 2 renders: per-line made-to-order note, per-line pump offer | 13 Aug 2026, 16 Sep 2026 |
 | `locales/en.default.json` | "Add to cart" → "Add to bag" (brand voice), 4 strings | 12 Sep 2026 |
 
 The three cart files are edited because there is no other way to reach those
 positions — the drawer is stock markup with no section or block hooks at the
 points the design needs. Everything they render lives in `snippets/bd-cart-*`,
-which Shopify does not ship, so only the five one-line `{% render %}` calls are
+which Shopify does not ship, so only the six one-line `{% render %}` calls are
 at risk. Restoring them is re-adding five lines, not rebuilding anything.
 
 Quick check after an upgrade:
 
 ```bash
 grep -c "render 'bd-cart" snippets/cart-drawer.liquid snippets/cart-summary.liquid snippets/cart-products.liquid
-# expect 3, 2, 1
+# expect 3, 2, 2
 
 grep -c "Add to bag" locales/en.default.json
 # expect 2   (actions.add_to_cart and products.product.add_to_cart)
