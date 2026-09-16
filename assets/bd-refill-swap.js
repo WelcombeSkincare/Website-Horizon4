@@ -1,3 +1,5 @@
+import { CartLinesUpdateEvent } from '@shopify/events';
+
 /**
  * Biotaderm — swap every "Refill Bottle only" line to "Bottle with Pump" in place.
  *
@@ -45,30 +47,14 @@ function findPumpVariant(product, line) {
   );
 }
 
-/** Re-render the drawer from the Section Rendering API; reload if that fails. */
-async function refreshDrawer() {
-  const host = document.getElementById('shopify-section-cart-drawer-section');
-  if (!host) return window.location.reload();
-  try {
-    const res = await fetch('/?sections=cart-drawer-section');
-    const sections = await res.json();
-    const markup = sections['cart-drawer-section'];
-    if (!markup) throw new Error('no section markup');
-    const parsed = new DOMParser().parseFromString(markup, 'text/html');
-    const next = parsed.getElementById('shopify-section-cart-drawer-section') || parsed.body.firstElementChild;
-    host.innerHTML = next.innerHTML;
-    document.dispatchEvent(new CustomEvent('cart:refresh', { bubbles: true }));
-  } catch (error) {
-    console.warn('[bd-refill-swap] section render failed, reloading', error);
-    window.location.reload();
-  }
-}
+const SECTION_ID = 'cart-drawer-section';
 
 async function swapAll(button) {
   button.setAttribute('aria-busy', 'true');
   try {
     const cart = await getCart();
     const updates = {};
+    const lines = [];
 
     for (const line of cart.items) {
       if (!String(line.variant_title || '').toLowerCase().includes(REFILL)) continue;
@@ -77,20 +63,55 @@ async function swapAll(button) {
       if (!pump) continue;
       updates[line.variant_id] = 0;
       updates[pump.id] = (updates[pump.id] || 0) + line.quantity;
+      lines.push({ id: line.key, quantity: line.quantity });
     }
 
     if (Object.keys(updates).length === 0) return;
 
+    // Ask Shopify to render the drawer section as part of the mutation, so the updated
+    // markup arrives with the cart rather than needing a second request for it.
     const res = await fetch('/cart/update.js', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-      body: JSON.stringify({ updates }),
+      body: JSON.stringify({ updates, sections: SECTION_ID, sections_url: window.location.pathname }),
     });
     if (!res.ok) throw new Error('cart update failed');
+    const updated = await res.json();
 
-    await refreshDrawer();
+    /*
+     * Hand the rendered section to the theme and let cart-items-component morph it.
+     *
+     * This replaced a wholesale replacement of the section's markup, which worked on
+     * the cart page but broke the drawer. The drawer is a <dialog> opened with
+     * showModal(), so it lives in the top layer; swapping the section's contents
+     * destroyed that dialog and inserted a fresh, closed one. The drawer vanished
+     * mid-click and the swap it had just completed stayed invisible until the customer
+     * reopened the cart, which read as "the button does nothing".
+     *
+     * Morphing patches the existing nodes rather than replacing them, so the open
+     * dialog survives. cart-items-component morphs whenever the event carries
+     * `detail.sections`, and that same event updates the header count and the totals.
+     */
+    const deferred = CartLinesUpdateEvent.createPromise();
+    document.dispatchEvent(
+      new CartLinesUpdateEvent({ action: 'update', context: 'cart', lines, promise: deferred.promise })
+    );
+    deferred.resolve({
+      cart: CartLinesUpdateEvent.createCartFromAjaxResponse(updated),
+      detail: {
+        sections: updated.sections,
+        items: updated.items,
+        itemCount: updated.item_count,
+        source: 'bd-refill-swap',
+        didError: false,
+      },
+    });
   } catch (error) {
     console.error('[bd-refill-swap]', error);
+  } finally {
+    // Always clear it. The notice normally morphs away with the refill line, but a
+    // partial failure used to leave the button stuck at opacity .6 / pointer-events
+    // none, which is indistinguishable from a dead button.
     button.removeAttribute('aria-busy');
   }
 }
