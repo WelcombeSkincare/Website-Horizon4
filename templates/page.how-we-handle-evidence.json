@@ -16,7 +16,7 @@
           "type": "band",
           "settings": {
             "heading": "We read the science. We don't run it.",
-            "body": "<p>Biotaderm reviews published research and formulates on the basis of what it shows. We have not run our own clinical trials, and our copy never implies we have. That distinction sounds small. It is the whole foundation of the trust we are asking for.</p><p>So we credit the evidence, not ourselves. When the research supports something, we say the research supports it. We do not quietly promote ourselves to the role of the people who discovered it.</p>",
+            "body": "<p>Biotaderm reviews published research and formulates on the basis of what it shows. We have not run our own clinical trials, and our copy never implies we have.</p><p>So the copy credits the researchers. When the research supports something, we say the research supports it, and we never present a finding as our own.</p>",
             "variant": "plain",
             "set_piece": "none",
             "ethos_icon": "none"
@@ -26,7 +26,7 @@
           "type": "band",
           "settings": {
             "heading": "Why the wording matters",
-            "body": "<p>You will notice the same phrases throughout the site. The research suggests. Studies indicate. The evidence points to. Those openings are not hedging for its own sake. They are accurate, because they put the credit where it belongs.</p><p>The moment a sentence hands Biotaderm the discovery, with an \"our research shows\" or a \"we've proven\", it stops being true, and truth is the entire proposition. Here is the test we apply to our own copy. \"Our research shows rosehip oil repairs the skin\" becomes \"the research on cold-pressed rosehip oil points to its carotenoids and fatty acids.\" Same ingredient, same story, told in a way we can actually stand behind.</p>",
+            "body": "<p>You will notice the same phrases throughout the site. The research suggests. Studies indicate. The evidence points to. Those openings put the credit where it belongs.</p><p>The moment a sentence hands Biotaderm the discovery, with an \"our research shows\" or a \"we've proven\", it stops being true. Here is the test we apply to our own copy. \"Our research shows rosehip oil repairs the skin\" becomes \"the research on cold-pressed rosehip oil points to its carotenoids and fatty acids.\" Same ingredient, same story, told in a way we can stand behind.</p>",
             "variant": "plain",
             "set_piece": "chips",
             "ethos_icon": "none",
@@ -55,7 +55,7 @@
           "type": "band",
           "settings": {
             "heading": "What we will, and will not, claim",
-            "body": "<p>We only put a claim on a page when the published evidence supports it. When the evidence is genuinely strong, we will tell you. When it is early, thin, or still being argued over, we will tell you that too, rather than rounding it up into something firmer. A surprising amount of the science we find sits in that honest middle, and pretending otherwise would be the easiest way to lose the very thing this page exists to protect.</p>",
+            "body": "<p>We only put a claim on a page when the published evidence supports it. When the evidence is strong, we say so. When it is early, thin or disputed, we say that too. Much of the science we read sits in that middle ground.</p>",
             "variant": "plain",
             "set_piece": "none",
             "ethos_icon": "none"
@@ -83,7 +83,7 @@
           "type": "band",
           "settings": {
             "heading": "Behind every claim",
-            "body": "<p>There is more work behind this than the finished copy shows. Before a claim goes on a page, it is weighed against the published literature, and if it is not well enough supported, it does not run. We would rather say less and mean all of it than say more and defend little of it. You do not need to see that process to benefit from it. You just need to know it happens, and that it is deliberately strict.</p>",
+            "body": "<p>Before a claim goes on a page, it is checked against the published literature. If the evidence does not support it, it does not run.</p>",
             "variant": "plain",
             "set_piece": "none",
             "ethos_icon": "none"
@@ -92,8 +92,8 @@
         "b_dark": {
           "type": "band",
           "settings": {
-            "heading": "Honesty is the strategy, not just the ethics",
-            "body": "<p>Being accurate where the rest of the category is vague is not only the right thing to do. It is the most durable advantage a small brand can have. It is also why the detail lives out in the open: every ingredient has its own page, with its own references, so you never have to take our word for it. If our reasoning does not hold up, you will be able to see that for yourself.</p>",
+            "heading": "Check it for yourself",
+            "body": "<p>Every ingredient has its own page, with its own references, so you can check our reasoning rather than take our word for it. If it does not hold up, you will see that for yourself.</p>",
             "variant": "dark",
             "set_piece": "none",
             "ethos_icon": "ethos-science",
@@ -112,7 +112,7 @@
           "type": "next",
           "settings": {
             "heading": "The skin microbiome",
-            "body": "What the research actually says.",
+            "body": "What the research says.",
             "url": "/pages/the-skin-microbiome"
           }
         },
@@ -144,8 +144,8 @@
         "measure": "narrow",
         "eyebrow": "Science · Three of five",
         "heading": "How we handle evidence",
-        "standfirst": "<p><em>We read the science. We don't run it. That one line governs everything we say.</em></p>",
-        "intro": "<p>Skincare has a trust problem, and most of it comes down to language. Brands borrow the authority of research without doing any, and the reader is left unable to tell a real finding from a well-dressed guess. We would rather be the brand you can check. So it is worth setting out, plainly, how we decide what we are willing to tell you.</p>",
+        "standfirst": "<p><em>We review the published science. We don't conduct it, and that rule governs everything we say.</em></p>",
+        "intro": "<p>Skincare has a trust problem, and much of it comes down to language. Brands may borrow the authority of research they did not do, and the reader cannot tell a finding from a guess. This page sets out our reasons for making the statements we do.</p>",
         "hero_image_reserve": false,
         "next_heading": "Where to go next"
       }

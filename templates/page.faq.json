@@ -22,7 +22,7 @@
           "type": "question",
           "settings": {
             "question": "How do I know which skin type I am?",
-            "answer": "<p>The <a href=\"/pages/find-your-skin-type\">skin type finder</a> asks two questions about how your skin actually behaves and points you at one of five types. It takes a couple of minutes.</p> <p>If you would rather work it out yourself, the short version is this. Skin that feels tight and flakes is dry. Skin that shines by mid-afternoon is oily. Skin that stings or reddens easily is sensitive on top of whichever of those it is. Balanced is the one that mostly behaves itself.</p>",
+            "answer": "<p>The <a href=\"/pages/find-your-skin-type\">skin type finder</a> asks two questions about how your skin behaves and points you at one of five types. It takes a couple of minutes.</p> <p>If you would rather work it out yourself, the short version is this. Skin that feels tight and flakes is dry. Skin that shines by mid-afternoon is oily. Skin that stings or reddens easily is sensitive on top of whichever of those it is. Balanced is the one that mostly behaves itself.</p>",
             "set_piece": "finder",
             "ethos_icon": "none",
             "ethos_label": ""
@@ -32,7 +32,7 @@
           "type": "question",
           "settings": {
             "question": "What is the difference between Flow, Core and Deep?",
-            "answer": "<p>How much cold-pressed oil each one carries. That is the only thing that changes.</p> <p>Flow is over 9% plant oils, sinks in quickly and is made for the face. Core is over 14%, richer and more cushioning, made for the body. Deep is over 19%, the substantial one for hands, elbows, knees and feet.</p> <p>Same five oils, same prebiotic, same pH, three weights. You are choosing by where you are putting it and how rich you like it to feel.</p>",
+            "answer": "<p>How much cold-pressed oil each one carries. In the current formulations, that is the only thing that changes.</p> <p>Flow is over 9% plant oils, sinks in quickly and is made for the face. Core is over 14%, richer and more cushioning, made for the body. Deep is over 19%, the substantial one for hands, elbows, knees and feet.</p> <p>Within a skin type, all three share the same oils, the same prebiotic and the same pH. You are choosing by where you are putting it and how rich you like it to feel.</p>",
             "set_piece": "textures",
             "ethos_icon": "none",
             "ethos_label": ""
@@ -42,7 +42,7 @@
           "type": "question",
           "settings": {
             "question": "My face and my body are not the same. Do I need two?",
-            "answer": "<p>Plenty of people buy two. Face and body genuinely behave differently, and running Flow on the face and Core on the body is a common pairing. Nothing in the range conflicts, so mixing is fine.</p> <p>If you are starting with one, buy for your face. It is the skin you will notice first.</p>",
+            "answer": "<p>You may well want two. Skin on the face and body behaves differently, and Flow on the face with Core on the body is a sensible pairing. Nothing in the range conflicts, so mixing is fine.</p><p>If you are starting with one, buy for your face. It is the skin you will notice first.</p>",
             "set_piece": "none",
             "ethos_icon": "none",
             "ethos_label": ""
@@ -52,10 +52,10 @@
           "type": "question",
           "settings": {
             "question": "Is it suitable for sensitive skin?",
-            "answer": "<p>Two of the five types are built for it, Dry Sensitive and Oily Sensitive, and they are the most careful formulations we make. There is no synthetic fragrance anywhere in the range.</p> <p>We publish every ingredient and every percentage on every product page, so if there is something your skin has fallen out with before, you can check for it before you buy rather than after.</p>",
+            "answer": "<p>Two of the five types are built for it, Dry Sensitive and Oily Sensitive. There is no synthetic fragrance anywhere in the range.</p><p>We publish every ingredient and every percentage on every product page, so if there is something your skin has fallen out with before, you can check for it before you buy rather than after.</p>",
             "set_piece": "none",
             "ethos_icon": "ethos-gentle",
-            "ethos_label": "Gentle on skin, every time"
+            "ethos_label": "Made to be gentle on skin"
           }
         },
         "cat_using_it": {
@@ -68,7 +68,7 @@
           "type": "question",
           "settings": {
             "question": "How do I use it?",
-            "answer": "<p>Warm a small amount between your fingertips and press it into clean skin, morning or night or both, before any make-up or sunscreen. On the body, massage it in until it disappears.</p> <p>Small amount is the operative phrase. These are concentrated, and most people use twice what they need for the first week.</p>",
+            "answer": "<p>Warm a small amount between your fingertips and press it into clean skin, morning or night or both, before any make-up or sunscreen. On the body, massage it in until it disappears.</p> <p>Small amount is the operative phrase. These are concentrated, and it is easy to use twice what you need at first.</p>",
             "set_piece": "dose",
             "ethos_icon": "none",
             "ethos_label": ""
@@ -78,7 +78,7 @@
           "type": "question",
           "settings": {
             "question": "How long before I notice anything?",
-            "answer": "<p>Surface comfort arrives quickly, often within a few days. Anything to do with the skin barrier takes longer, because skin turns over roughly every four weeks and you are waiting on new cells rather than treating the ones already there.</p> <p>Give it a fortnight before you judge it. That is why the trial runs for two weeks.</p>",
+            "answer": "<p>You will feel the moisture as soon as it goes on. Anything longer-term takes more time, because skin renews its surface roughly every four weeks, and more slowly with age. You are waiting on new cells rather than changing the ones already there.</p><p>Give it a fortnight to see how it suits you. That is why the trial runs for two weeks.</p>",
             "set_piece": "none",
             "ethos_icon": "none",
             "ethos_label": ""
@@ -88,7 +88,7 @@
           "type": "question",
           "settings": {
             "question": "Can I use it under sunscreen or make-up?",
-            "answer": "<p>Yes. Flow in particular is formulated to sit under both. Give it a minute to absorb and everything else goes on more evenly.</p>",
+            "answer": "<p>Yes. Flow absorbs the fastest, so it suits wearing under both, and Core is not far behind. Give it a minute to absorb before the next layer goes on.</p>",
             "set_piece": "none",
             "ethos_icon": "none",
             "ethos_label": ""
@@ -108,7 +108,7 @@
           "type": "question",
           "settings": {
             "question": "How long does a bottle last, and how long does it keep once opened?",
-            "answer": "<p>A 150ml bottle used twice a day on the face lasts most people around three months. On the body it goes faster, because there is more of you.</p> <p>Once opened, use it within six months. That is the small open-jar symbol on the bottle with 6M beside it. The batch number and date are on the base.</p>",
+            "answer": "<p>A 150ml bottle used twice a day on the face lasts around three months. On the body it goes faster, because there is more of you.</p> <p>Once opened, use it within six months. That is the small open-jar symbol on the bottle with 6M beside it. The batch number and date are on the base.</p>",
             "set_piece": "bottle_base",
             "ethos_icon": "none",
             "ethos_label": ""
@@ -124,7 +124,7 @@
           "type": "question",
           "settings": {
             "question": "Why do you publish the whole formulation?",
-            "answer": "<p>Because you can read it. Every product page carries every ingredient and its exact percentage, in a table, each one linked to a page explaining what it is doing and what the evidence behind it says.</p> <p>An ingredient list tells you what is in a product. The percentage tells you whether it is doing a job or decorating the label.</p>",
+            "answer": "<p>So you can see exactly what you are putting on your skin, and how much of each thing. Every product page carries every ingredient and its exact percentage, in a table, each one linked to a page explaining what it is doing and what the evidence behind it says.</p><p>An ingredient list tells you what is in a product. The percentage tells you how much.</p>",
             "set_piece": "none",
             "ethos_icon": "ethos-formulation",
             "ethos_label": "Every formulation published in full"
@@ -134,7 +134,7 @@
           "type": "question",
           "settings": {
             "question": "Does it have a scent?",
-            "answer": "<p>A faint earthy one, from a single ingredient. Vetiver root oil, a natural essential oil taken from the roots of a grass, at between 0.10% and 0.20% depending on the texture.</p> <p>There is no synthetic fragrance in the range, and no \"parfum\" catch-all standing in for a list of components we have not named. A concentrated aromatic can still be a lot for a fragile barrier, so we keep the level low and say plainly that it is there.</p>",
+            "answer": "<p>A faint earthy one, from a single ingredient. Vetiver root oil is a natural essential oil distilled from the roots of a grass, and every product carries it at a tenth of a percent.</p><p>There is no synthetic fragrance in the range, and no \"parfum\" catch-all standing in for components we have not named. If your skin reacts easily, patch test before first use.</p>",
             "set_piece": "none",
             "ethos_icon": "none",
             "ethos_label": ""
@@ -144,7 +144,7 @@
           "type": "question",
           "settings": {
             "question": "What keeps it from going off?",
-            "answer": "<p>Sodium benzoate at 0.38%, working with gluconolactone and the pH that the sodium citrate holds. It is a preservative system used widely across food and cosmetics, and it is on the label like everything else.</p> <p>A water-based cream with nothing preserving it grows things within days. That is chemistry rather than opinion.</p>",
+            "answer": "<p>Sodium benzoate, working with gluconolactone and the pH that the sodium citrate holds. It is a preservative system used widely across food and cosmetics, and it is on the label like everything else.</p><p>A water-based cream with nothing preserving it can grow mould and bacteria within days.</p>",
             "set_piece": "none",
             "ethos_icon": "none",
             "ethos_label": ""
@@ -154,7 +154,7 @@
           "type": "question",
           "settings": {
             "question": "Is it vegan, and is it tested on animals?",
-            "answer": "<p>Every ingredient is plant, mineral or ferment derived, so the range suits a vegan routine. Nothing is tested on animals. Testing cosmetics on animals has been illegal in the UK since 1998.</p> <p>We hold no certification for either at the moment.</p>",
+            "answer": "<p>Yes, the range is vegan. We use plant-, mineral- and ferment-derived ingredients, and nothing in it comes from animals. Testing cosmetics on animals has been banned in the UK since 1998, and the only person our products are tested on is the chemist who makes them.</p><p>We hold no certification for either at the moment.</p>",
             "set_piece": "none",
             "ethos_icon": "ethos-cruelty",
             "ethos_label": "Vegan and cruelty-free"
@@ -174,11 +174,11 @@
           "type": "question",
           "settings": {
             "question": "What is all the microbiome talk about?",
-            "answer": "<p>Your skin carries its own community of bacteria and fungi, and the research points fairly consistently one way: skin does better when that community is supported rather than stripped.</p> <p>The biggest thing we do about it is not an ingredient. Every product is built at the slightly acidic pH the skin's residents prefer, with nothing harsh working against them. Beyond that, inulin, a plant prebiotic, feeds the microbes already there, and a chlorella extract has supplier evidence for holding back the less welcome species while sparing the helpful ones.</p> <p>One caveat. Skin microbiome science is young, and much of it is still in cell culture rather than on faces. <a href=\"/pages/our-science\">Our Science</a> sets out what the evidence supports and where it runs out.</p>",
+            "answer": "<p>Your skin carries its own community of bacteria and fungi, and the research suggests skin does better when that community is supported rather than stripped.</p><p>Two ingredients are there for it. Inulin, a plant prebiotic, feeds the microbes already on your skin in laboratory studies, and a chlorella extract has supplier evidence for holding back the less welcome species while sparing the helpful ones. Beyond those, nothing in the formula is there to strip, and every finished product is adjusted to slightly acidic (pH 5 to 5.5), the level the skin's residents prefer. Of everything here, that has the strongest evidence behind it.</p><p>Skin microbiome science is young, and much of it is still in cell culture rather than on faces. The <a href=\"/pages/the-skin-microbiome\">skin microbiome page</a> sets out what the evidence supports and where it runs out.</p>",
             "set_piece": "none",
             "ethos_icon": "ethos-microbiome",
             "ethos_label": "Made for your microbiome",
-            "caveat": "<p>The science here is still young. We follow the published research rather than run our own, and we only claim what the evidence will actually carry. <a href=\"/pages/our-science\">Read the science</a>.</p>"
+            "caveat": "<p>We review the published research rather than run our own, and claim only what it supports. <a href=\"/pages/our-science\">Read the science</a>.</p>"
           }
         },
         "cat_buying": {
@@ -191,7 +191,7 @@
           "type": "question",
           "settings": {
             "question": "What if it does not suit me?",
-            "answer": "<p>Give it two weeks. If it is still not right, we will swap it for a different skin type or refund you, whichever you prefer, any time up to 60 days after your order arrives. Return postage is on us, and you send back whatever is left in the bottle.</p> <p>Sometimes we will simply refund you and tell you to keep it. One claim per product, per customer, and the full terms are in the <a href=\"/policies/refund-policy\">refund policy</a>.</p>",
+            "answer": "<p>Give it two weeks. If it is still not right, we will swap it for a different skin type or refund you, whichever you prefer, any time up to 60 days after your order arrives. Return postage is on us, and you send back whatever is left in the bottle.</p> <p>Sometimes we will refund you and tell you to keep it. One claim per product, per customer, and the full terms are in the <a href=\"/policies/refund-policy\">refund policy</a>.</p>",
             "set_piece": "none",
             "ethos_icon": "none",
             "ethos_label": ""
@@ -201,18 +201,8 @@
           "type": "question",
           "settings": {
             "question": "What does delivery cost, and how quickly will it arrive?",
-            "answer": "<p>Standard delivery is £5.99, and free on orders over £40. Express is £7.99, free over £80. If you are in one of nine north Devon postcodes, orders over £20 come free and we bring them to you ourselves.</p> <p>Everything is made by hand in small batches. If what you have ordered is in stock we dispatch within one to two working days. If it is not, we make it for you and dispatch within five working days. We deliver across the UK and nowhere else for now.</p>",
+            "answer": "<p>Standard delivery is £5.99, and free on orders over £40. Express is £7.99, free over £80. If your postcode starts EX22, EX23 or EX39, orders over £20 come free and we bring them to you ourselves.</p><p>Everything is made by hand in small batches. If what you have ordered is in stock, we dispatch within one to two working days. If it is not, we make it for you and dispatch within five working days. From dispatch, Royal Mail delivers Standard in three to five days and Express in one to three. We deliver across the UK and nowhere else for now, and the full details are in our <a href=\"/policies/shipping-policy\">delivery policy</a>.</p>",
             "set_piece": "delivery_pair",
-            "ethos_icon": "none",
-            "ethos_label": ""
-          }
-        },
-        "q_what_is_the_refill_bottle_and_why_is_it_only": {
-          "type": "question",
-          "settings": {
-            "question": "What is the refill bottle, and why is it only a pound less?",
-            "answer": "<p>The refill is the same 150ml aluminium bottle with the same cream in it, and no pump. The pump is the only plastic part. It is designed to move from bottle to bottle and it lasts for years.</p> <p>A pound is roughly what the pump costs us, so the saving is the pump coming off the price rather than a reward for buying less.</p> <p>If this is your first order, buy the version with the pump. A refill on its own is a bottle you cannot easily get the cream out of.</p>",
-            "set_piece": "refill_pair",
             "ethos_icon": "none",
             "ethos_label": ""
           }
@@ -221,10 +211,10 @@
           "type": "question",
           "settings": {
             "question": "Why aluminium?",
-            "answer": "<p>Because it recycles indefinitely without losing quality, which is not true of plastic. The bottle is refillable and the pump is meant to be reused. That combination does more than a recycling symbol on a plastic bottle ever will.</p>",
+            "answer": "<p>It can be recycled again and again without losing quality, and recycling it takes around 5% of the energy needed to make it new. The pump is bamboo and plastic, and is made to be reused.</p>",
             "set_piece": "none",
             "ethos_icon": "ethos-climate",
-            "ethos_label": "Refillable and recyclable aluminium bottles, reusable pump"
+            "ethos_label": "Recyclable aluminium bottles, reusable pump"
           }
         },
         "q_do_you_sell_anywhere_other_than_online": {
@@ -232,6 +222,56 @@
           "settings": {
             "question": "Do you sell anywhere other than online?",
             "answer": "<p>Not yet. We are talking to a handful of independent shops in north Devon. If you run one and would like to stock us, <a href=\"mailto:store@biotaderm.com\">email us</a>.</p>",
+            "set_piece": "none",
+            "ethos_icon": "none",
+            "ethos_label": ""
+          }
+        },
+        "q_rosacea_or_eczema": {
+          "type": "question",
+          "settings": {
+            "question": "I have rosacea or eczema. Can I use it?",
+            "answer": "<p>Our moisturisers are cosmetics, so they are not a treatment for any skin condition. Dry Sensitive and Oily Sensitive are formulated for skin that tends to dryness, redness and reactivity, and every ingredient and its percentage is published, so you can check it against anything your skin has reacted to before.</p><p>If you are under the care of a doctor or dermatologist, check with them first, and patch test before first use.</p>",
+            "set_piece": "none",
+            "ethos_icon": "none",
+            "ethos_label": ""
+          }
+        },
+        "q_where_is_it_made": {
+          "type": "question",
+          "settings": {
+            "question": "Where is it made, and where does the seaweed come from?",
+            "answer": "<p>Everything is made by hand, in small batches, in Welcombe on the north Devon coast. The bladderwrack in every product is the same Atlantic seaweed species that grows on the rocks below Welcombe. Ours is a cold infusion in sunflower oil, made in the UK by O&amp;3.</p>",
+            "set_piece": "none",
+            "ethos_icon": "none",
+            "ethos_label": ""
+          }
+        },
+        "q_samples_or_smaller_sizes": {
+          "type": "question",
+          "settings": {
+            "question": "Do you do samples or smaller sizes?",
+            "answer": "<p>Not at the moment. The <a href=\"/policies/refund-policy\">Two-Week Trial</a> is there for the same reason: if a product does not suit you, we will swap it or refund it.</p>",
+            "set_piece": "none",
+            "ethos_icon": "none",
+            "ethos_label": ""
+          }
+        },
+        "q_what_is_the_bottle_without_a_pump": {
+          "type": "question",
+          "settings": {
+            "question": "What is the bottle without a pump, and why is it only a pound less?",
+            "answer": "<p>It is the same 150ml aluminium bottle with the same cream in it, without the pump. The pump is the only plastic part, and it is made to move from bottle to bottle.</p><p>A pound is roughly what the pump costs us, so the saving is the pump coming off the price rather than a reward for buying less.</p><p>If this is your first order, buy the version with the pump. A bottle on its own is one you cannot easily get the cream out of.</p>",
+            "set_piece": "refill_pair",
+            "ethos_icon": "none",
+            "ethos_label": ""
+          }
+        },
+        "q_why_no_spf": {
+          "type": "question",
+          "settings": {
+            "question": "Why is there no SPF in your moisturisers?",
+            "answer": "<p>Because a moisturiser goes on too thinly to give the protection an SPF number promises. The SPF on a label is measured with 2mg of product on every square centimetre of skin, which is a thick layer. Research at King's College London found that people apply less than half that, and at that thickness an SPF 50 sunscreen gave at best 40% of the protection on its label. Our moisturisers are concentrated and made to be used in small amounts, so an SPF added to them would fall shorter still.</p><p>Sun protection also needs topping up. The <a href=\"https://www.nhs.uk/live-well/seasonal-health/sunscreen-and-sun-safety/\">NHS</a> advises reapplying sunscreen every two hours, and after swimming, sweating or towelling. A moisturiser you put on at breakfast is not something you reapply through the day, which is why <a href=\"https://www.cancerresearchuk.org/about-cancer/causes-of-cancer/sun-uv-and-cancer/ways-to-enjoy-the-sun-safely\">Cancer Research UK</a> advises using a sunscreen even when your moisturiser contains SPF.</p><p>So our moisturisers do one job, and you choose how to handle the sun. That might be a sunscreen of SPF 30 or higher with at least four-star UVA protection, a mineral one based on zinc oxide if you prefer a simpler formula, and shade, a hat and covering clothing, which the NHS recommends alongside sunscreen. Put the moisturiser on first and give it a minute to absorb before your sunscreen goes on. Nothing in our products protects against the sun.</p>",
             "set_piece": "none",
             "ethos_icon": "none",
             "ethos_label": ""
@@ -244,6 +284,7 @@
         "q_what_is_the_difference_between_flow_core_and",
         "q_my_face_and_my_body_are_not_the_same_do_i_ne",
         "q_is_it_suitable_for_sensitive_skin",
+        "q_rosacea_or_eczema",
         "cat_using_it",
         "q_how_do_i_use_it",
         "q_how_long_before_i_notice_anything",
@@ -253,14 +294,17 @@
         "cat_what_is_in_it",
         "q_why_do_you_publish_the_whole_formulation",
         "q_does_it_have_a_scent",
+        "q_why_no_spf",
         "q_what_keeps_it_from_going_off",
         "q_is_it_vegan_and_is_it_tested_on_animals",
         "q_is_it_organic",
+        "q_where_is_it_made",
         "q_what_is_all_the_microbiome_talk_about",
         "cat_buying",
         "q_what_if_it_does_not_suit_me",
+        "q_samples_or_smaller_sizes",
         "q_what_does_delivery_cost_and_how_quickly_will",
-        "q_what_is_the_refill_bottle_and_why_is_it_only",
+        "q_what_is_the_bottle_without_a_pump",
         "q_why_aluminium",
         "q_do_you_sell_anywhere_other_than_online"
       ],

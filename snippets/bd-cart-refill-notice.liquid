@@ -12,7 +12,7 @@
   # Pumps fit any bottle, so what another line holds says nothing about this one.
   assign bd_has_refill = false
   for item in cart.items
-    if item.variant.title contains 'Refill'
+    if item.variant.title contains 'Refill' or item.variant.title contains 'Bottle only'
       assign bd_has_refill = true
       break
     endif
@@ -30,7 +30,7 @@
         <path d="M8 9V6h4v3" />
         <path d="M12 6V3h4v2h-2" />
       </svg>
-      <span>Refill bottles come without a pump. A pump is needed, and we encourage you to use one from a previous order. If this is your first Biotaderm order, or you need a new pump, choose Bottle with Pump.</span>
+      <span>Bottle only comes without a pump. You will need one, and we encourage you to reuse a pump from a previous order. If this is your first Biotaderm order, or you need a new pump, choose Bottle with Pump.</span>
     </p>
   </div>
 {%- endif -%}

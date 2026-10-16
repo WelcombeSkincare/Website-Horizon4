@@ -16,10 +16,10 @@
         "tagline": "SkinBiomeNourishment",
         "eyebrow": "Support not control",
         "heading": "Moisturisers formulated for your skin type and the microbiome it carries.",
-        "body": "<p>Formulated by a chemist from the published science, then made by hand in small batches on the north Devon coast. Cold-pressed organic oils, every ingredient listed in plain English, every percentage published.</p>",
+        "body": "<p>Formulated by a chemist and made by hand in small batches on the north Devon coast, with cold-pressed organic and plant oils. Every ingredient and its exact percentage is published, so you can check the formula against your own skin before you buy.</p>",
         "primary_label": "Find your skin type",
         "primary_link": "shopify://pages/find-your-skin-type",
-        "secondary_label": "Our range",
+        "secondary_label": "Shop our range",
         "secondary_link": "shopify://collections/moisturiser",
         "image": "shopify://shop_images/Hero-Tall.jpg"
       }
@@ -94,8 +94,8 @@
         "section_width": "normal",
         "heading": "Start with your skin type",
         "intro": "<p>Everything we make is built around five skin types. Find yours, then choose how light or rich you'd like it.</p>",
-        "finder_title": "Not sure yet",
-        "finder_body": "Two questions about how your skin behaves, and we will tell you which of the five you are. If we get it wrong, you have two weeks to find out and 60 days to change it, with return postage on us.",
+        "finder_title": "Not sure which you are?",
+        "finder_body": "Answer two questions about how your skin behaves and we'll tell you which of the five you are. If we get it wrong, you have two weeks to find out and 60 days to swap or refund, with return postage on us.",
         "finder_button_label": "Find my type",
         "finder_link": "shopify://pages/find-your-skin-type",
         "footer_text": "Not sure which you are?",
@@ -122,7 +122,7 @@
           "settings": {
             "word": "Core",
             "word_color": "#4e6d6c",
-            "copy": "The middle. Richer and more cushioning, suited to the body and everyday use.",
+            "copy": "The most versatile. A cushioning cream for anywhere on the body, and the face when it wants more than Flow.",
             "bar_width": 76,
             "bar_color": "#4e6d6c",
             "link_label": "Shop Core",
@@ -134,7 +134,7 @@
           "settings": {
             "word": "Deep",
             "word_color": "#263e40",
-            "copy": "The richest. A substantial cream for the parts that take the most punishment, hands, elbows, knees and feet.",
+            "copy": "The richest. A thick cream for hands, elbows, knees and feet, the parts that take the most wear.",
             "bar_width": 100,
             "bar_color": "#263e40",
             "link_label": "Shop Deep",
@@ -149,9 +149,9 @@
       ],
       "settings": {
         "section_width": "normal",
-        "heading": "Three textures, not a dozen products",
-        "intro": "<p>Most face creams, body lotions, hand creams and foot balms are the same handful of ingredients at different thicknesses, sold to you as four products. We would rather give you three honest textures and trust you to put them where they suit.</p>",
-        "closing_text": "The only thing that changes between them is how much cold-pressed organic oil each one carries. More oil, more richness. Everything else stays the same.",
+        "heading": "Three textures for every skin type",
+        "intro": "<p>Face cream, body lotion, hand cream and foot balm differ mostly in thickness. We make three textures and leave you to use them wherever they suit. Fewer products means fewer new ingredients for your skin to meet.</p>",
+        "closing_text": "Only the amount of cold-pressed organic and plant oil changes between them. More oil, more richness.",
         "bar_note": "Bars show relative oil load"
       }
     },
@@ -179,7 +179,7 @@
         "ing_03": {
           "type": "ingredient",
           "settings": {
-            "name": "Hylocereus Undatus (Dragon Fruit) Seed Oil*^",
+            "name": "Hylocereus Undatus (Dragon Fruit) Seed Oil^",
             "percentage": "3.68%",
             "bar_width": 61,
             "fill_class": "active"
@@ -265,7 +265,7 @@
         "section_width": "normal",
         "eyebrow": "The full formulation",
         "heading": "Nothing hidden",
-        "body": "<p>We publish every formulation in full, every ingredient and the exact percentage we use. Most of the industry does not. You can read an ingredient list and make up your own mind.</p><p>What follows is an extract, the ten largest ingredients after water in Core Dry Sensitive. The full list of twenty-six is on the product page.</p>",
+        "body": "<p>We publish every formulation in full, with each ingredient and the exact percentage we use.</p><p>Below are the ten largest ingredients after water in Biotaderm Core Dry Sensitive. The product page lists all twenty-six.</p>",
         "link_label": "See the full formulation",
         "featured_product": "core-dry-sensitive-a-cushioning-body-moisturiser-for-dry-sensitive-skin",
         "link_url": "",
@@ -287,7 +287,7 @@
         "show_standin_badge": false,
         "eyebrow": "",
         "heading": "Made for your microbiome",
-        "body": "<p>Your skin is a living surface with its own microbiome, the community of microbes that helps keep it healthy. The research points steadily in one direction. Skin tends to do better when that community is supported rather than stripped. So we build every product at the pH your skin's residents prefer, feed them with a plant prebiotic, and leave out synthetic fragrance and anything that strips.</p>",
+        "body": "<p>Your skin carries its own microbiome, a community of microbes living on its surface. Published research suggests this community does better when skincare leaves it undisturbed. So we make every product slightly acidic (pH 5 to 5.5), close to the pH of healthy skin, and leave out synthetic fragrance and ingredients that strip. We also add a plant prebiotic that, in laboratory studies, feeds the skin's beneficial bacteria.</p>",
         "link_label": "Read the science",
         "link_url": "shopify://pages/our-science"
       }
@@ -303,7 +303,7 @@
         "show_standin_badge": false,
         "eyebrow": "",
         "heading": "Why we started",
-        "body": "<p>Biotaderm began on the north Devon coast with a simple frustration: skincare labels that told you almost nothing. We set out to make the opposite. Every formulation published in full, every percentage listed, nothing hidden behind a marketing name.</p>",
+        "body": "<p>Biotaderm began with a chemist's question and a son whose skin reacted to almost everything. Six years of reading the published research later, the range is fifteen moisturisers, made by hand in Welcombe.</p>",
         "link_label": "Read our story",
         "link_url": "shopify://pages/about-us"
       }
@@ -329,7 +329,7 @@
           "type": "ethos",
           "settings": {
             "icon": "ethos-climate.svg",
-            "label": "Refillable aluminium bottles, reusable pump"
+            "label": "Recyclable aluminium bottles, reusable pump"
           }
         },
         "ethos_formulation": {

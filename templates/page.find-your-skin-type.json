@@ -678,7 +678,7 @@
           "type": "text",
           "name": "t:names.heading",
           "settings": {
-            "text": "<p>Dry Sensitive — dry and reactive</p>",
+            "text": "<p>Dry Sensitive: dry and reactive</p>",
             "width": "fit-content",
             "max_width": "normal",
             "alignment": "left",
@@ -788,7 +788,7 @@
           "type": "text",
           "name": "t:names.heading",
           "settings": {
-            "text": "<p>Dry — dry but settled</p>",
+            "text": "<p>Dry: dry but settled</p>",
             "width": "fit-content",
             "max_width": "normal",
             "alignment": "left",
@@ -898,7 +898,7 @@
           "type": "text",
           "name": "t:names.heading",
           "settings": {
-            "text": "<p>Balanced — comfortable and even</p>",
+            "text": "<p>Balanced: comfortable and even</p>",
             "width": "fit-content",
             "max_width": "normal",
             "alignment": "left",
@@ -1008,7 +1008,7 @@
           "type": "text",
           "name": "t:names.heading",
           "settings": {
-            "text": "<p>Oily — oily but settled</p>",
+            "text": "<p>Oily: oily but settled</p>",
             "width": "fit-content",
             "max_width": "normal",
             "alignment": "left",
@@ -1118,7 +1118,7 @@
           "type": "text",
           "name": "t:names.heading",
           "settings": {
-            "text": "<p>Oily Sensitive — oily and reactive</p>",
+            "text": "<p>Oily Sensitive: oily and reactive</p>",
             "width": "fit-content",
             "max_width": "normal",
             "alignment": "left",

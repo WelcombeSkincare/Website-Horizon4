@@ -132,7 +132,7 @@
           "type": "text",
           "name": "t:names.heading",
           "settings": {
-            "text": "<p>Three moisturisers, formulated for your skin and the microbiome it carries.</p>",
+            "text": "<p>Three moisturiser textures for five skin types.</p>",
             "width": "fit-content",
             "max_width": "narrow",
             "alignment": "left",
@@ -158,7 +158,7 @@
           "type": "text",
           "name": "t:names.text",
           "settings": {
-            "text": "<p>Small-batch skincare, formulated with cold-pressed organic oils and made by hand on the north Devon coast. Every ingredient listed in plain English, every percentage published. Start by finding your skin type.</p>",
+            "text": "<p>Small-batch skincare, formulated with cold-pressed organic and plant oils and made by hand on the north Devon coast. Every ingredient and its exact percentage is published, with a plain-English name beside each. Start by finding your skin type.</p>",
             "width": "fit-content",
             "max_width": "normal",
             "alignment": "left",
@@ -185,7 +185,7 @@
           "name": "t:names.button",
           "settings": {
             "label": "Find your skin type",
-            "link": "shopify://collections/all",
+            "link": "shopify://pages/find-your-skin-type",
             "open_in_new_tab": false,
             "style_class": "button-custom",
             "custom_button_background": "{{ settings.color_palette.color3 }}",

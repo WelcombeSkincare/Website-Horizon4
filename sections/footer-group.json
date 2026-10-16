@@ -62,14 +62,14 @@
           "type": "ethos_icon",
           "settings": {
             "icon": "ethos-gentle.svg",
-            "label": "Gentle on skin, every time"
+            "label": "Made to be gentle on skin"
           }
         },
         "ethos_climate": {
           "type": "ethos_icon",
           "settings": {
             "icon": "ethos-climate.svg",
-            "label": "Refillable and recyclable aluminium bottles, reusable pump"
+            "label": "Recyclable aluminium bottles, reusable pump"
           }
         },
         "ethos_formulation": {
@@ -144,7 +144,7 @@
       ],
       "name": "Footer main",
       "settings": {
-        "tagline": "Honest skincare, handmade in Welcombe, north Devon, and published in full."
+        "tagline": "Skincare made by hand in Welcombe, north Devon, with every formulation published in full."
       }
     }
   },

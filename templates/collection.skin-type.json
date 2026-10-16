@@ -235,7 +235,7 @@
           "type": "text",
           "name": "t:names.heading",
           "settings": {
-            "text": "<p>What this skin type needs</p>",
+            "text": "<p>What {{ collection.metafields.custom.hero_title.value }} skin needs</p>",
             "width": "fit-content",
             "max_width": "normal",
             "alignment": "left",
@@ -287,7 +287,7 @@
           "type": "text",
           "name": "t:names.heading",
           "settings": {
-            "text": "<p>The oils we chose for it</p>",
+            "text": "<p>The oils in every {{ collection.metafields.custom.hero_title.value }} moisturiser</p>",
             "width": "fit-content",
             "max_width": "normal",
             "alignment": "left",
@@ -339,7 +339,7 @@
           "type": "text",
           "name": "t:names.heading",
           "settings": {
-            "text": "<p>Your three moisturisers</p>",
+            "text": "<p>Your three {{ collection.metafields.custom.hero_title.value }} moisturisers</p>",
             "width": "fit-content",
             "max_width": "normal",
             "alignment": "left",
@@ -703,7 +703,7 @@
           "type": "text",
           "name": "t:names.heading",
           "settings": {
-            "text": "<p>Your skin can settle over time</p>",
+            "text": "<p>Your skin type can change</p>",
             "width": "fit-content",
             "max_width": "normal",
             "alignment": "left",

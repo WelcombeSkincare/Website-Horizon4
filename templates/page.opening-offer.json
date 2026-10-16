@@ -22,15 +22,15 @@
         "condition_2": {
           "type": "condition",
           "settings": {
-            "title": "It stays with you until 30 September 2027.",
-            "body": "<p>Every order in between, not just the first one. Buy in August and that is more than a year of it.</p>"
+            "title": "It stays with you until 30 November 2027.",
+            "body": "<p>Every order in between, not just the first one.</p>"
           }
         },
         "condition_3": {
           "type": "condition",
           "settings": {
-            "title": "To be in, order something before 30 September 2026.",
-            "body": "<p>That is the whole qualification. After that date the offer closes to new customers, and anyone who bought before it keeps the discount for the full year.</p>"
+            "title": "To be in, order something before 15 November 2026.",
+            "body": "<p>That is the whole qualification. After that date the offer closes to new customers, and anyone who bought before it keeps the discount until 30 November 2027.</p>"
           }
         },
         "milestone_1": {
@@ -44,7 +44,7 @@
         "milestone_2": {
           "type": "milestone",
           "settings": {
-            "date": "30 September 2026",
+            "date": "15 November 2026",
             "caption": "The offer closes to new customers. Order before this and you are in.",
             "style": "filled"
           }
@@ -52,7 +52,7 @@
         "milestone_3": {
           "type": "milestone",
           "settings": {
-            "date": "30 September 2027",
+            "date": "30 November 2027",
             "caption": "The discount ends, for everyone, whenever you joined.",
             "style": "hollow"
           }
@@ -75,7 +75,7 @@
           "type": "term",
           "settings": {
             "label": "End date",
-            "body": "<p>The discount ends on 30 September 2027 for everyone, whenever you joined. We are not going to pretend otherwise by calling it permanent.</p>"
+            "body": "<p>The discount ends on 30 November 2027 for everyone, whenever you joined. We are not going to pretend otherwise by calling it permanent.</p>"
           }
         },
         "term_4": {
@@ -102,12 +102,12 @@
         "section_width": "normal",
         "eyebrow": "Founding customers",
         "heading": "Opening Offer",
-        "offer_line": "<p>Ten per cent off every order until September 2027. Buy once before 30 September 2026 and you are in.</p>",
+        "offer_line": "<p>Ten per cent off every order until November 2027. Buy once before 15 November 2026 and you are in.</p>",
         "primary_button_label": "Shop the range",
         "primary_button_url": "/collections/moisturiser",
         "secondary_button_label": "Find your skin type",
         "secondary_button_url": "/pages/find-your-skin-type",
-        "preamble": "<p>We opened this week. You have never heard of us, you have not met anyone who uses our products, and there is not a single review on this site yet. Buying from a brand in that position takes a bit of nerve.</p><p>The Opening Offer is what we can offer in return.</p>",
+        "preamble": "<p>We are a new brand. You may not have heard of us, or met anyone who uses our products. Buying from a brand in that position takes a bit of nerve.</p><p>The Opening Offer is what we can offer in return.</p>",
         "how_heading": "How it works",
         "timeline_eyebrow": "The dates, on one line",
         "why_heading": "Why we are doing it",

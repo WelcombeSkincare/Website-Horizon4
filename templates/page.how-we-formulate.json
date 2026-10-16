@@ -39,8 +39,8 @@
           "type": "panel",
           "settings": {
             "numeral": "ONE",
-            "title": "<strong>Cold-pressed organic plant oils</strong>",
-            "body": "<p>The base of every product is cold-pressed organic plant oils, and both of those words are deliberate. Cold pressing avoids the heat and solvents of refining, which means it preserves the bioactive compounds that give a plant oil its character: carotenoids, tocopherols, phytosterols and the phenolics that refined oils tend to lose. The research credits these compounds with antioxidant and skin-conditioning qualities, and there is a practical bonus too, since a higher phenolic content also improves the oil's oxidative stability, so the product stays good for longer.</p><p>We choose these oils for what is in them, not for what they cost. The particular oils change with the skin type, but the reasoning does not.</p>",
+            "title": "<strong>Cold-pressed organic and plant oils</strong>",
+            "body": "<p>The base of every product is cold-pressed organic and plant oils. Cold pressing avoids the heat and solvents of refining, which means it preserves the bioactive compounds that give a plant oil its character: carotenoids, tocopherols, phytosterols and the phenolics that refined oils tend to lose. The research credits these compounds with antioxidant and skin-conditioning qualities, and there is a practical bonus too, since a higher phenolic content also improves the oil's oxidative stability, so the oil stays fresh for longer.</p><p>We choose these oils for what is in them. The particular oils change with the skin type, but the reasoning does not.</p>",
             "image_alt": ""
           }
         },
@@ -49,7 +49,7 @@
           "settings": {
             "numeral": "TWO",
             "title": "<strong>The microbiome, and what we do about it</strong>",
-            "body": "<p>Most of what a moisturiser can do for your skin's microbiome comes from what it does not do. Every product is built at the slightly acidic pH the skin's resident microbes prefer, and nothing in it is there to strip or sterilise. That has the strongest published evidence behind it, and it is a decision rather than an ingredient.</p><p>Two ingredients lend a more active hand. <a href=\"https://biotaderm.com/blogs/ingredients/inulin\">Inulin</a> is a plant-derived prebiotic, food for the microbes already on your skin, with selective feeding shown in the laboratory but not yet on human skin. A <a href=\"https://biotaderm.com/blogs/ingredients/chlorella-vulgaris-extract\">chlorella extract</a> has supplier evidence, at the level its maker tested, for holding back the more troublesome species while sparing the helpful ones. We say what that evidence is and do not round it up. There is more on the <a href=\"/pages/the-skin-microbiome\">skin microbiome page</a>.</p>",
+            "body": "<p>Two ingredients are chosen with the skin's microbiome in mind. <a href=\"/blogs/ingredients/inulin\">Inulin</a> is a plant-derived prebiotic, food for the microbes already on your skin, with selective feeding shown in the laboratory but not yet on human skin. A <a href=\"/blogs/ingredients/chlorella-vulgaris-extract\">chlorella extract</a> has supplier evidence, at the level its maker tested, for holding back the more troublesome species while sparing the helpful ones.</p><p>Much of what a moisturiser can do for the microbiome comes from what it leaves out, and nothing in the formula is there to strip or sterilise. Once a formula is made, the final step is to adjust it to slightly acidic (pH 5 to 5.5), the level the skin's resident microbes prefer. Of everything here, that adjustment has the strongest published evidence behind it. There is more on the <a href=\"/pages/the-skin-microbiome\">skin microbiome page</a>.</p>",
             "image_alt": ""
           }
         },
@@ -57,8 +57,8 @@
           "type": "panel",
           "settings": {
             "numeral": "THREE",
-            "title": "<strong>Atlantic algal extracts</strong>",
-            "body": "<p>One ingredient links the range to its home. <a href=\"https://biotaderm.com/blogs/ingredients/bladder-wrack-fucus-vesiculosus-extract\">Bladderwrack</a>, <em>Fucus vesiculosus</em>, is the same Atlantic seaweed species you find on the rocks along the north Devon coast. Ours is a cold infusion in sunflower oil, supplied from the UK, so the connection to the coast is one of kinship and origin. Carried in oil, it is the lipophilic fraction, chiefly fucoxanthin, that comes across, and the research credits fucoxanthin with modest antioxidant activity.</p>",
+            "title": "<strong>Atlantic seaweed</strong>",
+            "body": "<p>One ingredient links the range to its home. <a href=\"/blogs/ingredients/bladder-wrack-fucus-vesiculosus-extract\">Bladderwrack</a>, <em>Fucus vesiculosus</em>, is the same Atlantic seaweed species you find on the rocks along the north Devon coast. Ours is a cold infusion in sunflower oil, made in the UK. Carried in oil, it is the oil-soluble part, chiefly fucoxanthin, that comes across, and the research credits fucoxanthin with modest antioxidant activity.</p>",
             "image_alt": "Bladderwrack on wet rock at low tide"
           }
         },
@@ -66,7 +66,7 @@
           "type": "band",
           "settings": {
             "heading": "What we leave out",
-            "body": "<p>Good formulation is as much about restraint as addition. We leave out synthetic fragrance entirely, and nothing hides behind a \"parfum\" or \"fragrance\" catch-all. Fragrance ingredients are among the more common triggers for irritation and allergy, which matters most for sensitive skin, so the one aromatic in the range is a single named essential oil at a low level, explained just below. Every ingredient we use is listed individually, most abundant first.</p>",
+            "body": "<p>We leave out synthetic fragrance entirely, and nothing hides behind a \"parfum\" or \"fragrance\" catch-all. Fragrance ingredients are among the more common triggers for irritation and allergy, which matters most for sensitive skin, so the one aromatic in the range is a single named essential oil at a tenth of a percent, explained just below. Every ingredient we use is listed individually, most abundant first.</p>",
             "caveat": "",
             "variant": "plain",
             "set_piece": "none",
@@ -82,14 +82,14 @@
             "annot_footnote": "",
             "range_footnote": "",
             "ethos_icon": "ethos-gentle",
-            "ethos_label": "Gentle on skin, every time"
+            "ethos_label": "Made to be gentle on skin"
           }
         },
         "b_vetiver": {
           "type": "band",
           "settings": {
             "heading": "The one essential oil",
-            "body": "<p>There is a single essential oil in the range, and we would rather name it than let you wonder. <a href=\"https://biotaderm.com/blogs/ingredients/vetiver-vetiveria-zizanioides-root-oil\">Vetiver root oil</a>, from <em>Vetiveria Zizanioides</em>, is a natural essential oil obtained from the roots of the grass. It is not a synthetic fragrance and nothing like one. We include it at a tenth of a percent, the same level in every product, for the quiet natural note it lends the blend.</p><p>A concentrated aromatic can still be a lot for a fragile barrier, which is why the level is kept low and why a patch test is worth the trouble if your skin runs reactive. It is named on the label under its own name, so you can see it and decide for yourself.</p>",
+            "body": "<p>There is one essential oil in the range: <a href=\"/blogs/ingredients/vetiver-vetiveria-zizanioides-root-oil\">vetiver root oil</a>, from <em>Vetiveria zizanioides</em>, a natural essential oil distilled from the roots of the grass. We include it at a tenth of a percent, the same level in every product. Vetiver root oil is rich in antioxidant compounds, chiefly the vetivones, and it gives the blend its earthy note.</p><p>If your skin reacts easily, patch test on the inside of your forearm before first use, as with any new product.</p>",
             "caveat": "",
             "variant": "plain",
             "set_piece": "none",
@@ -113,7 +113,7 @@
           "settings": {
             "label": "A labelling fact",
             "title": "",
-            "body": "<p><br/>Vetiver appears on the label under its own name. Nothing in the range hides inside a \"parfum\" or \"fragrance\" catch-all.</p>",
+            "body": "<p>Vetiver appears on the label under its own name. Nothing in the range hides inside a \"parfum\" or \"fragrance\" catch-all.</p>",
             "link_label": "",
             "link_url": "",
             "image_alt": "",
@@ -126,7 +126,7 @@
           "settings": {
             "label": "A separate question: comfort",
             "title": "",
-            "body": "<p>A concentrated aromatic can still be a lot for a fragile barrier. We keep the level low, and if your skin runs reactive it is worth a patch test.</p>",
+            "body": "<p>If your skin reacts easily, patch test on the inside of your forearm before first use.</p>",
             "link_label": "",
             "link_url": "",
             "image_alt": "",
@@ -137,14 +137,14 @@
         "q_fragrance": {
           "type": "quote",
           "settings": {
-            "text": "This is why the honest description of the range is \"no synthetic fragrance\" rather than \"fragrance-free\". One is true. The other would not be."
+            "text": "This is why we describe the range as \"no synthetic fragrance\" rather than \"fragrance-free\". Vetiver is an essential oil, so \"fragrance-free\" would not be true."
           }
         },
         "b_base": {
           "type": "band",
           "settings": {
             "heading": "The base, and everything else",
-            "body": "<p>Around those actives sits a supporting cast that does the quiet structural work: an olive-derived emulsifier system, plant-derived squalane, a gentle gluconolactone, glycerin, vitamin E and a few others. None of it is hidden. Every ingredient and its exact percentage is published on the product page, and each one has its own entry in the <a href=\"https://biotaderm.com/blogs/ingredients\">ingredient library</a> if you want the detail and the sources.</p>",
+            "body": "<p>Around those actives sits a supporting cast that does the quiet structural work: an olive-derived emulsifier system, olive-derived squalane, a gentle gluconolactone, glycerin, vitamin E and a few others. None of it is hidden. Every ingredient and its exact percentage is published on the product page, and each one has its own entry in the <a href=\"/blogs/ingredients\">ingredient library</a> if you want the detail and the sources.</p>",
             "caveat": "",
             "variant": "plain",
             "set_piece": "none",
@@ -175,7 +175,7 @@
           "type": "next",
           "settings": {
             "heading": "Ingredient library",
-            "body": "What each ingredient does, and what the evidence actually shows.",
+            "body": "What each ingredient does, and what the evidence shows.",
             "url": "/blogs/ingredients"
           }
         },
@@ -209,7 +209,7 @@
         "eyebrow": "Science · Two of five",
         "heading": "How we formulate",
         "standfirst": "<p><em>The thinking behind what goes in, and what stays out.</em></p>",
-        "intro": "<p>Every ingredient in a Biotaderm product has to earn its place. If it does not do a job the published evidence supports, it does not go in. If a claim cannot be supported by that evidence, it does not go on the label. That single rule keeps the formulas short, the range small, and the copy honest, and it is why you will not find a long list of on-trend extracts here doing very little.</p><p>What you will find is a small number of ingredient types chosen to work together, in a base built to be gentle. The idea running through all of it is the same one that runs through the rest of the brand. Support, not control.</p>",
+        "intro": "<p>Every ingredient in a Biotaderm product has to do a job the published evidence supports, and every claim on the label has to be supported by that evidence.</p><p>We start with three kinds of ingredient chosen to work together, in a base made to be gentle. The last step is to adjust the finished formula to slightly acidic (pH 5 to 5.5), close to the pH of healthy skin.</p>",
         "hero_image_alt": "Cold-pressed oil in a beaker on the bench",
         "hero_image_reserve": true,
         "next_heading": "Where to go next"

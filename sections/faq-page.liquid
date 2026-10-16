@@ -186,7 +186,7 @@
                         {%- endif -%}
                       </div>
                       <dl class="bd-faq-keyrows">
-                        <div><dt>On the label</dt><dd>Open-jar symbol with 6M beside it &mdash; six months once opened.</dd></div>
+                        <div><dt>On the label</dt><dd>Open-jar symbol with 6M beside it. Six months once opened.</dd></div>
                         <div><dt>On the base</dt><dd>Batch number and the date it was made.</dd></div>
                       </dl>
                     </div>
@@ -199,12 +199,12 @@
                       {%- endcomment -%}
                       <div class="bd-faq-key-row"><span class="bd-faq-key-sym">&#42;</span><span>organic</span></div>
                       <div class="bd-faq-key-row"><span class="bd-faq-key-sym">&#94;</span><span>cold-pressed</span></div>
-                      <div class="bd-faq-key-row"><span class="bd-faq-key-sym">&#35;</span><span>upcycled &mdash; made from a by-product of another process</span></div>
+                      <div class="bd-faq-key-row"><span class="bd-faq-key-sym">&#35;</span><span>upcycled, made from a by-product of another process</span></div>
                     </div>
 
                   {%- when 'refill_pair' -%}
                     <div class="bd-faq-grid-2">
-                      {%- assign pair_titles = 'With the pump,Refill, no pump' | split: ',' -%}
+                      {%- assign pair_titles = 'With the pump,Bottle only' | split: ',' -%}
                       <div class="bd-faq-card bd-faq-pair">
                         <div class="bd-faq-media-img is-34">
                           {%- if block.settings.image_1 != blank -%}
@@ -219,7 +219,7 @@
                             {{ block.settings.image_2 | image_url: width: 640 | image_tag: loading: 'lazy', alt: block.settings.image_2_alt }}
                           {%- else -%}<span class="bd-faq-img-empty" aria-hidden="true"></span>{%- endif -%}
                         </div>
-                        <p class="bd-faq-pair-title">Refill, no pump</p>
+                        <p class="bd-faq-pair-title">Bottle only</p>
                       </div>
                     </div>
 
@@ -496,7 +496,7 @@
 
 .bd-faq-key { padding: 6px 24px; }
 .bd-faq-key-row { display: flex; gap: 18px; align-items: baseline; padding: 14px 0; border-bottom: 1px solid var(--bd-oyster); font-size: 16px; color: #494A4D; }
-.bd-faq-key-row:last-child { border-bottom: 0; }
+.bd-faq-key > div:last-child { border-bottom: 0; }
 .bd-faq-key-sym { flex: 0 0 44px; font-family: 'Roboto Condensed', sans-serif; font-weight: 700; font-size: 26px; color: #161617; }
 
 .bd-faq-pair { padding: 14px; }

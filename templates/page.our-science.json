@@ -16,7 +16,7 @@
           "type": "pillar",
           "settings": {
             "label": "Nature",
-            "body": "<p>The base of every product is cold-pressed organic plant oils, chosen for the bioactive compounds they carry rather than their price, the carotenoids, tocopherols, phytosterols and phenolics that refining tends to strip away. We leave out synthetic fragrance entirely, and never hide anything behind a \"parfum\" catch-all. The range does use a single essential oil, vetiver, and that is a deliberate choice we are happy to explain rather than bury. One ingredient also ties the range to where it is made: bladderwrack, the same Atlantic seaweed that grows on the rocks along the Devon coast. The material we use is a cold infusion in sunflower oil, supplied from the UK. Kinship, not a supply chain.</p>",
+            "body": "<p>The base of every product is cold-pressed organic and plant oils, chosen for the compounds that refining tends to strip away: carotenoids, tocopherols, phytosterols and phenolics. We add no synthetic fragrance, and nothing hides behind a \"parfum\" catch-all. The range uses one essential oil, vetiver, at a tenth of a percent, named on every label. Bladderwrack ties the range to where it is made. It is the same Atlantic seaweed that grows on the rocks below Welcombe, used as a cold infusion in sunflower oil made in the UK.</p>",
             "link_label": "How we formulate",
             "link_url": "/pages/how-we-formulate"
           }
@@ -25,8 +25,8 @@
           "type": "pillar",
           "settings": {
             "label": "Science",
-            "body": "<p>We think about skin the way current research does, as an ecosystem worth supporting. The biggest decision sits under the ingredient list: whether the product you leave on your skin is at the acidity its ecosystem needs. Ours is. Above that, a plant prebiotic feeds the residents, and nothing in the formula strips them back. Underneath all of it sits the discipline that matters most: Biotaderm reads the published science, it does not run it. We credit the research, never ourselves, and claim only what the evidence will carry.</p>",
-            "inset": "<p>Biotaderm reads the published science, it does not run it. So we credit the research, never ourselves, and we only claim what the evidence will actually carry.</p>",
+            "body": "<p>Current research treats skin as an ecosystem, and so do we. The decision with the strongest evidence behind it is the product's pH. Ours is slightly acidic (pH 5 to 5.5), close to the pH of healthy skin, which the skin's resident microbes prefer. A plant prebiotic, inulin, feeds beneficial skin bacteria in laboratory studies, and nothing in the formula is there to strip them away.</p>",
+            "inset": "<p>Biotaderm reviews the published science. It does not conduct it. So we credit the research, never ourselves, and claim only what the evidence supports.</p>",
             "link_label": "How we handle evidence",
             "link_url": "/pages/how-we-handle-evidence"
           }
@@ -35,7 +35,7 @@
           "type": "pillar",
           "settings": {
             "label": "Ethics",
-            "body": "<p>Every ingredient is on the label, in plain English, listed most abundant first, with its exact percentage published. That is unusual in a category that treats formulas as trade secrets, and it is deliberate. It sits alongside recyclable aluminium packaging, a purposely small range where each product has to earn its place, and a business being built toward B Corp certification.</p>",
+            "body": "<p>Every ingredient is published with its exact percentage, most abundant first, with a plain-English name beside each INCI name. That is unusual in a category that treats formulas as trade secrets. It sits alongside recyclable aluminium bottles, a small range where each product has to earn its place, and a business working toward B Corp certification.</p>",
             "link_label": "Our ethics",
             "link_url": "/pages/our-ethics"
           }
@@ -62,7 +62,7 @@
           "type": "card",
           "settings": {
             "heading": "How we handle evidence",
-            "body": "The line between reviewing science and running it, and what that means for what we will and will not say.",
+            "body": "Why we review the science rather than run it, and what that means for what we claim.",
             "url": "/pages/how-we-handle-evidence",
             "accent": "#6BBBCC"
           }
@@ -101,18 +101,18 @@
         "eyebrow": "Science",
         "heading": "Our science",
         "standfirst": "<p><em>How we think about skin, and how we show our working.</em></p>",
-        "intro": "<p>Skincare is full of confident promises and short on published evidence. This part of the site is where we slow down and set out the thinking behind the products: what we believe about skin, what actually goes into the bottle, and how we decide what we are willing to claim. Everything here links down to the detail, and the detail links to its sources.</p>",
+        "intro": "<p>This part of the site sets out the thinking behind the products: how we think about skin, what goes into the bottle, and how we decide what to claim. Each page links to the detail, and the detail links to its sources.</p>",
         "hero_image_alt": "Rock pool at low tide on the north Devon coast",
         "hero_image_reserve": true,
         "living_heading": "Skin is a living system",
-        "living_body": "<p>Your skin is not a surface to be fixed. It is a living system, home to a microbiome of bacteria and other microbes that helps keep the barrier working and the whole thing in balance. Most of the time it knows what it is doing.</p><p>So we build products to support that system rather than override it. Support, not control. It is the quiet answer to a category full of quick fixes that promise to change your skin by Friday. We would rather work with your skin than against it, and we would rather show you why than ask you to take it on faith.</p>",
+        "living_body": "<p>Your skin is a living system, home to bacteria and other microbes that help keep the barrier working. Most of the time it knows what it is doing.</p><p>So we build products to support that system rather than override it. Support, not control. Each page below sets out the reasoning and the sources, so you can check it for yourself.</p>",
         "pillars_heading": "Formed in nature, led by science, guided by ethics",
-        "pillars_intro": "<p>Three ideas run through everything, from the oils we press to the packaging we choose. They are intertwined, and they are easier to keep honest when they are written down.</p>",
+        "pillars_intro": "<p>Three ideas run through everything, from the oils we choose to the bottles we fill.</p>",
         "show_organic_shape": true,
         "cards_heading": "Start wherever you like",
-        "cards_intro": "Each of these goes a layer deeper. None of them will oversell.",
+        "cards_intro": "Each of these goes a layer deeper.",
         "close_label": "One level down",
-        "close_body": "<p>And the proof sits one level down again, in the ingredient library, where each ingredient has its own page and its own references. If you ever want to check our reasoning, that is where to look.</p>",
+        "close_body": "<p>Below these pages sits the ingredient library, where each ingredient has its own page and its own references. That is where to check our reasoning.</p>",
         "button_1_label": "Browse the ingredient library",
         "button_1_url": "/blogs/ingredients",
         "button_2_label": "Find your skin type",

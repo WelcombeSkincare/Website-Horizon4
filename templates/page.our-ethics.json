@@ -16,8 +16,8 @@
           "type": "band",
           "settings": {
             "heading": "Working toward B Corp",
-            "body": "<p>We are building the business toward B Corp certification. That is a company-level standard, not a product one, in which an independent body verifies a company's social and environmental performance, its transparency and its accountability across the whole operation. It is deliberately hard to earn, which is rather the point.</p>",
-            "caveat": "<p>We are in that process, not at the end of it. So we will tell you we are working toward it, and we will only call ourselves certified on the day we actually are. If you ever see us claim otherwise, hold us to this paragraph.</p>",
+            "body": "<p>We are building the business toward B Corp certification. B Corp is a company-level standard, not a product one: an independent body verifies a company's social and environmental performance, its transparency and its accountability across the whole operation. It is deliberately hard to earn.</p>",
+            "caveat": "<p>We are working toward certification and are not yet certified. We will only call ourselves certified once we are.</p>",
             "variant": "plain",
             "set_piece": "none",
             "ethos_icon": "none"
@@ -27,7 +27,7 @@
           "type": "card",
           "settings": {
             "label": "Status",
-            "title": "In the process",
+            "title": "Working toward it",
             "layout": "pair",
             "variant": "plain"
           }
@@ -45,29 +45,29 @@
           "type": "band",
           "settings": {
             "heading": "Packaging",
-            "body": "<p>We prioritise aluminium. It can be recycled again and again without losing quality, and recycling it takes a fraction of the energy needed to make it new, which is not true of most alternatives. Around that, we keep plastic to a minimum rather than claiming to have none, because honest beats absolute. The aim is packaging that does its job protecting the product and then has somewhere sensible to go afterwards.</p>",
+            "body": "<p>We prioritise aluminium. It can be recycled again and again without losing quality, and recycling it takes around 5% of the energy needed to make it new. Around that, we keep plastic to a minimum rather than claiming to have none. The pump is bamboo and plastic, and is made to be reused. The aim is packaging that does its job protecting the product and then has somewhere sensible to go afterwards.</p>",
             "variant": "plain",
             "set_piece": "none",
             "ethos_icon": "ethos-climate",
-            "ethos_label": "Refillable and recyclable aluminium bottles, reusable pump"
+            "ethos_label": "Recyclable aluminium bottles, reusable pump"
           }
         },
         "b_range": {
           "type": "band",
           "settings": {
             "heading": "A deliberately small range",
-            "body": "<p>It would be easy to grow the range for the sake of it. New launches sell, whether or not they add anything. We have chosen the opposite discipline. The range is three textures across five skin types, and each one has to earn its place by doing a real job for a real kind of skin. If a product would only be there to widen the shelf, we do not make it.</p>",
+            "body": "<p>The range is three textures across five skin types, and each product has to do a real job for a real kind of skin. We do not add products to fill a shelf.</p>",
             "variant": "plain",
             "set_piece": "range_grid",
             "ethos_icon": "none",
-            "range_footnote": "Fifteen products. Nothing here to widen the shelf."
+            "range_footnote": "Fifteen products: five skin types, three textures."
           }
         },
         "b_vegan": {
           "type": "band",
           "settings": {
             "heading": "Vegan, and cruelty-free",
-            "body": "<p>Our products are vegan. They contain no animal-derived ingredients. That is a plain fact, so we state it plainly rather than decorating it.</p><p>On cruelty-free, a little honesty is in order. Testing cosmetics on animals is already banned by law in the UK and the EU, so no responsible brand here should be testing on animals in the first place. We treat that as the floor, not as something to award ourselves a medal for. The only person our products get tested on is the chemist who makes them.</p>",
+            "body": "<p>Our products are vegan. They contain no animal-derived ingredients.</p><p>Testing cosmetics on animals is banned by law in the UK and the EU, so cruelty-free is the legal minimum here, and we treat it that way. The only person our products are tested on is the chemist who makes them.</p>",
             "variant": "plain",
             "set_piece": "none",
             "ethos_icon": "ethos-cruelty",
@@ -78,7 +78,7 @@
           "type": "band",
           "settings": {
             "heading": "The suppliers we choose",
-            "body": "<p>We choose suppliers and distributors for their standards, not only their price. That shapes real decisions, from where an ingredient comes from to who we are willing to sell through. We would rather be careful about this than sweeping, so we will not claim to have audited every link in every chain. What we can say is that ethical standing is part of the decision, every time, and not an afterthought.</p>",
+            "body": "<p>We weigh a supplier's standards alongside its price, from where an ingredient comes from to who we sell through. Our bladderwrack infusion, for example, is made in the UK by O&amp;3, cold and without solvents. We have not audited every link in every supply chain, and we do not claim to.</p>",
             "variant": "plain",
             "set_piece": "none",
             "ethos_icon": "ethos-business",
@@ -89,7 +89,7 @@
           "type": "band",
           "settings": {
             "heading": "And what we say",
-            "body": "<p>Transparency belongs on this page too, because how a brand talks is an ethical choice as much as a marketing one. We publish every ingredient and every percentage, and we only make claims the published evidence supports. Those are set out in full on <a href=\"https://biotaderm.com/pages/everything-on-the-label\">everything on the label</a> and <a href=\"https://biotaderm.com/pages/how-we-handle-evidence\">how we handle evidence</a>.</p><p>The more personal side of why the brand exists lives on the <a href=\"https://biotaderm.com/pages/about\">about page</a>. This page is simply the practice behind the principles.</p>",
+            "body": "<p>Transparency belongs on this page too, because how a brand talks is an ethical choice as much as a marketing one. We publish every ingredient and every percentage, and we only make claims the published evidence supports. Those are set out in full on <a href=\"/pages/everything-on-the-label\">everything on the label</a> and <a href=\"/pages/how-we-handle-evidence\">how we handle evidence</a>.</p><p>The more personal side of why the brand exists lives on the <a href=\"/pages/about-us\">about page</a>. This page is the practice behind the principles.</p>",
             "variant": "rule",
             "set_piece": "none",
             "ethos_icon": "none"
@@ -138,8 +138,8 @@
         "measure": "narrow",
         "eyebrow": "Science · Five of five",
         "heading": "Our ethics",
-        "standfirst": "<p><em>The standards behind the business, stated plainly and kept to what we can actually stand behind.</em></p>",
-        "intro": "<p>Ethics is easy to talk about and harder to prove, which is why so much of it in this industry arrives as warm words and vague badges. We would rather say less and mean it. What follows is what we do, described precisely enough that you could hold us to it, and nothing we cannot yet back up gets dressed up as though we can.</p>",
+        "standfirst": "<p><em>The standards behind the business, and what we show for them.</em></p>",
+        "intro": "<p>Ethics is easy to talk about and harder to prove. What follows is what we do, described so you can hold us to it.</p>",
         "hero_image_reserve": false,
         "next_heading": "Where to go next"
       }

@@ -16,7 +16,7 @@
           "type": "narrative",
           "settings": {
             "heading": "The question I couldn't put down",
-            "body": "<p>My son's skin reacted to ordinary high-street products when he was a baby, the kind most people never think twice about. I'm a chemist and biochemist by training, so rather than switching brands I started reading the labels. One question wouldn't leave me alone. How much of what goes into a typical skincare product is doing something for the skin, and how much is just along for the ride?</p><p>That is a dangerous question to put to a chemist. You don't stop at \"I wonder.\", you start reading the research.</p><p>My own skin has never been the straightforward kind either. Rosacea, and dermatographia, the trick of coming up in welts at the lightest scratch. A moisturiser is not an answer to either of those, and I would never pretend otherwise. What living in skin that complains does teach you is that good skincare is less about looks than about comfort, and that the gentle, unshowy version is usually the one that helps you through the day.</p>",
+            "body": "<p>My son's skin reacted to ordinary high-street products when he was a baby, the kind most people never think twice about. I'm a chemist and biochemist by training, so rather than switching brands I started reading the labels. One question wouldn't leave me alone. How much of what goes into a typical skincare product is doing something for the skin, and how much is just along for the ride?</p><p>That is a dangerous question to put to a chemist. You don't stop at \"I wonder\". You start reading the research.</p><p>My own skin has never been the straightforward kind either. I've lived with rosacea, adult acne, a sensitivity to wool, and dermatographia, which brings me up in welts at the lightest scratch. Later, in middle age, came Type 2 diabetes after a bout of pancreatitis, and Raynaud's. Both affect circulation, and both made me take looking after my skin more seriously still. A moisturiser is not an answer to any of those, and I would never pretend otherwise. What living with all that teaches you is that good skincare is mostly about comfort, and that the gentle, unshowy version is usually the one that gets you through the day.</p>",
             "links": ""
           }
         },
@@ -24,7 +24,7 @@
           "type": "narrative",
           "settings": {
             "heading": "Six years in the literature",
-            "body": "<p>Label-reading turned into a standing habit and rolling eyes in the family! I spent well over six years reading the research on the human microbiome, the community of microbes that lives on us and in us. I started with the gut and worked my way to the skin, the more overlooked of the two.</p><p>The skin microbiome matters to skin health. It is still being mapped, and new discoveries continue to be revealed. On the evidence so far, the way to support it is with gentle, nourishing ingredients rather than a 'hack' or miracle compound of the month. This is a founding principle here at Biotaderm.</p>",
+            "body": "<p>Label-reading turned into a standing habit and rolling eyes in the family. I spent well over six years reading the research on the human microbiome, the community of microbes that lives on us and in us. I started with the gut and worked my way to the skin, the more overlooked of the two.</p><p>The skin microbiome matters to skin health, and it is still being mapped. On the evidence so far, the best way to support it is gently: a product that is slightly acidic (pH 5 to 5.5), close to the pH of healthy skin, with nothing in it that strips, rather than the miracle compound of the month. Biotaderm is built on that.</p>",
             "links": "<p><a href=\"/pages/the-skin-microbiome\">The skin microbiome</a></p>"
           }
         },
@@ -32,7 +32,7 @@
           "type": "narrative",
           "settings": {
             "heading": "What I made",
-            "body": "<p>Fifteen products, which sounds like a lot until you see the shape of it. Three textures across five skin types. Flow is the lightest, Core is the middle, Deep is the richest, the difference between them is how much nourishing cold-pressed organic oil each one carries. Every ingredient is chosen for its benefit to the skin, directly or indirectly.</p><p>Three principles determine the ingredients chosen.</p><p>Nature, which means natural, organic and naturally derived ingredients. We only use synthetic ingredients when they are the same as their natural counterparts and it is more environmentally sensible to do so.</p><p>Science, which means ingredients chosen on published research. We review all available science and research before choosing an ingredient.</p><p>Ethics, which means aluminium bottles that are refillable and widely recycled, a pump you keep, and B Corp certification I am working towards slowly and properly. Everything is vegan, and nothing is tested on animals, other than me.</p>",
+            "body": "<p>Fifteen moisturisers, which sounds like a lot until you see the shape of it: three textures across five skin types. Flow is the lightest, for the face. Core is the most versatile, for anywhere on the body. Deep is the richest, for hands, elbows and feet. The difference between them is how much cold-pressed organic and plant oil each one carries.</p><p>Three principles determine the ingredients.</p><p>Nature, which means natural, organic and naturally derived ingredients. We only use synthetic ingredients when they are the same as their natural counterparts and it is more environmentally sensible to do so.</p><p>Science, which means ingredients chosen on published research. I read the published research on an ingredient before choosing it.</p><p>Ethics, which means recyclable aluminium bottles, a pump you keep, and B Corp certification I am working towards slowly and properly. Everything is vegan, and nothing is tested on animals, other than me.</p>",
             "links": "",
             "button_label": "Find your skin type",
             "button_url": "/pages/find-your-skin-type",
@@ -47,7 +47,7 @@
           "type": "narrative",
           "settings": {
             "heading": "Everything on the label",
-            "body": "<p>I publish the full formulation of every product. Every ingredient, and the amount, down to fractions of a percent. You can read the whole formulation before you buy and check it against whatever your skin doesn't get along with. We also back this up with a no quibble refund if our products don't work for you, see our <a href=\"/policies/refund-policy\">Refund Policy for more information</a>.</p><p>There is no synthetic fragrance in anything I make, and I never use the phrase \"parfum\" or \"fragrance\" on a label. So every ingredient is clearly shown. There is one essential oil in the range, vetiver, chosen deliberately and used at a low level, and you will find it declared on every product like everything else.</p>",
+            "body": "<p>I publish the full formulation of every product. Every ingredient, and the amount, down to fractions of a percent. You can read the whole formulation before you buy and check it against whatever your skin doesn't get along with.</p><p>There is no synthetic fragrance in anything I make, and nothing hides behind \"parfum\" or \"fragrance\" on a label. The range has one essential oil, vetiver, at a tenth of a percent, named on every label like everything else.</p>",
             "links": "<p><a href=\"/pages/everything-on-the-label\">See a full formulation</a></p>",
             "image_reserve": true,
             "ratio": "11",
@@ -58,8 +58,8 @@
           "type": "narrative",
           "settings": {
             "heading": "How the evidence gets handled",
-            "body": "<p>Reading research is not the same as running a study. I review published research; I don't conduct it. So the copy on this site credits the researchers rather than me, and you will not find me making a clinical claim.</p><p>Every ingredient has its own page, setting out what it does, how strong the evidence is, and the references behind it. My reasoning is there to be checked.</p><p>Replies to my email reach me. Not a team, not a script, not an AI.</p>",
-            "links": "<p><a href=\"/pages/how-we-handle-evidence\">How we handle evidence</a> ·<a href=\"/blogs/ingredients\"> Browse the ingredient library</a> ·<a href=\"/pages/contact\"> Contact</a></p>"
+            "body": "<p>I review published research. I don't run studies, so the copy on this site credits the researchers, and it makes no clinical claims.</p><p>Every ingredient has its own page, setting out what it does, how strong the evidence is, and the references behind it. My reasoning is there to be checked.</p><p>If you email, I read it and I reply.</p>",
+            "links": "<p><a href=\"/pages/how-we-handle-evidence\">How we handle evidence</a> · <a href=\"/blogs/ingredients\">Browse the ingredient library</a> · <a href=\"/pages/contact\">Contact</a></p>"
           }
         },
         "break_coast": {
@@ -72,7 +72,7 @@
           "type": "narrative",
           "settings": {
             "heading": "The coast",
-            "body": "<p>Biotaderm is made in Welcombe, a small, beautiful village right on the line where Devon meets Cornwall, with the Atlantic just below it. The coast shapes how the brand looks and feels, and it shows up in one ingredient.</p><p>Bladderwrack is the same Atlantic seaweed that grows on the rocks below the village. You will have stepped over it. Ours reaches us as a cold oil infusion, made in the UK by O&3 in Ripon, without heat or solvents, from that same species. The coast is kinship rather than a supply chain.</p>",
+            "body": "<p>Biotaderm is made in Welcombe, a small village right on the line where Devon meets Cornwall, with the Atlantic just below it. The coast shapes how the brand looks and feels, and it shows up in one ingredient.</p><p>Bladderwrack is the same Atlantic seaweed that grows on the rocks below the village. You will have stepped over it. Ours reaches us as a cold oil infusion of that same species, made in the UK without heat or solvents. So the link to the coast is the species itself.</p>",
             "links": "<p><a href=\"/blogs/ingredients/bladder-wrack-fucus-vesiculosus-extract\">Bladderwrack, Fucus vesiculosus</a></p>",
             "image_reserve": true,
             "ratio": "32",
@@ -89,17 +89,17 @@
           "type": "panel_pair",
           "settings": {
             "a_heading": "Our Opening Offer",
-            "a_body": "<p>To thank all our customers who purchase one or more of our products before the end of September 2026, we are offering 10% off the first order and then every order up until the end of September 2027. You don't need to do anything to get these discounts, they are automatically applied at checkout.</p>",
+            "a_body": "<p>Order before 15 November 2026 and you get 10% off that order and every order after it until the end of November 2027. It comes off at checkout, with no code needed.</p>",
             "b_heading": "Stay in touch",
-            "b_body": "<p>I will be publishing a number of articles in the coming weeks that cover a range of interesting areas relating to skin, body and microbiome research discoveries and how they link to our health and wellbeing. If you would like to hear about them first, please join the email list.</p>",
+            "b_body": "<p>I'm writing a series of articles on skin and microbiome research, and what it means for everyday health. Join the email list to read them first.</p>",
             "b_button_label": "Sign up",
-            "b_button_url": "/pages/about-us#signup"
+            "b_button_url": "/#signup"
           }
         },
         "close": {
           "type": "close",
           "settings": {
-            "body": "<p>The skincare shelves may be full of products promising to fix you by Friday. I wasn't interested in making another one. I wanted to make something considered, honest, and genuinely good for skin and the microbiome it carries, and then to tell you the truth about it. Support, not control. Work with your skin, not against it.</p>",
+            "body": "<p>Skincare shelves are full of products promising to fix you by Friday. I wasn't interested in making another one. I wanted to make something careful and good for skin and the microbiome it carries, and then to tell you exactly what's in it. Support, not control.</p>",
             "mission": "Care for your skin and microbiome, formed in nature, led by science, guided by ethics.",
             "signature": "Richard",
             "button_label": "Find your skin type",

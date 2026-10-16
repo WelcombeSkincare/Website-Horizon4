@@ -16,8 +16,8 @@
           "type": "band",
           "settings": {
             "heading": "Why balance matters more than cleanliness",
-            "body": "<p>Some of those residents earn their keep. Beneficial bacteria such as <em>Staphylococcus epidermidis</em> are credited in the research with helping to hold less welcome microbes in check and with supporting the skin barrier. When the community is thrown out of balance, a state researchers call dysbiosis, studies have associated it with conditions including acne, eczema and rosacea.</p><p>That association is exactly why balance is worth protecting. It is also where we want to be careful with our words. An association in the research is not a promise that a moisturiser treats any of those conditions, and we would never make that claim. What it does tell us is that skincare has a job to do in not making things worse.</p>",
-            "caveat": "<p>Skin mostly manages its own garden. Often the kindest thing a product can do is avoid trampling it.</p>",
+            "body": "<p>Some of those residents earn their keep. Beneficial bacteria such as <em>Staphylococcus epidermidis</em> are credited in the research with helping to hold less welcome microbes in check and with supporting the skin barrier. When the community is thrown out of balance, a state researchers call dysbiosis, studies have associated it with conditions including acne, eczema and rosacea.</p><p>An association in the research is not evidence that a moisturiser treats any of those conditions, and we make no such claim. What it does suggest is that skincare should avoid making things worse.</p>",
+            "caveat": "<p>Healthy skin mostly manages its own microbiome. Often the most useful thing a product can do is leave it undisturbed.</p>",
             "variant": "plain",
             "set_piece": "none",
             "ethos_icon": "none"
@@ -27,7 +27,7 @@
           "type": "band",
           "settings": {
             "heading": "Support, not control",
-            "body": "<p>Harsh cleansing, high-pH products and heavy fragrance can all disturb the balance, which means a surprising amount of microbiome-friendly formulating is really about what you leave out. We formulate at a skin-friendly, slightly acidic pH, because the research indicates the skin's commensal microbes prefer it, and we leave synthetic fragrance out entirely to lower the risk of irritation. That is the quiet version of microbiome care, and the one best supported by the evidence.</p><p>Two kinds of ingredient can lend a more active hand, and both work with the microbiome rather than against it.</p>",
+            "body": "<p>Harsh cleansing, high-pH products and heavy fragrance can all disturb the balance, so much of microbiome-friendly formulating is about what you leave out. We make every product slightly acidic (pH 5 to 5.5), because the research indicates the skin's resident microbes prefer it, and we leave out synthetic fragrance to lower the risk of irritation. Of everything we do for the microbiome, this has the strongest evidence behind it.</p><p>Two ingredients play a more active part.</p>",
             "variant": "plain",
             "set_piece": "none",
             "ethos_icon": "none"
@@ -37,8 +37,8 @@
           "type": "band",
           "settings": {
             "heading": "Feeding and steering, gently",
-            "body": "<p>Prebiotics are food for the microbes already living on your skin. We use <a href=\"https://biotaderm.com/blogs/ingredients/inulin\">inulin</a>, a plant-derived prebiotic, with selective feeding shown in the laboratory but not yet on human skin. We also include a <a href=\"https://biotaderm.com/blogs/ingredients/chlorella-vulgaris-extract\">chlorella extract</a>. Its maker's evidence, from a small study, shows it holding back the more troublesome species while sparing the helpful ones. That is their data, and we grade it as such.</p><p>It is a young field. A good deal of the microbiome language you will see in skincare runs ahead of the evidence, promising to rebuild or rebalance your skin in ways the studies do not yet support. We would rather say that plainly than join in. So we describe these ingredients as support, and hold the bolder claims lightly until the science catches up.</p>",
-            "caveat": "<p>Every Biotaderm moisturiser is built at a skin-friendly pH, carries a plant prebiotic, and leaves out synthetic fragrance. The aim is modest and deliberate: to work with the system your skin already runs, rather than override it. Support, not control, applied to the smallest residents of all.</p>",
+            "body": "<p>Prebiotics are food for the microbes already living on your skin. We use <a href=\"/blogs/ingredients/inulin\">inulin</a>, a plant-derived prebiotic, with selective feeding shown in the laboratory but not yet on human skin. We also include a <a href=\"/blogs/ingredients/chlorella-vulgaris-extract\">chlorella extract</a>. Its maker's evidence, from a small study, suggests it holds back the more troublesome species while sparing the helpful ones. That is their data, and we grade it as such.</p><p>It is a young field. A good deal of the microbiome language in skincare runs ahead of the evidence, promising to rebuild or rebalance your skin in ways the studies do not yet support. So we describe these ingredients as support, and make no claim that they rebuild or rebalance anything.</p>",
+            "caveat": "<p>Every Biotaderm moisturiser is slightly acidic (pH 5 to 5.5), carries a plant prebiotic, and leaves out synthetic fragrance. The aim is to work with the system your skin already runs, rather than override it.</p>",
             "variant": "plain",
             "set_piece": "none",
             "ethos_icon": "none"
@@ -72,7 +72,7 @@
           "type": "band",
           "settings": {
             "heading": "What this means for our products",
-            "body": "<p><a href=\"https://biotaderm.com/pages/how-we-formulate\">How we formulate</a> · <a href=\"https://biotaderm.com/pages/find-your-skin-type\">Find your skin type</a> · <a href=\"https://biotaderm.com/collections/all\">Shop the range</a></p>",
+            "body": "<p><a href=\"/pages/how-we-formulate\">How we formulate</a> · <a href=\"/pages/find-your-skin-type\">Find your skin type</a> · <a href=\"/collections/moisturiser\">Shop the range</a></p>",
             "variant": "rule",
             "set_piece": "none",
             "ethos_icon": "ethos-microbiome",
@@ -83,7 +83,7 @@
           "type": "band",
           "settings": {
             "heading": "References",
-            "body": "<p>Eight sources. Every claim above traces to one of them.</p>",
+            "body": "<p>Eight sources for the science on this page. The inulin and chlorella evidence is referenced on each ingredient's own page.</p>",
             "variant": "plain",
             "set_piece": "none",
             "ethos_icon": "none"
@@ -195,8 +195,8 @@
         "measure": "wide",
         "eyebrow": "Science · One of five",
         "heading": "The skin microbiome",
-        "standfirst": "<p>The bacteria living on your skin are not a problem to be scrubbed away. They are part of how healthy skin works. Here is what the research actually shows, and what it doesn't.</p>",
-        "intro": "<p>Most of us grow up thinking of bacteria as something to get rid of. Skin tells a more interesting story. Your skin is home to a busy community of bacteria, fungi and other microbes, known collectively as the skin microbiome, and the research suggests they are not passengers. They are part of how skin defends itself and keeps its barrier working. As one review put it, with the microbiome you are never alone.</p>",
+        "standfirst": "<p>The bacteria living on your skin are part of how healthy skin works. Here is what the research shows, and where it stops.</p>",
+        "intro": "<p>Most of us grow up thinking of bacteria as something to get rid of. Your skin is home to a busy community of bacteria, fungi and other microbes, known as the skin microbiome, and the research suggests they help skin defend itself and keep its barrier working. As one review put it, with the microbiome you are never alone.</p>",
         "hero_image_alt": "Rock pool at low tide on the north Devon coast",
         "hero_image_reserve": true,
         "next_heading": "Where to go next"

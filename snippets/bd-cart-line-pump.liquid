@@ -20,7 +20,7 @@
 
 {%- liquid
   assign bd_pump = nil
-  if item.variant.title contains 'Refill'
+  if item.variant.title contains 'Refill' or item.variant.title contains 'Bottle only'
     # Match the variant that differs only in the package-type option. Every product
     # currently carries one option with two values, but matching on the value rather
     # than on position survives a product that later gains a second option.
