@@ -158,7 +158,7 @@
           "type": "text",
           "name": "t:names.text",
           "settings": {
-            "text": "<p>Small-batch skincare, formulated with cold-pressed organic and plant oils and made by hand on the north Devon coast. Every ingredient and its exact percentage is published, with a plain-English name beside each. Start by finding your skin type.</p>",
+            "text": "<p>Small-batch skincare, formulated with cold-pressed and organic plant oils and made by hand on the north Devon coast. Every ingredient and its exact percentage is published, with a plain-English name beside each. Start by finding your skin type.</p>",
             "width": "fit-content",
             "max_width": "normal",
             "alignment": "left",
