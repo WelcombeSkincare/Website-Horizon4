@@ -1,6 +1,5 @@
 *.tmp.*
 *.tmp
-tests/
 tests/**
 tools/
 tools/**
