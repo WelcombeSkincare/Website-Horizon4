@@ -144,7 +144,7 @@
           "type": "question",
           "settings": {
             "question": "What keeps it from going off?",
-            "answer": "<p>Sodium benzoate, working with gluconolactone and the pH that the sodium citrate holds. It is a preservative system used widely across food and cosmetics, and it is on the label like everything else.</p><p>A water-based cream with nothing preserving it can grow mould and bacteria within days.</p>",
+            "answer": "<p>Two things keep each bottle sound. The first is the preservative, a ready-made blend of sodium benzoate and gluconolactone. Sodium benzoate does the preserving, and gluconolactone helps it work. The second is the pH. Sodium citrate buffers the cream at pH 5 to 5.5, close to the skin's own. At the end of making, the pH is checked and fine-tuned with a little sodium hydroxide or citric acid.</p><p>A water-based cream with nothing preserving it can grow mould and bacteria within days.</p>",
             "set_piece": "none",
             "ethos_icon": "none",
             "ethos_label": ""
@@ -154,7 +154,7 @@
           "type": "question",
           "settings": {
             "question": "Is it vegan, and is it tested on animals?",
-            "answer": "<p>Yes, the range is vegan. We use plant-, mineral- and ferment-derived ingredients, and nothing in it comes from animals. Testing cosmetics on animals has been banned in the UK since 1998, and the only person our products are tested on is the chemist who makes them.</p><p>We hold no certification for either at the moment.</p>",
+            "answer": "<p>Yes, the range is vegan. Every ingredient is plant, mineral or ferment derived, or made in the lab as an exact match for one that is, and nothing in it comes from animals. Testing cosmetics on animals has been banned in the UK since 1998, and the only person our products are tested on is the chemist who makes them.</p><p>We hold no certification for either at the moment.</p>",
             "set_piece": "none",
             "ethos_icon": "ethos-cruelty",
             "ethos_label": "Vegan and cruelty-free"
