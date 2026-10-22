@@ -1,6 +1,7 @@
 # Customisations to stock Horizon
 
-This theme is Horizon **4.1.4** plus Biotaderm customisations.
+This theme is Horizon **4.3.0** plus Biotaderm customisations (live since
+22 Oct 2026 as theme `191914180920`; 4.1.4 is kept unpublished as the rollback).
 
 The goal is that **every custom thing lives in a file Shopify does not ship**, so a
 theme update can never silently revert it. There are currently **four** exceptions,
@@ -12,7 +13,8 @@ documented below. Check them after every Horizon update.
 > stock sections: `product.biotaderm.json` (`product-biotaderm` ->
 > `product-information`), `blog.ingredients-index.json` (`ingredients-index` ->
 > `main-blog`), and `article.ingredient.json` (a stock `main-blog-post` inserted
-> above our `ingredient-page`). Shopify flagged none of it as a conflict.
+> above our `ingredient-page`). Shopify flagged none of it as a conflict. The
+> 4.1.4 -> 4.3.0 update (22 Oct 2026) did the same to **sixteen** templates.
 >
 > Our custom `sections/*.liquid` files were left completely untouched - only the
 > templates that *reference* them were rewritten. So the pages quietly stop using
@@ -116,6 +118,10 @@ suite in `tests/`. The 4.1.4 -> 4.3.0 merge was prepared on branch
 `horizon-4.3.0` on 22 Oct 2026: all five customisations above merged with no
 conflicts, three stock files found still on 4.1.3 and `base.css` drift were
 replaced with 4.3.0, and no template, group or global setting is dropped by 4.3.0.
+It went live the same day: Shopify's updated copy got the branch's code plus the
+frozen live content pushed over it, then was published. The regression suite gave
+55/55 on the published site, identical to the 4.1.4 baseline
+(`tests/baselines/2026-10-22-live-*.json`).
 
 Do not trust the version a theme reports. Before any upgrade, run
 `tools/horizon-upgrade/footprint.py` against Shopify's stock source; it is the
@@ -151,7 +157,7 @@ Exclude from any comparison, as these are merchant data and are *meant* to diffe
 
 Shopify does not ship these, so a Horizon update cannot overwrite them. **But the
 JSON templates that MOUNT them are not safe** - the 4.1.3 -> 4.1.4 upgrade rewrote
-three of ours back to stock sections without flagging a conflict. After any
+three of ours back to stock sections without flagging a conflict, and 4.3.0 sixteen. After any
 upgrade, check the section `type` values inside `templates/*.json`, not just that
 the files still exist.
 

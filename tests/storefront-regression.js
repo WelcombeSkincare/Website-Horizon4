@@ -8,7 +8,7 @@
  *
  * Load this file into the console on every page (it is idempotent), then:
  *
- *   T = 189766402360   // or null for the published theme
+ *   T = 191916114232   // a preview theme's ID (Staging here), or null for the published theme
  *   1. any page                          bdRegression.stage('static', T)
  *   2. /collections/moisturiser, desktop bdRegression.stage('collection-desktop', T)
  *   3. same page, 375px wide, reloaded   bdRegression.stage('collection-mobile', T)
