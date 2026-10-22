@@ -28,6 +28,17 @@ Lessons from 4.1.4 -> 4.3.0, which is why these exist:
   necessarily on X. Always run `footprint.py` against the real stock source.
 - 4.3.0 deleted `snippets/fonts.liquid`, which the 4.1.4 layouts render. One
   stale layout surviving would have put a Liquid error on every page.
+- **Shopify's updater rewrites the templates that use our own sections.** On
+  4.3.0 it changed 16: `product.biotaderm` lost `product-biotaderm` for stock
+  `product-information`, ten pages lost their sections for stock `main-page`,
+  and `article.journal` gained a stock blog-post section above ours. The
+  section files themselves came through intact, so nothing errors; pages just
+  turn generic. (4.1.4 did the same to three templates.) Never take content from
+  the updater's copy: push the frozen live templates onto it, then verify with
+  `settings_migration.py` and a template-by-section listing.
+- The updater handled code well on 4.3.0: it kept all five customisations, and
+  apart from whitespace and stripped translator comments its code matched the
+  three-way merge exactly.
 - Liquid templates (`templates/gift_card.liquid`) are code; JSON templates are
   content. The first merge pass missed that distinction.
 - Theme Check can lag the platform. 4.3.0 uses `applicable_disclosures`, a
