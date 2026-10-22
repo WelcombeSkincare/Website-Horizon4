@@ -288,8 +288,11 @@
           const drawer2 = document.getElementById('cart-drawer');
           const dlg2 = drawer2 && drawer2.querySelector('dialog');
           const c = await cart();
-          add('cart', 'pump offer keeps drawer open', dlg2 === dlg && dlg2.open && dlg2.matches(':modal'),
-            dlg2 === dlg ? (dlg2.open ? 'same dialog, open' : 'same dialog, CLOSED') : 'dialog REPLACED');
+          // Not :modal - the drawer opens non-modal on 4.1.4 from code and from a real
+          // cart-icon click alike. The invariant is the same dialog, still open.
+          add('cart', 'pump offer keeps drawer open', dlg2 === dlg && dlg2.open,
+            (dlg2 === dlg ? (dlg2.open ? 'same dialog, open' : 'same dialog, CLOSED') : 'dialog REPLACED') +
+              (dlg2 && dlg2.open ? (dlg2.matches(':modal') ? ', modal' : ', non-modal') : ''));
           add('cart', 'pump offer converts one unit', c.items.length === 2 && c.items.every((i) => i.quantity === 1),
             c.items.map((i) => `${i.variant_title} x${i.quantity}`).join(', '));
           const left = document.querySelectorAll('#cart-drawer [data-bd-add-pump]').length;
