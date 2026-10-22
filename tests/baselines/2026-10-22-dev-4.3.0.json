@@ -1,0 +1,417 @@
+{
+ "meta": {
+  "url": "https://biotaderm.com",
+  "requestedThemeId": 191913525560,
+  "started": "2026-10-22T14:31:12.050Z",
+  "served": {
+   "id": 191913525560,
+   "name": "Development (50c3cc-RBPC2023)",
+   "schema": "Horizon",
+   "version": "4.3.0",
+   "role": "development"
+  },
+  "productPath": "/products/deep-oily-sensitive-a-richer-moisturiser-for-oily-sensitive-skin-for-hands-elbows-and-feet",
+  "finished": "2026-10-22T14:32:59.120Z",
+  "note": "Branch horizon-4.3.0 at adb25a1 on a development theme, before the content freeze and before the Shopify updater."
+ },
+ "summary": {
+  "passed": 55,
+  "failed": 0,
+  "info": 1,
+  "failures": []
+ },
+ "results": [
+  {
+   "area": "pages",
+   "id": "page /",
+   "ok": true,
+   "value": "status 200, .bd-hh present",
+   "stage": "static"
+  },
+  {
+   "area": "pages",
+   "id": "page /pages/faq",
+   "ok": true,
+   "value": "status 200, .bd-faq present",
+   "stage": "static"
+  },
+  {
+   "area": "pages",
+   "id": "page /pages/about-us",
+   "ok": true,
+   "value": "status 200, .bd-ab present",
+   "stage": "static"
+  },
+  {
+   "area": "pages",
+   "id": "page /pages/contact",
+   "ok": true,
+   "value": "status 200, .bd-cp present",
+   "stage": "static"
+  },
+  {
+   "area": "pages",
+   "id": "page /pages/our-science",
+   "ok": true,
+   "value": "status 200, .bd-sc present",
+   "stage": "static"
+  },
+  {
+   "area": "pages",
+   "id": "page /pages/how-we-formulate",
+   "ok": true,
+   "value": "status 200, .bd-sci present",
+   "stage": "static"
+  },
+  {
+   "area": "pages",
+   "id": "page /pages/the-skin-microbiome",
+   "ok": true,
+   "value": "status 200, .bd-sci present",
+   "stage": "static"
+  },
+  {
+   "area": "pages",
+   "id": "page /pages/how-we-handle-evidence",
+   "ok": true,
+   "value": "status 200, .bd-sci present",
+   "stage": "static"
+  },
+  {
+   "area": "pages",
+   "id": "page /pages/everything-on-the-label",
+   "ok": true,
+   "value": "status 200, .bd-sci present",
+   "stage": "static"
+  },
+  {
+   "area": "pages",
+   "id": "page /pages/our-ethics",
+   "ok": true,
+   "value": "status 200, .bd-sci present",
+   "stage": "static"
+  },
+  {
+   "area": "pages",
+   "id": "page /pages/opening-offer",
+   "ok": true,
+   "value": "status 200, .bd-of present",
+   "stage": "static"
+  },
+  {
+   "area": "pages",
+   "id": "page /pages/cookie-policy",
+   "ok": true,
+   "value": "status 200, .bd-pol present",
+   "stage": "static"
+  },
+  {
+   "area": "pages",
+   "id": "page /pages/find-your-skin-type",
+   "ok": true,
+   "value": "status 200, main present",
+   "stage": "static"
+  },
+  {
+   "area": "pages",
+   "id": "page /blogs/journal",
+   "ok": true,
+   "value": "status 200, .bd-jx present",
+   "stage": "static"
+  },
+  {
+   "area": "pages",
+   "id": "page /blogs/journal/how-to-read-an-ingredient-list",
+   "ok": true,
+   "value": "status 200, .bd-jp present",
+   "stage": "static"
+  },
+  {
+   "area": "pages",
+   "id": "page /blogs/ingredients",
+   "ok": true,
+   "value": "status 200, .bd-ix present",
+   "stage": "static"
+  },
+  {
+   "area": "pages",
+   "id": "page /blogs/ingredients/dragon-fruit-hylocereus-undatus-seed-oil",
+   "ok": true,
+   "value": "status 200, .bd-ing present",
+   "stage": "static"
+  },
+  {
+   "area": "pages",
+   "id": "page /cart",
+   "ok": true,
+   "value": "status 200, main present",
+   "stage": "static"
+  },
+  {
+   "area": "pages",
+   "id": "page /search?q=moisturiser",
+   "ok": true,
+   "value": "status 200, main present",
+   "stage": "static"
+  },
+  {
+   "area": "content",
+   "id": "announcement bar",
+   "ok": null,
+   "value": "Opening offer: place your first order by 15 November and get 10% off every order until November 2027. Opening offer: place your first order by 15 November and g",
+   "stage": "static"
+  },
+  {
+   "area": "apps",
+   "id": "app embeds in HTML",
+   "ok": true,
+   "value": "pandectes, omnisend, appstle",
+   "stage": "static"
+  },
+  {
+   "area": "collections",
+   "id": "collection moisturiser",
+   "ok": true,
+   "value": "15 cards, ratio square",
+   "stage": "static"
+  },
+  {
+   "area": "collections",
+   "id": "collection all-products",
+   "ok": true,
+   "value": "15 cards, ratio square",
+   "stage": "static"
+  },
+  {
+   "area": "collections",
+   "id": "collection dry-skin-type",
+   "ok": true,
+   "value": "3 cards, ratio square",
+   "stage": "static"
+  },
+  {
+   "area": "collections",
+   "id": "collection balanced-skin-type",
+   "ok": true,
+   "value": "3 cards, ratio square",
+   "stage": "static"
+  },
+  {
+   "area": "collections",
+   "id": "collection core-texture",
+   "ok": true,
+   "value": "5 cards, ratio square",
+   "stage": "static"
+  },
+  {
+   "area": "collections",
+   "id": "collection flow-texture",
+   "ok": true,
+   "value": "5 cards, ratio square",
+   "stage": "static"
+  },
+  {
+   "area": "collections",
+   "id": "collection deep-texture",
+   "ok": true,
+   "value": "5 cards, ratio square",
+   "stage": "static"
+  },
+  {
+   "area": "product",
+   "id": "product page hooks",
+   "ok": true,
+   "value": "all quick-add hooks present",
+   "stage": "static"
+  },
+  {
+   "area": "product",
+   "id": "add button label",
+   "ok": true,
+   "value": "Add to bag",
+   "stage": "static"
+  },
+  {
+   "area": "product",
+   "id": "pickup panel absent",
+   "ok": true,
+   "value": "absent",
+   "stage": "static"
+  },
+  {
+   "area": "collections",
+   "id": "hero button contrast",
+   "ok": true,
+   "value": "8.27:1 (rgb(22, 22, 23) on rgb(107, 187, 204))",
+   "stage": "collection-desktop"
+  },
+  {
+   "area": "quick-add",
+   "id": "modal opens populated",
+   "ok": true,
+   "value": "open, 1 child",
+   "stage": "collection-desktop"
+  },
+  {
+   "area": "quick-add",
+   "id": "modal title",
+   "ok": true,
+   "value": "Biotaderm Deep Dry Hand and Foot Cream",
+   "stage": "collection-desktop"
+  },
+  {
+   "area": "quick-add",
+   "id": "modal price visible",
+   "ok": true,
+   "value": "£24.90",
+   "stage": "collection-desktop"
+  },
+  {
+   "area": "quick-add",
+   "id": "modal options",
+   "ok": true,
+   "value": "2 options",
+   "stage": "collection-desktop"
+  },
+  {
+   "area": "quick-add",
+   "id": "modal layout desktop",
+   "ok": true,
+   "value": "480x548, dead space 0px (viewport 1788px)",
+   "stage": "collection-desktop"
+  },
+  {
+   "area": "quick-add",
+   "id": "adds the chosen variant",
+   "ok": true,
+   "value": "Bottle only",
+   "stage": "collection-desktop"
+  },
+  {
+   "area": "cart",
+   "id": "drawer auto-opens after quick add",
+   "ok": true,
+   "value": "open",
+   "stage": "collection-desktop"
+  },
+  {
+   "area": "quick-add",
+   "id": "modal layout mobile",
+   "ok": true,
+   "value": "viewport 375px, open, 375px wide, price £24.90",
+   "stage": "collection-mobile"
+  },
+  {
+   "area": "cart",
+   "id": "delivery progress",
+   "ok": true,
+   "value": "present",
+   "stage": "drawer"
+  },
+  {
+   "area": "cart",
+   "id": "bottle-only notice",
+   "ok": true,
+   "value": "present",
+   "stage": "drawer"
+  },
+  {
+   "area": "cart",
+   "id": "dispatch line",
+   "ok": true,
+   "value": "present",
+   "stage": "drawer"
+  },
+  {
+   "area": "cart",
+   "id": "trial line",
+   "ok": true,
+   "value": "present",
+   "stage": "drawer"
+  },
+  {
+   "area": "apps",
+   "id": "Appstle delivery selector in drawer",
+   "ok": true,
+   "value": "22 Appstle elements",
+   "stage": "drawer"
+  },
+  {
+   "area": "apps",
+   "id": "Pandectes reopener enabled",
+   "ok": true,
+   "value": "{\"enabled\":true,\"position\":\"bottom left\",\"action\":\"reopen\",\"customTrigger\":false}",
+   "stage": "drawer"
+  },
+  {
+   "area": "cart",
+   "id": "per-line pump offer",
+   "ok": true,
+   "value": "Needs a pump? Add one · +£1.00",
+   "stage": "drawer"
+  },
+  {
+   "area": "cart",
+   "id": "pump offer keeps drawer open",
+   "ok": true,
+   "value": "same dialog, open, non-modal",
+   "stage": "drawer"
+  },
+  {
+   "area": "cart",
+   "id": "pump offer converts one unit",
+   "ok": true,
+   "value": "Bottle with Pump x1, Bottle only x1",
+   "stage": "drawer"
+  },
+  {
+   "area": "cart",
+   "id": "offer remains on the remaining bottle",
+   "ok": true,
+   "value": "1 offer(s)",
+   "stage": "drawer"
+  },
+  {
+   "area": "product",
+   "id": "price updates on variant change",
+   "ok": true,
+   "value": "£24.90 -> £23.90",
+   "stage": "product"
+  },
+  {
+   "area": "product",
+   "id": "sticky bar price in sync",
+   "ok": true,
+   "value": "sticky £23.90, buy block £23.90",
+   "stage": "product"
+  },
+  {
+   "area": "product",
+   "id": "safety line present",
+   "ok": true,
+   "value": "present",
+   "stage": "product"
+  },
+  {
+   "area": "product",
+   "id": "add to bag",
+   "ok": true,
+   "value": "1 item(s) in cart",
+   "stage": "product"
+  },
+  {
+   "area": "cart",
+   "id": "drawer auto-opens after add to bag",
+   "ok": true,
+   "value": "open",
+   "stage": "product"
+  },
+  {
+   "area": "cart",
+   "id": "header count updates",
+   "ok": true,
+   "value": "badge 1, cart 1",
+   "stage": "product"
+  }
+ ]
+}
