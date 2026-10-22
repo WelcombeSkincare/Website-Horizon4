@@ -1,5 +1,3 @@
-
-
 {%- liquid
   assign block_settings = block.settings
   assign property_key = block_settings.property_key | default: block_settings.property_heading | default: block.id
@@ -175,7 +173,7 @@
 
   product-custom-property-component .__character-label {
     position: absolute;
-    left: var(--input-padding-x);
+    inset-inline-start: var(--input-padding-x);
     bottom: var(--padding-sm);
     pointer-events: none;
   }

@@ -1,12 +1,3 @@
-/*
- * ------------------------------------------------------------
- * IMPORTANT: The contents of this file are auto-generated.
- *
- * This file may be updated by the Shopify admin language editor
- * or related systems. Please exercise caution as any changes
- * made to this file may be overwritten.
- * ------------------------------------------------------------
- */
 {
   "blocks": {
     "load_video": "Last inn video: {{ description }}",
@@ -296,9 +287,9 @@
       "add_to_apple_wallet": "Legg til i Apple Wallet",
       "qr_image_alt": "QR-kode – skann for å løse inn gavekortet",
       "copy_code": "Kopier gavekortkoden",
-      "expiration_date": "Utløper {{ expires_on }}",
       "copy_code_success": "Koden er kopiert",
-      "expired": "Utløpt"
+      "expired": "Utløpt",
+      "expiration_date_html": "Utløper <bdi>{{ expires_on }}</bdi>"
     }
   },
   "blogs": {

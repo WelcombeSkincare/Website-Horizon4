@@ -4,6 +4,7 @@
     class="shopify-design-mode"
   {% endif %}
   lang="{{ request.locale.iso_code }}"
+  dir="{{ request.locale.direction | default: 'ltr' }}"
 >
   <head>
     {%- if settings.favicon != blank -%}
@@ -14,31 +15,11 @@
       >
     {%- endif -%}
 
-    {% comment %}
-      Opt into cross-document (MPA) view transitions and hold first paint until #MainContent
-      parses, so the transition runs consistently.
-      Both are gated on the same settings as the view-transitions.js opt-out switch (see snippets/scripts.liquid).
-    {% endcomment %}
-    {% if settings.transition_to_main_product or settings.page_transition_enabled %}
-      {% style %}
-        @media (prefers-reduced-motion: no-preference) {
-          @view-transition {
-            navigation: auto;
-          }
-        }
-      {% endstyle %}
-      <link
-        rel="expect"
-        href="#MainContent"
-        blocking="render"
-        id="view-transition-render-blocker"
-      >
-    {% endif %}
+    {%- render 'view-transition-opt-in' -%}
 
     {%- render 'meta-tags' -%}
     {%- render 'stylesheets' -%}
     {%- render 'card-hover-effect-styles' -%}
-    {%- render 'fonts' -%}
     {%- render 'scripts' -%}
     {%- render 'theme-styles-variables' -%}
     {%- render 'color-palette' -%}
@@ -121,7 +102,7 @@
 
         /**
          * Sets `--top-row-height`, consumed by the header underlays and submenus. Deferred to a
-         * rAF so the `offsetHeight` read doesn't force layout mid-parse, and scoped to the
+         * rAF so the height read doesn't force layout mid-parse, and scoped to the
          * header, where all consumers live, so the write only invalidates the header subtree.
          * Mimics the `--top-row-height` write in updateHeaderHeights() in utilities.js
          */
@@ -131,7 +112,7 @@
           if (!headerTopRow) return;
 
           window.requestAnimationFrame(function () {
-            header.style.setProperty('--top-row-height', `${headerTopRow.offsetHeight}px`);
+            header.style.setProperty('--top-row-height', `${headerTopRow.getBoundingClientRect().height}px`);
           });
         })();
 

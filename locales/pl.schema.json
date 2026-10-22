@@ -1,12 +1,3 @@
-/*
- * ------------------------------------------------------------
- * IMPORTANT: The contents of this file are auto-generated.
- *
- * This file may be updated by the Shopify admin language editor
- * or related systems. Please exercise caution as any changes
- * made to this file may be overwritten.
- * ------------------------------------------------------------
- */
 {
   "names": {
     "404": "404",
@@ -583,7 +574,8 @@
     "input_style": "Styl pola wprowadzania",
     "selected_button_style": "Styl wybranego przycisku",
     "open_by_default": "Domyślnie otwarte",
-    "title_preset": "Gotowe ustawienie tytułu"
+    "title_preset": "Gotowe ustawienie tytułu",
+    "customer_account_menu": "Menu konta klienta"
   },
   "options": {
     "apple": "Apple",
@@ -859,7 +851,13 @@
     "below_media": "Pod multimediami",
     "full_frame": "Pełna klatka",
     "icons": "Ikony",
-    "input_field": "Pole wprowadzania"
+    "input_field": "Pole wprowadzania",
+    "direction_bottom_start": "Dół po lewej",
+    "direction_center": "Środek",
+    "direction_end": "Po prawej",
+    "direction_start": "Po lewej",
+    "direction_top_end": "Góra po prawej",
+    "direction_top_start": "Góra po lewej"
   },
   "content": {
     "background_video": "Wideo w tle",

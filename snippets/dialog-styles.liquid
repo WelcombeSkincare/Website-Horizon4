@@ -24,7 +24,11 @@
       max-height: 100%;
       height: 100dvh;
       width: 100dvw;
-      padding: var(--padding-md);
+
+      /* Fullscreen dialog spans the physical viewport (viewport-fit=cover); keep its
+         content clear of the status bar, notch, and home indicator */
+      padding: max(var(--padding-md), var(--safe-area-inset-top)) max(var(--padding-md), var(--safe-area-inset-right))
+        max(var(--padding-md), var(--safe-area-inset-bottom)) max(var(--padding-md), var(--safe-area-inset-left));
     }
   }
 

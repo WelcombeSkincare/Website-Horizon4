@@ -28,14 +28,14 @@
         assign sizes = '(min-width: 750px) ' | append: media_width_desktop | append: ', ' | append: media_width_mobile
         assign widths = '240, 352, 832, 1200, 1600, 1920, 2560, 3840'
         assign video_fetch_priority = 'auto'
-        assign video_loading = 'lazy'
+        assign video_loading = 'eager'
 
         if section and section.index == 1
           assign video_fetch_priority = 'high'
         endif
 
-        if section and section.index <= 3
-          assign video_loading = 'eager'
+        if section and section.index > 3
+          assign video_loading = 'lazy'
         endif
       %}
       {{
@@ -109,13 +109,13 @@
     {%- if background_image != blank -%}
       {% liquid
         assign fetch_priority = 'auto'
-        assign loading = 'lazy'
+        assign loading = 'eager'
         if section and section.index == 1
           assign fetch_priority = 'high'
         endif
 
-        if section and section.index <= 3
-          assign loading = 'eager'
+        if section and section.index > 3
+          assign loading = 'lazy'
         endif
       %}
       {{

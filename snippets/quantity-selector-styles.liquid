@@ -83,10 +83,12 @@
 
   .quantity-selector input[type='number'] {
     margin: 0;
+    width: calc(var(--quantity-selector-width) - var(--minimum-touch-target) * 2);
+    min-width: 3ch;
+    padding-inline: 0;
     text-align: center;
     border: none;
     appearance: none;
-    max-width: calc(var(--quantity-selector-width) - var(--minimum-touch-target) * 2);
     border-radius: var(--style-border-radius-buttons);
     color: var(--color-input-text);
     background-color: transparent;

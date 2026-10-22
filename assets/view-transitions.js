@@ -8,8 +8,14 @@
   }
 
   const viewTransitionRenderBlocker = document.getElementById('view-transition-render-blocker');
-  // Remove the view transition render blocker if the user has reduced motion enabled or is on a low power device.
-  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches || isLowPowerDevice()) {
+  const activation = window.navigation?.activation;
+  // A cross-document transition needs an outgoing same-origin document to snapshot, so the first
+  // entry of a visit can never have one, and the browser excludes reloads from `navigation: auto`.
+  const noTransitionPossible = !!activation && (activation.from === null || activation.navigationType === 'reload');
+
+  // Remove the render blocker whenever it can't buy a transition: reduced motion, a low power
+  // device, the first entry of a visit, or a reload.
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches || isLowPowerDevice() || noTransitionPossible) {
     viewTransitionRenderBlocker?.remove();
   } else {
     // If the browser didn't manage to parse the main content quickly, at least let the user see something.

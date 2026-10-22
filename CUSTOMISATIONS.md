@@ -109,6 +109,18 @@ a 672px reading column to full page width.
 
 ---
 
+## Upgrading Horizon
+
+Use the scripts in `tools/horizon-upgrade/` (see its README) and the regression
+suite in `tests/`. The 4.1.4 -> 4.3.0 merge was prepared on branch
+`horizon-4.3.0` on 22 Oct 2026: all five customisations above merged with no
+conflicts, three stock files found still on 4.1.3 and `base.css` drift were
+replaced with 4.3.0, and no template, group or global setting is dropped by 4.3.0.
+
+Do not trust the version a theme reports. Before any upgrade, run
+`tools/horizon-upgrade/footprint.py` against Shopify's stock source; it is the
+only check that found the stale 4.1.3 files.
+
 ## Diffing this theme against stock Horizon
 
 A naive `diff` reports ~190 changed files. Almost all are artefacts of how the

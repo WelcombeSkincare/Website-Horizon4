@@ -1,12 +1,3 @@
-/*
- * ------------------------------------------------------------
- * IMPORTANT: The contents of this file are auto-generated.
- *
- * This file may be updated by the Shopify admin language editor
- * or related systems. Please exercise caution as any changes
- * made to this file may be overwritten.
- * ------------------------------------------------------------
- */
 {
   "names": {
     "404": "404",
@@ -583,7 +574,8 @@
     "input_style": "Inndatastil",
     "selected_button_style": "Valgt knappestil",
     "open_by_default": "Åpen som standard",
-    "title_preset": "Forhåndsinnstilling for tittel"
+    "title_preset": "Forhåndsinnstilling for tittel",
+    "customer_account_menu": "Kundekontomeny"
   },
   "options": {
     "apple": "Eple",
@@ -859,7 +851,13 @@
     "below_media": "Under mediene",
     "full_frame": "Full ramme",
     "icons": "Ikoner",
-    "input_field": "Inndatafelt"
+    "input_field": "Inndatafelt",
+    "direction_bottom_start": "Nede til venstre",
+    "direction_center": "Senter",
+    "direction_end": "Høyre",
+    "direction_start": "Venstre",
+    "direction_top_end": "Oppe til høyre",
+    "direction_top_start": "Oppe til venstre"
   },
   "content": {
     "advanced": "Avansert",

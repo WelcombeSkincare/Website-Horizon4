@@ -1,4 +1,3 @@
-
 {%- doc -%}
   Renders a header menu block.
 
@@ -38,6 +37,7 @@
         class="menu-list menu-list--mobile{% if transparent == blank %} color-custom-{{ block.id }}{% endif %}"
         style="--menu-horizontal-gap: 15px; --mobile-nav-margin: auto;"
         data-hydration-key="header-menu-mobile-navigation-bar"
+        data-navigation-bar-enabled
       >
         <div class="menu-list__scroll-container">
           <ul
@@ -120,6 +120,7 @@
               aria-controls="submenu-{{ forloop.index }}"
               aria-expanded="false"
               ref="disclosure[]"
+              data-skip-node-update
               on:click="/toggle"
             >
               <span class="visually-hidden">{{ 'accessibility.show_submenu' | t: title: link.title }}</span>
@@ -137,7 +138,7 @@
               Collapsed by default via `inert`: keeps the submenu out of the tab order
               and the accessibility tree until it is opened. Toggled in header-menu.js.
             {%- endcomment -%}
-            <div class="menu-list__submenu{{ background_color_classes }}" ref="submenu[]" inert>
+            <div class="menu-list__submenu{{ background_color_classes }}" ref="submenu[]" data-skip-node-update inert>
               <div
                 id="submenu-{{ forloop.index }}"
                 class="menu-list__submenu-inner"
@@ -181,6 +182,7 @@
           ref="menuitem"
           on:click="/toggle"
           data-testid="header-menu-more-button"
+          data-skip-node-update
         >
           <span class="menu-list__link-title">{{ 'actions.more' | t }}</span>
         </button>
@@ -192,6 +194,7 @@
       class="header-menu"
       {{ block.shopify_attributes }}
       data-hydration-key="header-menu"
+      data-skip-node-update
     >
       <div class="header-menu__inner">
         <nav
@@ -331,8 +334,7 @@
       display: none;
       top: var(--header-padding);
       height: var(--box-height);
-      left: 0;
-      right: 0;
+      inset-inline: 0;
     }
 
     &[data-safety-box='true']::after {
@@ -480,7 +482,7 @@
     visibility: hidden;
     position: absolute;
     width: 100%;
-    left: 0;
+    inset-inline-start: 0;
     top: calc(100% - 1px + var(--border-bottom-width) - (var(--full-open-header-height) - var(--submenu-height)));
     z-index: var(--layer-header-menu);
     padding-inline: var(--padding-inline);

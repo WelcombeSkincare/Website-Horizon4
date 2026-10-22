@@ -220,7 +220,12 @@ if (window.Shopify?.designMode && !isIOS) {
         isOpen: (el) => {
           const shadowRoot = el.shadowRoot;
           if (!shadowRoot) return false;
-          return shadowRoot.querySelector('dialog[open], [popover]:popover-open') != null;
+
+          // The polyfill does not patch ShadowRoot.querySelector; it marks open popovers with a class instead.
+          const openPopoverSelector = Theme.supportsNativePopover
+            ? '[popover]:popover-open'
+            : '[popover].\\:popover-open';
+          return shadowRoot.querySelector(`dialog[open], ${openPopoverSelector}`) != null;
         },
         async open(el) {
           await customElements.whenDefined('shopify-account');

@@ -29,12 +29,17 @@
   # if section has section.settings.columns:
   # assume grid-template repeat(column-count, 1fr) and calculate the sizes attribute based on the number of columns
   if section.settings.product_card_size
+    assign mobile_image_size = '100vw'
+    if section.settings.mobile_product_card_size == 'small'
+      assign mobile_image_size = '50vw'
+    endif
+
     capture card_size
       render 'util-product-grid-card-size', section: section
     endcapture
     assign card_size = card_size | strip | replace: 'px', '' | plus: 0
     capture sizes_attribute
-      render 'util-autofill-img-size-attr', card_size: card_size, card_gap: section.settings.columns_gap_horizontal
+      render 'util-autofill-img-size-attr', card_size: card_size, card_gap: section.settings.columns_gap_horizontal, mobile_size: mobile_image_size
     endcapture
     assign image_sizes = sizes_attribute | strip
   elsif section.settings.columns and section.settings.layout_type != 'editorial'
@@ -133,10 +138,6 @@
           assign other_media = product.media | reject: 'src', product.featured_media
           assign media_list_to_show = product.featured_media | concat: other_media
 
-          if product.media.size > 2 and generic_media_size > 0
-            assign show_arrows = true
-          endif
-
           # Don't overfetch media if we don't need to
           assign max_visible_slide_count = 1
           if settings.product_card_carousel
@@ -187,6 +188,13 @@
               render 'slideshow-slide', slide_id: media.id, index: forloop.index0, hidden: hidden, class: class, attributes: attributes, children: slideshow_children, media_fit: media_fit
             endfor
           endcapture
+
+          # Arrows can only reach slides that are rendered visible. Variant images past
+          # the featured media are hidden, so a product whose only extra media are
+          # variant images has a single navigable slide and would get inert arrows.
+          if product.media.size > 2 and visible_slide_count > 1
+            assign show_arrows = true
+          endif
 
           assign slideshow_attributes = 'data-generic-media-size="[generic_media_size]"' | replace: '[generic_media_size]', generic_media_size
           if settings.product_card_carousel == false
@@ -307,25 +315,25 @@
     .product-grid[data-product-card-size='extra-large']
       .card-gallery.card-gallery--badge-top-right
       .product-card-gallery__title-placeholder {
-      padding-right: calc(var(--padding-3xl) + 50px);
+      padding-inline-end: calc(var(--padding-3xl) + 50px);
     }
 
     .product-grid[data-product-card-size='large']
       .card-gallery.card-gallery--badge-top-right
       .product-card-gallery__title-placeholder {
-      padding-right: calc(var(--padding-2xl) + 50px);
+      padding-inline-end: calc(var(--padding-2xl) + 50px);
     }
 
     .product-grid[data-product-card-size='medium']
       .card-gallery.card-gallery--badge-top-right
       .product-card-gallery__title-placeholder {
-      padding-right: calc(var(--padding-xl) + 50px);
+      padding-inline-end: calc(var(--padding-xl) + 50px);
     }
 
     .product-grid[data-product-card-size='small']
       .card-gallery.card-gallery--badge-top-right
       .product-card-gallery__title-placeholder {
-      padding-right: calc(var(--padding-sm) + 50px);
+      padding-inline-end: calc(var(--padding-sm) + 50px);
     }
 
     .product-grid[data-product-card-size='extra-large']
@@ -386,7 +394,7 @@
     .product-grid[data-product-card-size]
       .card-gallery.card-gallery--badge-top-right
       .product-card-gallery__title-placeholder {
-      padding-right: calc(var(--padding-sm) + 50px);
+      padding-inline-end: calc(var(--padding-sm) + 50px);
     }
 
     .product-grid[data-product-card-size]
@@ -432,6 +440,10 @@
 
     @container (max-width: 249px) {
       padding-inline: 0 var(--padding-sm);
+
+      [dir='rtl'] & {
+        padding-inline: var(--padding-sm) 0;
+      }
     }
   }
 

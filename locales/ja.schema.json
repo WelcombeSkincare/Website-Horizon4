@@ -1,12 +1,3 @@
-/*
- * ------------------------------------------------------------
- * IMPORTANT: The contents of this file are auto-generated.
- *
- * This file may be updated by the Shopify admin language editor
- * or related systems. Please exercise caution as any changes
- * made to this file may be overwritten.
- * ------------------------------------------------------------
- */
 {
   "names": {
     "404": "404",
@@ -583,7 +574,8 @@
     "input_style": "入力のスタイル",
     "selected_button_style": "選択されたボタンのスタイル",
     "open_by_default": "デフォルトで開く",
-    "title_preset": "タイトルプリセット"
+    "title_preset": "タイトルプリセット",
+    "customer_account_menu": "お客様アカウントメニュー"
   },
   "options": {
     "apple": "Apple",
@@ -604,6 +596,12 @@
     "dairy_free": "乳製品不使用",
     "dairy": "乳製品",
     "default": "デフォルト",
+    "direction_bottom_start": "左下",
+    "direction_center": "中央",
+    "direction_end": "右",
+    "direction_start": "左",
+    "direction_top_end": "右上",
+    "direction_top_start": "左上",
     "dropdowns": "ドロップダウン",
     "dots": "ドット",
     "dryer": "乾燥機",

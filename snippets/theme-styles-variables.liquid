@@ -124,6 +124,12 @@
   %}
 
   :root {
+    /* Safe area insets — non-zero on notched devices because meta-tags.liquid sets viewport-fit=cover */
+    --safe-area-inset-top: env(safe-area-inset-top, 0px);
+    --safe-area-inset-right: env(safe-area-inset-right, 0px);
+    --safe-area-inset-bottom: env(safe-area-inset-bottom, 0px);
+    --safe-area-inset-left: env(safe-area-inset-left, 0px);
+
     /* Page Layout */
     --sidebar-width: 25rem;
     --theme-drawer-width: 30rem;
@@ -622,7 +628,12 @@
     /* Modal */
     --modal-max-height: 65dvh;
     --quick-add-modal-height: min(38.5rem, 96vh);
-    --quick-add-modal-width: min(54rem, 96vw);
+    /* Centered dialog: reserve the larger side inset on both edges so a landscape
+       notch cannot cover the close button. 2vw keeps the original 96vw gutter. */
+    --quick-add-modal-width: min(
+      54rem,
+      calc(100vw - 2 * max(2vw, var(--safe-area-inset-left), var(--safe-area-inset-right)))
+    );
     --quick-add-modal-gallery-width: 24rem;
 
     /* Card styles for search */

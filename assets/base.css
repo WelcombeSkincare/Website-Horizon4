@@ -13,13 +13,9 @@ body {
 }
 
 :root {
-  --hover-shadow-color: var(--color-shadow);
   --hover-transition-duration: 0.25s;
   --hover-transition-timing: ease-out;
-  --surface-transition-duration: 0.3s;
-  --surface-transition-timing: var(--ease-out-quad);
   --submenu-animation-speed: 360ms;
-  --submenu-animation-easing: cubic-bezier(0.25, 0.1, 0.25, 1);
 }
 
 html {
@@ -37,16 +33,23 @@ html {
   }
 }
 
-html[scroll-lock],
-html[scroll-lock] .page-wrapper {
+html[scroll-lock] {
   overflow: hidden;
+}
+
+/* Only lock .page-wrapper where it is the scroll container. Below 990px the document scrolls, and
+   overflow on .page-wrapper would make it the sticky header's scroll container, moving the header off screen. */
+@media (min-width: 990px) {
+  html[scroll-lock] .page-wrapper {
+    overflow: hidden;
+  }
 }
 
 .page-wrapper {
   display: flex;
   flex-direction: column;
   min-height: 100dvh;
-  transition: margin-right var(--animation-speed) var(--animation-timing-fade-out);
+  transition: margin-inline-end var(--animation-speed) var(--animation-timing-fade-out);
 }
 
 @media (min-width: 990px) {
@@ -61,10 +64,15 @@ html[scroll-lock] .page-wrapper {
   .page-wrapper--drawer-open shopify-account::part(dialog) {
     translate: calc(-1 * var(--theme-drawer-width, var(--sidebar-width)));
   }
+
+  /* The theme drawer opens from the inline-end edge, so the shift mirrors in RTL */
+  [dir='rtl'] .page-wrapper--drawer-open shopify-account::part(dialog) {
+    translate: var(--theme-drawer-width, var(--sidebar-width));
+  }
 }
 
 .page-wrapper--drawer-open {
-  margin-right: var(--theme-drawer-width, var(--sidebar-width));
+  margin-inline-end: var(--theme-drawer-width, var(--sidebar-width));
   transition-timing-function: var(--animation-timing-fade-in);
 }
 
@@ -112,9 +120,6 @@ select {
 
 .product-card__content {
   position: relative;
-}
-
-.product-card__content {
   cursor: pointer;
 }
 
@@ -261,12 +266,14 @@ p:empty {
   flex-grow: 1;
 }
 
-/* Set up page widths & margins */
+/* Set up page widths & margins. Gutters grow to the device safe-area insets (viewport-fit=cover)
+   so section backgrounds bleed edge-to-edge while content stays clear of the notch; taking the
+   larger of both insets keeps the centered page grid symmetric. */
 .page-width-wide,
 .page-width-normal,
 .page-width-narrow,
 .page-width-content {
-  --page-margin: 16px;
+  --page-margin: max(16px, var(--safe-area-inset-left, 0px), var(--safe-area-inset-right, 0px));
 }
 
 @media screen and (min-width: 750px) {
@@ -274,7 +281,7 @@ p:empty {
   .page-width-normal,
   .page-width-narrow,
   .page-width-content {
-    --page-margin: 40px;
+    --page-margin: max(40px, var(--safe-area-inset-left, 0px), var(--safe-area-inset-right, 0px));
   }
 }
 
@@ -289,8 +296,7 @@ p:empty {
   --page-width: calc(var(--page-content-width) + (var(--page-margin) * 2));
 }
 
-.page-width-narrow,
-.page-width-content {
+.page-width-narrow {
   /* NOTE: This results in a page width of 1400px because of how we set up margins with grid */
   --page-content-width: var(--narrow-page-width);
   --page-width: calc(var(--page-content-width) + (var(--page-margin) * 2));
@@ -373,18 +379,12 @@ p:empty {
   }
 }
 
-/* Some page-width sections should still extend all the way to the right edge of the page, e.g. collection carousel */
-.section--page-width.section--full-width-right > * {
-  grid-column: 2 / 4;
-}
-
 /* For full-width sections with margin, content still spans full width but with space on the sides */
 .section--full-width.section--full-width-margin > * {
   grid-column: 1 / -1;
 
   @media screen and (min-width: 750px) {
-    padding-left: var(--page-margin);
-    padding-right: var(--page-margin);
+    padding-inline: var(--page-margin);
   }
 }
 
@@ -497,17 +497,8 @@ p:empty {
   }
 }
 
-.flex {
-  display: flex;
-  gap: var(--gap-md);
-}
-
 .flip-x {
   scale: -1 1;
-}
-
-.flip-y {
-  scale: 1 -1;
 }
 
 .list-unstyled {
@@ -517,9 +508,9 @@ p:empty {
 }
 
 .text-left {
-  --text-align: left;
+  --text-align: start;
 
-  text-align: left;
+  text-align: start;
 }
 
 .text-center {
@@ -529,9 +520,9 @@ p:empty {
 }
 
 .text-right {
-  --text-align: right;
+  --text-align: end;
 
-  text-align: right;
+  text-align: end;
 }
 
 .text-inherit {
@@ -543,7 +534,7 @@ p:empty {
 }
 
 .justify-left {
-  justify-content: left;
+  justify-content: flex-start;
 }
 
 .justify-center {
@@ -551,13 +542,7 @@ p:empty {
 }
 
 .justify-right {
-  justify-content: right;
-}
-
-.title--aligned-center {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
+  justify-content: flex-end;
 }
 
 .svg-wrapper {
@@ -1012,8 +997,10 @@ summary:hover {
 /* Animate the UI elements in only after the view transition is complete */
 .close-button {
   position: fixed;
-  top: var(--margin-lg);
-  right: var(--margin-lg);
+
+  /* Keep the fixed close button clear of the status bar and inline-end notch (viewport-fit=cover) */
+  top: max(var(--margin-lg), var(--safe-area-inset-top, 0px));
+  inset-inline-end: max(var(--margin-lg), var(--safe-area-inset-right, 0px));
   width: var(--minimum-touch-target);
   height: var(--minimum-touch-target);
   z-index: var(--layer-flat);
@@ -1024,6 +1011,11 @@ summary:hover {
 
   /* For the outline radius */
   border-radius: 50%;
+}
+
+/* Safe-area env() values are physical; in RTL the button sits by the left-side notch */
+[dir='rtl'] .close-button {
+  inset-inline-end: max(var(--margin-lg), var(--safe-area-inset-left, 0px));
 }
 
 /* This triggers iOS < 16.4. The outline bug is not recognized as a lack of @supports */
@@ -1106,10 +1098,7 @@ summary:hover {
   --margin-inline: 0px;
   --margin-inline-start: var(--margin-inline, 0px);
   --margin-inline-end: var(--margin-inline, 0px);
-}
 
-.spacing-style,
-.inherit-spacing {
   padding-block: calc(var(--padding-block-start) + var(--section-top-offset, 0px)) var(--padding-block-end);
   padding-inline: var(--padding-inline-start) var(--padding-inline-end);
   margin-block: var(--margin-block-start) var(--margin-block-end);
@@ -1253,7 +1242,7 @@ summary:hover {
 
 .field__input {
   flex-grow: 1;
-  text-align: left;
+  text-align: start;
   border-radius: var(--style-border-radius-inputs);
   transition: box-shadow var(--animation-speed) ease, background-color var(--animation-speed) ease;
   padding: var(--input-padding);
@@ -1285,7 +1274,7 @@ summary:hover {
 .field__label {
   color: rgb(var(--color-input-text-rgb) / var(--opacity-80));
   font-size: var(--font-paragraph--size);
-  left: var(--input-padding-x);
+  inset-inline-start: var(--input-padding-x);
   top: 50%;
   transform: translateY(-50%);
   margin-bottom: 0;
@@ -1392,7 +1381,7 @@ input[type='radio'] {
   content: '';
   position: absolute;
   top: 50%;
-  left: 50%;
+  left: 50%; /* stylelint-disable-line csstools/use-logical -- centring pair with a physical translate(-50%) */
   transform: translate(-50%, -50%);
   width: calc(var(--checkbox-size) / 2);
   height: calc(var(--checkbox-size) / 2);
@@ -1441,7 +1430,7 @@ input[type='radio'] {
   content: '';
   position: absolute;
   top: 50%;
-  left: 50%;
+  left: 50%; /* stylelint-disable-line csstools/use-logical -- centring pair with a physical translate(-50%) */
   transform: translate(-50%, -50%);
   width: var(--checkbox-size);
   height: var(--checkbox-size);
@@ -1485,24 +1474,6 @@ input[type='radio'] {
   color: var(--input-disabled-text-color);
   cursor: not-allowed;
 }
-
-/* Flexbox for labels wrapping radio buttons or checkboxes */
-label:has(input[type='radio']),
-label:has(input[type='checkbox']) {
-  display: inline-flex;
-  align-items: center;
-  gap: var(--padding-2xs);
-  cursor: pointer;
-}
-
-label:has(input[type='radio']:disabled),
-label:has(input[type='checkbox']:disabled) {
-  cursor: not-allowed;
-}
-
-/* ------------------------------------------------------------------------------ */
-
-/* ------------------------------------------------------------------------------ */
 
 /* Animation declarations - to be kept at the bottom of the file for ease of find */
 @keyframes grow {
@@ -1701,12 +1672,23 @@ label:has(input[type='checkbox']:disabled) {
 
 /* Slideshow Arrow Hover Animation - must stay in base.css for proper CSS cascade */
 
-:not(.media-gallery--carousel)
-  > :is(slideshow-component:hover, slideshow-component:focus-within):not(:has(slideshow-controls:hover))
-  > slideshow-container
-  > slideshow-arrows
-  .slideshow-control {
+slideshow-container[animate-arrows]:hover > slideshow-arrows .slideshow-control,
+slideshow-component:focus-within > slideshow-container[animate-arrows] > slideshow-arrows .slideshow-control {
   animation: arrowsSlideIn var(--animation-speed) var(--animation-easing) forwards;
+}
+
+/* Clipped controls preserve accessible paging without intercepting touch taps. */
+@media (hover: none) and (pointer: coarse) {
+  .resource-list__carousel > [animate-arrows] > :where(slideshow-arrows) > .slideshow-control:not(:focus-visible) {
+    position: absolute;
+    clip: rect(0 0 0 0);
+    animation: none;
+  }
+
+  .resource-list__carousel > [animate-arrows] > :where(slideshow-arrows) > .slideshow-control:focus-visible {
+    opacity: 1;
+    animation: none;
+  }
 }
 
 @keyframes arrowsSlideIn {
@@ -1731,10 +1713,6 @@ label:has(input[type='checkbox']:disabled) {
   align-items: var(--horizontal-alignment);
   gap: var(--gap);
   width: 100%;
-}
-
-.section-resource-list__content:empty {
-  display: none;
 }
 
 .section-resource-list__header:is(:empty, :has(.group-block-content:empty)),
@@ -1829,12 +1807,6 @@ label:has(input[type='checkbox']:disabled) {
   background-color: rgb(var(--color-foreground-rgb) / var(--opacity-60));
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  html {
-    scroll-behavior: smooth;
-  }
-}
-
 /* Prevent iOS zoom on input focus by ensuring minimum 16px font size on mobile */
 @media screen and (max-width: 1200px) {
   input,
@@ -1875,7 +1847,7 @@ main > .shopify-section:first-child .section:not(.disable-section-top-offset) {
     --section-top-offset: calc(var(--header-height) * var(--transparent-header-offset-boolean));
 
     /* Any nested sections should not be offset */
-    :is(.spacing-style, .inherit-spacing) {
+    .spacing-style {
       --section-top-offset: 0px;
     }
   }

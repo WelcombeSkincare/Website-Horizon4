@@ -1,12 +1,3 @@
-/*
- * ------------------------------------------------------------
- * IMPORTANT: The contents of this file are auto-generated.
- *
- * This file may be updated by the Shopify admin language editor
- * or related systems. Please exercise caution as any changes
- * made to this file may be overwritten.
- * ------------------------------------------------------------
- */
 {
   "categories": {
     "banners": "بینر",
@@ -466,6 +457,12 @@
     "dairy_free": "ڈیری فری",
     "default": "ڈیفالٹ",
     "diamond": "ڈائمنڈ",
+    "direction_bottom_start": "نیچے شروع",
+    "direction_center": "درمیان",
+    "direction_end": "آخر",
+    "direction_start": "شروع",
+    "direction_top_end": "اوپر آخر",
+    "direction_top_start": "اوپر شروع",
     "dissolve": "ڈزالو",
     "dots": "نقطے",
     "dotted": "نقطے دار",
@@ -1094,7 +1091,8 @@
     "top_row_background": "اوپری قطار کا پس منظر",
     "top_row_text": "اوپری قطار کا متن",
     "bottom_row_background": "نچلی قطار کا پس منظر",
-    "bottom_row_text": "نچلی قطار کا متن"
+    "bottom_row_text": "نچلی قطار کا متن",
+    "customer_account_menu": "کسٹمر اکاؤنٹ مینو"
   },
   "text_defaults": {
     "accordion_heading": "ایکارڈین کی سرخی",
