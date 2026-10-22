@@ -7,3 +7,7 @@ Thumbs.db
 
 # Claude Code local tooling config (per-machine, not theme code)
 .claude/
+
+# Python bytecode
+__pycache__/
+*.pyc
