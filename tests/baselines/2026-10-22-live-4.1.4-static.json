@@ -1,0 +1,241 @@
+{
+ "meta": {
+  "url": "https://biotaderm.com",
+  "requestedThemeId": null,
+  "started": "2026-10-22T14:14:48.945Z",
+  "served": {
+   "id": 189762011448,
+   "name": "Biotaderm LIVE - Horizon 4.1.4",
+   "schema": "Horizon",
+   "version": "4.1.4",
+   "role": "main"
+  },
+  "productPath": "/products/deep-oily-sensitive-a-richer-moisturiser-for-oily-sensitive-skin-for-hands-elbows-and-feet",
+  "partial": "STATIC STAGE ONLY. The interactive stages need the Browser pane on screen: Horizon opens dialogs inside requestAnimationFrame, which does not fire in a hidden pane (measured 0 frames in 3s). Interactive baseline to follow."
+ },
+ "summary": {
+  "passed": 30,
+  "failed": 0,
+  "info": 1,
+  "failures": []
+ },
+ "results": [
+  {
+   "area": "pages",
+   "id": "page /",
+   "ok": true,
+   "value": "status 200, .bd-hh present",
+   "stage": "static"
+  },
+  {
+   "area": "pages",
+   "id": "page /pages/faq",
+   "ok": true,
+   "value": "status 200, .bd-faq present",
+   "stage": "static"
+  },
+  {
+   "area": "pages",
+   "id": "page /pages/about-us",
+   "ok": true,
+   "value": "status 200, .bd-ab present",
+   "stage": "static"
+  },
+  {
+   "area": "pages",
+   "id": "page /pages/contact",
+   "ok": true,
+   "value": "status 200, .bd-cp present",
+   "stage": "static"
+  },
+  {
+   "area": "pages",
+   "id": "page /pages/our-science",
+   "ok": true,
+   "value": "status 200, .bd-sc present",
+   "stage": "static"
+  },
+  {
+   "area": "pages",
+   "id": "page /pages/how-we-formulate",
+   "ok": true,
+   "value": "status 200, .bd-sci present",
+   "stage": "static"
+  },
+  {
+   "area": "pages",
+   "id": "page /pages/the-skin-microbiome",
+   "ok": true,
+   "value": "status 200, .bd-sci present",
+   "stage": "static"
+  },
+  {
+   "area": "pages",
+   "id": "page /pages/how-we-handle-evidence",
+   "ok": true,
+   "value": "status 200, .bd-sci present",
+   "stage": "static"
+  },
+  {
+   "area": "pages",
+   "id": "page /pages/everything-on-the-label",
+   "ok": true,
+   "value": "status 200, .bd-sci present",
+   "stage": "static"
+  },
+  {
+   "area": "pages",
+   "id": "page /pages/our-ethics",
+   "ok": true,
+   "value": "status 200, .bd-sci present",
+   "stage": "static"
+  },
+  {
+   "area": "pages",
+   "id": "page /pages/opening-offer",
+   "ok": true,
+   "value": "status 200, .bd-of present",
+   "stage": "static"
+  },
+  {
+   "area": "pages",
+   "id": "page /pages/cookie-policy",
+   "ok": true,
+   "value": "status 200, .bd-pol present",
+   "stage": "static"
+  },
+  {
+   "area": "pages",
+   "id": "page /pages/find-your-skin-type",
+   "ok": true,
+   "value": "status 200, main present",
+   "stage": "static"
+  },
+  {
+   "area": "pages",
+   "id": "page /blogs/journal",
+   "ok": true,
+   "value": "status 200, .bd-jx present",
+   "stage": "static"
+  },
+  {
+   "area": "pages",
+   "id": "page /blogs/journal/how-to-read-an-ingredient-list",
+   "ok": true,
+   "value": "status 200, .bd-jp present",
+   "stage": "static"
+  },
+  {
+   "area": "pages",
+   "id": "page /blogs/ingredients",
+   "ok": true,
+   "value": "status 200, .bd-ix present",
+   "stage": "static"
+  },
+  {
+   "area": "pages",
+   "id": "page /blogs/ingredients/dragon-fruit-hylocereus-undatus-seed-oil",
+   "ok": true,
+   "value": "status 200, .bd-ing present",
+   "stage": "static"
+  },
+  {
+   "area": "pages",
+   "id": "page /cart",
+   "ok": true,
+   "value": "status 200, main present",
+   "stage": "static"
+  },
+  {
+   "area": "pages",
+   "id": "page /search?q=moisturiser",
+   "ok": true,
+   "value": "status 200, main present",
+   "stage": "static"
+  },
+  {
+   "area": "content",
+   "id": "announcement bar",
+   "ok": null,
+   "value": "Opening offer: place your first order by 15 November and get 10% off every order until November 2027. Opening offer: place your first order by 15 November and g",
+   "stage": "static"
+  },
+  {
+   "area": "apps",
+   "id": "app embeds in HTML",
+   "ok": true,
+   "value": "pandectes, omnisend, appstle",
+   "stage": "static"
+  },
+  {
+   "area": "collections",
+   "id": "collection moisturiser",
+   "ok": true,
+   "value": "15 cards, ratio square",
+   "stage": "static"
+  },
+  {
+   "area": "collections",
+   "id": "collection all-products",
+   "ok": true,
+   "value": "15 cards, ratio square",
+   "stage": "static"
+  },
+  {
+   "area": "collections",
+   "id": "collection dry-skin-type",
+   "ok": true,
+   "value": "3 cards, ratio square",
+   "stage": "static"
+  },
+  {
+   "area": "collections",
+   "id": "collection balanced-skin-type",
+   "ok": true,
+   "value": "3 cards, ratio square",
+   "stage": "static"
+  },
+  {
+   "area": "collections",
+   "id": "collection core-texture",
+   "ok": true,
+   "value": "5 cards, ratio square",
+   "stage": "static"
+  },
+  {
+   "area": "collections",
+   "id": "collection flow-texture",
+   "ok": true,
+   "value": "5 cards, ratio square",
+   "stage": "static"
+  },
+  {
+   "area": "collections",
+   "id": "collection deep-texture",
+   "ok": true,
+   "value": "5 cards, ratio square",
+   "stage": "static"
+  },
+  {
+   "area": "product",
+   "id": "product page hooks",
+   "ok": true,
+   "value": "all quick-add hooks present",
+   "stage": "static"
+  },
+  {
+   "area": "product",
+   "id": "add button label",
+   "ok": true,
+   "value": "Add to bag",
+   "stage": "static"
+  },
+  {
+   "area": "product",
+   "id": "pickup panel absent",
+   "ok": true,
+   "value": "absent",
+   "stage": "static"
+  }
+ ]
+}
